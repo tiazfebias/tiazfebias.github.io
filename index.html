@@ -199,6 +199,21 @@
             overflow: hidden;
         }
 
+        /* ===== MODAL ===== */
+        .modal {
+            transition: opacity 0.3s ease;
+        }
+        .modal:not(.hidden) {
+            display: flex !important;
+        }
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .animate-modal {
+            animation: modalIn 0.3s ease forwards;
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .nav-links {
@@ -271,7 +286,6 @@
             <div class="w-20 h-1 bg-primary mx-auto mt-2 rounded"></div>
         </div>
         <div class="flex flex-col md:flex-row items-center gap-12">
-            <!-- FOTO PROFIL -->
             <div class="flex-shrink-0">
                 <div class="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-primary shadow-lg">
                     <img src="images/fotobebas.png" 
@@ -279,7 +293,6 @@
                          class="w-full h-full object-cover">
                 </div>
             </div>
-            <!-- Deskripsi -->
             <div class="flex-1 text-center md:text-left">
                 <h3 class="text-2xl font-bold text-gray-800 mb-4 font-heading">Tiaz Febia Sakes</h3>
                 <p class="text-gray-700 mb-4 leading-relaxed font-body">
@@ -320,9 +333,10 @@
                                                 <span class="tech-badge text-xs px-2 py-1 rounded-full">CSS</span>
                                                 <span class="tech-badge text-xs px-2 py-1 rounded-full">JavaScript</span>
                                             </div>
-                    <div class="flex gap-2">
+                    <div class="flex flex-wrap gap-2">
                                                 <a href="https://github.com/tiazfebias/ApotekDekaMedika" target="_blank" class="bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg hover:bg-gray-700 transition font-body font-medium">💻 GitHub</a>
                                                                         <a href="https://drive.google.com/drive/folders/1b7rDfjeiY7L33sA-j8bDLkiPBlMKklk0?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-xs px-3 py-1.5 rounded-lg hover:bg-accent-dark transition font-body font-medium">📸 Drive</a>
+                                                                            <button onclick="openModal('project-0')" class="bg-primary text-white text-xs px-3 py-1.5 rounded-lg hover:bg-primary-dark transition font-body font-medium">🔍 View Detail</button>
                                             </div>
                 </div>
             </div>
@@ -338,9 +352,10 @@
                                                 <span class="tech-badge text-xs px-2 py-1 rounded-full">Bootstrap</span>
                                                 <span class="tech-badge text-xs px-2 py-1 rounded-full">JavaScript</span>
                                             </div>
-                    <div class="flex gap-2">
+                    <div class="flex flex-wrap gap-2">
                                                 <a href="https://github.com/tiazfebias/parapatan_tailor" target="_blank" class="bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg hover:bg-gray-700 transition font-body font-medium">💻 GitHub</a>
                                                                         <a href="https://drive.google.com/drive/folders/110d30HA3YfQvCuUnOSfUE1qS3e1vpTLW?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-xs px-3 py-1.5 rounded-lg hover:bg-accent-dark transition font-body font-medium">📸 Drive</a>
+                                                                            <button onclick="openModal('project-1')" class="bg-primary text-white text-xs px-3 py-1.5 rounded-lg hover:bg-primary-dark transition font-body font-medium">🔍 View Detail</button>
                                             </div>
                 </div>
             </div>
@@ -356,9 +371,10 @@
                                                 <span class="tech-badge text-xs px-2 py-1 rounded-full">JavaScript</span>
                                                 <span class="tech-badge text-xs px-2 py-1 rounded-full">TCPDF</span>
                                             </div>
-                    <div class="flex gap-2">
+                    <div class="flex flex-wrap gap-2">
                                                 <a href="https://github.com/tiazfebias/SPK_MAUT" target="_blank" class="bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg hover:bg-gray-700 transition font-body font-medium">💻 GitHub</a>
                                                                         <a href="https://drive.google.com/drive/folders/1aG4htNd9peCSDB-qWTATvhGGueVFDMtw?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-xs px-3 py-1.5 rounded-lg hover:bg-accent-dark transition font-body font-medium">📸 Drive</a>
+                                                                            <button onclick="openModal('project-2')" class="bg-primary text-white text-xs px-3 py-1.5 rounded-lg hover:bg-primary-dark transition font-body font-medium">🔍 View Detail</button>
                                             </div>
                 </div>
             </div>
@@ -374,8 +390,9 @@
                                                 <span class="tech-badge text-xs px-2 py-1 rounded-full">Akuntansi</span>
                                                 <span class="tech-badge text-xs px-2 py-1 rounded-full">Microsoft Office</span>
                                             </div>
-                    <div class="flex gap-2">
+                    <div class="flex flex-wrap gap-2">
                                                                         <a href="https://drive.google.com/drive/folders/1XJUTzfkVVFCUPvy7qpTHwH24kG1nWC_n?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-xs px-3 py-1.5 rounded-lg hover:bg-accent-dark transition font-body font-medium">📸 Drive</a>
+                                                                            <button onclick="openModal('project-3')" class="bg-primary text-white text-xs px-3 py-1.5 rounded-lg hover:bg-primary-dark transition font-body font-medium">🔍 View Detail</button>
                                             </div>
                 </div>
             </div>
@@ -393,7 +410,6 @@
         </div>
         
         <div class="flex flex-col md:flex-row gap-12">
-            <!-- FORM KONTAK -->
             <div class="flex-1 text-center md:text-left">
                 <p class="text-gray-700 mb-4 font-body">Kirim pesan langsung ke email saya:</p>
                 <div class="flex flex-wrap justify-center md:justify-start gap-4">
@@ -425,7 +441,6 @@
                 </form>
             </div>
             
-            <!-- SOSIAL MEDIA -->
             <div class="flex-1 flex flex-col justify-center items-center md:items-start gap-4">
                 <p class="text-gray-700 font-medium font-body">Temukan saya di:</p>
                 <div class="flex flex-wrap gap-4">
@@ -493,6 +508,99 @@
         </div>
     </footer>
 
+    <!-- ===== MODALS ===== -->
+    <!-- Modal ApotekDekaMedika -->
+    <div id="project-0" class="modal hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6 shadow-2xl animate-modal">
+            <div class="flex justify-between items-start mb-4">
+                <h3 class="text-2xl font-bold text-gray-800 font-heading">ApotekDekaMedika</h3>
+                <button onclick="closeModal('project-0')" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
+            </div>
+            <img src="images/apotekdm.jpg" alt="ApotekDekaMedika" class="w-full h-56 object-cover rounded-lg mb-4">
+            <p class="text-gray-700 font-body leading-relaxed">Aplikasi E-Commerce apotek berbasis PHP Native dengan fitur CRUD, manajemen obat, konsultasi online, pelanggan, dan transaksi.</p>
+            <div class="flex flex-wrap gap-2 mt-4">
+                <span class="tech-badge text-xs px-3 py-1 rounded-full">PHP Native</span>
+                <span class="tech-badge text-xs px-3 py-1 rounded-full">MySQL</span>
+                <span class="tech-badge text-xs px-3 py-1 rounded-full">TCPDF</span>
+                <span class="tech-badge text-xs px-3 py-1 rounded-full">HTML</span>
+                <span class="tech-badge text-xs px-3 py-1 rounded-full">CSS</span>
+                <span class="tech-badge text-xs px-3 py-1 rounded-full">JavaScript</span>
+            </div>
+            <div class="flex flex-wrap gap-3 mt-6">
+                <a href="https://github.com/tiazfebias/ApotekDekaMedika" target="_blank" class="bg-gray-800 text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-700 transition">💻 GitHub</a>
+                <a href="https://drive.google.com/drive/folders/1b7rDfjeiY7L33sA-j8bDLkiPBlMKklk0?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-sm px-4 py-2 rounded-lg hover:bg-accent-dark transition">📸 Drive</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Parapatan Tailor -->
+    <div id="project-1" class="modal hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6 shadow-2xl animate-modal">
+            <div class="flex justify-between items-start mb-4">
+                <h3 class="text-2xl font-bold text-gray-800 font-heading">Parapatan Tailor</h3>
+                <button onclick="closeModal('project-1')" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
+            </div>
+            <img src="images/parapatantailor.jpg" alt="Parapatan Tailor" class="w-full h-56 object-cover rounded-lg mb-4">
+            <p class="text-gray-700 font-body leading-relaxed">Projek Kerja Praktik kelompok dengan anggota Ahmad Rival, Raihan R.R, Silmi Nur Afifah, dan Tiaz Febia Sakes. Sistem ini mengelola data pelanggan, pesanan, transaksi, dan karyawan untuk usaha tailor.</p>
+            <div class="flex flex-wrap gap-2 mt-4">
+                <span class="tech-badge text-xs px-3 py-1 rounded-full">PHP Native</span>
+                <span class="tech-badge text-xs px-3 py-1 rounded-full">MySQL</span>
+                <span class="tech-badge text-xs px-3 py-1 rounded-full">TCPDF</span>
+                <span class="tech-badge text-xs px-3 py-1 rounded-full">Bootstrap</span>
+                <span class="tech-badge text-xs px-3 py-1 rounded-full">JavaScript</span>
+            </div>
+            <div class="flex flex-wrap gap-3 mt-6">
+                <a href="https://github.com/tiazfebias/parapatan_tailor" target="_blank" class="bg-gray-800 text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-700 transition">💻 GitHub</a>
+                <a href="https://drive.google.com/drive/folders/110d30HA3YfQvCuUnOSfUE1qS3e1vpTLW?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-sm px-4 py-2 rounded-lg hover:bg-accent-dark transition">📸 Drive</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal SPK MAUT -->
+    <div id="project-2" class="modal hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6 shadow-2xl animate-modal">
+            <div class="flex justify-between items-start mb-4">
+                <h3 class="text-2xl font-bold text-gray-800 font-heading">SPK MAUT</h3>
+                <button onclick="closeModal('project-2')" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
+            </div>
+            <img src="images/smkm2kng.jpg" alt="SPK MAUT" class="w-full h-56 object-cover rounded-lg mb-4">
+            <p class="text-gray-700 font-body leading-relaxed">Sistem Pendukung Keputusan menggunakan Metode MAUT (Multi Attribute Utility Theory) untuk membantu pengambilan keputusan berdasarkan beberapa kriteria.</p>
+            <div class="flex flex-wrap gap-2 mt-4">
+                <span class="tech-badge text-xs px-3 py-1 rounded-full">PHP Native</span>
+                <span class="tech-badge text-xs px-3 py-1 rounded-full">MySQL</span>
+                <span class="tech-badge text-xs px-3 py-1 rounded-full">Bootstrap</span>
+                <span class="tech-badge text-xs px-3 py-1 rounded-full">JavaScript</span>
+                <span class="tech-badge text-xs px-3 py-1 rounded-full">TCPDF</span>
+            </div>
+            <div class="flex flex-wrap gap-3 mt-6">
+                <a href="https://github.com/tiazfebias/SPK_MAUT" target="_blank" class="bg-gray-800 text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-700 transition">💻 GitHub</a>
+                <a href="https://drive.google.com/drive/folders/1aG4htNd9peCSDB-qWTATvhGGueVFDMtw?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-sm px-4 py-2 rounded-lg hover:bg-accent-dark transition">📸 Drive</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Sertifikat & Pelatihan -->
+    <div id="project-3" class="modal hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6 shadow-2xl animate-modal">
+            <div class="flex justify-between items-start mb-4">
+                <h3 class="text-2xl font-bold text-gray-800 font-heading">Sertifikat &amp; Pelatihan</h3>
+                <button onclick="closeModal('project-3')" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
+            </div>
+            <img src="images/sertifikat.jpg" alt="Sertifikat &amp; Pelatihan" class="w-full h-56 object-cover rounded-lg mb-4">
+            <p class="text-gray-700 font-body leading-relaxed">Kumpulan sertifikat kompetensi yang saya peroleh, meliputi Sertifikat IT Specialist Database, Sertifikat Komputer Akuntansi, dan Sertifikat Microsoft Office.</p>
+            <div class="flex flex-wrap gap-2 mt-4">
+                <span class="tech-badge text-xs px-3 py-1 rounded-full">Sertifikat</span>
+                <span class="tech-badge text-xs px-3 py-1 rounded-full">Kompetensi</span>
+                <span class="tech-badge text-xs px-3 py-1 rounded-full">Database</span>
+                <span class="tech-badge text-xs px-3 py-1 rounded-full">Akuntansi</span>
+                <span class="tech-badge text-xs px-3 py-1 rounded-full">Microsoft Office</span>
+            </div>
+            <div class="flex flex-wrap gap-3 mt-6">
+                <a href="https://drive.google.com/drive/folders/1XJUTzfkVVFCUPvy7qpTHwH24kG1nWC_n?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-sm px-4 py-2 rounded-lg hover:bg-accent-dark transition">📸 Drive</a>
+            </div>
+        </div>
+    </div>
+
     <!-- ===== JAVASCRIPT ===== -->
     <script>
         // Mobile Menu Toggle
@@ -526,6 +634,37 @@
             link.addEventListener('click', () => {
                 document.getElementById('navLinks').classList.remove('open');
             });
+        });
+
+        // ===== MODAL FUNCTIONS =====
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Tutup modal jika klik di luar modal
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // Tutup modal dengan tombol ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal:not(.hidden)').forEach(modal => {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                });
+            }
         });
     </script>
 
