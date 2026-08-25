@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="7ffR9Ya7F57ng8PHLzSCP2amjBxZwJmVQb6zGxzj">
+    <title>Home - Tiaz Febia Sakes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display + Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== Warna Kustom ===== */
+        :root {
+            --primary: #2d96ad;
+            --primary-dark: #1f7a8f;
+            --primary-light: #5bb5cc;
+            --accent: #e8e485;
+            --accent-dark: #d4d06a;
+            --white: #ffffff;
+            --text-dark: #1a2a3a;
+            --text-gray: #4a5a6a;
+            --bg-light: #f0f7fa;
+        }
+
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #f0f7fa 0%, #e8f0f5 100%);
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        /* ===== FONT CLASSES ===== */
+        .font-heading {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .font-body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(45, 150, 173, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 30px rgba(45, 150, 173, 0.3);
+            padding: 0 24px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Playfair Display', Georgia, serif;
+            letter-spacing: 0.5px;
+        }
+        .navbar .logo:hover { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            position: relative;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.3px;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover { color: #ffffff; }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a.active { color: #ffffff; }
+        .nav-links a.active::after { width: 100%; }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: #ffffff;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        /* ===== SECTION ===== */
+        .section {
+            padding: 100px 0;
+            scroll-margin-top: 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-alt {
+            background: #ffffff;
+        }
+
+        /* ===== COMPONENTS ===== */
+        .bg-primary { background-color: var(--primary); }
+        .bg-primary-dark { background-color: var(--primary-dark); }
+        .bg-accent { background-color: var(--accent); }
+        .text-primary { color: var(--primary); }
+        .text-accent { color: var(--accent); }
+        .border-primary { border-color: var(--primary); }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #ffffff;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .btn-accent:hover {
+            background-color: var(--accent-dark);
+            transform: scale(1.05);
+        }
+
+        .tech-badge {
+            background-color: #e8f4f8;
+            color: var(--primary-dark);
+            border: 1px solid var(--primary-light);
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.7rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* ===== PROJECT CARD ===== */
+        .project-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(45, 150, 173, 0.2);
+            border-color: var(--primary);
+        }
+
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: var(--primary);
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                padding: 24px;
+                gap: 16px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            }
+            .nav-links.open { display: flex; }
+            .hamburger { display: flex; }
+            .section { padding: 80px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <a href="#home" class="logo">Portfolio.</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Kontak</a></li>
+            <li><a href="#resume">CV</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- ===== CONTENT ===== -->
+    <main>
+        
+<!-- ===== SECTION 1: HOME ===== -->
+<section id="home" class="section">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
+        <div class="inline-block bg-primary/10 rounded-full px-8 py-3 mb-6">
+            <span class="text-primary font-bold text-2xl md:text-3xl font-heading">👋 Selamat Datang</span>
+        </div>
+        <h1 class="text-4xl md:text-7xl font-bold text-gray-800 mb-4 font-heading leading-tight">
+            Portfolio <span class="text-primary">Saya</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-700 mb-8 font-body max-w-2xl mx-auto">
+            Halo! Saya <span class="text-primary font-semibold">Tiaz Febia Sakes</span>,<br>
+            Web Developer yang antusias menciptakan solusi digital.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="#portfolio" class="btn-primary text-white px-8 py-3 rounded-full font-medium inline-block">
+                Lihat Portfolio →
+            </a>
+            <a href="#contact" class="btn-accent text-gray-800 px-8 py-3 rounded-full font-medium inline-block">
+                Hubungi Saya
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SECTION 2: ABOUT ===== -->
+<section id="about" class="section section-alt">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-800 font-heading">Tentang <span class="text-primary">Saya</span></h2>
+            <div class="w-20 h-1 bg-primary mx-auto mt-2 rounded"></div>
+        </div>
+        <div class="flex flex-col md:flex-row items-center gap-12">
+            <!-- FOTO PROFIL -->
+            <div class="flex-shrink-0">
+                <div class="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-primary shadow-lg">
+                    <img src="http://localhost/images/fotoku.jpeg" 
+                         alt="Foto Tiaz Febia Sakes" 
+                         class="w-full h-full object-cover">
+                </div>
+            </div>
+            <!-- Deskripsi -->
+            <div class="flex-1 text-center md:text-left">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4 font-heading">Tiaz Febia Sakes</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed font-body">
+                    Saya adalah seorang Web Developer yang bersemangat dalam menciptakan aplikasi web yang fungsional dan estetis. 
+                    Saya memiliki pengalaman dalam pengembangan web menggunakan PHP Native, Laravel, dan berbagai teknologi lainnya.
+                </p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-3">
+                    <span class="tech-badge px-4 py-2 rounded-full text-sm">PHP</span>
+                    <span class="tech-badge px-4 py-2 rounded-full text-sm">Laravel</span>
+                    <span class="tech-badge px-4 py-2 rounded-full text-sm">MySQL</span>
+                    <span class="tech-badge px-4 py-2 rounded-full text-sm">JavaScript</span>
+                    <span class="tech-badge px-4 py-2 rounded-full text-sm">Tailwind CSS</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SECTION 3: PORTFOLIO ===== -->
+<section id="portfolio" class="section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-800 font-heading">Project <span class="text-primary">Portfolio</span></h2>
+            <div class="w-20 h-1 bg-primary mx-auto mt-2 rounded"></div>
+            <p class="text-gray-600 mt-4 font-body">Berikut adalah project-project yang telah saya kerjakan</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="project-card bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
+                                <img src="http://localhost/images/apotekdm.jpg" alt="ApotekDekaMedika" class="w-full h-48 object-cover">
+                                <div class="p-4 flex flex-col flex-grow bg-white">
+                    <h4 class="font-bold text-gray-800 font-heading text-lg">ApotekDekaMedika</h4>
+                    <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">Aplikasi E-Commerce apotek berbasis PHP Native dengan fitur CRUD, mana...</p>
+                    <div class="flex flex-wrap gap-1 mb-3">
+                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">PHP Native</span>
+                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">MySQL</span>
+                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">TCPDF</span>
+                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">HTML</span>
+                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">CSS</span>
+                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">JavaScript</span>
+                                            </div>
+                    <div class="flex gap-2">
+                                                <a href="https://github.com/tiazfebias/ApotekDekaMedika" target="_blank" class="bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg hover:bg-gray-700 transition font-body font-medium">💻 GitHub</a>
+                                                                        <a href="https://drive.google.com/drive/folders/1b7rDfjeiY7L33sA-j8bDLkiPBlMKklk0?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-xs px-3 py-1.5 rounded-lg hover:bg-accent-dark transition font-body font-medium">📸 Drive</a>
+                                            </div>
+                </div>
+            </div>
+                        <div class="project-card bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
+                                <img src="http://localhost/images/parapatantailor.jpg" alt="Parapatan Tailor" class="w-full h-48 object-cover">
+                                <div class="p-4 flex flex-col flex-grow bg-white">
+                    <h4 class="font-bold text-gray-800 font-heading text-lg">Parapatan Tailor</h4>
+                    <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">Projek Kerja Praktik kelompok dengan anggota Ahmad Rival, Raihan R.R,...</p>
+                    <div class="flex flex-wrap gap-1 mb-3">
+                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">PHP Native</span>
+                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">MySQL</span>
+                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">TCPDF</span>
+                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">Bootstrap</span>
+                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">JavaScript</span>
+                                            </div>
+                    <div class="flex gap-2">
+                                                <a href="https://github.com/tiazfebias/parapatan_tailor" target="_blank" class="bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg hover:bg-gray-700 transition font-body font-medium">💻 GitHub</a>
+                                                                        <a href="https://drive.google.com/drive/folders/110d30HA3YfQvCuUnOSfUE1qS3e1vpTLW?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-xs px-3 py-1.5 rounded-lg hover:bg-accent-dark transition font-body font-medium">📸 Drive</a>
+                                            </div>
+                </div>
+            </div>
+                        <div class="project-card bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
+                                <img src="http://localhost/images/smkm2kng.jpg" alt="SPK MAUT" class="w-full h-48 object-cover">
+                                <div class="p-4 flex flex-col flex-grow bg-white">
+                    <h4 class="font-bold text-gray-800 font-heading text-lg">SPK MAUT</h4>
+                    <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">Sistem Pendukung Keputusan menggunakan Metode MAUT (Multi Attribute Ut...</p>
+                    <div class="flex flex-wrap gap-1 mb-3">
+                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">PHP Native</span>
+                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">MySQL</span>
+                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">Bootstrap</span>
+                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">JavaScript</span>
+                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">TCPDF</span>
+                                            </div>
+                    <div class="flex gap-2">
+                                                <a href="https://github.com/tiazfebias/SPK_MAUT" target="_blank" class="bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg hover:bg-gray-700 transition font-body font-medium">💻 GitHub</a>
+                                                                        <a href="https://drive.google.com/drive/folders/1aG4htNd9peCSDB-qWTATvhGGueVFDMtw?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-xs px-3 py-1.5 rounded-lg hover:bg-accent-dark transition font-body font-medium">📸 Drive</a>
+                                            </div>
+                </div>
+            </div>
+                        <div class="project-card bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
+                                <img src="http://localhost/images/sertifikat.jpg" alt="Sertifikat &amp; Pelatihan" class="w-full h-48 object-cover">
+                                <div class="p-4 flex flex-col flex-grow bg-white">
+                    <h4 class="font-bold text-gray-800 font-heading text-lg">Sertifikat &amp; Pelatihan</h4>
+                    <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">Kumpulan sertifikat kompetensi yang saya peroleh, meliputi Sertifikat...</p>
+                    <div class="flex flex-wrap gap-1 mb-3">
+                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">Sertifikat</span>
+                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">Kompetensi</span>
+                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">Database</span>
+                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">Akuntansi</span>
+                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">Microsoft Office</span>
+                                            </div>
+                    <div class="flex gap-2">
+                                                                        <a href="https://drive.google.com/drive/folders/1XJUTzfkVVFCUPvy7qpTHwH24kG1nWC_n?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-xs px-3 py-1.5 rounded-lg hover:bg-accent-dark transition font-body font-medium">📸 Drive</a>
+                                            </div>
+                </div>
+            </div>
+                    </div>
+    </div>
+</section>
+
+<!-- ===== SECTION 4: KONTAK ===== -->
+<section id="contact" class="section section-alt">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-800 font-heading">Hubungi <span class="text-primary">Saya</span></h2>
+            <div class="w-20 h-1 bg-primary mx-auto mt-2 rounded"></div>
+            <p class="text-gray-600 mt-4 font-body">Silakan hubungi saya melalui form di bawah ini</p>
+            
+            <!-- TAMPILKAN PESAN SUKSES -->
+                        
+            <!-- TAMPILKAN PESAN ERROR -->
+                    </div>
+        
+        <div class="flex flex-col md:flex-row gap-12">
+            <!-- FORM KONTAK -->
+            <div class="flex-1">
+                <form action="http://localhost/contact" method="POST" class="space-y-4">
+                    <input type="hidden" name="_token" value="7ffR9Ya7F57ng8PHLzSCP2amjBxZwJmVQb6zGxzj" autocomplete="off">                    <div>
+                        <input type="text" name="name" placeholder="Nama Anda" required 
+                               value=""
+                               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body">
+                    </div>
+                    <div>
+                        <input type="email" name="email" placeholder="Email Anda" required 
+                               value=""
+                               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body">
+                    </div>
+                    <div>
+                        <textarea name="message" rows="4" placeholder="Pesan Anda..." required 
+                                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary text-white px-8 py-3 rounded-lg font-medium w-full">
+                        Kirim Pesan 📩
+                    </button>
+                </form>
+            </div>
+            
+            <!-- SOSIAL MEDIA -->
+            <div class="flex-1 flex flex-col justify-center items-center md:items-start gap-4">
+                <p class="text-gray-700 font-medium font-body">Atau temukan saya di:</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="mailto:tiazfebias@gmail.com" target="_blank" 
+                       class="bg-gray-800 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary transition text-xl">
+                        📧
+                    </a>
+                    <a href="https://linkedin.com/in/tiazfebias" target="_blank" 
+                       class="bg-gray-800 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary transition text-xl">
+                        💼
+                    </a>
+                    <a href="https://github.com/tiazfebias" target="_blank" 
+                       class="bg-gray-800 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary transition text-xl">
+                        🐱
+                    </a>
+                    <a href="https://instagram.com/tiazfebias" target="_blank" 
+                       class="bg-gray-800 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary transition text-xl">
+                        📷
+                    </a>
+                    <a href="https://twitter.com/tiazfebias" target="_blank" 
+                       class="bg-gray-800 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary transition text-xl">
+                        🐦
+                    </a>
+                </div>
+                <p class="text-sm text-gray-500 mt-2 font-body">Atau hubungi langsung via WhatsApp</p>
+                <a href="https://wa.me/6281234567890" target="_blank" 
+                   class="btn-primary text-white px-6 py-2 rounded-full font-medium inline-block text-sm">
+                    💬 WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SECTION 5: RESUME ===== -->
+<section id="resume" class="section">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-800 font-heading">CV / <span class="text-primary">Resume</span></h2>
+            <div class="w-20 h-1 bg-primary mx-auto mt-2 rounded"></div>
+            <p class="text-gray-600 mt-4 font-body">Lihat dan unduh CV saya</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="p-8 border-b border-gray-200">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold text-gray-800 font-heading">📄 Preview CV</h3>
+                    <span class="tech-badge px-4 py-1 rounded-full text-sm">PDF</span>
+                </div>
+                <div class="bg-gray-100 rounded-lg p-8 text-center border-2 border-dashed border-primary/30">
+                    <p class="text-gray-600 mb-2 font-body">📄 CV Visual & ATS</p>
+                    <p class="text-sm text-gray-500 font-body">Preview CV akan ditampilkan di sini</p>
+                </div>
+            </div>
+            <div class="p-8 bg-gray-50 text-center">
+                <a href="#" class="btn-primary text-white px-8 py-3 rounded-full font-medium inline-block shadow-lg shadow-primary/30">
+                    ⬇️ Download CV (PDF)
+                </a>
+                <p class="text-xs text-gray-500 mt-3 font-body">* CV dalam format PDF, siap pakai untuk melamar kerja</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-primary-dark text-white py-6">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-sm font-body">&copy; 2026 Tiaz Febia Sakes. Dibuat dengan ❤️ menggunakan Laravel</p>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+
+        // Active Link on Scroll
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#navLinks a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('open');
+            });
+        });
+    </script>
+
+</body>
+</html>
