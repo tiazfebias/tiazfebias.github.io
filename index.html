@@ -218,6 +218,14 @@
             animation: modalIn 0.3s ease forwards;
         }
 
+        /* ===== IMAGE CONTAINER ===== */
+        .img-contain {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: #f8f9fa;
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .nav-links {
@@ -324,7 +332,9 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <!-- PROJECT 1: ApotekDekaMedika -->
             <div class="project-card bg-white rounded-xl shadow-md overflow-hidden">
-                <img src="images/aptkdeka.jpg" alt="ApotekDekaMedika" class="w-full h-48 object-cover">
+                <div class="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
+                    <img src="images/aptkdeka.jpg" alt="ApotekDekaMedika" class="w-full h-full object-contain">
+                </div>
                 <div class="p-4 flex flex-col flex-grow">
                     <h4 class="font-bold text-gray-800 font-heading text-lg">ApotekDekaMedika</h4>
                     <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">Aplikasi E-Commerce Apotek Sederhana  ini merupakan aplikasi e-commerce apotek yang bertujuan untuk mendigitalisasi layanan farmasi konvensional ke dalam platform web yang responsif dan mudah diakses. seperti pengelolaan data obat, konsultasi online, upload resep, serta kelola riwayat transaksi dan laporan</p>
@@ -348,7 +358,9 @@
 
             <!-- PROJECT 2: SIM Parapatan Tailor -->
             <div class="project-card bg-white rounded-xl shadow-md overflow-hidden">
-                <img src="images/tailor.jpg" alt="SIM Parapatan Tailor" class="w-full h-48 object-cover">
+                <div class="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
+                    <img src="images/tailor.jpg" alt="SIM Parapatan Tailor" class="w-full h-full object-contain">
+                </div>
                 <div class="p-4 flex flex-col flex-grow">
                     <h4 class="font-bold text-gray-800 font-heading text-lg">SIM Parapatan Tailor</h4>
                     <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">Proyek Kerja Praktik ini berhasil diselesaikan berkat kerja sama solid kelompok yang beranggotakan Ahmad Rival, Raihan R.R, Silmi Nur Afifah, dan Tiaz Febia S. Dalam proyek ini, saya dipercaya memegang peran sebagai Web Developer. Tanggung jawab saya meliputi implementasi teknis, pengembangan fitur-fitur utama pada website, serta integrasi sistem agar selaras dengan konsep yang telah dirancang bersama oleh tim</p>
@@ -371,7 +383,9 @@
 
             <!-- PROJECT 3: Sistem Pendukung Keputusan -->
             <div class="project-card bg-white rounded-xl shadow-md overflow-hidden">
-                <img src="images/smkm2kng.jpg" alt="Sistem Pendukung Keputusan" class="w-full h-48 object-cover">
+                <div class="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
+                    <img src="images/spkmaut.jpg" alt="Sistem Pendukung Keputusan" class="w-full h-full object-contain">
+                </div>
                 <div class="p-4 flex flex-col flex-grow">
                     <h4 class="font-bold text-gray-800 font-heading text-lg">Sistem Pendukung Keputusan</h4>
                     <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">Sistem Pendukung Keputusan (SPK) yang dirancang untuk mengoptimalkan proses evaluasi kinerja tenaga pendidik dan kependidikan di SMK Muhammadiyah 2 Kuningan. Sistem ini berhasil mendigitalisasi metode penilaian konvensional yang sebelumnya berbasis kertas menjadi sistem digital yang terintegrasi dan  lebih efisien dan mudah digunakan</p>
@@ -394,7 +408,9 @@
 
             <!-- PROJECT 4: Sertifikat & Pelatihan -->
             <div class="project-card bg-white rounded-xl shadow-md overflow-hidden">
-                <img src="images/sertifikat.jpg" alt="Sertifikat &amp; Pelatihan" class="w-full h-48 object-cover">
+                <div class="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
+                    <img src="images/sertifikat.jpg" alt="Sertifikat &amp; Pelatihan" class="w-full h-full object-contain">
+                </div>
                 <div class="p-4 flex flex-col flex-grow">
                     <h4 class="font-bold text-gray-800 font-heading text-lg">Sertifikat &amp; Pelatihan</h4>
                     <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">Kumpulan sertifikat kompetensi yang saya peroleh, meliputi Sertifikat...</p>
@@ -561,8 +577,10 @@
                 <h3 class="text-2xl font-bold text-gray-800 font-heading">ApotekDekaMedika</h3>
                 <button onclick="closeModal('project-0')" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
             </div>
-            <img src="images/aptkdeka.jpg" alt="ApotekDekaMedika" class="w-full h-56 object-cover rounded-lg mb-4">
-            <p class="text-gray-700 font-body leading-relaxed">Aplikasi E-Commerce Apotek Sederhana ini merupakan aplikasi e-commerce apotek yang bertujuan untuk mendigitalisasi layanan farmasi konvensional ke dalam platform web yang responsif dan mudah diakses. seperti pengelolaan data obat, konsultasi online, upload resep, serta kelola riwayat transaksi dan laporan</p>
+            <div class="w-full h-64 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden">
+                <img src="images/aptkdeka.jpg" alt="ApotekDekaMedika" class="w-full h-full object-contain">
+            </div>
+            <p class="text-gray-700 font-body leading-relaxed mt-4">Aplikasi E-Commerce Apotek Sederhana ini merupakan aplikasi e-commerce apotek yang bertujuan untuk mendigitalisasi layanan farmasi konvensional ke dalam platform web yang responsif dan mudah diakses. seperti pengelolaan data obat, konsultasi online, upload resep, serta kelola riwayat transaksi dan laporan</p>
             <div class="flex flex-wrap gap-2 mt-4">
                 <span class="tech-badge text-xs px-3 py-1 rounded-full">PHP Native</span>
                 <span class="tech-badge text-xs px-3 py-1 rounded-full">MySQL</span>
@@ -585,8 +603,10 @@
                 <h3 class="text-2xl font-bold text-gray-800 font-heading">SIM Parapatan Tailor</h3>
                 <button onclick="closeModal('project-1')" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
             </div>
-            <img src="images/tailor.jpg" alt="SIM Parapatan Tailor" class="w-full h-56 object-cover rounded-lg mb-4">
-            <p class="text-gray-700 font-body leading-relaxed">Proyek Kerja Praktik ini berhasil diselesaikan berkat kerja sama solid kelompok yang beranggotakan Ahmad Rival, Raihan R.R, Silmi Nur Afifah, dan Tiaz Febia S. Dalam proyek ini, saya dipercaya memegang peran sebagai Web Developer. Tanggung jawab saya meliputi implementasi teknis, pengembangan fitur-fitur utama pada website, serta integrasi sistem agar selaras dengan konsep yang telah dirancang bersama oleh tim</p>
+            <div class="w-full h-64 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden">
+                <img src="images/tailor.jpg" alt="SIM Parapatan Tailor" class="w-full h-full object-contain">
+            </div>
+            <p class="text-gray-700 font-body leading-relaxed mt-4">Proyek Kerja Praktik ini berhasil diselesaikan berkat kerja sama solid kelompok yang beranggotakan Ahmad Rival, Raihan R.R, Silmi Nur Afifah, dan Tiaz Febia S. Dalam proyek ini, saya dipercaya memegang peran sebagai Web Developer. Tanggung jawab saya meliputi implementasi teknis, pengembangan fitur-fitur utama pada website, serta integrasi sistem agar selaras dengan konsep yang telah dirancang bersama oleh tim</p>
             <div class="flex flex-wrap gap-2 mt-4">
                 <span class="tech-badge text-xs px-3 py-1 rounded-full">PHP Native</span>
                 <span class="tech-badge text-xs px-3 py-1 rounded-full">MySQL</span>
@@ -608,8 +628,10 @@
                 <h3 class="text-2xl font-bold text-gray-800 font-heading">Sistem Pendukung Keputusan</h3>
                 <button onclick="closeModal('project-2')" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
             </div>
-            <img src="images/smkm2kng.jpg" alt="Sistem Pendukung Keputusan" class="w-full h-56 object-cover rounded-lg mb-4">
-            <p class="text-gray-700 font-body leading-relaxed">Sistem Pendukung Keputusan (SPK) yang dirancang untuk mengoptimalkan proses evaluasi kinerja tenaga pendidik dan kependidikan di SMK Muhammadiyah 2 Kuningan. Sistem ini berhasil mendigitalisasi metode penilaian konvensional yang sebelumnya berbasis kertas menjadi sistem digital yang terintegrasi dan lebih efisien dan mudah digunakan</p>
+            <div class="w-full h-64 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden">
+                <img src="images/spkmaut.jpg" alt="Sistem Pendukung Keputusan" class="w-full h-full object-contain">
+            </div>
+            <p class="text-gray-700 font-body leading-relaxed mt-4">Sistem Pendukung Keputusan (SPK) yang dirancang untuk mengoptimalkan proses evaluasi kinerja tenaga pendidik dan kependidikan di SMK Muhammadiyah 2 Kuningan. Sistem ini berhasil mendigitalisasi metode penilaian konvensional yang sebelumnya berbasis kertas menjadi sistem digital yang terintegrasi dan lebih efisien dan mudah digunakan</p>
             <div class="flex flex-wrap gap-2 mt-4">
                 <span class="tech-badge text-xs px-3 py-1 rounded-full">PHP Native</span>
                 <span class="tech-badge text-xs px-3 py-1 rounded-full">MySQL</span>
@@ -631,8 +653,10 @@
                 <h3 class="text-2xl font-bold text-gray-800 font-heading">Sertifikat &amp; Pelatihan</h3>
                 <button onclick="closeModal('project-3')" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
             </div>
-            <img src="images/sertifikat.jpg" alt="Sertifikat &amp; Pelatihan" class="w-full h-56 object-cover rounded-lg mb-4">
-            <p class="text-gray-700 font-body leading-relaxed">Kumpulan sertifikat kompetensi yang saya peroleh, meliputi Sertifikat IT Specialist Database, Sertifikat Komputer Akuntansi, dan Sertifikat Microsoft Office.</p>
+            <div class="w-full h-64 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden">
+                <img src="images/sertifikat.jpg" alt="Sertifikat &amp; Pelatihan" class="w-full h-full object-contain">
+            </div>
+            <p class="text-gray-700 font-body leading-relaxed mt-4">Kumpulan sertifikat kompetensi yang saya peroleh, meliputi Sertifikat IT Specialist Database, Sertifikat Komputer Akuntansi, dan Sertifikat Microsoft Office.</p>
             <div class="flex flex-wrap gap-2 mt-4">
                 <span class="tech-badge text-xs px-3 py-1 rounded-full">Sertifikat</span>
                 <span class="tech-badge text-xs px-3 py-1 rounded-full">Kompetensi</span>
