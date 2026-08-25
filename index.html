@@ -185,6 +185,8 @@
         .project-card {
             transition: all 0.3s ease;
             border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
         }
         .project-card:hover {
             transform: translateY(-8px);
@@ -320,83 +322,99 @@
             <p class="text-gray-600 mt-4 font-body">Berikut adalah project-project yang telah saya kerjakan</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div class="project-card bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
-                                <img src="images/apotekdm.jpg" alt="ApotekDekaMedika" class="w-full h-48 object-cover">
-                                <div class="p-4 flex flex-col flex-grow bg-white">
+            <!-- PROJECT 1: ApotekDekaMedika -->
+            <div class="project-card bg-white rounded-xl shadow-md overflow-hidden">
+                <img src="images/apotekdm.jpg" alt="ApotekDekaMedika" class="w-full h-48 object-cover">
+                <div class="p-4 flex flex-col flex-grow">
                     <h4 class="font-bold text-gray-800 font-heading text-lg">ApotekDekaMedika</h4>
                     <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">Aplikasi E-Commerce apotek berbasis PHP Native dengan fitur CRUD, mana...</p>
                     <div class="flex flex-wrap gap-1 mb-3">
-                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">PHP Native</span>
-                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">MySQL</span>
-                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">TCPDF</span>
-                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">HTML</span>
-                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">CSS</span>
-                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">JavaScript</span>
-                                            </div>
-                    <div class="flex flex-wrap gap-2">
-                                                <a href="https://github.com/tiazfebias/ApotekDekaMedika" target="_blank" class="bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg hover:bg-gray-700 transition font-body font-medium">💻 GitHub</a>
-                                                                        <a href="https://drive.google.com/drive/folders/1b7rDfjeiY7L33sA-j8bDLkiPBlMKklk0?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-xs px-3 py-1.5 rounded-lg hover:bg-accent-dark transition font-body font-medium">📸 Drive</a>
-                                                                            <button onclick="openModal('project-0')" class="bg-primary text-white text-xs px-3 py-1.5 rounded-lg hover:bg-primary-dark transition font-body font-medium">🔍 View Detail</button>
-                                            </div>
+                        <span class="tech-badge text-xs px-2 py-1 rounded-full">PHP Native</span>
+                        <span class="tech-badge text-xs px-2 py-1 rounded-full">MySQL</span>
+                        <span class="tech-badge text-xs px-2 py-1 rounded-full">TCPDF</span>
+                        <span class="tech-badge text-xs px-2 py-1 rounded-full">HTML</span>
+                        <span class="tech-badge text-xs px-2 py-1 rounded-full">CSS</span>
+                        <span class="tech-badge text-xs px-2 py-1 rounded-full">JavaScript</span>
+                    </div>
+                    <!-- Tombol sejajar ke pinggir -->
+                    <div class="flex flex-wrap items-center justify-between gap-2 mt-auto">
+                        <div class="flex flex-wrap gap-2">
+                            <a href="https://github.com/tiazfebias/ApotekDekaMedika" target="_blank" class="bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg hover:bg-gray-700 transition">💻 GitHub</a>
+                            <a href="https://drive.google.com/drive/folders/1b7rDfjeiY7L33sA-j8bDLkiPBlMKklk0?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-xs px-3 py-1.5 rounded-lg hover:bg-accent-dark transition">📸 Drive</a>
+                        </div>
+                        <button onclick="openModal('project-0')" class="bg-primary text-white text-xs px-3 py-1.5 rounded-lg hover:bg-primary-dark transition">🔍 View Detail</button>
+                    </div>
                 </div>
             </div>
-                        <div class="project-card bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
-                                <img src="images/parapatantailor.jpg" alt="Parapatan Tailor" class="w-full h-48 object-cover">
-                                <div class="p-4 flex flex-col flex-grow bg-white">
+
+            <!-- PROJECT 2: Parapatan Tailor -->
+            <div class="project-card bg-white rounded-xl shadow-md overflow-hidden">
+                <img src="images/parapatantailor.jpg" alt="Parapatan Tailor" class="w-full h-48 object-cover">
+                <div class="p-4 flex flex-col flex-grow">
                     <h4 class="font-bold text-gray-800 font-heading text-lg">Parapatan Tailor</h4>
                     <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">Projek Kerja Praktik kelompok dengan anggota Ahmad Rival, Raihan R.R,...</p>
                     <div class="flex flex-wrap gap-1 mb-3">
-                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">PHP Native</span>
-                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">MySQL</span>
-                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">TCPDF</span>
-                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">Bootstrap</span>
-                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">JavaScript</span>
-                                            </div>
-                    <div class="flex flex-wrap gap-2">
-                                                <a href="https://github.com/tiazfebias/parapatan_tailor" target="_blank" class="bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg hover:bg-gray-700 transition font-body font-medium">💻 GitHub</a>
-                                                                        <a href="https://drive.google.com/drive/folders/110d30HA3YfQvCuUnOSfUE1qS3e1vpTLW?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-xs px-3 py-1.5 rounded-lg hover:bg-accent-dark transition font-body font-medium">📸 Drive</a>
-                                                                            <button onclick="openModal('project-1')" class="bg-primary text-white text-xs px-3 py-1.5 rounded-lg hover:bg-primary-dark transition font-body font-medium">🔍 View Detail</button>
-                                            </div>
+                        <span class="tech-badge text-xs px-2 py-1 rounded-full">PHP Native</span>
+                        <span class="tech-badge text-xs px-2 py-1 rounded-full">MySQL</span>
+                        <span class="tech-badge text-xs px-2 py-1 rounded-full">TCPDF</span>
+                        <span class="tech-badge text-xs px-2 py-1 rounded-full">Bootstrap</span>
+                        <span class="tech-badge text-xs px-2 py-1 rounded-full">JavaScript</span>
+                    </div>
+                    <div class="flex flex-wrap items-center justify-between gap-2 mt-auto">
+                        <div class="flex flex-wrap gap-2">
+                            <a href="https://github.com/tiazfebias/parapatan_tailor" target="_blank" class="bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg hover:bg-gray-700 transition">💻 GitHub</a>
+                            <a href="https://drive.google.com/drive/folders/110d30HA3YfQvCuUnOSfUE1qS3e1vpTLW?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-xs px-3 py-1.5 rounded-lg hover:bg-accent-dark transition">📸 Drive</a>
+                        </div>
+                        <button onclick="openModal('project-1')" class="bg-primary text-white text-xs px-3 py-1.5 rounded-lg hover:bg-primary-dark transition">🔍 View Detail</button>
+                    </div>
                 </div>
             </div>
-                        <div class="project-card bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
-                                <img src="images/smkm2kng.jpg" alt="SPK MAUT" class="w-full h-48 object-cover">
-                                <div class="p-4 flex flex-col flex-grow bg-white">
+
+            <!-- PROJECT 3: SPK MAUT -->
+            <div class="project-card bg-white rounded-xl shadow-md overflow-hidden">
+                <img src="images/smkm2kng.jpg" alt="SPK MAUT" class="w-full h-48 object-cover">
+                <div class="p-4 flex flex-col flex-grow">
                     <h4 class="font-bold text-gray-800 font-heading text-lg">SPK MAUT</h4>
                     <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">Sistem Pendukung Keputusan menggunakan Metode MAUT (Multi Attribute Ut...</p>
                     <div class="flex flex-wrap gap-1 mb-3">
-                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">PHP Native</span>
-                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">MySQL</span>
-                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">Bootstrap</span>
-                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">JavaScript</span>
-                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">TCPDF</span>
-                                            </div>
-                    <div class="flex flex-wrap gap-2">
-                                                <a href="https://github.com/tiazfebias/SPK_MAUT" target="_blank" class="bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg hover:bg-gray-700 transition font-body font-medium">💻 GitHub</a>
-                                                                        <a href="https://drive.google.com/drive/folders/1aG4htNd9peCSDB-qWTATvhGGueVFDMtw?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-xs px-3 py-1.5 rounded-lg hover:bg-accent-dark transition font-body font-medium">📸 Drive</a>
-                                                                            <button onclick="openModal('project-2')" class="bg-primary text-white text-xs px-3 py-1.5 rounded-lg hover:bg-primary-dark transition font-body font-medium">🔍 View Detail</button>
-                                            </div>
+                        <span class="tech-badge text-xs px-2 py-1 rounded-full">PHP Native</span>
+                        <span class="tech-badge text-xs px-2 py-1 rounded-full">MySQL</span>
+                        <span class="tech-badge text-xs px-2 py-1 rounded-full">Bootstrap</span>
+                        <span class="tech-badge text-xs px-2 py-1 rounded-full">JavaScript</span>
+                        <span class="tech-badge text-xs px-2 py-1 rounded-full">TCPDF</span>
+                    </div>
+                    <div class="flex flex-wrap items-center justify-between gap-2 mt-auto">
+                        <div class="flex flex-wrap gap-2">
+                            <a href="https://github.com/tiazfebias/SPK_MAUT" target="_blank" class="bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg hover:bg-gray-700 transition">💻 GitHub</a>
+                            <a href="https://drive.google.com/drive/folders/1aG4htNd9peCSDB-qWTATvhGGueVFDMtw?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-xs px-3 py-1.5 rounded-lg hover:bg-accent-dark transition">📸 Drive</a>
+                        </div>
+                        <button onclick="openModal('project-2')" class="bg-primary text-white text-xs px-3 py-1.5 rounded-lg hover:bg-primary-dark transition">🔍 View Detail</button>
+                    </div>
                 </div>
             </div>
-                        <div class="project-card bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
-                                <img src="images/sertifikat.jpg" alt="Sertifikat &amp; Pelatihan" class="w-full h-48 object-cover">
-                                <div class="p-4 flex flex-col flex-grow bg-white">
+
+            <!-- PROJECT 4: Sertifikat & Pelatihan -->
+            <div class="project-card bg-white rounded-xl shadow-md overflow-hidden">
+                <img src="images/sertifikat.jpg" alt="Sertifikat &amp; Pelatihan" class="w-full h-48 object-cover">
+                <div class="p-4 flex flex-col flex-grow">
                     <h4 class="font-bold text-gray-800 font-heading text-lg">Sertifikat &amp; Pelatihan</h4>
                     <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">Kumpulan sertifikat kompetensi yang saya peroleh, meliputi Sertifikat...</p>
                     <div class="flex flex-wrap gap-1 mb-3">
-                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">Sertifikat</span>
-                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">Kompetensi</span>
-                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">Database</span>
-                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">Akuntansi</span>
-                                                <span class="tech-badge text-xs px-2 py-1 rounded-full">Microsoft Office</span>
-                                            </div>
-                    <div class="flex flex-wrap gap-2">
-                                                                        <a href="https://drive.google.com/drive/folders/1XJUTzfkVVFCUPvy7qpTHwH24kG1nWC_n?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-xs px-3 py-1.5 rounded-lg hover:bg-accent-dark transition font-body font-medium">📸 Drive</a>
-                                                                            <button onclick="openModal('project-3')" class="bg-primary text-white text-xs px-3 py-1.5 rounded-lg hover:bg-primary-dark transition font-body font-medium">🔍 View Detail</button>
-                                            </div>
+                        <span class="tech-badge text-xs px-2 py-1 rounded-full">Sertifikat</span>
+                        <span class="tech-badge text-xs px-2 py-1 rounded-full">Kompetensi</span>
+                        <span class="tech-badge text-xs px-2 py-1 rounded-full">Database</span>
+                        <span class="tech-badge text-xs px-2 py-1 rounded-full">Akuntansi</span>
+                        <span class="tech-badge text-xs px-2 py-1 rounded-full">Microsoft Office</span>
+                    </div>
+                    <div class="flex flex-wrap items-center justify-between gap-2 mt-auto">
+                        <div class="flex flex-wrap gap-2">
+                            <a href="https://drive.google.com/drive/folders/1XJUTzfkVVFCUPvy7qpTHwH24kG1nWC_n?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-xs px-3 py-1.5 rounded-lg hover:bg-accent-dark transition">📸 Drive</a>
+                        </div>
+                        <button onclick="openModal('project-3')" class="bg-primary text-white text-xs px-3 py-1.5 rounded-lg hover:bg-primary-dark transition">🔍 View Detail</button>
+                    </div>
                 </div>
             </div>
-                    </div>
+        </div>
     </div>
 </section>
 
