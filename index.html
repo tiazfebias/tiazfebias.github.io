@@ -272,70 +272,156 @@
             background-color: #f8f9fa;
         }
 
-        /* ===== CV CARD STYLE ===== */
-        .cv-card {
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-            padding: 24px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #e8ecf0;
-            max-width: 280px;
+        /* ===== CV - 2 LEMBAR KERTAS TERBUKA ===== */
+        .cv-book {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 0;
+            max-width: 700px;
             margin: 0 auto;
+            perspective: 1200px;
         }
-        .cv-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+
+        .cv-page {
+            background: #fefcf3;
+            padding: 28px 24px 24px;
+            border-radius: 4px;
+            box-shadow: 
+                0 10px 40px rgba(0,0,0,0.12),
+                inset 0 0 0 1px rgba(232, 228, 133, 0.3);
+            flex: 1;
+            min-width: 0;
+            position: relative;
+            transition: all 0.4s ease;
+            border: 1px solid #e8e485;
         }
-        .cv-card .cv-icon {
-            font-size: 2.5rem;
-            margin-bottom: 8px;
+
+        .cv-page:first-child {
+            border-radius: 4px 0 0 4px;
+            border-right: none;
+            transform: perspective(1200px) rotateY(-3deg);
+            transform-origin: right center;
+            box-shadow: 
+                -5px 5px 20px rgba(0,0,0,0.08),
+                0 10px 40px rgba(0,0,0,0.12),
+                inset 0 0 0 1px rgba(232, 228, 133, 0.3);
         }
-        .cv-card .cv-title {
+
+        .cv-page:last-child {
+            border-radius: 0 4px 4px 0;
+            border-left: none;
+            transform: perspective(1200px) rotateY(3deg);
+            transform-origin: left center;
+            box-shadow: 
+                5px 5px 20px rgba(0,0,0,0.08),
+                0 10px 40px rgba(0,0,0,0.12),
+                inset 0 0 0 1px rgba(232, 228, 133, 0.3);
+        }
+
+        .cv-page:hover {
+            transform: perspective(1200px) rotateY(0deg) scale(1.02);
+            z-index: 10;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .cv-page .cv-icon {
+            font-size: 2.2rem;
+        }
+
+        .cv-page .cv-title {
             font-family: 'Playfair Display', Georgia, serif;
             font-weight: 700;
             font-size: 1.1rem;
             color: var(--text-dark);
+            margin: 4px 0 2px;
         }
-        .cv-card .cv-badge {
+
+        .cv-page .cv-badge {
             background: var(--primary);
             color: white;
-            font-size: 0.65rem;
-            padding: 2px 10px;
+            font-size: 0.6rem;
+            padding: 2px 12px;
             border-radius: 20px;
-            font-weight: 500;
+            font-weight: 600;
+            display: inline-block;
         }
-        .cv-card .cv-desc {
+
+        .cv-page .cv-desc {
             font-size: 0.85rem;
             color: var(--text-gray);
-            margin: 6px 0 10px;
+            margin: 6px 0 4px;
         }
-        .cv-card .cv-size {
+
+        .cv-page .cv-size {
             font-size: 0.7rem;
             color: #999;
         }
-        .cv-card .btn-download {
+
+        .cv-page .btn-download {
             background: var(--primary);
             color: white;
-            padding: 8px 20px;
+            padding: 8px 22px;
             border-radius: 30px;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 600;
-            transition: background 0.3s ease, transform 0.2s ease;
+            transition: all 0.3s ease;
             display: inline-block;
-        }
-        .cv-card .btn-download:hover {
-            background: var(--primary-dark);
-            transform: scale(1.03);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
         }
 
-        /* ===== CV CONTAINER ===== */
-        .cv-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            padding: 10px 0;
+        .cv-page .btn-download:hover {
+            background: var(--primary-dark);
+            transform: scale(1.04);
+            box-shadow: 0 6px 20px rgba(45, 150, 173, 0.3);
+        }
+
+        /* Garis tengah (seperti buku terbuka) */
+        .cv-book::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 10%;
+            bottom: 10%;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, #d4d06a, transparent);
+            transform: translateX(-50%);
+            z-index: 5;
+            opacity: 0.5;
+        }
+
+        .cv-book {
+            position: relative;
+        }
+
+        /* Efek kertas bergelombang di tepi */
+        .cv-page::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 28px,
+                    rgba(232, 228, 133, 0.08) 28px,
+                    rgba(232, 228, 133, 0.08) 29px
+                );
+            pointer-events: none;
+            border-radius: inherit;
+        }
+
+        .cv-page:first-child::after {
+            border-radius: 4px 0 0 4px;
+        }
+
+        .cv-page:last-child::after {
+            border-radius: 0 4px 4px 0;
         }
 
         /* ===== RESPONSIVE ===== */
@@ -358,12 +444,26 @@
             .project-card .btn-group {
                 flex-wrap: wrap !important;
             }
-            .cv-card {
-                max-width: 260px;
-                padding: 20px;
+            
+            .cv-book {
+                flex-direction: column;
+                align-items: center;
+                gap: 24px;
+                max-width: 320px;
             }
-            .cv-container {
-                gap: 20px;
+            .cv-book::before {
+                display: none;
+            }
+            .cv-page:first-child,
+            .cv-page:last-child {
+                border-radius: 4px;
+                border: 1px solid #e8e485;
+                transform: none !important;
+                box-shadow: 0 8px 30px rgba(0,0,0,0.1) !important;
+                width: 100%;
+            }
+            .cv-page:hover {
+                transform: scale(1.02) !important;
             }
         }
     </style>
@@ -631,10 +731,10 @@
             <p class="text-gray-600 mt-4 font-body">Unduh CV saya dalam dua versi</p>
         </div>
 
-        <!-- CV Container: 2 lembar kertas terbuka -->
-        <div class="cv-container fade-in">
+        <!-- CV: 2 Lembar Kertas Terbuka -->
+        <div class="cv-book fade-in">
             <!-- CV Visual - Kiri -->
-            <div class="cv-card" style="transform: perspective(1000px) rotateY(-2deg);">
+            <div class="cv-page">
                 <div class="flex items-center justify-between mb-2">
                     <span class="cv-icon">🎨</span>
                     <span class="cv-badge">PDF</span>
@@ -650,7 +750,7 @@
             </div>
 
             <!-- CV ATS - Kanan -->
-            <div class="cv-card" style="transform: perspective(1000px) rotateY(2deg);">
+            <div class="cv-page">
                 <div class="flex items-center justify-between mb-2">
                     <span class="cv-icon">📋</span>
                     <span class="cv-badge">PDF</span>
