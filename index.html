@@ -316,7 +316,6 @@
             border: 1px solid #e0dcc8;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
             overflow: visible;
-            /* biar elemen anak bisa keluar */
         }
 
         /* ---- LUBANG BINDER (3 lubang) ---- */
@@ -342,7 +341,6 @@
             box-shadow: inset 0 0 0 2px #fefcf3, 0 2px 6px rgba(0, 0, 0, 0.15);
             transition: all 0.3s ease;
         }
-        /* lubang kertas animasi berkedip */
         .cv-page:hover .binder-holes span {
             border-color: var(--primary);
             box-shadow: inset 0 0 0 2px #fefcf3, 0 0 12px rgba(45, 150, 173, 0.3);
@@ -388,7 +386,6 @@
                     rgba(180, 170, 140, 0.25) 28px);
             border-radius: 2px;
         }
-        /* garis merah di samping (seperti kertas binder) */
         .cv-page .paper-lines::before {
             content: '';
             position: absolute;
@@ -452,7 +449,7 @@
             }
         }
 
-        /* ---- HOVER KERTAS (efek 3D lebih dramatis) ---- */
+        /* ---- HOVER KERTAS ---- */
         .cv-page:first-child {
             border-radius: 4px 0 0 4px;
             border-right: none;
@@ -469,14 +466,12 @@
             box-shadow: 8px 8px 30px rgba(0, 0, 0, 0.1), 0 10px 40px rgba(0, 0, 0, 0.08);
             z-index: 2;
         }
-
         .cv-page:hover {
             transform: perspective(1400px) rotateY(0deg) scale(1.03);
             z-index: 10;
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
             border-color: var(--primary-light);
         }
-        /* saat hover, lubang binder ikut menyala */
         .cv-page:hover .binder-holes span {
             background: var(--primary-light);
             border-color: var(--primary);
@@ -558,8 +553,6 @@
             max-height: 85vh;
             overflow-y: auto;
         }
-
-        /* Garis kertas di modal */
         .modal-paper .modal-lines {
             position: absolute;
             top: 50px;
@@ -577,8 +570,6 @@
                     rgba(180, 170, 140, 0.2) 27px);
             border-radius: 2px;
         }
-
-        /* Lubang binder di modal */
         .modal-paper .modal-holes {
             position: absolute;
             left: 12px;
@@ -600,8 +591,6 @@
             border: 2px solid #c8c0a8;
             box-shadow: inset 0 0 0 2px #fefcf3, 0 2px 6px rgba(0, 0, 0, 0.12);
         }
-
-        /* Efek sobek di modal */
         .modal-paper .modal-tear {
             position: absolute;
             bottom: -5px;
@@ -621,8 +610,6 @@
             pointer-events: none;
             z-index: 1;
         }
-
-        /* Paper clip di modal */
         .modal-paper .modal-clip {
             position: absolute;
             top: -8px;
@@ -635,8 +622,6 @@
             animation: clipSwing 3s ease-in-out infinite;
             pointer-events: none;
         }
-
-        /* Paku payung di modal */
         .modal-paper .modal-pin {
             position: absolute;
             top: -6px;
@@ -649,8 +634,6 @@
             animation: pinPulse 2.5s ease-in-out infinite;
             pointer-events: none;
         }
-
-        /* Konten modal dengan rata kiri-kanan */
         .modal-paper .modal-content {
             position: relative;
             z-index: 3;
@@ -661,7 +644,7 @@
             hyphens: auto;
         }
 
-        /* ---- RESPONSIVE CV ---- */
+        /* ---- RESPONSIVE ---- */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -687,7 +670,6 @@
             .project-card .btn-group {
                 flex-wrap: wrap !important;
             }
-
             .cv-book {
                 flex-direction: column;
                 align-items: center;
@@ -729,8 +711,6 @@
                 left: 28px;
                 right: 10px;
             }
-
-            /* Modal responsif */
             .modal-paper {
                 margin: 10px;
                 padding: 24px 18px 20px;
@@ -760,7 +740,6 @@
                 top: -4px;
             }
         }
-
         @media (max-width: 480px) {
             .cv-page {
                 padding: 24px 18px 20px;
@@ -824,7 +803,7 @@
             </div>
         </section>
 
-        <!-- ===== SECTION 2: ABOUT (Teks Rata Tengah) ===== -->
+        <!-- ===== SECTION 2: ABOUT ===== -->
         <section id="about" class="section section-alt">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 <div class="text-center mb-12">
@@ -839,7 +818,6 @@
                     </div>
                     <div class="flex-1 text-center">
                         <h3 class="text-2xl font-bold text-gray-800 mb-4 font-heading">Tiaz Febia Sakes</h3>
-                        <!-- Teks diubah menjadi rata tengah -->
                         <p class="text-gray-700 mb-4 leading-relaxed font-body text-center">
                             Saya adalah seorang pengembang web junior yang berdedikasi dalam merancang dan membangun program web yang fungsional, efisien, dan siap pakai. Saya terbiasa memanfaatkan teknologi modern secara produktif untuk mempercepat proses pengembangan tanpa mengurangi kualitas sistem yang dibangun.
                         </p>
@@ -872,7 +850,7 @@
                         </div>
                         <div class="p-4 flex flex-col flex-grow">
                             <h4 class="font-bold text-gray-800 font-heading text-lg">ApotekDekaMedika</h4>
-                            <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">Aplikasi E-Commerce Apotek Sederhana</p>
+                            <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">E-Commerce Apotek Sederhana</p>
                             <div class="flex flex-wrap gap-1 mb-3">
                                 <span class="tech-badge text-xs px-2 py-1 rounded-full">PHP Native</span>
                                 <span class="tech-badge text-xs px-2 py-1 rounded-full">MySQL</span>
@@ -976,51 +954,29 @@
                     <div class="w-20 h-1 bg-primary mx-auto mt-2 rounded"></div>
                     <p class="text-gray-600 mt-4 font-body">Silakan hubungi saya melalui form di bawah ini</p>
                 </div>
-
                 <div class="flex flex-col md:flex-row gap-12 fade-in">
                     <div class="flex-1 text-center md:text-left">
                         <p class="text-gray-700 mb-4 font-body">Kirim pesan langsung ke email saya:</p>
                         <div class="flex flex-wrap justify-center md:justify-start gap-4">
-                            <a href="mailto:tiazfebias@gmail.com" class="btn-primary text-white px-6 py-3 rounded-lg font-medium inline-block">
-                                📧 Kirim Email
-                            </a>
-                            <a href="https://wa.me/qr/LN62YN7WYKAG1" target="_blank" class="btn-accent text-gray-800 px-6 py-3 rounded-lg font-medium inline-block">
-                                💬 WhatsApp
-                            </a>
+                            <a href="mailto:tiazfebias@gmail.com" class="btn-primary text-white px-6 py-3 rounded-lg font-medium inline-block">📧 Kirim Email</a>
+                            <a href="https://wa.me/qr/LN62YN7WYKAG1" target="_blank" class="btn-accent text-gray-800 px-6 py-3 rounded-lg font-medium inline-block">💬 WhatsApp</a>
                         </div>
                         <p class="text-sm text-gray-500 mt-4 font-body">Atau gunakan form di bawah ini (dikirim via Formspree)</p>
                         <form action="https://formspree.io/f/xbgrvkdy" method="POST" class="space-y-4 mt-4">
-                            <div>
-                                <input type="text" name="name" placeholder="Nama Anda" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body">
-                            </div>
-                            <div>
-                                <input type="email" name="email" placeholder="contoh@gmail.com" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body">
-                            </div>
-                            <div>
-                                <textarea name="message" rows="4" placeholder="Pesan Anda..." required minlength="10" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></textarea>
-                                <p class="text-xs text-gray-400 mt-1">* Pesan minimal 10 karakter</p>
-                            </div>
-                            <button type="submit" class="btn-primary text-white px-8 py-3 rounded-lg font-medium w-full">
-                                Kirim Pesan 📩
-                            </button>
+                            <div><input type="text" name="name" placeholder="Nama Anda" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></div>
+                            <div><input type="email" name="email" placeholder="contoh@gmail.com" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></div>
+                            <div><textarea name="message" rows="4" placeholder="Pesan Anda..." required minlength="10" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></textarea>
+                            <p class="text-xs text-gray-400 mt-1">* Pesan minimal 10 karakter</p></div>
+                            <button type="submit" class="btn-primary text-white px-8 py-3 rounded-lg font-medium w-full">Kirim Pesan 📩</button>
                         </form>
                     </div>
-
                     <div class="flex-1 flex flex-col justify-center items-center md:items-start gap-4">
                         <p class="text-gray-700 font-medium font-body">Temukan saya di:</p>
                         <div class="flex flex-wrap gap-4">
-                            <a href="https://github.com/tiazfebias" target="_blank" class="bg-gray-800 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary transition text-xl">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://linkedin.com/in/tiaz-febia-sakes" target="_blank" class="bg-gray-800 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary transition text-xl">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://www.instagram.com/tiazfs_?igsi=OGJiaDk5dW53NXRy" target="_blank" class="bg-gray-800 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary transition text-xl">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="https://t.me/Tiazfs" target="_blank" class="bg-gray-800 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary transition text-xl">
-                                <i class="fab fa-telegram-plane"></i>
-                            </a>
+                            <a href="https://github.com/tiazfebias" target="_blank" class="bg-gray-800 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary transition text-xl"><i class="fab fa-github"></i></a>
+                            <a href="https://linkedin.com/in/tiaz-febia-sakes" target="_blank" class="bg-gray-800 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary transition text-xl"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/tiazfs_?igsi=OGJiaDk5dW53NXRy" target="_blank" class="bg-gray-800 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary transition text-xl"><i class="fab fa-instagram"></i></a>
+                            <a href="https://t.me/Tiazfs" target="_blank" class="bg-gray-800 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary transition text-xl"><i class="fab fa-telegram-plane"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1035,9 +991,7 @@
                     <div class="w-20 h-1 bg-primary mx-auto mt-2 rounded"></div>
                     <p class="text-gray-600 mt-4 font-body">Unduh CV saya dalam dua versi</p>
                 </div>
-
                 <div class="cv-book fade-in">
-                    <!-- CV Visual - Kiri -->
                     <div class="cv-page">
                         <div class="binder-holes"><span></span><span></span><span></span></div>
                         <div class="paper-clip"><i class="fas fa-paperclip"></i></div>
@@ -1055,8 +1009,6 @@
                             <a href="CV_Visual_Tiaz.pdf" download class="btn-download">⬇️ Download CV Visual</a>
                         </div>
                     </div>
-
-                    <!-- CV ATS - Kanan -->
                     <div class="cv-page">
                         <div class="binder-holes"><span></span><span></span><span></span></div>
                         <div class="paper-clip"><i class="fas fa-paperclip"></i></div>
@@ -1075,7 +1027,6 @@
                         </div>
                     </div>
                 </div>
-
                 <p class="text-xs text-gray-500 text-center mt-6 font-body">* File dalam format PDF</p>
             </div>
         </section>
@@ -1089,19 +1040,16 @@
         </div>
     </footer>
 
-    <!-- ===== MODALS dengan Tema Kertas ===== -->
+    <!-- ===== MODALS dengan Tema Kertas & Deskripsi yang Diperbaiki ===== -->
 
     <!-- Modal ApotekDekaMedika -->
     <div id="project-0" class="modal hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
         <div class="modal-paper animate-modal">
-            <!-- Dekorasi kertas -->
             <div class="modal-holes"><span></span><span></span><span></span></div>
             <div class="modal-clip"><i class="fas fa-paperclip"></i></div>
             <div class="modal-pin"><i class="fas fa-thumbtack"></i></div>
             <div class="modal-lines"></div>
             <div class="modal-tear"></div>
-
-            <!-- Konten modal dengan rata kiri-kanan -->
             <div class="modal-content">
                 <div class="flex justify-between items-start mb-4">
                     <h3 class="text-2xl font-bold text-gray-800 font-heading">ApotekDekaMedika</h3>
@@ -1111,7 +1059,7 @@
                     <img src="images/aptkdeka.jpg" alt="ApotekDekaMedika" class="w-full h-full object-contain">
                 </div>
                 <p class="text-gray-700 font-body leading-relaxed mt-4 text-justify">
-                    Aplikasi E-Commerce Apotek Sederhana yang mendigitalisasi layanan farmasi konvensional ke dalam platform web yang responsif dan mudah diakses. Aplikasi ini dilengkapi dengan fitur pengelolaan data obat, konsultasi online dengan apoteker, upload resep, serta kelola riwayat transaksi dan laporan penjualan.
+                    E-Commerce Apotek Sederhana ini merupakan aplikasi e-commerce apotek yang bertujuan untuk mendigitalisasi layanan farmasi konvensional ke dalam platform web yang responsif dan mudah diakses. seperti pengelolaan data obat, konsultasi online, upload resep, serta kelola riwayat transaksi dan laporan.
                 </p>
                 <div class="flex flex-wrap gap-2 mt-4">
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">PHP Native</span>
@@ -1146,7 +1094,7 @@
                     <img src="images/tailor.jpg" alt="SIM Parapatan Tailor" class="w-full h-full object-contain">
                 </div>
                 <p class="text-gray-700 font-body leading-relaxed mt-4 text-justify">
-                    Proyek Kerja Praktik yang dikerjakan bersama tim beranggotakan Ahmad Rival, Raihan R.R, Silmi Nur Afifah, dan Tiaz Febia S. Saya bertindak sebagai Web Developer yang bertanggung jawab atas implementasi teknis, pengembangan fitur-fitur utama pada website, serta integrasi sistem agar selaras dengan konsep yang telah dirancang bersama oleh tim.
+                    Kerja Praktik ini berhasil diselesaikan berkat kerja sama solid kelompok yang beranggotakan Ahmad Rival, Raihan R.R, Silmi Nur Afifah, dan Tiaz Febia S. Dalam proyek ini, saya dipercaya memegang peran sebagai Web Developer. Tanggung jawab saya meliputi implementasi teknis, pengembangan fitur-fitur utama pada website, serta integrasi sistem agar selaras dengan konsep yang telah dirancang bersama oleh tim.
                 </p>
                 <div class="flex flex-wrap gap-2 mt-4">
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">PHP Native</span>
@@ -1180,7 +1128,7 @@
                     <img src="images/spkmaut.jpg" alt="Sistem Pendukung Keputusan" class="w-full h-full object-contain">
                 </div>
                 <p class="text-gray-700 font-body leading-relaxed mt-4 text-justify">
-                    Sistem Pendukung Keputusan (SPK) yang dirancang untuk mengoptimalkan proses evaluasi kinerja tenaga pendidik dan kependidikan di SMK Muhammadiyah 2 Kuningan menggunakan metode MAUT (Multi Attribute Utility Theory). Sistem ini berhasil mendigitalisasi metode penilaian konvensional yang sebelumnya berbasis kertas menjadi sistem digital yang terintegrasi, lebih efisien, dan mudah digunakan.
+                    Sistem Pendukung Keputusan (SPK) yang dirancang untuk mengoptimalkan proses evaluasi kinerja tenaga pendidik dan kependidikan di SMK Muhammadiyah 2 Kuningan. Sistem ini berhasil mendigitalisasi metode penilaian konvensional yang sebelumnya berbasis kertas menjadi sistem digital yang terintegrasi dan lebih efisien dan mudah digunakan.
                 </p>
                 <div class="flex flex-wrap gap-2 mt-4">
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">PHP Native</span>
@@ -1232,12 +1180,10 @@
 
     <!-- ===== JAVASCRIPT ===== -->
     <script>
-        // ===== MOBILE MENU TOGGLE =====
         document.getElementById('hamburger').addEventListener('click', function() {
             document.getElementById('navLinks').classList.toggle('open');
         });
 
-        // ===== ACTIVE LINK ON SCROLL =====
         const sections = document.querySelectorAll('.section');
         const navLinks = document.querySelectorAll('.nav-links a');
 
@@ -1249,7 +1195,6 @@
                     current = section.getAttribute('id');
                 }
             });
-
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === '#' + current) {
@@ -1258,14 +1203,12 @@
             });
         });
 
-        // ===== CLOSE MOBILE MENU ON LINK CLICK =====
         document.querySelectorAll('#navLinks a').forEach(link => {
             link.addEventListener('click', () => {
                 document.getElementById('navLinks').classList.remove('open');
             });
         });
 
-        // ===== SCROLL PROGRESS BAR =====
         window.addEventListener('scroll', function() {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -1273,7 +1216,6 @@
             document.getElementById('scrollProgress').style.width = scrolled + '%';
         });
 
-        // ===== FADE IN ON SCROLL =====
         const fadeElements = document.querySelectorAll('.fade-in');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1282,10 +1224,8 @@
                 }
             });
         }, { threshold: 0.2 });
-
         fadeElements.forEach(el => observer.observe(el));
 
-        // ===== MODAL FUNCTIONS =====
         function openModal(id) {
             document.getElementById(id).classList.remove('hidden');
             document.body.style.overflow = 'hidden';
@@ -1296,7 +1236,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // ===== CLOSE MODAL ON OUTSIDE CLICK =====
         document.querySelectorAll('.modal').forEach(modal => {
             modal.addEventListener('click', function(e) {
                 if (e.target === this) {
@@ -1306,7 +1245,6 @@
             });
         });
 
-        // ===== CLOSE MODAL WITH ESC KEY =====
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 document.querySelectorAll('.modal:not(.hidden)').forEach(modal => {
