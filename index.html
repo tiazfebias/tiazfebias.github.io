@@ -234,18 +234,82 @@
             letter-spacing: 0.3px;
         }
 
-        /* ===== PROJECT CARD ===== */
+        /* ============================================================
+                   PROJECT CARD DENGAN ANIMASI OUTLINE BERGERAK
+                   ============================================================ */
         .project-card {
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
+            position: relative;
             display: flex;
             flex-direction: column;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            /* Border gradient animasi menggunakan pseudo-element */
         }
+
+        /* Pseudo-element untuk outline animasi */
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 14px;
+            padding: 3px;
+            background: conic-gradient(from 0deg, 
+                #2d96ad, 
+                #e8e485, 
+                #2d96ad, 
+                #e8e485, 
+                #2d96ad
+            );
+            background-size: 300% 300%;
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: borderRotate 4s linear infinite;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        /* Tampilkan border saat hover */
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes borderRotate {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Efek hover tambahan */
         .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(45, 150, 173, 0.2);
-            border-color: var(--primary);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(45, 150, 173, 0.25);
         }
+
+        /* Pastikan konten di atas border */
+        .project-card .card-content {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
         .line-clamp-2 {
             display: -webkit-box;
             -webkit-line-clamp: 2;
@@ -288,7 +352,6 @@
             position: relative;
         }
 
-        /* --- GARIS TENGAH BUKU --- */
         .cv-book::before {
             content: '';
             position: absolute;
@@ -304,7 +367,6 @@
             box-shadow: 0 0 8px rgba(200, 190, 140, 0.3);
         }
 
-        /* --- KERTAS --- */
         .cv-page {
             background: #fefcf3;
             padding: 32px 26px 28px;
@@ -318,7 +380,6 @@
             overflow: visible;
         }
 
-        /* ---- LUBANG BINDER (3 lubang) ---- */
         .cv-page .binder-holes {
             position: absolute;
             left: 16px;
@@ -346,7 +407,6 @@
             box-shadow: inset 0 0 0 2px #fefcf3, 0 0 12px rgba(45, 150, 173, 0.3);
         }
 
-        /* ---- SOBEKAN DI BAWAH ---- */
         .cv-page .tear-effect {
             position: absolute;
             bottom: -6px;
@@ -368,7 +428,6 @@
             z-index: 1;
         }
 
-        /* ---- GARIS KERTAS (seperti buku catatan) ---- */
         .cv-page .paper-lines {
             position: absolute;
             top: 60px;
@@ -401,7 +460,6 @@
             border-radius: 2px;
         }
 
-        /* ---- PAPER CLIP (atas kiri) ---- */
         .cv-page .paper-clip {
             position: absolute;
             top: -10px;
@@ -425,7 +483,6 @@
             }
         }
 
-        /* ---- PAKU PAYUNG MERAH (atas kanan) ---- */
         .cv-page .pushpin {
             position: absolute;
             top: -8px;
@@ -449,7 +506,6 @@
             }
         }
 
-        /* ---- HOVER KERTAS ---- */
         .cv-page:first-child {
             border-radius: 4px 0 0 4px;
             border-right: none;
@@ -477,7 +533,6 @@
             border-color: var(--primary);
         }
 
-        /* ---- KONTEN KERTAS ---- */
         .cv-page .cv-icon {
             font-size: 2.2rem;
             position: relative;
@@ -670,6 +725,12 @@
             .project-card .btn-group {
                 flex-wrap: wrap !important;
             }
+
+            /* Border animasi di mobile tetap aktif */
+            .project-card::before {
+                opacity: 0.6;
+            }
+
             .cv-book {
                 flex-direction: column;
                 align-items: center;
@@ -844,101 +905,109 @@
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <!-- PROJECT 1 -->
-                    <div class="project-card bg-white rounded-xl shadow-md overflow-hidden fade-in" style="transition-delay: 0.1s;">
-                        <div class="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
-                            <img src="images/aptkdeka.jpg" alt="ApotekDekaMedika" class="w-full h-full object-contain">
-                        </div>
-                        <div class="p-4 flex flex-col flex-grow">
-                            <h4 class="font-bold text-gray-800 font-heading text-lg">ApotekDekaMedika</h4>
-                            <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">E-Commerce Apotek Sederhana</p>
-                            <div class="flex flex-wrap gap-1 mb-3">
-                                <span class="tech-badge text-xs px-2 py-1 rounded-full">PHP Native</span>
-                                <span class="tech-badge text-xs px-2 py-1 rounded-full">MySQL</span>
-                                <span class="tech-badge text-xs px-2 py-1 rounded-full">TCPDF</span>
-                                <span class="tech-badge text-xs px-2 py-1 rounded-full">HTML</span>
-                                <span class="tech-badge text-xs px-2 py-1 rounded-full">CSS</span>
-                                <span class="tech-badge text-xs px-2 py-1 rounded-full">JavaScript</span>
+                    <div class="project-card fade-in" style="transition-delay: 0.1s;">
+                        <div class="card-content">
+                            <div class="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
+                                <img src="images/aptkdeka.jpg" alt="ApotekDekaMedika" class="w-full h-full object-contain">
                             </div>
-                            <div class="flex items-center justify-between gap-2 mt-auto btn-group">
-                                <div class="flex items-center gap-2">
-                                    <a href="https://github.com/tiazfebias/ApotekDekaMedika" target="_blank" class="bg-gray-800 text-white text-[10px] px-2 py-1 rounded-lg hover:bg-gray-700 transition whitespace-nowrap">💻 GitHub</a>
-                                    <a href="https://drive.google.com/drive/folders/1b7rDfjeiY7L33sA-j8bDLkiPBlMKklk0?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-[10px] px-2 py-1 rounded-lg hover:bg-accent-dark transition whitespace-nowrap">📸 Drive</a>
+                            <div class="p-4 flex flex-col flex-grow">
+                                <h4 class="font-bold text-gray-800 font-heading text-lg">ApotekDekaMedika</h4>
+                                <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">E-Commerce Apotek Sederhana</p>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">PHP Native</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">MySQL</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">TCPDF</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">HTML</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">CSS</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">JavaScript</span>
                                 </div>
-                                <button onclick="openModal('project-0')" class="bg-primary text-white text-[10px] px-2 py-1 rounded-lg hover:bg-primary-dark transition whitespace-nowrap flex-shrink-0">🔍 Details</button>
+                                <div class="flex items-center justify-between gap-2 mt-auto btn-group">
+                                    <div class="flex items-center gap-2">
+                                        <a href="https://github.com/tiazfebias/ApotekDekaMedika" target="_blank" class="bg-gray-800 text-white text-[10px] px-2 py-1 rounded-lg hover:bg-gray-700 transition whitespace-nowrap">💻 GitHub</a>
+                                        <a href="https://drive.google.com/drive/folders/1b7rDfjeiY7L33sA-j8bDLkiPBlMKklk0?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-[10px] px-2 py-1 rounded-lg hover:bg-accent-dark transition whitespace-nowrap">📸 Drive</a>
+                                    </div>
+                                    <button onclick="openModal('project-0')" class="bg-primary text-white text-[10px] px-2 py-1 rounded-lg hover:bg-primary-dark transition whitespace-nowrap flex-shrink-0">🔍 Details</button>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- PROJECT 2 -->
-                    <div class="project-card bg-white rounded-xl shadow-md overflow-hidden fade-in" style="transition-delay: 0.2s;">
-                        <div class="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
-                            <img src="images/tailor.jpg" alt="SIM Parapatan Tailor" class="w-full h-full object-contain">
-                        </div>
-                        <div class="p-4 flex flex-col flex-grow">
-                            <h4 class="font-bold text-gray-800 font-heading text-lg">SIM Parapatan Tailor</h4>
-                            <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">Sistem Informasi Manajemen Tailor</p>
-                            <div class="flex flex-wrap gap-1 mb-3">
-                                <span class="tech-badge text-xs px-2 py-1 rounded-full">PHP Native</span>
-                                <span class="tech-badge text-xs px-2 py-1 rounded-full">MySQL</span>
-                                <span class="tech-badge text-xs px-2 py-1 rounded-full">TCPDF</span>
-                                <span class="tech-badge text-xs px-2 py-1 rounded-full">Bootstrap</span>
-                                <span class="tech-badge text-xs px-2 py-1 rounded-full">JavaScript</span>
+                    <div class="project-card fade-in" style="transition-delay: 0.2s;">
+                        <div class="card-content">
+                            <div class="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
+                                <img src="images/tailor.jpg" alt="SIM Parapatan Tailor" class="w-full h-full object-contain">
                             </div>
-                            <div class="flex items-center justify-between gap-2 mt-auto btn-group">
-                                <div class="flex items-center gap-2">
-                                    <a href="https://github.com/tiazfebias/parapatan_tailor" target="_blank" class="bg-gray-800 text-white text-[10px] px-2 py-1 rounded-lg hover:bg-gray-700 transition whitespace-nowrap">💻 GitHub</a>
-                                    <a href="https://drive.google.com/drive/folders/110d30HA3YfQvCuUnOSfUE1qS3e1vpTLW?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-[10px] px-2 py-1 rounded-lg hover:bg-accent-dark transition whitespace-nowrap">📸 Drive</a>
+                            <div class="p-4 flex flex-col flex-grow">
+                                <h4 class="font-bold text-gray-800 font-heading text-lg">SIM Parapatan Tailor</h4>
+                                <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">Sistem Informasi Manajemen Tailor</p>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">PHP Native</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">MySQL</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">TCPDF</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">Bootstrap</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">JavaScript</span>
                                 </div>
-                                <button onclick="openModal('project-1')" class="bg-primary text-white text-[10px] px-2 py-1 rounded-lg hover:bg-primary-dark transition whitespace-nowrap flex-shrink-0">🔍 Details</button>
+                                <div class="flex items-center justify-between gap-2 mt-auto btn-group">
+                                    <div class="flex items-center gap-2">
+                                        <a href="https://github.com/tiazfebias/parapatan_tailor" target="_blank" class="bg-gray-800 text-white text-[10px] px-2 py-1 rounded-lg hover:bg-gray-700 transition whitespace-nowrap">💻 GitHub</a>
+                                        <a href="https://drive.google.com/drive/folders/110d30HA3YfQvCuUnOSfUE1qS3e1vpTLW?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-[10px] px-2 py-1 rounded-lg hover:bg-accent-dark transition whitespace-nowrap">📸 Drive</a>
+                                    </div>
+                                    <button onclick="openModal('project-1')" class="bg-primary text-white text-[10px] px-2 py-1 rounded-lg hover:bg-primary-dark transition whitespace-nowrap flex-shrink-0">🔍 Details</button>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- PROJECT 3 -->
-                    <div class="project-card bg-white rounded-xl shadow-md overflow-hidden fade-in" style="transition-delay: 0.3s;">
-                        <div class="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
-                            <img src="images/spkmaut.jpg" alt="Sistem Pendukung Keputusan" class="w-full h-full object-contain">
-                        </div>
-                        <div class="p-4 flex flex-col flex-grow">
-                            <h4 class="font-bold text-gray-800 font-heading text-lg">Sistem Pendukung Keputusan</h4>
-                            <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">SPK dengan metode MAUT</p>
-                            <div class="flex flex-wrap gap-1 mb-3">
-                                <span class="tech-badge text-xs px-2 py-1 rounded-full">PHP Native</span>
-                                <span class="tech-badge text-xs px-2 py-1 rounded-full">MySQL</span>
-                                <span class="tech-badge text-xs px-2 py-1 rounded-full">Bootstrap</span>
-                                <span class="tech-badge text-xs px-2 py-1 rounded-full">JavaScript</span>
-                                <span class="tech-badge text-xs px-2 py-1 rounded-full">TCPDF</span>
+                    <div class="project-card fade-in" style="transition-delay: 0.3s;">
+                        <div class="card-content">
+                            <div class="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
+                                <img src="images/spkmaut.jpg" alt="Sistem Pendukung Keputusan" class="w-full h-full object-contain">
                             </div>
-                            <div class="flex items-center justify-between gap-2 mt-auto btn-group">
-                                <div class="flex items-center gap-2">
-                                    <a href="https://github.com/tiazfebias/SPK_MAUT" target="_blank" class="bg-gray-800 text-white text-[10px] px-2 py-1 rounded-lg hover:bg-gray-700 transition whitespace-nowrap">💻 GitHub</a>
-                                    <a href="https://drive.google.com/drive/folders/1aG4htNd9peCSDB-qWTATvhGGueVFDMtw?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-[10px] px-2 py-1 rounded-lg hover:bg-accent-dark transition whitespace-nowrap">📸 Drive</a>
+                            <div class="p-4 flex flex-col flex-grow">
+                                <h4 class="font-bold text-gray-800 font-heading text-lg">Sistem Pendukung Keputusan</h4>
+                                <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">SPK dengan metode MAUT</p>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">PHP Native</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">MySQL</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">Bootstrap</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">JavaScript</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">TCPDF</span>
                                 </div>
-                                <button onclick="openModal('project-2')" class="bg-primary text-white text-[10px] px-2 py-1 rounded-lg hover:bg-primary-dark transition whitespace-nowrap flex-shrink-0">🔍 Details</button>
+                                <div class="flex items-center justify-between gap-2 mt-auto btn-group">
+                                    <div class="flex items-center gap-2">
+                                        <a href="https://github.com/tiazfebias/SPK_MAUT" target="_blank" class="bg-gray-800 text-white text-[10px] px-2 py-1 rounded-lg hover:bg-gray-700 transition whitespace-nowrap">💻 GitHub</a>
+                                        <a href="https://drive.google.com/drive/folders/1aG4htNd9peCSDB-qWTATvhGGueVFDMtw?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-[10px] px-2 py-1 rounded-lg hover:bg-accent-dark transition whitespace-nowrap">📸 Drive</a>
+                                    </div>
+                                    <button onclick="openModal('project-2')" class="bg-primary text-white text-[10px] px-2 py-1 rounded-lg hover:bg-primary-dark transition whitespace-nowrap flex-shrink-0">🔍 Details</button>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- PROJECT 4 -->
-                    <div class="project-card bg-white rounded-xl shadow-md overflow-hidden fade-in" style="transition-delay: 0.4s;">
-                        <div class="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
-                            <img src="images/sertifikat.jpg" alt="Sertifikat & Pelatihan" class="w-full h-full object-contain">
-                        </div>
-                        <div class="p-4 flex flex-col flex-grow">
-                            <h4 class="font-bold text-gray-800 font-heading text-lg">Sertifikat &amp; Pelatihan</h4>
-                            <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">Kumpulan sertifikat kompetensi</p>
-                            <div class="flex flex-wrap gap-1 mb-3">
-                                <span class="tech-badge text-xs px-2 py-1 rounded-full">Sertifikat</span>
-                                <span class="tech-badge text-xs px-2 py-1 rounded-full">Kompetensi</span>
-                                <span class="tech-badge text-xs px-2 py-1 rounded-full">Database</span>
-                                <span class="tech-badge text-xs px-2 py-1 rounded-full">Akuntansi</span>
-                                <span class="tech-badge text-xs px-2 py-1 rounded-full">Microsoft Office</span>
+                    <div class="project-card fade-in" style="transition-delay: 0.4s;">
+                        <div class="card-content">
+                            <div class="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
+                                <img src="images/sertifikat.jpg" alt="Sertifikat & Pelatihan" class="w-full h-full object-contain">
                             </div>
-                            <div class="flex items-center justify-between gap-2 mt-auto btn-group">
-                                <div class="flex items-center gap-2">
-                                    <a href="https://drive.google.com/drive/folders/1XJUTzfkVVFCUPvy7qpTHwH24kG1nWC_n?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-[10px] px-2 py-1 rounded-lg hover:bg-accent-dark transition whitespace-nowrap">📸 Drive</a>
+                            <div class="p-4 flex flex-col flex-grow">
+                                <h4 class="font-bold text-gray-800 font-heading text-lg">Sertifikat &amp; Pelatihan</h4>
+                                <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">Kumpulan sertifikat kompetensi</p>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">Sertifikat</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">Kompetensi</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">Database</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">Akuntansi</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">Microsoft Office</span>
                                 </div>
-                                <button onclick="openModal('project-3')" class="bg-primary text-white text-[10px] px-2 py-1 rounded-lg hover:bg-primary-dark transition whitespace-nowrap flex-shrink-0">🔍 Details</button>
+                                <div class="flex items-center justify-between gap-2 mt-auto btn-group">
+                                    <div class="flex items-center gap-2">
+                                        <a href="https://drive.google.com/drive/folders/1XJUTzfkVVFCUPvy7qpTHwH24kG1nWC_n?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-[10px] px-2 py-1 rounded-lg hover:bg-accent-dark transition whitespace-nowrap">📸 Drive</a>
+                                    </div>
+                                    <button onclick="openModal('project-3')" class="bg-primary text-white text-[10px] px-2 py-1 rounded-lg hover:bg-primary-dark transition whitespace-nowrap flex-shrink-0">🔍 Details</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1040,7 +1109,7 @@
         </div>
     </footer>
 
-    <!-- ===== MODALS dengan Tema Kertas & Deskripsi yang Diperbaiki ===== -->
+    <!-- ===== MODALS dengan Tema Kertas ===== -->
 
     <!-- Modal ApotekDekaMedika -->
     <div id="project-0" class="modal hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
