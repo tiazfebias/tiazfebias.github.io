@@ -542,6 +542,125 @@
             box-shadow: 0 6px 20px rgba(45, 150, 173, 0.3);
         }
 
+        /* ============================================================
+                   MODAL KERTAS UNTUK DETAILS PROJECT
+                   ============================================================ */
+        .modal-paper {
+            background: #fefcf3;
+            padding: 32px 30px 28px;
+            border-radius: 6px;
+            position: relative;
+            border: 1px solid #e0dcc8;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            overflow: visible;
+            max-width: 640px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        /* Garis kertas di modal */
+        .modal-paper .modal-lines {
+            position: absolute;
+            top: 50px;
+            left: 35px;
+            right: 20px;
+            bottom: 40px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.25;
+            background:
+                repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 26px,
+                    rgba(180, 170, 140, 0.2) 26px,
+                    rgba(180, 170, 140, 0.2) 27px);
+            border-radius: 2px;
+        }
+
+        /* Lubang binder di modal */
+        .modal-paper .modal-holes {
+            position: absolute;
+            left: 12px;
+            top: 25%;
+            bottom: 25%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .modal-paper .modal-holes span {
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #fefcf3;
+            border: 2px solid #c8c0a8;
+            box-shadow: inset 0 0 0 2px #fefcf3, 0 2px 6px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Efek sobek di modal */
+        .modal-paper .modal-tear {
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 14px;
+            background:
+                radial-gradient(ellipse at 8% 100%, transparent 60%, #fefcf3 61%),
+                radial-gradient(ellipse at 22% 100%, transparent 50%, #fefcf3 51%),
+                radial-gradient(ellipse at 38% 100%, transparent 65%, #fefcf3 66%),
+                radial-gradient(ellipse at 55% 100%, transparent 45%, #fefcf3 46%),
+                radial-gradient(ellipse at 72% 100%, transparent 60%, #fefcf3 61%),
+                radial-gradient(ellipse at 88% 100%, transparent 50%, #fefcf3 51%),
+                radial-gradient(ellipse at 97% 100%, transparent 65%, #fefcf3 66%);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Paper clip di modal */
+        .modal-paper .modal-clip {
+            position: absolute;
+            top: -8px;
+            left: 24px;
+            font-size: 1.6rem;
+            color: #a0a0b0;
+            transform: rotate(-12deg) scaleX(-1);
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
+            z-index: 10;
+            animation: clipSwing 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        /* Paku payung di modal */
+        .modal-paper .modal-pin {
+            position: absolute;
+            top: -6px;
+            right: 24px;
+            font-size: 1.8rem;
+            color: #d44c4c;
+            transform: rotate(18deg);
+            filter: drop-shadow(0 4px 10px rgba(200, 50, 50, 0.25));
+            z-index: 10;
+            animation: pinPulse 2.5s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        /* Konten modal dengan rata kiri-kanan */
+        .modal-paper .modal-content {
+            position: relative;
+            z-index: 3;
+        }
+        .modal-paper .modal-content p {
+            text-align: justify;
+            text-justify: inter-word;
+            hyphens: auto;
+        }
+
         /* ---- RESPONSIVE CV ---- */
         @media (max-width: 768px) {
             .nav-links {
@@ -610,6 +729,36 @@
                 left: 28px;
                 right: 10px;
             }
+
+            /* Modal responsif */
+            .modal-paper {
+                margin: 10px;
+                padding: 24px 18px 20px;
+                max-height: 90vh;
+            }
+            .modal-paper .modal-holes {
+                left: 6px;
+            }
+            .modal-paper .modal-holes span {
+                width: 8px;
+                height: 8px;
+            }
+            .modal-paper .modal-lines {
+                left: 22px;
+                right: 10px;
+                top: 40px;
+                bottom: 30px;
+            }
+            .modal-paper .modal-clip {
+                left: 14px;
+                font-size: 1.3rem;
+                top: -6px;
+            }
+            .modal-paper .modal-pin {
+                right: 14px;
+                font-size: 1.5rem;
+                top: -4px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -675,7 +824,7 @@
             </div>
         </section>
 
-        <!-- ===== SECTION 2: ABOUT ===== -->
+        <!-- ===== SECTION 2: ABOUT (Teks Rata Tengah) ===== -->
         <section id="about" class="section section-alt">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 <div class="text-center mb-12">
@@ -688,12 +837,13 @@
                             <img src="images/fotobebas.png" alt="Foto Tiaz Febia Sakes" class="w-full h-full object-cover">
                         </div>
                     </div>
-                    <div class="flex-1 text-center md:text-left">
+                    <div class="flex-1 text-center">
                         <h3 class="text-2xl font-bold text-gray-800 mb-4 font-heading">Tiaz Febia Sakes</h3>
-                        <p class="text-gray-700 mb-4 leading-relaxed font-body">
+                        <!-- Teks diubah menjadi rata tengah -->
+                        <p class="text-gray-700 mb-4 leading-relaxed font-body text-center">
                             Saya adalah seorang pengembang web junior yang berdedikasi dalam merancang dan membangun program web yang fungsional, efisien, dan siap pakai. Saya terbiasa memanfaatkan teknologi modern secara produktif untuk mempercepat proses pengembangan tanpa mengurangi kualitas sistem yang dibangun.
                         </p>
-                        <div class="flex flex-wrap justify-center md:justify-start gap-3">
+                        <div class="flex flex-wrap justify-center gap-3">
                             <span class="tech-badge px-4 py-2 rounded-full text-sm">PHP</span>
                             <span class="tech-badge px-4 py-2 rounded-full text-sm">Laravel</span>
                             <span class="tech-badge px-4 py-2 rounded-full text-sm">MySQL</span>
@@ -877,7 +1027,7 @@
             </div>
         </section>
 
-        <!-- ===== SECTION 5: RESUME (CV) dengan Animasi & Dekorasi ===== -->
+        <!-- ===== SECTION 5: RESUME (CV) ===== -->
         <section id="resume" class="section">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 <div class="text-center mb-12">
@@ -886,35 +1036,14 @@
                     <p class="text-gray-600 mt-4 font-body">Unduh CV saya dalam dua versi</p>
                 </div>
 
-                <!-- CV: 2 Lembar Kertas dengan Animasi -->
                 <div class="cv-book fade-in">
-
                     <!-- CV Visual - Kiri -->
                     <div class="cv-page">
-                        <!-- Lubang binder -->
-                        <div class="binder-holes">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-
-                        <!-- Paper clip (atas kiri) -->
-                        <div class="paper-clip">
-                            <i class="fas fa-paperclip"></i>
-                        </div>
-
-                        <!-- Paku payung merah (atas kanan) -->
-                        <div class="pushpin">
-                            <i class="fas fa-thumbtack"></i>
-                        </div>
-
-                        <!-- Garis kertas -->
+                        <div class="binder-holes"><span></span><span></span><span></span></div>
+                        <div class="paper-clip"><i class="fas fa-paperclip"></i></div>
+                        <div class="pushpin"><i class="fas fa-thumbtack"></i></div>
                         <div class="paper-lines"></div>
-
-                        <!-- Efek sobek di bawah -->
                         <div class="tear-effect"></div>
-
-                        <!-- Konten -->
                         <div class="flex items-center justify-between mb-2" style="position:relative;z-index:3;">
                             <span class="cv-icon">🎨</span>
                             <span class="cv-badge">PDF</span>
@@ -923,38 +1052,17 @@
                         <div class="cv-desc">CV dengan desain menarik &amp; kreatif</div>
                         <div class="cv-size">Ukuran: ~500 KB</div>
                         <div class="mt-4">
-                            <a href="CV_Visual_Tiaz.pdf" download class="btn-download">
-                                ⬇️ Download CV Visual
-                            </a>
+                            <a href="CV_Visual_Tiaz.pdf" download class="btn-download">⬇️ Download CV Visual</a>
                         </div>
                     </div>
 
                     <!-- CV ATS - Kanan -->
                     <div class="cv-page">
-                        <!-- Lubang binder -->
-                        <div class="binder-holes">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-
-                        <!-- Paper clip (atas kiri) -->
-                        <div class="paper-clip">
-                            <i class="fas fa-paperclip"></i>
-                        </div>
-
-                        <!-- Paku payung merah (atas kanan) -->
-                        <div class="pushpin">
-                            <i class="fas fa-thumbtack"></i>
-                        </div>
-
-                        <!-- Garis kertas -->
+                        <div class="binder-holes"><span></span><span></span><span></span></div>
+                        <div class="paper-clip"><i class="fas fa-paperclip"></i></div>
+                        <div class="pushpin"><i class="fas fa-thumbtack"></i></div>
                         <div class="paper-lines"></div>
-
-                        <!-- Efek sobek di bawah -->
                         <div class="tear-effect"></div>
-
-                        <!-- Konten -->
                         <div class="flex items-center justify-between mb-2" style="position:relative;z-index:3;">
                             <span class="cv-icon">📋</span>
                             <span class="cv-badge">PDF</span>
@@ -963,12 +1071,9 @@
                         <div class="cv-desc">CV standar ramah ATS</div>
                         <div class="cv-size">Ukuran: ~300 KB</div>
                         <div class="mt-4">
-                            <a href="CV_ATS_Tiaz.pdf" download class="btn-download">
-                                ⬇️ Download CV ATS
-                            </a>
+                            <a href="CV_ATS_Tiaz.pdf" download class="btn-download">⬇️ Download CV ATS</a>
                         </div>
                     </div>
-
                 </div>
 
                 <p class="text-xs text-gray-500 text-center mt-6 font-body">* File dalam format PDF</p>
@@ -984,103 +1089,143 @@
         </div>
     </footer>
 
-    <!-- ===== MODALS ===== -->
+    <!-- ===== MODALS dengan Tema Kertas ===== -->
+
     <!-- Modal ApotekDekaMedika -->
     <div id="project-0" class="modal hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6 shadow-2xl animate-modal">
-            <div class="flex justify-between items-start mb-4">
-                <h3 class="text-2xl font-bold text-gray-800 font-heading">ApotekDekaMedika</h3>
-                <button onclick="closeModal('project-0')" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
-            </div>
-            <div class="w-full h-64 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden">
-                <img src="images/aptkdeka.jpg" alt="ApotekDekaMedika" class="w-full h-full object-contain">
-            </div>
-            <p class="text-gray-700 font-body leading-relaxed mt-4">Aplikasi E-Commerce Apotek Sederhana yang mendigitalisasi layanan farmasi konvensional ke dalam platform web yang responsif dan mudah diakses.</p>
-            <div class="flex flex-wrap gap-2 mt-4">
-                <span class="tech-badge text-xs px-3 py-1 rounded-full">PHP Native</span>
-                <span class="tech-badge text-xs px-3 py-1 rounded-full">MySQL</span>
-                <span class="tech-badge text-xs px-3 py-1 rounded-full">TCPDF</span>
-                <span class="tech-badge text-xs px-3 py-1 rounded-full">HTML</span>
-                <span class="tech-badge text-xs px-3 py-1 rounded-full">CSS</span>
-                <span class="tech-badge text-xs px-3 py-1 rounded-full">JavaScript</span>
-            </div>
-            <div class="flex flex-wrap gap-3 mt-6">
-                <a href="https://github.com/tiazfebias/ApotekDekaMedika" target="_blank" class="bg-gray-800 text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-700 transition">💻 GitHub</a>
-                <a href="https://drive.google.com/drive/folders/1b7rDfjeiY7L33sA-j8bDLkiPBlMKklk0?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-sm px-4 py-2 rounded-lg hover:bg-accent-dark transition">📸 Drive</a>
+        <div class="modal-paper animate-modal">
+            <!-- Dekorasi kertas -->
+            <div class="modal-holes"><span></span><span></span><span></span></div>
+            <div class="modal-clip"><i class="fas fa-paperclip"></i></div>
+            <div class="modal-pin"><i class="fas fa-thumbtack"></i></div>
+            <div class="modal-lines"></div>
+            <div class="modal-tear"></div>
+
+            <!-- Konten modal dengan rata kiri-kanan -->
+            <div class="modal-content">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-2xl font-bold text-gray-800 font-heading">ApotekDekaMedika</h3>
+                    <button onclick="closeModal('project-0')" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
+                </div>
+                <div class="w-full h-56 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden">
+                    <img src="images/aptkdeka.jpg" alt="ApotekDekaMedika" class="w-full h-full object-contain">
+                </div>
+                <p class="text-gray-700 font-body leading-relaxed mt-4 text-justify">
+                    Aplikasi E-Commerce Apotek Sederhana yang mendigitalisasi layanan farmasi konvensional ke dalam platform web yang responsif dan mudah diakses. Aplikasi ini dilengkapi dengan fitur pengelolaan data obat, konsultasi online dengan apoteker, upload resep, serta kelola riwayat transaksi dan laporan penjualan.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">PHP Native</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">MySQL</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">TCPDF</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">HTML</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">CSS</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">JavaScript</span>
+                </div>
+                <div class="flex flex-wrap gap-3 mt-6">
+                    <a href="https://github.com/tiazfebias/ApotekDekaMedika" target="_blank" class="bg-gray-800 text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-700 transition">💻 GitHub</a>
+                    <a href="https://drive.google.com/drive/folders/1b7rDfjeiY7L33sA-j8bDLkiPBlMKklk0?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-sm px-4 py-2 rounded-lg hover:bg-accent-dark transition">📸 Drive</a>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Modal SIM Parapatan Tailor -->
     <div id="project-1" class="modal hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6 shadow-2xl animate-modal">
-            <div class="flex justify-between items-start mb-4">
-                <h3 class="text-2xl font-bold text-gray-800 font-heading">SIM Parapatan Tailor</h3>
-                <button onclick="closeModal('project-1')" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
-            </div>
-            <div class="w-full h-64 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden">
-                <img src="images/tailor.jpg" alt="SIM Parapatan Tailor" class="w-full h-full object-contain">
-            </div>
-            <p class="text-gray-700 font-body leading-relaxed mt-4">Proyek Kerja Praktik yang dikerjakan bersama tim. Saya bertindak sebagai Web Developer yang bertanggung jawab atas implementasi teknis dan pengembangan fitur.</p>
-            <div class="flex flex-wrap gap-2 mt-4">
-                <span class="tech-badge text-xs px-3 py-1 rounded-full">PHP Native</span>
-                <span class="tech-badge text-xs px-3 py-1 rounded-full">MySQL</span>
-                <span class="tech-badge text-xs px-3 py-1 rounded-full">TCPDF</span>
-                <span class="tech-badge text-xs px-3 py-1 rounded-full">Bootstrap</span>
-                <span class="tech-badge text-xs px-3 py-1 rounded-full">JavaScript</span>
-            </div>
-            <div class="flex flex-wrap gap-3 mt-6">
-                <a href="https://github.com/tiazfebias/parapatan_tailor" target="_blank" class="bg-gray-800 text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-700 transition">💻 GitHub</a>
-                <a href="https://drive.google.com/drive/folders/110d30HA3YfQvCuUnOSfUE1qS3e1vpTLW?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-sm px-4 py-2 rounded-lg hover:bg-accent-dark transition">📸 Drive</a>
+        <div class="modal-paper animate-modal">
+            <div class="modal-holes"><span></span><span></span><span></span></div>
+            <div class="modal-clip"><i class="fas fa-paperclip"></i></div>
+            <div class="modal-pin"><i class="fas fa-thumbtack"></i></div>
+            <div class="modal-lines"></div>
+            <div class="modal-tear"></div>
+            <div class="modal-content">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-2xl font-bold text-gray-800 font-heading">SIM Parapatan Tailor</h3>
+                    <button onclick="closeModal('project-1')" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
+                </div>
+                <div class="w-full h-56 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden">
+                    <img src="images/tailor.jpg" alt="SIM Parapatan Tailor" class="w-full h-full object-contain">
+                </div>
+                <p class="text-gray-700 font-body leading-relaxed mt-4 text-justify">
+                    Proyek Kerja Praktik yang dikerjakan bersama tim beranggotakan Ahmad Rival, Raihan R.R, Silmi Nur Afifah, dan Tiaz Febia S. Saya bertindak sebagai Web Developer yang bertanggung jawab atas implementasi teknis, pengembangan fitur-fitur utama pada website, serta integrasi sistem agar selaras dengan konsep yang telah dirancang bersama oleh tim.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">PHP Native</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">MySQL</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">TCPDF</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">Bootstrap</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">JavaScript</span>
+                </div>
+                <div class="flex flex-wrap gap-3 mt-6">
+                    <a href="https://github.com/tiazfebias/parapatan_tailor" target="_blank" class="bg-gray-800 text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-700 transition">💻 GitHub</a>
+                    <a href="https://drive.google.com/drive/folders/110d30HA3YfQvCuUnOSfUE1qS3e1vpTLW?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-sm px-4 py-2 rounded-lg hover:bg-accent-dark transition">📸 Drive</a>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Modal Sistem Pendukung Keputusan -->
     <div id="project-2" class="modal hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6 shadow-2xl animate-modal">
-            <div class="flex justify-between items-start mb-4">
-                <h3 class="text-2xl font-bold text-gray-800 font-heading">Sistem Pendukung Keputusan</h3>
-                <button onclick="closeModal('project-2')" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
-            </div>
-            <div class="w-full h-64 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden">
-                <img src="images/spkmaut.jpg" alt="Sistem Pendukung Keputusan" class="w-full h-full object-contain">
-            </div>
-            <p class="text-gray-700 font-body leading-relaxed mt-4">SPK untuk evaluasi kinerja tenaga pendidik di SMK Muhammadiyah 2 Kuningan menggunakan metode MAUT.</p>
-            <div class="flex flex-wrap gap-2 mt-4">
-                <span class="tech-badge text-xs px-3 py-1 rounded-full">PHP Native</span>
-                <span class="tech-badge text-xs px-3 py-1 rounded-full">MySQL</span>
-                <span class="tech-badge text-xs px-3 py-1 rounded-full">Bootstrap</span>
-                <span class="tech-badge text-xs px-3 py-1 rounded-full">JavaScript</span>
-                <span class="tech-badge text-xs px-3 py-1 rounded-full">TCPDF</span>
-            </div>
-            <div class="flex flex-wrap gap-3 mt-6">
-                <a href="https://github.com/tiazfebias/SPK_MAUT" target="_blank" class="bg-gray-800 text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-700 transition">💻 GitHub</a>
-                <a href="https://drive.google.com/drive/folders/1aG4htNd9peCSDB-qWTATvhGGueVFDMtw?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-sm px-4 py-2 rounded-lg hover:bg-accent-dark transition">📸 Drive</a>
+        <div class="modal-paper animate-modal">
+            <div class="modal-holes"><span></span><span></span><span></span></div>
+            <div class="modal-clip"><i class="fas fa-paperclip"></i></div>
+            <div class="modal-pin"><i class="fas fa-thumbtack"></i></div>
+            <div class="modal-lines"></div>
+            <div class="modal-tear"></div>
+            <div class="modal-content">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-2xl font-bold text-gray-800 font-heading">Sistem Pendukung Keputusan</h3>
+                    <button onclick="closeModal('project-2')" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
+                </div>
+                <div class="w-full h-56 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden">
+                    <img src="images/spkmaut.jpg" alt="Sistem Pendukung Keputusan" class="w-full h-full object-contain">
+                </div>
+                <p class="text-gray-700 font-body leading-relaxed mt-4 text-justify">
+                    Sistem Pendukung Keputusan (SPK) yang dirancang untuk mengoptimalkan proses evaluasi kinerja tenaga pendidik dan kependidikan di SMK Muhammadiyah 2 Kuningan menggunakan metode MAUT (Multi Attribute Utility Theory). Sistem ini berhasil mendigitalisasi metode penilaian konvensional yang sebelumnya berbasis kertas menjadi sistem digital yang terintegrasi, lebih efisien, dan mudah digunakan.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">PHP Native</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">MySQL</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">Bootstrap</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">JavaScript</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">TCPDF</span>
+                </div>
+                <div class="flex flex-wrap gap-3 mt-6">
+                    <a href="https://github.com/tiazfebias/SPK_MAUT" target="_blank" class="bg-gray-800 text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-700 transition">💻 GitHub</a>
+                    <a href="https://drive.google.com/drive/folders/1aG4htNd9peCSDB-qWTATvhGGueVFDMtw?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-sm px-4 py-2 rounded-lg hover:bg-accent-dark transition">📸 Drive</a>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Modal Sertifikat & Pelatihan -->
     <div id="project-3" class="modal hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6 shadow-2xl animate-modal">
-            <div class="flex justify-between items-start mb-4">
-                <h3 class="text-2xl font-bold text-gray-800 font-heading">Sertifikat &amp; Pelatihan</h3>
-                <button onclick="closeModal('project-3')" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
-            </div>
-            <div class="w-full h-64 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden">
-                <img src="images/sertifikat.jpg" alt="Sertifikat & Pelatihan" class="w-full h-full object-contain">
-            </div>
-            <p class="text-gray-700 font-body leading-relaxed mt-4">Kumpulan sertifikat kompetensi: IT Specialist Database, Komputer Akuntansi, dan Microsoft Office.</p>
-            <div class="flex flex-wrap gap-2 mt-4">
-                <span class="tech-badge text-xs px-3 py-1 rounded-full">Sertifikat</span>
-                <span class="tech-badge text-xs px-3 py-1 rounded-full">Kompetensi</span>
-                <span class="tech-badge text-xs px-3 py-1 rounded-full">Database</span>
-                <span class="tech-badge text-xs px-3 py-1 rounded-full">Akuntansi</span>
-                <span class="tech-badge text-xs px-3 py-1 rounded-full">Microsoft Office</span>
-            </div>
-            <div class="flex flex-wrap gap-3 mt-6">
-                <a href="https://drive.google.com/drive/folders/1XJUTzfkVVFCUPvy7qpTHwH24kG1nWC_n?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-sm px-4 py-2 rounded-lg hover:bg-accent-dark transition">📸 Drive</a>
+        <div class="modal-paper animate-modal">
+            <div class="modal-holes"><span></span><span></span><span></span></div>
+            <div class="modal-clip"><i class="fas fa-paperclip"></i></div>
+            <div class="modal-pin"><i class="fas fa-thumbtack"></i></div>
+            <div class="modal-lines"></div>
+            <div class="modal-tear"></div>
+            <div class="modal-content">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-2xl font-bold text-gray-800 font-heading">Sertifikat &amp; Pelatihan</h3>
+                    <button onclick="closeModal('project-3')" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
+                </div>
+                <div class="w-full h-56 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden">
+                    <img src="images/sertifikat.jpg" alt="Sertifikat & Pelatihan" class="w-full h-full object-contain">
+                </div>
+                <p class="text-gray-700 font-body leading-relaxed mt-4 text-justify">
+                    Kumpulan sertifikat kompetensi yang saya peroleh selama menempuh pendidikan dan pelatihan, meliputi Sertifikat IT Specialist Database, Sertifikat Komputer Akuntansi, dan Sertifikat Microsoft Office Specialist. Sertifikat-sertifikat ini menjadi bukti kompetensi saya dalam bidang teknologi informasi dan pengolahan data.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">Sertifikat</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">Kompetensi</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">Database</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">Akuntansi</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">Microsoft Office</span>
+                </div>
+                <div class="flex flex-wrap gap-3 mt-6">
+                    <a href="https://drive.google.com/drive/folders/1XJUTzfkVVFCUPvy7qpTHwH24kG1nWC_n?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-sm px-4 py-2 rounded-lg hover:bg-accent-dark transition">📸 Drive</a>
+                </div>
             </div>
         </div>
     </div>
