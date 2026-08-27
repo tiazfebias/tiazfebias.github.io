@@ -235,7 +235,7 @@
         }
 
         /* ============================================================
-                   PROJECT CARD DENGAN ANIMASI OUTLINE BERGERAK
+                   PROJECT CARD DENGAN OUTLINE KUNING PERMANEN
                    ============================================================ */
         .project-card {
             position: relative;
@@ -245,51 +245,24 @@
             border-radius: 12px;
             overflow: hidden;
             transition: all 0.3s ease;
-            /* Border gradient animasi menggunakan pseudo-element */
         }
 
-        /* Pseudo-element untuk outline animasi */
+        /* Outline permanen warna kuning */
         .project-card::before {
             content: '';
             position: absolute;
             inset: -3px;
             border-radius: 14px;
             padding: 3px;
-            background: conic-gradient(from 0deg, 
-                #2d96ad, 
-                #e8e485, 
-                #2d96ad, 
-                #e8e485, 
-                #2d96ad
-            );
-            background-size: 300% 300%;
+            background: #e8e485;
             -webkit-mask: 
                 linear-gradient(#fff 0 0) content-box, 
                 linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
-            animation: borderRotate 4s linear infinite;
             z-index: 0;
             pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        /* Tampilkan border saat hover */
-        .project-card:hover::before {
             opacity: 1;
-        }
-
-        @keyframes borderRotate {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
         }
 
         /* Efek hover tambahan */
@@ -298,7 +271,7 @@
             box-shadow: 0 25px 50px rgba(45, 150, 173, 0.25);
         }
 
-        /* Pastikan konten di atas border */
+        /* Pastikan konten di atas outline */
         .project-card .card-content {
             position: relative;
             z-index: 1;
@@ -474,8 +447,7 @@
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         @keyframes clipSwing {
-            0%,
-            100% {
+            0%, 100% {
                 transform: rotate(-15deg) scaleX(-1) scale(1);
             }
             50% {
@@ -497,8 +469,7 @@
             text-shadow: 0 2px 6px rgba(200, 50, 50, 0.2);
         }
         @keyframes pinPulse {
-            0%,
-            100% {
+            0%, 100% {
                 transform: rotate(20deg) scale(1);
             }
             50% {
@@ -724,11 +695,6 @@
             }
             .project-card .btn-group {
                 flex-wrap: wrap !important;
-            }
-
-            /* Border animasi di mobile tetap aktif */
-            .project-card::before {
-                opacity: 0.6;
             }
 
             .cv-book {
