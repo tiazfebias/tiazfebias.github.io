@@ -272,6 +272,72 @@
             background-color: #f8f9fa;
         }
 
+        /* ===== CV CARD STYLE ===== */
+        .cv-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            padding: 24px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e8ecf0;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+        .cv-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        .cv-card .cv-icon {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+        }
+        .cv-card .cv-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+        .cv-card .cv-badge {
+            background: var(--primary);
+            color: white;
+            font-size: 0.65rem;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        .cv-card .cv-desc {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin: 6px 0 10px;
+        }
+        .cv-card .cv-size {
+            font-size: 0.7rem;
+            color: #999;
+        }
+        .cv-card .btn-download {
+            background: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+        .cv-card .btn-download:hover {
+            background: var(--primary-dark);
+            transform: scale(1.03);
+        }
+
+        /* ===== CV CONTAINER ===== */
+        .cv-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 10px 0;
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .nav-links {
@@ -291,6 +357,13 @@
             .section { padding: 80px 20px; }
             .project-card .btn-group {
                 flex-wrap: wrap !important;
+            }
+            .cv-card {
+                max-width: 260px;
+                padding: 20px;
+            }
+            .cv-container {
+                gap: 20px;
             }
         }
     </style>
@@ -363,7 +436,8 @@
                     <span class="tech-badge px-4 py-2 rounded-full text-sm">Laravel</span>
                     <span class="tech-badge px-4 py-2 rounded-full text-sm">MySQL</span>
                     <span class="tech-badge px-4 py-2 rounded-full text-sm">JavaScript</span>
-                    <span class="tech-badge px-4 py-2 rounded-full text-sm">Tailwind CSS</span>
+                    <span class="tech-badge px-4 py-2 rounded-full text-sm">CSS</span>
+                    <span class="tech-badge px-4 py-2 rounded-full text-sm">Bootstrap</span>
                 </div>
             </div>
         </div>
@@ -557,44 +631,35 @@
             <p class="text-gray-600 mt-4 font-body">Unduh CV saya dalam dua versi</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 fade-in">
-            <!-- CV Visual -->
-            <div class="bg-accent rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
-                <div class="p-6 border-b border-gray-200">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-xl font-bold text-gray-800 font-heading">🎨 CV Visual</h3>
-                        <span class="tech-badge px-3 py-1 rounded-full text-sm">PDF</span>
-                    </div>
-                    <div class="bg-gray-100 rounded-lg p-8 text-center border-2 border-dashed border-primary/30">
-                        <p class="text-4xl mb-2">📄</p>
-                        <p class="text-gray-600 font-body">CV Visual</p>
-                        <p class="text-sm text-gray-400 font-body">Ukuran: ~500 KB</p>
-                    </div>
+        <!-- CV Container: 2 lembar kertas terbuka -->
+        <div class="cv-container fade-in">
+            <!-- CV Visual - Kiri -->
+            <div class="cv-card" style="transform: perspective(1000px) rotateY(-2deg);">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="cv-icon">🎨</span>
+                    <span class="cv-badge">PDF</span>
                 </div>
-                <div class="p-6 bg-gray-50 text-center">
-                    <a href="CV_Visual_Tiaz.pdf" download 
-                       class="btn-primary text-white px-6 py-3 rounded-full font-medium inline-block shadow-lg shadow-primary/30 hover:scale-105 transition">
+                <div class="cv-title">CV Visual</div>
+                <div class="cv-desc">CV dengan desain menarik</div>
+                <div class="cv-size">Ukuran: ~500 KB</div>
+                <div class="mt-4">
+                    <a href="CV_Visual_Tiaz.pdf" download class="btn-download">
                         ⬇️ Download CV Visual
                     </a>
                 </div>
             </div>
 
-            <!-- CV ATS -->
-            <div class="bg-accent rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
-                <div class="p-6 border-b border-gray-200">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-xl font-bold text-gray-800 font-heading">📋 CV ATS</h3>
-                        <span class="tech-badge px-3 py-1 rounded-full text-sm">PDF</span>
-                    </div>
-                    <div class="bg-gray-100 rounded-lg p-8 text-center border-2 border-dashed border-primary/30">
-                        <p class="text-4xl mb-2">📄</p>
-                        <p class="text-gray-600 font-body">CV ATS</p>
-                        <p class="text-sm text-gray-400 font-body">Ukuran: ~300 KB</p>
-                    </div>
+            <!-- CV ATS - Kanan -->
+            <div class="cv-card" style="transform: perspective(1000px) rotateY(2deg);">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="cv-icon">📋</span>
+                    <span class="cv-badge">PDF</span>
                 </div>
-                <div class="p-6 bg-gray-50 text-center">
-                    <a href="CV_ATS_Tiaz.pdf" download 
-                       class="btn-primary text-white px-6 py-3 rounded-full font-medium inline-block shadow-lg shadow-primary/30 hover:scale-105 transition">
+                <div class="cv-title">CV ATS</div>
+                <div class="cv-desc">CV standar ramah ATS</div>
+                <div class="cv-size">Ukuran: ~300 KB</div>
+                <div class="mt-4">
+                    <a href="CV_ATS_Tiaz.pdf" download class="btn-download">
                         ⬇️ Download CV ATS
                     </a>
                 </div>
