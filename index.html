@@ -423,10 +423,10 @@
             transition: all 0.5s ease;
         }
 
-        /* ===== SOSIAL MEDIA ICONS - DARK MODE KUNING ===== */
+        /* ===== SOSIAL MEDIA ICONS - BACKGROUND KUNING DENGAN ICON HITAM ===== */
         .social-icon {
-            background-color: #1a2a3a;
-            color: #ffffff;
+            background-color: #e8e485 !important;
+            color: #1a2a3a !important;
             width: 48px;
             height: 48px;
             border-radius: 50%;
@@ -436,23 +436,25 @@
             font-size: 1.5rem;
             transition: all 0.3s ease;
             text-decoration: none;
+            border: 2px solid #e8e485;
         }
         .social-icon:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(45, 150, 173, 0.3);
+            background-color: #d4d06a !important;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(232, 228, 133, 0.5);
+            border-color: #d4d06a;
         }
-        /* Dark mode - icon menjadi kuning */
+        /* Dark mode - tetap kuning dengan icon hitam */
         [data-theme="dark"] .social-icon {
-            background-color: #1a2a3a;
-            color: #e8e485 !important;
-            border: 1px solid rgba(232, 228, 133, 0.2);
+            background-color: #e8e485 !important;
+            color: #1a2a3a !important;
+            border: 2px solid #e8e485;
         }
         [data-theme="dark"] .social-icon:hover {
-            background-color: #e8e485;
+            background-color: #d4d06a !important;
             color: #1a2a3a !important;
-            border-color: #e8e485;
-            box-shadow: 0 8px 25px rgba(232, 228, 133, 0.3);
+            border-color: #d4d06a;
+            box-shadow: 0 8px 25px rgba(232, 228, 133, 0.4);
         }
 
         /* ============================================================
@@ -1337,7 +1339,7 @@
             </div>
         </section>
 
-        <!-- ===== SECTION 2: ABOUT (NAMA DIHAPUS) ===== -->
+        <!-- ===== SECTION 2: ABOUT ===== -->
         <section id="about" class="section section-alt">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 <div class="text-center mb-12">
@@ -1510,51 +1512,51 @@
         </section>
 
         <!-- ===== SECTION 4: KONTAK ===== -->
-<section id="contact" class="section section-alt">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold text-gray-800 font-heading">Hubungi <span class="text-primary">Saya</span></h2>
-            <div class="w-20 h-1 bg-primary mx-auto mt-2 rounded"></div>
-            <p class="text-gray-600 mt-4 font-body">Silakan hubungi saya melalui form di bawah ini</p>
-        </div>
-        <div class="flex flex-col md:flex-row gap-12 fade-in">
-            <div class="flex-1 text-center md:text-left">
-                <p class="text-gray-700 mb-4 font-body">Kirim pesan langsung ke email saya:</p>
-                <div class="flex flex-wrap justify-center md:justify-start gap-4">
-                    <a href="mailto:tiazfebias@gmail.com" class="btn-primary text-white px-6 py-3 rounded-lg font-medium inline-block">📧 Kirim Email</a>
-                    <a href="https://wa.me/6285795195292" target="_blank" class="btn-accent text-gray-800 px-6 py-3 rounded-lg font-medium inline-block">💬 WhatsApp</a>
+        <section id="contact" class="section section-alt">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-800 font-heading">Hubungi <span class="text-primary">Saya</span></h2>
+                    <div class="w-20 h-1 bg-primary mx-auto mt-2 rounded"></div>
+                    <p class="text-gray-600 mt-4 font-body">Silakan hubungi saya melalui form di bawah ini</p>
                 </div>
-                <p class="text-sm text-gray-500 mt-4 font-body">Atau gunakan form di bawah ini (dikirim via Formspree)</p>
-                <form action="https://formspree.io/f/xbgrvkdy" method="POST" class="space-y-4 mt-4">
-                    <div><input type="text" name="name" placeholder="Nama Anda" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></div>
-                    <div><input type="email" name="email" placeholder="contoh@gmail.com" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></div>
-                    <div><textarea name="message" rows="4" placeholder="Pesan Anda..." required minlength="10" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></textarea>
-                    <p class="text-xs text-gray-400 mt-1">* Pesan minimal 10 karakter</p></div>
-                    <button type="submit" class="btn-primary text-white px-8 py-3 rounded-lg font-medium w-full">Kirim Pesan 📩</button>
-                </form>
-            </div>
-            <div class="flex-1 flex flex-col justify-center items-center md:items-start gap-4">
-                <p class="text-gray-700 font-medium font-body">Temukan saya di:</p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="https://github.com/tiazfebias" target="_blank" class="social-icon" style="background-color: #e8e485; color: #1a2a3a; border: 2px solid #e8e485;">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/tiaz-febia-sakes" target="_blank" class="social-icon" style="background-color: #e8e485; color: #1a2a3a; border: 2px solid #e8e485;">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://www.instagram.com/tiazfs_?igsi=OGJiaDk5dW53NXRy" target="_blank" class="social-icon" style="background-color: #e8e485; color: #1a2a3a; border: 2px solid #e8e485;">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://t.me/Tiazfs" target="_blank" class="social-icon" style="background-color: #e8e485; color: #1a2a3a; border: 2px solid #e8e485;">
-                        <i class="fab fa-telegram-plane"></i>
-                    </a>
+                <div class="flex flex-col md:flex-row gap-12 fade-in">
+                    <div class="flex-1 text-center md:text-left">
+                        <p class="text-gray-700 mb-4 font-body">Kirim pesan langsung ke email saya:</p>
+                        <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                            <a href="mailto:tiazfebias@gmail.com" class="btn-primary text-white px-6 py-3 rounded-lg font-medium inline-block">📧 Kirim Email</a>
+                            <a href="https://wa.me/6285795195292" target="_blank" class="btn-accent text-gray-800 px-6 py-3 rounded-lg font-medium inline-block">💬 WhatsApp</a>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-4 font-body">Atau gunakan form di bawah ini (dikirim via Formspree)</p>
+                        <form action="https://formspree.io/f/xbgrvkdy" method="POST" class="space-y-4 mt-4">
+                            <div><input type="text" name="name" placeholder="Nama Anda" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></div>
+                            <div><input type="email" name="email" placeholder="contoh@gmail.com" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></div>
+                            <div><textarea name="message" rows="4" placeholder="Pesan Anda..." required minlength="10" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></textarea>
+                            <p class="text-xs text-gray-400 mt-1">* Pesan minimal 10 karakter</p></div>
+                            <button type="submit" class="btn-primary text-white px-8 py-3 rounded-lg font-medium w-full">Kirim Pesan 📩</button>
+                        </form>
+                    </div>
+                    <div class="flex-1 flex flex-col justify-center items-center md:items-start gap-4">
+                        <p class="text-gray-700 font-medium font-body">Temukan saya di:</p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="https://github.com/tiazfebias" target="_blank" class="social-icon" style="background-color: #e8e485; color: #1a2a3a; border: 2px solid #e8e485;">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/tiaz-febia-sakes" target="_blank" class="social-icon" style="background-color: #e8e485; color: #1a2a3a; border: 2px solid #e8e485;">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.instagram.com/tiazfs_?igsi=OGJiaDk5dW53NXRy" target="_blank" class="social-icon" style="background-color: #e8e485; color: #1a2a3a; border: 2px solid #e8e485;">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://t.me/Tiazfs" target="_blank" class="social-icon" style="background-color: #e8e485; color: #1a2a3a; border: 2px solid #e8e485;">
+                                <i class="fab fa-telegram-plane"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-        <!-- ===== SECTION 5: RESUME (CV) - TANPA UKURAN FILE ===== -->
+        <!-- ===== SECTION 5: RESUME (CV) ===== -->
         <section id="resume" class="section">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 <div class="text-center mb-12">
