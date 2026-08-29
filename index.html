@@ -130,15 +130,18 @@
             color: #fff;
             text-decoration: none;
             font-family: 'Playfair Display', serif;
-            margin-right: 32px;
         }
         .navbar .logo:hover {
             color: var(--accent);
         }
-        .navbar .nav-left {
+
+        /* Navbar - Bagian Kanan (Menu + Dark Mode + Hamburger) */
+        .navbar .nav-right {
             display: flex;
             align-items: center;
+            gap: 32px;
         }
+
         .nav-links {
             display: flex;
             gap: 32px;
@@ -173,6 +176,7 @@
         .nav-links a.active {
             color: #fff;
         }
+
         .hamburger {
             display: none;
             flex-direction: column;
@@ -204,6 +208,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
         .theme-toggle:hover {
             background: rgba(255, 255, 255, 0.3);
@@ -850,9 +855,6 @@
 
         /* ---- RESPONSIVE ---- */
         @media (max-width: 768px) {
-            .navbar .nav-left {
-                flex: 1;
-            }
             .nav-links {
                 display: none;
                 flex-direction: column;
@@ -874,6 +876,9 @@
             }
             .hamburger {
                 display: flex;
+            }
+            .navbar .nav-right {
+                gap: 12px;
             }
             .section {
                 padding: 80px 20px;
@@ -983,9 +988,11 @@
 
     <!-- ===== NAVBAR ===== -->
     <nav class="navbar">
-        <!-- Bagian Kiri: Logo + Menu -->
-        <div class="nav-left">
-            <a href="#home" class="logo">Tiaz Febia Sakes</a>
+        <!-- Logo di Kiri -->
+        <a href="#home" class="logo">Tiaz Febia Sakes</a>
+
+        <!-- Bagian Kanan: Menu + Dark Mode + Hamburger -->
+        <div class="nav-right">
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -993,9 +1000,6 @@
                 <li><a href="#contact">Kontak</a></li>
                 <li><a href="#resume">CV</a></li>
             </ul>
-        </div>
-        <!-- Bagian Kanan: Dark Mode Toggle + Hamburger -->
-        <div style="display:flex; align-items:center; gap:12px;">
             <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
                 <i class="fas fa-moon" id="themeIcon"></i>
             </button>
