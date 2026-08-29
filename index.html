@@ -133,19 +133,6 @@
             50% { transform: scale(1.1); opacity: 1; }
         }
 
-        /* Status persentase */
-        .mode-loader .loader-percentage {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-top: 8px;
-            font-family: 'Inter', sans-serif;
-            transition: color 0.5s ease;
-        }
-        [data-theme="dark"] .mode-loader .loader-percentage {
-            color: #5bb5cc;
-        }
-
         /* ===== ANIMASI GLOW ===== */
         .glow-text {
             color: var(--primary);
@@ -1181,7 +1168,7 @@
 </head>
 <body>
 
-    <!-- ===== MODE LOADER (Progress Bar Animation) ===== -->
+    <!-- ===== MODE LOADER (Progress Bar Animation - Tanpa Persentase) ===== -->
     <div class="mode-loader" id="modeLoader">
         <div class="loader-wrapper">
             <div class="loader-icon" id="loaderIcon">
@@ -1190,8 +1177,7 @@
             <div class="progress-container">
                 <div class="progress-bar" id="progressBar"></div>
             </div>
-            <div class="loader-percentage" id="loaderPercentage">0%</div>
-            <div class="loader-text" id="loaderText">Mengubah Mode...</div>
+            <div class="loader-text" id="loaderText">Beralih Mode...</div>
         </div>
     </div>
 
@@ -1655,7 +1641,6 @@
         const loaderText = document.getElementById('loaderText');
         const loaderIcon = document.getElementById('loaderIcon');
         const progressBar = document.getElementById('progressBar');
-        const loaderPercentage = document.getElementById('loaderPercentage');
         let isDark = false;
         let isTransitioning = false;
 
@@ -1676,7 +1661,7 @@
             
             // Update teks dan icon loader
             const nextMode = isDark ? 'Light' : 'Dark';
-            loaderText.textContent = `Mengubah ke Mode ${nextMode}...`;
+            loaderText.textContent = `Beralih ke Mode ${nextMode}...`;
             loaderIcon.innerHTML = `<i class="fas ${isDark ? 'fa-sun' : 'fa-moon'}"></i>`;
 
             // Animasi progress bar dari 0% ke 100%
@@ -1688,7 +1673,6 @@
                     clearInterval(interval);
                 }
                 progressBar.style.width = progress + '%';
-                loaderPercentage.textContent = Math.round(progress) + '%';
             }, 60);
 
             // Simulasi loading (delay 800ms untuk efek)
@@ -1707,13 +1691,11 @@
 
                 // Pastikan progress 100%
                 progressBar.style.width = '100%';
-                loaderPercentage.textContent = '100%';
 
                 // Sembunyikan loader setelah delay
                 setTimeout(() => {
                     modeLoader.classList.remove('active');
                     progressBar.style.width = '0%';
-                    loaderPercentage.textContent = '0%';
                     isTransitioning = false;
                 }, 300);
             }, 800);
