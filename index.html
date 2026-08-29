@@ -135,7 +135,6 @@
             color: var(--accent);
         }
 
-        /* Navbar - Bagian Kanan (Menu + Dark Mode + Hamburger) */
         .navbar .nav-right {
             display: flex;
             align-items: center;
@@ -295,8 +294,25 @@
         [data-theme="dark"] .project-card .card-content {
             background: #1a2a3a !important;
         }
+        /* Button kuning - teks hitam di semua mode */
+        .btn-accent {
+            background-color: var(--accent);
+            color: #1a2a3a !important;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .btn-accent:hover {
+            background-color: var(--accent-dark);
+            transform: scale(1.05);
+            color: #1a2a3a !important;
+        }
         [data-theme="dark"] .btn-accent {
-            color: #1a2a3a;
+            color: #1a2a3a !important;
+        }
+        [data-theme="dark"] .btn-accent:hover {
+            color: #1a2a3a !important;
         }
 
         .btn-primary {
@@ -309,19 +325,6 @@
         }
         .btn-primary:hover {
             background-color: var(--primary-dark);
-            transform: scale(1.05);
-        }
-
-        .btn-accent {
-            background-color: var(--accent);
-            color: var(--text-dark);
-            transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-        .btn-accent:hover {
-            background-color: var(--accent-dark);
             transform: scale(1.05);
         }
 
@@ -426,7 +429,7 @@
         }
 
         /* ============================================================
-                   CV - 2 LEMBAR KERTAS (DARK CREAM DI MODE MALAM)
+                   CV - 2 LEMBAR KERTAS
                    ============================================================ */
         .cv-book {
             display: flex;
@@ -458,7 +461,6 @@
             opacity: 0.5;
         }
 
-        /* CV Page - Light Mode: Krem, Dark Mode: Dark Cream */
         .cv-page {
             background: #fefcf3;
             padding: 32px 26px 28px;
@@ -471,13 +473,11 @@
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
             overflow: visible;
         }
-        /* Dark mode: Dark Cream */
         [data-theme="dark"] .cv-page {
             background: #2a2418;
             border-color: #4a3d2e;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
         }
-        /* Teks di CV - Light Mode */
         .cv-page .cv-title {
             color: #1a2a3a;
         }
@@ -487,7 +487,6 @@
         .cv-page .cv-size {
             color: #999;
         }
-        /* Teks di CV - Dark Mode */
         [data-theme="dark"] .cv-page .cv-title {
             color: #e8dcc8;
         }
@@ -743,7 +742,7 @@
         }
 
         /* ============================================================
-                   MODAL KERTAS UNTUK DETAILS PROJECT
+                   MODAL KERTAS UNTUK DETAILS PROJECT - DIPERBAIKI
                    ============================================================ */
         .modal-paper {
             background: #fefcf3;
@@ -755,10 +754,21 @@
             overflow: visible;
             max-width: 640px;
             width: 100%;
-            max-height: 85vh;
+            max-height: 90vh;
             overflow-y: auto;
             transition: all 0.5s ease;
         }
+        [data-theme="dark"] .modal-paper {
+            background: #1a2a3a;
+            border-color: #2a3a4a;
+        }
+        [data-theme="dark"] .modal-paper .modal-content h3 {
+            color: #e8edf0;
+        }
+        [data-theme="dark"] .modal-paper .modal-content p {
+            color: #c0d0e0;
+        }
+
         .modal-paper .modal-lines {
             position: absolute;
             top: 50px;
@@ -777,6 +787,10 @@
             border-radius: 2px;
             transition: opacity 0.5s ease;
         }
+        [data-theme="dark"] .modal-paper .modal-lines {
+            opacity: 0.1;
+        }
+
         .modal-paper .modal-holes {
             position: absolute;
             left: 12px;
@@ -799,6 +813,12 @@
             box-shadow: inset 0 0 0 2px #fefcf3, 0 2px 6px rgba(0, 0, 0, 0.12);
             transition: all 0.5s ease;
         }
+        [data-theme="dark"] .modal-paper .modal-holes span {
+            background: #1a2a3a;
+            border-color: #3a4a5a;
+            box-shadow: inset 0 0 0 2px #1a2a3a, 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
         .modal-paper .modal-tear {
             position: absolute;
             bottom: -5px;
@@ -819,6 +839,17 @@
             z-index: 1;
             transition: all 0.5s ease;
         }
+        [data-theme="dark"] .modal-paper .modal-tear {
+            background:
+                radial-gradient(ellipse at 8% 100%, transparent 60%, #1a2a3a 61%),
+                radial-gradient(ellipse at 22% 100%, transparent 50%, #1a2a3a 51%),
+                radial-gradient(ellipse at 38% 100%, transparent 65%, #1a2a3a 66%),
+                radial-gradient(ellipse at 55% 100%, transparent 45%, #1a2a3a 46%),
+                radial-gradient(ellipse at 72% 100%, transparent 60%, #1a2a3a 61%),
+                radial-gradient(ellipse at 88% 100%, transparent 50%, #1a2a3a 51%),
+                radial-gradient(ellipse at 97% 100%, transparent 65%, #1a2a3a 66%);
+        }
+
         .modal-paper .modal-clip {
             position: absolute;
             top: -8px;
@@ -831,6 +862,10 @@
             animation: clipSwing 3s ease-in-out infinite;
             pointer-events: none;
         }
+        [data-theme="dark"] .modal-paper .modal-clip {
+            color: #8a8a7a;
+        }
+
         .modal-paper .modal-pin {
             position: absolute;
             top: -6px;
@@ -843,6 +878,7 @@
             animation: pinPulse 2.5s ease-in-out infinite;
             pointer-events: none;
         }
+
         .modal-paper .modal-content {
             position: relative;
             z-index: 3;
@@ -851,6 +887,55 @@
             text-align: justify;
             text-justify: inter-word;
             hyphens: auto;
+        }
+
+        /* Button di modal - biru semua */
+        .modal-paper .btn-modal-primary {
+            background-color: #2d96ad;
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+        .modal-paper .btn-modal-primary:hover {
+            background-color: #1f7a8f;
+            transform: scale(1.05);
+        }
+        [data-theme="dark"] .modal-paper .btn-modal-primary {
+            background-color: #2d96ad;
+            color: #ffffff;
+        }
+        [data-theme="dark"] .modal-paper .btn-modal-primary:hover {
+            background-color: #1f7a8f;
+        }
+
+        /* Close button */
+        .modal-paper .btn-close {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            line-height: 1;
+            cursor: pointer;
+            color: #4a5a6a;
+            transition: color 0.3s ease;
+            padding: 4px 8px;
+        }
+        .modal-paper .btn-close:hover {
+            color: #1a2a3a;
+        }
+        [data-theme="dark"] .modal-paper .btn-close {
+            color: #a0b0c0;
+        }
+        [data-theme="dark"] .modal-paper .btn-close:hover {
+            color: #ffffff;
         }
 
         /* ---- RESPONSIVE ---- */
@@ -988,10 +1073,7 @@
 
     <!-- ===== NAVBAR ===== -->
     <nav class="navbar">
-        <!-- Logo di Kiri -->
         <a href="#home" class="logo">Tiaz Febia Sakes</a>
-
-        <!-- Bagian Kanan: Menu + Dark Mode + Hamburger -->
         <div class="nav-right">
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home" class="active">Home</a></li>
@@ -1299,7 +1381,7 @@
         </div>
     </footer>
 
-    <!-- ===== MODALS dengan Tema Kertas ===== -->
+    <!-- ===== MODALS dengan Tema Kertas - DIPERBAIKI ===== -->
 
     <!-- Modal ApotekDekaMedika -->
     <div id="project-0" class="modal hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
@@ -1312,12 +1394,12 @@
             <div class="modal-content">
                 <div class="flex justify-between items-start mb-4">
                     <h3 class="text-2xl font-bold text-gray-800 font-heading">ApotekDekaMedika</h3>
-                    <button onclick="closeModal('project-0')" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
+                    <button onclick="closeModal('project-0')" class="btn-close">&times;</button>
                 </div>
-                <div class="w-full h-56 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden">
+                <div class="w-full h-56 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden mb-3">
                     <img src="images/aptkdeka.jpg" alt="ApotekDekaMedika" class="w-full h-full object-contain">
                 </div>
-                <p class="text-gray-700 font-body leading-relaxed mt-4 text-justify">
+                <p class="text-gray-700 font-body leading-relaxed text-justify">
                     E-Commerce Apotek Sederhana ini merupakan aplikasi e-commerce apotek yang bertujuan untuk mendigitalisasi layanan farmasi konvensional ke dalam platform web yang responsif dan mudah diakses. seperti pengelolaan data obat, konsultasi online, upload resep, serta kelola riwayat transaksi dan laporan.
                 </p>
                 <div class="flex flex-wrap gap-2 mt-4">
@@ -1329,8 +1411,8 @@
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">JavaScript</span>
                 </div>
                 <div class="flex flex-wrap gap-3 mt-6">
-                    <a href="https://github.com/tiazfebias/ApotekDekaMedika" target="_blank" class="bg-gray-800 text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-700 transition"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://drive.google.com/drive/folders/1b7rDfjeiY7L33sA-j8bDLkiPBlMKklk0?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-sm px-4 py-2 rounded-lg hover:bg-accent-dark transition"><i class="fab fa-google-drive"></i> Drive</a>
+                    <a href="https://github.com/tiazfebias/ApotekDekaMedika" target="_blank" class="btn-modal-primary"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://drive.google.com/drive/folders/1b7rDfjeiY7L33sA-j8bDLkiPBlMKklk0?usp=drive_link" target="_blank" class="btn-modal-primary"><i class="fab fa-google-drive"></i> Drive</a>
                 </div>
             </div>
         </div>
@@ -1347,12 +1429,12 @@
             <div class="modal-content">
                 <div class="flex justify-between items-start mb-4">
                     <h3 class="text-2xl font-bold text-gray-800 font-heading">SIM Parapatan Tailor</h3>
-                    <button onclick="closeModal('project-1')" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
+                    <button onclick="closeModal('project-1')" class="btn-close">&times;</button>
                 </div>
-                <div class="w-full h-56 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden">
+                <div class="w-full h-56 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden mb-3">
                     <img src="images/tailor.jpg" alt="SIM Parapatan Tailor" class="w-full h-full object-contain">
                 </div>
-                <p class="text-gray-700 font-body leading-relaxed mt-4 text-justify">
+                <p class="text-gray-700 font-body leading-relaxed text-justify">
                     Kerja Praktik ini berhasil diselesaikan berkat kerja sama solid kelompok yang beranggotakan Ahmad Rival, Raihan R.R, Silmi Nur Afifah, dan Tiaz Febia S. Dalam proyek ini, saya dipercaya memegang peran sebagai Web Developer. Tanggung jawab saya meliputi implementasi teknis, pengembangan fitur-fitur utama pada website, serta integrasi sistem agar selaras dengan konsep yang telah dirancang bersama oleh tim.
                 </p>
                 <div class="flex flex-wrap gap-2 mt-4">
@@ -1363,8 +1445,8 @@
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">JavaScript</span>
                 </div>
                 <div class="flex flex-wrap gap-3 mt-6">
-                    <a href="https://github.com/tiazfebias/parapatan_tailor" target="_blank" class="bg-gray-800 text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-700 transition"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://drive.google.com/drive/folders/110d30HA3YfQvCuUnOSfUE1qS3e1vpTLW?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-sm px-4 py-2 rounded-lg hover:bg-accent-dark transition"><i class="fab fa-google-drive"></i> Drive</a>
+                    <a href="https://github.com/tiazfebias/parapatan_tailor" target="_blank" class="btn-modal-primary"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://drive.google.com/drive/folders/110d30HA3YfQvCuUnOSfUE1qS3e1vpTLW?usp=drive_link" target="_blank" class="btn-modal-primary"><i class="fab fa-google-drive"></i> Drive</a>
                 </div>
             </div>
         </div>
@@ -1381,12 +1463,12 @@
             <div class="modal-content">
                 <div class="flex justify-between items-start mb-4">
                     <h3 class="text-2xl font-bold text-gray-800 font-heading">Sistem Pendukung Keputusan</h3>
-                    <button onclick="closeModal('project-2')" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
+                    <button onclick="closeModal('project-2')" class="btn-close">&times;</button>
                 </div>
-                <div class="w-full h-56 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden">
+                <div class="w-full h-56 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden mb-3">
                     <img src="images/spkmaut.jpg" alt="Sistem Pendukung Keputusan" class="w-full h-full object-contain">
                 </div>
-                <p class="text-gray-700 font-body leading-relaxed mt-4 text-justify">
+                <p class="text-gray-700 font-body leading-relaxed text-justify">
                     Sistem Pendukung Keputusan (SPK) yang dirancang untuk mengoptimalkan proses evaluasi kinerja tenaga pendidik dan kependidikan di SMK Muhammadiyah 2 Kuningan. Sistem ini berhasil mendigitalisasi metode penilaian konvensional yang sebelumnya berbasis kertas menjadi sistem digital yang terintegrasi dan lebih efisien dan mudah digunakan.
                 </p>
                 <div class="flex flex-wrap gap-2 mt-4">
@@ -1397,8 +1479,8 @@
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">TCPDF</span>
                 </div>
                 <div class="flex flex-wrap gap-3 mt-6">
-                    <a href="https://github.com/tiazfebias/SPK_MAUT" target="_blank" class="bg-gray-800 text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-700 transition"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://drive.google.com/drive/folders/1aG4htNd9peCSDB-qWTATvhGGueVFDMtw?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-sm px-4 py-2 rounded-lg hover:bg-accent-dark transition"><i class="fab fa-google-drive"></i> Drive</a>
+                    <a href="https://github.com/tiazfebias/SPK_MAUT" target="_blank" class="btn-modal-primary"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://drive.google.com/drive/folders/1aG4htNd9peCSDB-qWTATvhGGueVFDMtw?usp=drive_link" target="_blank" class="btn-modal-primary"><i class="fab fa-google-drive"></i> Drive</a>
                 </div>
             </div>
         </div>
@@ -1415,12 +1497,12 @@
             <div class="modal-content">
                 <div class="flex justify-between items-start mb-4">
                     <h3 class="text-2xl font-bold text-gray-800 font-heading">Sertifikat &amp; Pelatihan</h3>
-                    <button onclick="closeModal('project-3')" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
+                    <button onclick="closeModal('project-3')" class="btn-close">&times;</button>
                 </div>
-                <div class="w-full h-56 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden">
+                <div class="w-full h-56 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden mb-3">
                     <img src="images/sertifikat.jpg" alt="Sertifikat & Pelatihan" class="w-full h-full object-contain">
                 </div>
-                <p class="text-gray-700 font-body leading-relaxed mt-4 text-justify">
+                <p class="text-gray-700 font-body leading-relaxed text-justify">
                     Kumpulan sertifikat kompetensi yang saya peroleh selama menempuh pendidikan dan pelatihan, meliputi Sertifikat IT Specialist Database, Sertifikat Komputer Akuntansi, dan Sertifikat Microsoft Office Specialist. Sertifikat-sertifikat ini menjadi bukti kompetensi saya dalam bidang teknologi informasi dan pengolahan data.
                 </p>
                 <div class="flex flex-wrap gap-2 mt-4">
@@ -1431,7 +1513,7 @@
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">Microsoft Office</span>
                 </div>
                 <div class="flex flex-wrap gap-3 mt-6">
-                    <a href="https://drive.google.com/drive/folders/1XJUTzfkVVFCUPvy7qpTHwH24kG1nWC_n?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-sm px-4 py-2 rounded-lg hover:bg-accent-dark transition"><i class="fab fa-google-drive"></i> Drive</a>
+                    <a href="https://drive.google.com/drive/folders/1XJUTzfkVVFCUPvy7qpTHwH24kG1nWC_n?usp=drive_link" target="_blank" class="btn-modal-primary"><i class="fab fa-google-drive"></i> Drive</a>
                 </div>
             </div>
         </div>
@@ -1444,7 +1526,6 @@
         const themeIcon = document.getElementById('themeIcon');
         let isDark = false;
 
-        // Cek preferensi dari localStorage
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
             themeIcon.className = 'fas fa-sun';
@@ -1489,7 +1570,6 @@
             });
         });
 
-        // ===== CLOSE MOBILE MENU ON LINK CLICK =====
         document.querySelectorAll('#navLinks a').forEach(link => {
             link.addEventListener('click', () => {
                 document.getElementById('navLinks').classList.remove('open');
@@ -1526,7 +1606,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // ===== CLOSE MODAL ON OUTSIDE CLICK =====
         document.querySelectorAll('.modal').forEach(modal => {
             modal.addEventListener('click', function(e) {
                 if (e.target === this) {
@@ -1536,7 +1615,6 @@
             });
         });
 
-        // ===== CLOSE MODAL WITH ESC KEY =====
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 document.querySelectorAll('.modal:not(.hidden)').forEach(modal => {
