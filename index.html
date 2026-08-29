@@ -39,7 +39,7 @@
             --primary-light: #3d8ba0;
         }
 
-        /* ===== ANIMASI LOADING MODE TRANSITION ===== */
+        /* ===== ANIMASI LOADING - PROGRESS BAR ===== */
         .mode-loader {
             position: fixed;
             top: 0;
@@ -59,24 +59,56 @@
             opacity: 1;
             pointer-events: all;
         }
-        .mode-loader .loader-spinner {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: 4px solid rgba(45, 150, 173, 0.1);
-            border-top-color: var(--primary);
-            animation: spin 0.8s linear infinite;
-            transition: border-top-color 0.5s ease;
+
+        .mode-loader .loader-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 80%;
+            max-width: 400px;
         }
-        [data-theme="dark"] .mode-loader .loader-spinner {
-            border: 4px solid rgba(255, 255, 255, 0.1);
-            border-top-color: #5bb5cc;
+
+        /* Progress bar container */
+        .mode-loader .progress-container {
+            width: 100%;
+            height: 6px;
+            background: rgba(45, 150, 173, 0.15);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
         }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        [data-theme="dark"] .mode-loader .progress-container {
+            background: rgba(255, 255, 255, 0.1);
         }
+
+        /* Progress bar yang bergerak dari kiri ke kanan */
+        .mode-loader .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #2d96ad, #e8e485, #2d96ad);
+            background-size: 200% 100%;
+            border-radius: 10px;
+            animation: progressMove 0.8s ease-in-out infinite;
+            transition: width 0.1s linear;
+        }
+        [data-theme="dark"] .mode-loader .progress-bar {
+            background: linear-gradient(90deg, #5bb5cc, #e8e485, #5bb5cc);
+            background-size: 200% 100%;
+        }
+
+        @keyframes progressMove {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 200% 0%;
+            }
+        }
+
+        /* Teks loading */
         .mode-loader .loader-text {
-            margin-top: 20px;
+            margin-top: 16px;
             font-size: 0.9rem;
             color: var(--text-dark);
             font-weight: 500;
@@ -84,25 +116,34 @@
             transition: color 0.5s ease;
             font-family: 'Inter', sans-serif;
         }
+
         .mode-loader .loader-icon {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            animation: pulse 1.5s ease-in-out infinite;
+            font-size: 2rem;
+            margin-bottom: 12px;
             color: var(--primary);
             transition: color 0.5s ease;
+            animation: pulse 1.5s ease-in-out infinite;
         }
         [data-theme="dark"] .mode-loader .loader-icon {
             color: #5bb5cc;
         }
+
         @keyframes pulse {
             0%, 100% { transform: scale(1); opacity: 0.7; }
-            50% { transform: scale(1.2); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 1; }
         }
-        .mode-loader .loader-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+
+        /* Status persentase */
+        .mode-loader .loader-percentage {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 8px;
+            font-family: 'Inter', sans-serif;
+            transition: color 0.5s ease;
+        }
+        [data-theme="dark"] .mode-loader .loader-percentage {
+            color: #5bb5cc;
         }
 
         /* ===== ANIMASI GLOW ===== */
@@ -1140,13 +1181,16 @@
 </head>
 <body>
 
-    <!-- ===== MODE LOADER (Overlay Loading Saat Ganti Mode) ===== -->
+    <!-- ===== MODE LOADER (Progress Bar Animation) ===== -->
     <div class="mode-loader" id="modeLoader">
         <div class="loader-wrapper">
             <div class="loader-icon" id="loaderIcon">
-                <i class="fas fa-sync-alt"></i>
+                <i class="fas fa-adjust"></i>
             </div>
-            <div class="loader-spinner"></div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="loader-percentage" id="loaderPercentage">0%</div>
             <div class="loader-text" id="loaderText">Mengubah Mode...</div>
         </div>
     </div>
@@ -1604,12 +1648,14 @@
 
     <!-- ===== JAVASCRIPT ===== -->
     <script>
-        // ===== DARK MODE TOGGLE WITH LOADING ANIMATION =====
+        // ===== DARK MODE TOGGLE WITH PROGRESS BAR =====
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
         const modeLoader = document.getElementById('modeLoader');
         const loaderText = document.getElementById('loaderText');
         const loaderIcon = document.getElementById('loaderIcon');
+        const progressBar = document.getElementById('progressBar');
+        const loaderPercentage = document.getElementById('loaderPercentage');
         let isDark = false;
         let isTransitioning = false;
 
@@ -1633,6 +1679,18 @@
             loaderText.textContent = `Mengubah ke Mode ${nextMode}...`;
             loaderIcon.innerHTML = `<i class="fas ${isDark ? 'fa-sun' : 'fa-moon'}"></i>`;
 
+            // Animasi progress bar dari 0% ke 100%
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 15 + 5;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                }
+                progressBar.style.width = progress + '%';
+                loaderPercentage.textContent = Math.round(progress) + '%';
+            }, 60);
+
             // Simulasi loading (delay 800ms untuk efek)
             setTimeout(() => {
                 // Toggle mode
@@ -1647,9 +1705,17 @@
                     localStorage.setItem('theme', 'light');
                 }
 
-                // Sembunyikan loader
-                modeLoader.classList.remove('active');
-                isTransitioning = false;
+                // Pastikan progress 100%
+                progressBar.style.width = '100%';
+                loaderPercentage.textContent = '100%';
+
+                // Sembunyikan loader setelah delay
+                setTimeout(() => {
+                    modeLoader.classList.remove('active');
+                    progressBar.style.width = '0%';
+                    loaderPercentage.textContent = '0%';
+                    isTransitioning = false;
+                }, 300);
             }, 800);
         });
 
