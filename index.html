@@ -416,7 +416,7 @@
         }
 
         /* ============================================================
-                   CV - 2 LEMBAR KERTAS (WARNA TETAP KREM DI SEMUA MODE)
+                   CV - 2 LEMBAR KERTAS (DARK CREAM DI MODE MALAM)
                    ============================================================ */
         .cv-book {
             display: flex;
@@ -444,11 +444,11 @@
             box-shadow: 0 0 8px rgba(200, 190, 140, 0.3);
         }
         [data-theme="dark"] .cv-book::before {
-            background: linear-gradient(to bottom, transparent, #b8b08a, #d4d06a, #b8b08a, transparent);
-            opacity: 0.6;
+            background: linear-gradient(to bottom, transparent, #6a5a4a, #8a7a5a, #6a5a4a, transparent);
+            opacity: 0.5;
         }
 
-        /* CV Page - WARNA TETAP KREM, hanya teks yang berubah */
+        /* CV Page - Light Mode: Krem, Dark Mode: Dark Cream */
         .cv-page {
             background: #fefcf3;
             padding: 32px 26px 28px;
@@ -461,21 +461,31 @@
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
             overflow: visible;
         }
-        /* Dark mode: tetap warna krem, hanya teks yang berubah */
+        /* Dark mode: Dark Cream */
         [data-theme="dark"] .cv-page {
-            background: #fefcf3;
-            border-color: #e0dcc8;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            background: #2a2418;
+            border-color: #4a3d2e;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
         }
-        /* Teks di CV berubah di dark mode */
-        [data-theme="dark"] .cv-page .cv-title {
+        /* Teks di CV - Light Mode */
+        .cv-page .cv-title {
             color: #1a2a3a;
         }
-        [data-theme="dark"] .cv-page .cv-desc {
+        .cv-page .cv-desc {
             color: #4a5a6a;
         }
-        [data-theme="dark"] .cv-page .cv-size {
+        .cv-page .cv-size {
             color: #999;
+        }
+        /* Teks di CV - Dark Mode */
+        [data-theme="dark"] .cv-page .cv-title {
+            color: #e8dcc8;
+        }
+        [data-theme="dark"] .cv-page .cv-desc {
+            color: #c8b898;
+        }
+        [data-theme="dark"] .cv-page .cv-size {
+            color: #9a8a7a;
         }
         [data-theme="dark"] .cv-page .cv-badge {
             background: #2d96ad;
@@ -512,9 +522,9 @@
             transition: all 0.3s ease;
         }
         [data-theme="dark"] .cv-page .binder-holes span {
-            background: #fefcf3;
-            border-color: #c8c0a8;
-            box-shadow: inset 0 0 0 2px #fefcf3, 0 2px 6px rgba(0, 0, 0, 0.15);
+            background: #2a2418;
+            border-color: #6a5a4a;
+            box-shadow: inset 0 0 0 2px #2a2418, 0 2px 6px rgba(0, 0, 0, 0.3);
         }
         .cv-page:hover .binder-holes span {
             border-color: var(--primary);
@@ -522,7 +532,7 @@
         }
         [data-theme="dark"] .cv-page:hover .binder-holes span {
             border-color: var(--primary);
-            box-shadow: inset 0 0 0 2px #fefcf3, 0 0 12px rgba(45, 150, 173, 0.3);
+            box-shadow: inset 0 0 0 2px #2a2418, 0 0 12px rgba(45, 150, 173, 0.3);
         }
 
         .cv-page .tear-effect {
@@ -547,13 +557,13 @@
         }
         [data-theme="dark"] .cv-page .tear-effect {
             background:
-                radial-gradient(ellipse at 10% 100%, transparent 65%, #fefcf3 66%),
-                radial-gradient(ellipse at 25% 100%, transparent 55%, #fefcf3 56%),
-                radial-gradient(ellipse at 40% 100%, transparent 70%, #fefcf3 71%),
-                radial-gradient(ellipse at 55% 100%, transparent 50%, #fefcf3 51%),
-                radial-gradient(ellipse at 70% 100%, transparent 65%, #fefcf3 66%),
-                radial-gradient(ellipse at 85% 100%, transparent 55%, #fefcf3 56%),
-                radial-gradient(ellipse at 97% 100%, transparent 70%, #fefcf3 71%);
+                radial-gradient(ellipse at 10% 100%, transparent 65%, #2a2418 66%),
+                radial-gradient(ellipse at 25% 100%, transparent 55%, #2a2418 56%),
+                radial-gradient(ellipse at 40% 100%, transparent 70%, #2a2418 71%),
+                radial-gradient(ellipse at 55% 100%, transparent 50%, #2a2418 51%),
+                radial-gradient(ellipse at 70% 100%, transparent 65%, #2a2418 66%),
+                radial-gradient(ellipse at 85% 100%, transparent 55%, #2a2418 56%),
+                radial-gradient(ellipse at 97% 100%, transparent 70%, #2a2418 71%);
         }
 
         .cv-page .paper-lines {
@@ -574,13 +584,13 @@
             border-radius: 2px;
         }
         [data-theme="dark"] .cv-page .paper-lines {
-            opacity: 0.35;
+            opacity: 0.25;
             background:
                 repeating-linear-gradient(0deg,
                     transparent,
                     transparent 27px,
-                    rgba(180, 170, 140, 0.25) 27px,
-                    rgba(180, 170, 140, 0.25) 28px);
+                    rgba(160, 140, 110, 0.2) 27px,
+                    rgba(160, 140, 110, 0.2) 28px);
         }
         .cv-page .paper-lines::before {
             content: '';
@@ -596,6 +606,13 @@
                     rgba(200, 60, 60, 0.2) 28px);
             border-radius: 2px;
         }
+        [data-theme="dark"] .cv-page .paper-lines::before {
+            background: repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 27px,
+                    rgba(200, 80, 80, 0.15) 27px,
+                    rgba(200, 80, 80, 0.15) 28px);
+        }
 
         .cv-page .paper-clip {
             position: absolute;
@@ -609,6 +626,9 @@
             animation: clipSwing 3s ease-in-out infinite;
             pointer-events: none;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        [data-theme="dark"] .cv-page .paper-clip {
+            color: #8a8a7a;
         }
         @keyframes clipSwing {
             0%, 100% {
@@ -680,15 +700,6 @@
             position: relative;
             z-index: 3;
         }
-        .cv-page .cv-title {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #1a2a3a;
-            margin: 4px 0 2px;
-            position: relative;
-            z-index: 3;
-        }
         .cv-page .cv-badge {
             background: var(--primary);
             color: white;
@@ -697,19 +708,6 @@
             border-radius: 20px;
             font-weight: 600;
             display: inline-block;
-            position: relative;
-            z-index: 3;
-        }
-        .cv-page .cv-desc {
-            font-size: 0.85rem;
-            color: #4a5a6a;
-            margin: 6px 0 4px;
-            position: relative;
-            z-index: 3;
-        }
-        .cv-page .cv-size {
-            font-size: 0.7rem;
-            color: #999;
             position: relative;
             z-index: 3;
         }
@@ -894,7 +892,7 @@
             }
             [data-theme="dark"] .cv-page:first-child,
             [data-theme="dark"] .cv-page:last-child {
-                border-color: #e0dcc8;
+                border-color: #4a3d2e;
             }
             .cv-page:hover {
                 transform: scale(1.02) !important;
@@ -1076,10 +1074,16 @@
                                 </div>
                                 <div class="flex items-center justify-between gap-2 mt-auto btn-group">
                                     <div class="flex items-center gap-2">
-                                        <a href="https://github.com/tiazfebias/ApotekDekaMedika" target="_blank" class="bg-gray-800 text-white text-[10px] px-2 py-1 rounded-lg hover:bg-gray-700 transition whitespace-nowrap">💻 GitHub</a>
-                                        <a href="https://drive.google.com/drive/folders/1b7rDfjeiY7L33sA-j8bDLkiPBlMKklk0?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-[10px] px-2 py-1 rounded-lg hover:bg-accent-dark transition whitespace-nowrap">📸 Drive</a>
+                                        <a href="https://github.com/tiazfebias/ApotekDekaMedika" target="_blank" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap">
+                                            <i class="fab fa-github"></i> GitHub
+                                        </a>
+                                        <a href="https://drive.google.com/drive/folders/1b7rDfjeiY7L33sA-j8bDLkiPBlMKklk0?usp=drive_link" target="_blank" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap">
+                                            <i class="fab fa-google-drive"></i> Drive
+                                        </a>
                                     </div>
-                                    <button onclick="openModal('project-0')" class="bg-primary text-white text-[10px] px-2 py-1 rounded-lg hover:bg-primary-dark transition whitespace-nowrap flex-shrink-0">🔍 Details</button>
+                                    <button onclick="openModal('project-0')" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap flex-shrink-0">
+                                        <i class="fas fa-search"></i> Details
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -1103,10 +1107,16 @@
                                 </div>
                                 <div class="flex items-center justify-between gap-2 mt-auto btn-group">
                                     <div class="flex items-center gap-2">
-                                        <a href="https://github.com/tiazfebias/parapatan_tailor" target="_blank" class="bg-gray-800 text-white text-[10px] px-2 py-1 rounded-lg hover:bg-gray-700 transition whitespace-nowrap">💻 GitHub</a>
-                                        <a href="https://drive.google.com/drive/folders/110d30HA3YfQvCuUnOSfUE1qS3e1vpTLW?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-[10px] px-2 py-1 rounded-lg hover:bg-accent-dark transition whitespace-nowrap">📸 Drive</a>
+                                        <a href="https://github.com/tiazfebias/parapatan_tailor" target="_blank" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap">
+                                            <i class="fab fa-github"></i> GitHub
+                                        </a>
+                                        <a href="https://drive.google.com/drive/folders/110d30HA3YfQvCuUnOSfUE1qS3e1vpTLW?usp=drive_link" target="_blank" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap">
+                                            <i class="fab fa-google-drive"></i> Drive
+                                        </a>
                                     </div>
-                                    <button onclick="openModal('project-1')" class="bg-primary text-white text-[10px] px-2 py-1 rounded-lg hover:bg-primary-dark transition whitespace-nowrap flex-shrink-0">🔍 Details</button>
+                                    <button onclick="openModal('project-1')" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap flex-shrink-0">
+                                        <i class="fas fa-search"></i> Details
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -1130,10 +1140,16 @@
                                 </div>
                                 <div class="flex items-center justify-between gap-2 mt-auto btn-group">
                                     <div class="flex items-center gap-2">
-                                        <a href="https://github.com/tiazfebias/SPK_MAUT" target="_blank" class="bg-gray-800 text-white text-[10px] px-2 py-1 rounded-lg hover:bg-gray-700 transition whitespace-nowrap">💻 GitHub</a>
-                                        <a href="https://drive.google.com/drive/folders/1aG4htNd9peCSDB-qWTATvhGGueVFDMtw?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-[10px] px-2 py-1 rounded-lg hover:bg-accent-dark transition whitespace-nowrap">📸 Drive</a>
+                                        <a href="https://github.com/tiazfebias/SPK_MAUT" target="_blank" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap">
+                                            <i class="fab fa-github"></i> GitHub
+                                        </a>
+                                        <a href="https://drive.google.com/drive/folders/1aG4htNd9peCSDB-qWTATvhGGueVFDMtw?usp=drive_link" target="_blank" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap">
+                                            <i class="fab fa-google-drive"></i> Drive
+                                        </a>
                                     </div>
-                                    <button onclick="openModal('project-2')" class="bg-primary text-white text-[10px] px-2 py-1 rounded-lg hover:bg-primary-dark transition whitespace-nowrap flex-shrink-0">🔍 Details</button>
+                                    <button onclick="openModal('project-2')" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap flex-shrink-0">
+                                        <i class="fas fa-search"></i> Details
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -1157,9 +1173,13 @@
                                 </div>
                                 <div class="flex items-center justify-between gap-2 mt-auto btn-group">
                                     <div class="flex items-center gap-2">
-                                        <a href="https://drive.google.com/drive/folders/1XJUTzfkVVFCUPvy7qpTHwH24kG1nWC_n?usp=drive_link" target="_blank" class="bg-accent text-gray-800 text-[10px] px-2 py-1 rounded-lg hover:bg-accent-dark transition whitespace-nowrap">📸 Drive</a>
+                                        <a href="https://drive.google.com/drive/folders/1XJUTzfkVVFCUPvy7qpTHwH24kG1nWC_n?usp=drive_link" target="_blank" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap">
+                                            <i class="fab fa-google-drive"></i> Drive
+                                        </a>
                                     </div>
-                                    <button onclick="openModal('project-3')" class="bg-primary text-white text-[10px] px-2 py-1 rounded-lg hover:bg-primary-dark transition whitespace-nowrap flex-shrink-0">🔍 Details</button>
+                                    <button onclick="openModal('project-3')" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap flex-shrink-0">
+                                        <i class="fas fa-search"></i> Details
+                                    </button>
                                 </div>
                             </div>
                         </div>
