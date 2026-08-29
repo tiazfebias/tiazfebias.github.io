@@ -69,7 +69,6 @@
             max-width: 400px;
         }
 
-        /* Progress bar container */
         .mode-loader .progress-container {
             width: 100%;
             height: 6px;
@@ -82,7 +81,6 @@
             background: rgba(255, 255, 255, 0.1);
         }
 
-        /* Progress bar yang bergerak dari kiri ke kanan */
         .mode-loader .progress-bar {
             width: 0%;
             height: 100%;
@@ -98,15 +96,10 @@
         }
 
         @keyframes progressMove {
-            0% {
-                background-position: 0% 0%;
-            }
-            100% {
-                background-position: 200% 0%;
-            }
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
         }
 
-        /* Teks loading */
         .mode-loader .loader-text {
             margin-top: 16px;
             font-size: 0.9rem;
@@ -143,18 +136,9 @@
             text-shadow: 0 0 20px rgba(45, 150, 173, 0.5);
         }
         @keyframes glowSwitch {
-            0% {
-                color: #2d96ad;
-                text-shadow: 0 0 10px rgba(45, 150, 173, 0.3);
-            }
-            50% {
-                color: #e8e485;
-                text-shadow: 0 0 20px rgba(232, 228, 133, 0.5);
-            }
-            100% {
-                color: #2d96ad;
-                text-shadow: 0 0 10px rgba(45, 150, 173, 0.3);
-            }
+            0% { color: #2d96ad; text-shadow: 0 0 10px rgba(45, 150, 173, 0.3); }
+            50% { color: #e8e485; text-shadow: 0 0 20px rgba(232, 228, 133, 0.5); }
+            100% { color: #2d96ad; text-shadow: 0 0 10px rgba(45, 150, 173, 0.3); }
         }
 
         /* ===== SCROLL PROGRESS ===== */
@@ -486,9 +470,10 @@
             overflow: hidden;
         }
 
-        /* ===== MODAL ===== */
+        /* ===== MODAL - DIPERBAIKI UNTUK SCROLL ===== */
         .modal {
             transition: opacity 0.3s ease;
+            padding: 20px;
         }
         .modal:not(.hidden) {
             display: flex !important;
@@ -496,7 +481,7 @@
         @keyframes modalIn {
             from {
                 opacity: 0;
-                transform: scale(0.9) translateY(20px);
+                transform: scale(0.95) translateY(10px);
             }
             to {
                 opacity: 1;
@@ -506,16 +491,120 @@
         .animate-modal {
             animation: modalIn 0.3s ease forwards;
         }
+
+        .modal-paper {
+            background: #fefcf3;
+            padding: 28px 28px 24px;
+            border-radius: 12px;
+            position: relative;
+            border: 1px solid #e0dcc8;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            overflow: visible;
+            max-width: 640px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            transition: all 0.5s ease;
+        }
+        /* Scrollbar styling */
+        .modal-paper::-webkit-scrollbar {
+            width: 6px;
+        }
+        .modal-paper::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+        }
+        .modal-paper::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+        [data-theme="dark"] .modal-paper::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        [data-theme="dark"] .modal-paper::-webkit-scrollbar-thumb {
+            background: #5bb5cc;
+        }
+
         [data-theme="dark"] .modal-paper {
             background: #1a2a3a;
             border-color: #2a3a4a;
         }
+        [data-theme="dark"] .modal-paper .modal-content h3 {
+            color: #e8edf0;
+        }
+        [data-theme="dark"] .modal-paper .modal-content p {
+            color: #c0d0e0;
+        }
+
+        .modal-paper .modal-lines {
+            position: absolute;
+            top: 50px;
+            left: 30px;
+            right: 20px;
+            bottom: 35px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.2;
+            background:
+                repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 26px,
+                    rgba(180, 170, 140, 0.2) 26px,
+                    rgba(180, 170, 140, 0.2) 27px);
+            border-radius: 2px;
+            transition: opacity 0.5s ease;
+        }
         [data-theme="dark"] .modal-paper .modal-lines {
-            opacity: 0.1;
+            opacity: 0.08;
+        }
+
+        .modal-paper .modal-holes {
+            position: absolute;
+            left: 10px;
+            top: 25%;
+            bottom: 25%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .modal-paper .modal-holes span {
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #fefcf3;
+            border: 2px solid #c8c0a8;
+            box-shadow: inset 0 0 0 2px #fefcf3, 0 2px 6px rgba(0, 0, 0, 0.12);
+            transition: all 0.5s ease;
         }
         [data-theme="dark"] .modal-paper .modal-holes span {
             background: #1a2a3a;
             border-color: #3a4a5a;
+            box-shadow: inset 0 0 0 2px #1a2a3a, 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-paper .modal-tear {
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 12px;
+            background:
+                radial-gradient(ellipse at 8% 100%, transparent 60%, #fefcf3 61%),
+                radial-gradient(ellipse at 22% 100%, transparent 50%, #fefcf3 51%),
+                radial-gradient(ellipse at 38% 100%, transparent 65%, #fefcf3 66%),
+                radial-gradient(ellipse at 55% 100%, transparent 45%, #fefcf3 46%),
+                radial-gradient(ellipse at 72% 100%, transparent 60%, #fefcf3 61%),
+                radial-gradient(ellipse at 88% 100%, transparent 50%, #fefcf3 51%),
+                radial-gradient(ellipse at 97% 100%, transparent 65%, #fefcf3 66%);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            z-index: 1;
+            transition: all 0.5s ease;
         }
         [data-theme="dark"] .modal-paper .modal-tear {
             background:
@@ -526,6 +615,156 @@
                 radial-gradient(ellipse at 72% 100%, transparent 60%, #1a2a3a 61%),
                 radial-gradient(ellipse at 88% 100%, transparent 50%, #1a2a3a 51%),
                 radial-gradient(ellipse at 97% 100%, transparent 65%, #1a2a3a 66%);
+        }
+
+        .modal-paper .modal-clip {
+            position: absolute;
+            top: -6px;
+            left: 20px;
+            font-size: 1.4rem;
+            color: #a0a0b0;
+            transform: rotate(-12deg) scaleX(-1);
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
+            z-index: 10;
+            animation: clipSwing 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+        [data-theme="dark"] .modal-paper .modal-clip {
+            color: #8a8a7a;
+        }
+
+        .modal-paper .modal-pin {
+            position: absolute;
+            top: -4px;
+            right: 20px;
+            font-size: 1.6rem;
+            color: #d44c4c;
+            transform: rotate(18deg);
+            filter: drop-shadow(0 4px 10px rgba(200, 50, 50, 0.25));
+            z-index: 10;
+            animation: pinPulse 2.5s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .modal-paper .modal-content {
+            position: relative;
+            z-index: 3;
+            padding: 4px 0;
+        }
+        .modal-paper .modal-content .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            gap: 16px;
+            flex-wrap: nowrap;
+        }
+        .modal-paper .modal-content .modal-header h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a2a3a;
+            font-family: 'Playfair Display', Georgia, serif;
+            line-height: 1.3;
+            flex: 1;
+            min-width: 0;
+            word-break: break-word;
+        }
+        [data-theme="dark"] .modal-paper .modal-content .modal-header h3 {
+            color: #e8edf0;
+        }
+        .modal-paper .modal-content .modal-header .btn-close {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            line-height: 1;
+            cursor: pointer;
+            color: #4a5a6a;
+            transition: color 0.3s ease;
+            padding: 0 4px;
+            flex-shrink: 0;
+            margin-top: -4px;
+        }
+        .modal-paper .modal-content .modal-header .btn-close:hover {
+            color: #1a2a3a;
+        }
+        [data-theme="dark"] .modal-paper .modal-content .modal-header .btn-close {
+            color: #a0b0c0;
+        }
+        [data-theme="dark"] .modal-paper .modal-content .modal-header .btn-close:hover {
+            color: #ffffff;
+        }
+
+        .modal-paper .modal-content .modal-img {
+            width: 100%;
+            height: 200px;
+            background: #f0f4f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+        .modal-paper .modal-content .modal-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        [data-theme="dark"] .modal-paper .modal-content .modal-img {
+            background: #0a1a2a;
+        }
+
+        .modal-paper .modal-content .modal-desc {
+            color: #4a5a6a;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            text-align: justify;
+            margin-bottom: 12px;
+        }
+        [data-theme="dark"] .modal-paper .modal-content .modal-desc {
+            color: #c0d0e0;
+        }
+
+        .modal-paper .modal-content .modal-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .modal-paper .modal-content .modal-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 4px;
+        }
+
+        .modal-paper .btn-modal-primary {
+            background-color: #2d96ad;
+            color: #ffffff;
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+        .modal-paper .btn-modal-primary:hover {
+            background-color: #1f7a8f;
+            transform: scale(1.05);
+        }
+        [data-theme="dark"] .modal-paper .btn-modal-primary {
+            background-color: #2d96ad;
+            color: #ffffff;
+        }
+        [data-theme="dark"] .modal-paper .btn-modal-primary:hover {
+            background-color: #1f7a8f;
         }
 
         /* ============================================================
@@ -740,12 +979,8 @@
             color: #8a8a7a;
         }
         @keyframes clipSwing {
-            0%, 100% {
-                transform: rotate(-15deg) scaleX(-1) scale(1);
-            }
-            50% {
-                transform: rotate(-10deg) scaleX(-1) scale(1.05);
-            }
+            0%, 100% { transform: rotate(-15deg) scaleX(-1) scale(1); }
+            50% { transform: rotate(-10deg) scaleX(-1) scale(1.05); }
         }
 
         .cv-page .pushpin {
@@ -762,12 +997,8 @@
             text-shadow: 0 2px 6px rgba(200, 50, 50, 0.2);
         }
         @keyframes pinPulse {
-            0%, 100% {
-                transform: rotate(20deg) scale(1);
-            }
-            50% {
-                transform: rotate(25deg) scale(1.1);
-            }
+            0%, 100% { transform: rotate(20deg) scale(1); }
+            50% { transform: rotate(25deg) scale(1.1); }
         }
 
         .cv-page:first-child {
@@ -841,203 +1072,6 @@
             box-shadow: 0 6px 20px rgba(45, 150, 173, 0.3);
         }
 
-        /* ============================================================
-                   MODAL KERTAS UNTUK DETAILS PROJECT
-                   ============================================================ */
-        .modal-paper {
-            background: #fefcf3;
-            padding: 32px 30px 28px;
-            border-radius: 6px;
-            position: relative;
-            border: 1px solid #e0dcc8;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-            overflow: visible;
-            max-width: 640px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            transition: all 0.5s ease;
-        }
-        [data-theme="dark"] .modal-paper {
-            background: #1a2a3a;
-            border-color: #2a3a4a;
-        }
-        [data-theme="dark"] .modal-paper .modal-content h3 {
-            color: #e8edf0;
-        }
-        [data-theme="dark"] .modal-paper .modal-content p {
-            color: #c0d0e0;
-        }
-
-        .modal-paper .modal-lines {
-            position: absolute;
-            top: 50px;
-            left: 35px;
-            right: 20px;
-            bottom: 40px;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.25;
-            background:
-                repeating-linear-gradient(0deg,
-                    transparent,
-                    transparent 26px,
-                    rgba(180, 170, 140, 0.2) 26px,
-                    rgba(180, 170, 140, 0.2) 27px);
-            border-radius: 2px;
-            transition: opacity 0.5s ease;
-        }
-        [data-theme="dark"] .modal-paper .modal-lines {
-            opacity: 0.1;
-        }
-
-        .modal-paper .modal-holes {
-            position: absolute;
-            left: 12px;
-            top: 25%;
-            bottom: 25%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            pointer-events: none;
-            z-index: 2;
-        }
-        .modal-paper .modal-holes span {
-            display: block;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #fefcf3;
-            border: 2px solid #c8c0a8;
-            box-shadow: inset 0 0 0 2px #fefcf3, 0 2px 6px rgba(0, 0, 0, 0.12);
-            transition: all 0.5s ease;
-        }
-        [data-theme="dark"] .modal-paper .modal-holes span {
-            background: #1a2a3a;
-            border-color: #3a4a5a;
-            box-shadow: inset 0 0 0 2px #1a2a3a, 0 2px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        .modal-paper .modal-tear {
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            right: 0;
-            height: 14px;
-            background:
-                radial-gradient(ellipse at 8% 100%, transparent 60%, #fefcf3 61%),
-                radial-gradient(ellipse at 22% 100%, transparent 50%, #fefcf3 51%),
-                radial-gradient(ellipse at 38% 100%, transparent 65%, #fefcf3 66%),
-                radial-gradient(ellipse at 55% 100%, transparent 45%, #fefcf3 46%),
-                radial-gradient(ellipse at 72% 100%, transparent 60%, #fefcf3 61%),
-                radial-gradient(ellipse at 88% 100%, transparent 50%, #fefcf3 51%),
-                radial-gradient(ellipse at 97% 100%, transparent 65%, #fefcf3 66%);
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-            pointer-events: none;
-            z-index: 1;
-            transition: all 0.5s ease;
-        }
-        [data-theme="dark"] .modal-paper .modal-tear {
-            background:
-                radial-gradient(ellipse at 8% 100%, transparent 60%, #1a2a3a 61%),
-                radial-gradient(ellipse at 22% 100%, transparent 50%, #1a2a3a 51%),
-                radial-gradient(ellipse at 38% 100%, transparent 65%, #1a2a3a 66%),
-                radial-gradient(ellipse at 55% 100%, transparent 45%, #1a2a3a 46%),
-                radial-gradient(ellipse at 72% 100%, transparent 60%, #1a2a3a 61%),
-                radial-gradient(ellipse at 88% 100%, transparent 50%, #1a2a3a 51%),
-                radial-gradient(ellipse at 97% 100%, transparent 65%, #1a2a3a 66%);
-        }
-
-        .modal-paper .modal-clip {
-            position: absolute;
-            top: -8px;
-            left: 24px;
-            font-size: 1.6rem;
-            color: #a0a0b0;
-            transform: rotate(-12deg) scaleX(-1);
-            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
-            z-index: 10;
-            animation: clipSwing 3s ease-in-out infinite;
-            pointer-events: none;
-        }
-        [data-theme="dark"] .modal-paper .modal-clip {
-            color: #8a8a7a;
-        }
-
-        .modal-paper .modal-pin {
-            position: absolute;
-            top: -6px;
-            right: 24px;
-            font-size: 1.8rem;
-            color: #d44c4c;
-            transform: rotate(18deg);
-            filter: drop-shadow(0 4px 10px rgba(200, 50, 50, 0.25));
-            z-index: 10;
-            animation: pinPulse 2.5s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        .modal-paper .modal-content {
-            position: relative;
-            z-index: 3;
-        }
-        .modal-paper .modal-content p {
-            text-align: justify;
-            text-justify: inter-word;
-            hyphens: auto;
-        }
-
-        /* Button di modal - biru semua */
-        .modal-paper .btn-modal-primary {
-            background-color: #2d96ad;
-            color: #ffffff;
-            padding: 6px 16px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-        }
-        .modal-paper .btn-modal-primary:hover {
-            background-color: #1f7a8f;
-            transform: scale(1.05);
-        }
-        [data-theme="dark"] .modal-paper .btn-modal-primary {
-            background-color: #2d96ad;
-            color: #ffffff;
-        }
-        [data-theme="dark"] .modal-paper .btn-modal-primary:hover {
-            background-color: #1f7a8f;
-        }
-
-        /* Close button */
-        .modal-paper .btn-close {
-            background: none;
-            border: none;
-            font-size: 2rem;
-            line-height: 1;
-            cursor: pointer;
-            color: #4a5a6a;
-            transition: color 0.3s ease;
-            padding: 4px 8px;
-        }
-        .modal-paper .btn-close:hover {
-            color: #1a2a3a;
-        }
-        [data-theme="dark"] .modal-paper .btn-close {
-            color: #a0b0c0;
-        }
-        [data-theme="dark"] .modal-paper .btn-close:hover {
-            color: #ffffff;
-        }
-
         /* ---- RESPONSIVE ---- */
         @media (max-width: 768px) {
             .nav-links {
@@ -1070,6 +1104,50 @@
             }
             .project-card .btn-group {
                 flex-wrap: wrap !important;
+            }
+
+            .modal {
+                padding: 12px;
+            }
+            .modal-paper {
+                padding: 20px 16px 18px;
+                max-height: 90vh;
+                border-radius: 10px;
+            }
+            .modal-paper .modal-content .modal-header h3 {
+                font-size: 1.2rem;
+            }
+            .modal-paper .modal-content .modal-header .btn-close {
+                font-size: 1.8rem;
+            }
+            .modal-paper .modal-content .modal-img {
+                height: 150px;
+            }
+            .modal-paper .modal-content .modal-desc {
+                font-size: 0.88rem;
+            }
+            .modal-paper .modal-holes {
+                left: 6px;
+            }
+            .modal-paper .modal-holes span {
+                width: 8px;
+                height: 8px;
+            }
+            .modal-paper .modal-lines {
+                left: 20px;
+                right: 10px;
+                top: 40px;
+                bottom: 30px;
+            }
+            .modal-paper .modal-clip {
+                left: 14px;
+                font-size: 1.2rem;
+                top: -4px;
+            }
+            .modal-paper .modal-pin {
+                right: 14px;
+                font-size: 1.3rem;
+                top: -3px;
             }
 
             .cv-book {
@@ -1117,36 +1195,24 @@
                 left: 28px;
                 right: 10px;
             }
-            .modal-paper {
-                margin: 10px;
-                padding: 24px 18px 20px;
-                max-height: 90vh;
-            }
-            .modal-paper .modal-holes {
-                left: 6px;
-            }
-            .modal-paper .modal-holes span {
-                width: 8px;
-                height: 8px;
-            }
-            .modal-paper .modal-lines {
-                left: 22px;
-                right: 10px;
-                top: 40px;
-                bottom: 30px;
-            }
-            .modal-paper .modal-clip {
-                left: 14px;
-                font-size: 1.3rem;
-                top: -6px;
-            }
-            .modal-paper .modal-pin {
-                right: 14px;
-                font-size: 1.5rem;
-                top: -4px;
-            }
         }
         @media (max-width: 480px) {
+            .modal-paper {
+                padding: 16px 12px 14px;
+            }
+            .modal-paper .modal-content .modal-header h3 {
+                font-size: 1rem;
+            }
+            .modal-paper .modal-content .modal-img {
+                height: 120px;
+            }
+            .modal-paper .modal-content .modal-desc {
+                font-size: 0.82rem;
+            }
+            .modal-paper .btn-modal-primary {
+                font-size: 0.75rem;
+                padding: 6px 12px;
+            }
             .cv-page {
                 padding: 24px 18px 20px;
             }
@@ -1168,7 +1234,7 @@
 </head>
 <body>
 
-    <!-- ===== MODE LOADER (Progress Bar Animation - Tanpa Persentase) ===== -->
+    <!-- ===== MODE LOADER ===== -->
     <div class="mode-loader" id="modeLoader">
         <div class="loader-wrapper">
             <div class="loader-icon" id="loaderIcon">
@@ -1227,7 +1293,7 @@
             </div>
         </section>
 
-        <!-- ===== SECTION 2: ABOUT ===== -->
+        <!-- ===== SECTION 2: ABOUT (NAMA DIHAPUS) ===== -->
         <section id="about" class="section section-alt">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 <div class="text-center mb-12">
@@ -1241,7 +1307,6 @@
                         </div>
                     </div>
                     <div class="flex-1 text-left">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4 font-heading">Tiaz Febia Sakes</h3>
                         <p class="text-gray-700 mb-4 leading-relaxed font-body text-justify max-w-2xl">
                             Saya adalah seorang pengembang web junior yang berdedikasi dalam merancang dan membangun program web yang fungsional, efisien, dan siap pakai. Saya terbiasa memanfaatkan teknologi modern secara produktif untuk mempercepat proses pengembangan tanpa mengurangi kualitas sistem yang dibangun.
                         </p>
@@ -1494,7 +1559,7 @@
         </div>
     </footer>
 
-    <!-- ===== MODALS dengan Tema Kertas ===== -->
+    <!-- ===== MODALS dengan Tema Kertas - DIPERBAIKI ===== -->
 
     <!-- Modal ApotekDekaMedika -->
     <div id="project-0" class="modal hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
@@ -1505,17 +1570,17 @@
             <div class="modal-lines"></div>
             <div class="modal-tear"></div>
             <div class="modal-content">
-                <div class="flex justify-between items-start mb-4">
-                    <h3 class="text-2xl font-bold text-gray-800 font-heading">ApotekDekaMedika</h3>
+                <div class="modal-header">
+                    <h3>ApotekDekaMedika</h3>
                     <button onclick="closeModal('project-0')" class="btn-close">&times;</button>
                 </div>
-                <div class="w-full h-56 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden mb-3">
-                    <img src="images/aptkdeka.jpg" alt="ApotekDekaMedika" class="w-full h-full object-contain">
+                <div class="modal-img">
+                    <img src="images/aptkdeka.jpg" alt="ApotekDekaMedika">
                 </div>
-                <p class="text-gray-700 font-body leading-relaxed text-justify">
+                <p class="modal-desc">
                     E-Commerce Apotek Sederhana ini merupakan aplikasi e-commerce apotek yang bertujuan untuk mendigitalisasi layanan farmasi konvensional ke dalam platform web yang responsif dan mudah diakses. seperti pengelolaan data obat, konsultasi online, upload resep, serta kelola riwayat transaksi dan laporan.
                 </p>
-                <div class="flex flex-wrap gap-2 mt-4">
+                <div class="modal-tech">
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">PHP Native</span>
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">MySQL</span>
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">TCPDF</span>
@@ -1523,7 +1588,7 @@
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">CSS</span>
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">JavaScript</span>
                 </div>
-                <div class="flex flex-wrap gap-3 mt-6">
+                <div class="modal-actions">
                     <a href="https://github.com/tiazfebias/ApotekDekaMedika" target="_blank" class="btn-modal-primary"><i class="fab fa-github"></i> GitHub</a>
                     <a href="https://drive.google.com/drive/folders/1b7rDfjeiY7L33sA-j8bDLkiPBlMKklk0?usp=drive_link" target="_blank" class="btn-modal-primary"><i class="fab fa-google-drive"></i> Drive</a>
                 </div>
@@ -1540,24 +1605,24 @@
             <div class="modal-lines"></div>
             <div class="modal-tear"></div>
             <div class="modal-content">
-                <div class="flex justify-between items-start mb-4">
-                    <h3 class="text-2xl font-bold text-gray-800 font-heading">SIM Parapatan Tailor</h3>
+                <div class="modal-header">
+                    <h3>SIM Parapatan Tailor</h3>
                     <button onclick="closeModal('project-1')" class="btn-close">&times;</button>
                 </div>
-                <div class="w-full h-56 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden mb-3">
-                    <img src="images/tailor.jpg" alt="SIM Parapatan Tailor" class="w-full h-full object-contain">
+                <div class="modal-img">
+                    <img src="images/tailor.jpg" alt="SIM Parapatan Tailor">
                 </div>
-                <p class="text-gray-700 font-body leading-relaxed text-justify">
+                <p class="modal-desc">
                     Kerja Praktik ini berhasil diselesaikan berkat kerja sama solid kelompok yang beranggotakan Ahmad Rival, Raihan R.R, Silmi Nur Afifah, dan Tiaz Febia S. Dalam proyek ini, saya dipercaya memegang peran sebagai Web Developer. Tanggung jawab saya meliputi implementasi teknis, pengembangan fitur-fitur utama pada website, serta integrasi sistem agar selaras dengan konsep yang telah dirancang bersama oleh tim.
                 </p>
-                <div class="flex flex-wrap gap-2 mt-4">
+                <div class="modal-tech">
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">PHP Native</span>
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">MySQL</span>
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">TCPDF</span>
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">Bootstrap</span>
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">JavaScript</span>
                 </div>
-                <div class="flex flex-wrap gap-3 mt-6">
+                <div class="modal-actions">
                     <a href="https://github.com/tiazfebias/parapatan_tailor" target="_blank" class="btn-modal-primary"><i class="fab fa-github"></i> GitHub</a>
                     <a href="https://drive.google.com/drive/folders/110d30HA3YfQvCuUnOSfUE1qS3e1vpTLW?usp=drive_link" target="_blank" class="btn-modal-primary"><i class="fab fa-google-drive"></i> Drive</a>
                 </div>
@@ -1574,24 +1639,24 @@
             <div class="modal-lines"></div>
             <div class="modal-tear"></div>
             <div class="modal-content">
-                <div class="flex justify-between items-start mb-4">
-                    <h3 class="text-2xl font-bold text-gray-800 font-heading">Sistem Pendukung Keputusan</h3>
+                <div class="modal-header">
+                    <h3>Sistem Pendukung Keputusan</h3>
                     <button onclick="closeModal('project-2')" class="btn-close">&times;</button>
                 </div>
-                <div class="w-full h-56 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden mb-3">
-                    <img src="images/spkmaut.jpg" alt="Sistem Pendukung Keputusan" class="w-full h-full object-contain">
+                <div class="modal-img">
+                    <img src="images/spkmaut.jpg" alt="Sistem Pendukung Keputusan">
                 </div>
-                <p class="text-gray-700 font-body leading-relaxed text-justify">
+                <p class="modal-desc">
                     Sistem Pendukung Keputusan (SPK) yang dirancang untuk mengoptimalkan proses evaluasi kinerja tenaga pendidik dan kependidikan di SMK Muhammadiyah 2 Kuningan. Sistem ini berhasil mendigitalisasi metode penilaian konvensional yang sebelumnya berbasis kertas menjadi sistem digital yang terintegrasi dan lebih efisien dan mudah digunakan.
                 </p>
-                <div class="flex flex-wrap gap-2 mt-4">
+                <div class="modal-tech">
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">PHP Native</span>
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">MySQL</span>
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">Bootstrap</span>
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">JavaScript</span>
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">TCPDF</span>
                 </div>
-                <div class="flex flex-wrap gap-3 mt-6">
+                <div class="modal-actions">
                     <a href="https://github.com/tiazfebias/SPK_MAUT" target="_blank" class="btn-modal-primary"><i class="fab fa-github"></i> GitHub</a>
                     <a href="https://drive.google.com/drive/folders/1aG4htNd9peCSDB-qWTATvhGGueVFDMtw?usp=drive_link" target="_blank" class="btn-modal-primary"><i class="fab fa-google-drive"></i> Drive</a>
                 </div>
@@ -1608,24 +1673,24 @@
             <div class="modal-lines"></div>
             <div class="modal-tear"></div>
             <div class="modal-content">
-                <div class="flex justify-between items-start mb-4">
-                    <h3 class="text-2xl font-bold text-gray-800 font-heading">Sertifikat &amp; Pelatihan</h3>
+                <div class="modal-header">
+                    <h3>Sertifikat &amp; Pelatihan</h3>
                     <button onclick="closeModal('project-3')" class="btn-close">&times;</button>
                 </div>
-                <div class="w-full h-56 bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden mb-3">
-                    <img src="images/sertifikat.jpg" alt="Sertifikat & Pelatihan" class="w-full h-full object-contain">
+                <div class="modal-img">
+                    <img src="images/sertifikat.jpg" alt="Sertifikat & Pelatihan">
                 </div>
-                <p class="text-gray-700 font-body leading-relaxed text-justify">
+                <p class="modal-desc">
                     Kumpulan sertifikat kompetensi yang saya peroleh selama menempuh pendidikan dan pelatihan, meliputi Sertifikat IT Specialist Database, Sertifikat Komputer Akuntansi, dan Sertifikat Microsoft Office Specialist. Sertifikat-sertifikat ini menjadi bukti kompetensi saya dalam bidang teknologi informasi dan pengolahan data.
                 </p>
-                <div class="flex flex-wrap gap-2 mt-4">
+                <div class="modal-tech">
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">Sertifikat</span>
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">Kompetensi</span>
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">Database</span>
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">Akuntansi</span>
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">Microsoft Office</span>
                 </div>
-                <div class="flex flex-wrap gap-3 mt-6">
+                <div class="modal-actions">
                     <a href="https://drive.google.com/drive/folders/1XJUTzfkVVFCUPvy7qpTHwH24kG1nWC_n?usp=drive_link" target="_blank" class="btn-modal-primary"><i class="fab fa-google-drive"></i> Drive</a>
                 </div>
             </div>
@@ -1644,7 +1709,6 @@
         let isDark = false;
         let isTransitioning = false;
 
-        // Cek preferensi dari localStorage
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
             themeIcon.className = 'fas fa-sun';
@@ -1652,19 +1716,15 @@
         }
 
         themeToggle.addEventListener('click', function() {
-            // Cegah spam klik
             if (isTransitioning) return;
             isTransitioning = true;
 
-            // Tampilkan loader
             modeLoader.classList.add('active');
             
-            // Update teks dan icon loader
             const nextMode = isDark ? 'Light' : 'Dark';
             loaderText.textContent = `Beralih ke Mode ${nextMode}...`;
             loaderIcon.innerHTML = `<i class="fas ${isDark ? 'fa-sun' : 'fa-moon'}"></i>`;
 
-            // Animasi progress bar dari 0% ke 100%
             let progress = 0;
             const interval = setInterval(() => {
                 progress += Math.random() * 15 + 5;
@@ -1675,9 +1735,7 @@
                 progressBar.style.width = progress + '%';
             }, 60);
 
-            // Simulasi loading (delay 800ms untuk efek)
             setTimeout(() => {
-                // Toggle mode
                 isDark = !isDark;
                 if (isDark) {
                     document.documentElement.setAttribute('data-theme', 'dark');
@@ -1689,10 +1747,8 @@
                     localStorage.setItem('theme', 'light');
                 }
 
-                // Pastikan progress 100%
                 progressBar.style.width = '100%';
 
-                // Sembunyikan loader setelah delay
                 setTimeout(() => {
                     modeLoader.classList.remove('active');
                     progressBar.style.width = '0%';
