@@ -327,7 +327,7 @@
         }
 
         /* ============================================================
-                   PROJECT CARD DENGAN OUTLINE KUNING PERMANEN
+                   PROJECT CARD - TANPA OUTLINE KUNING
                    ============================================================ */
         .project-card {
             position: relative;
@@ -337,11 +337,9 @@
             border-radius: 12px;
             overflow: hidden;
             transition: all 0.3s ease;
-            border: 3px solid var(--accent);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         }
         [data-theme="dark"] .project-card {
-            border-color: var(--accent-dark);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
@@ -418,7 +416,7 @@
         }
 
         /* ============================================================
-                   CV - 2 LEMBAR KERTAS DENGAN ANIMASI & DEKORASI
+                   CV - 2 LEMBAR KERTAS (WARNA TETAP KREM DI SEMUA MODE)
                    ============================================================ */
         .cv-book {
             display: flex;
@@ -446,10 +444,11 @@
             box-shadow: 0 0 8px rgba(200, 190, 140, 0.3);
         }
         [data-theme="dark"] .cv-book::before {
-            background: linear-gradient(to bottom, transparent, #6a6a5a, #8a8a6a, #6a6a5a, transparent);
-            opacity: 0.3;
+            background: linear-gradient(to bottom, transparent, #b8b08a, #d4d06a, #b8b08a, transparent);
+            opacity: 0.6;
         }
 
+        /* CV Page - WARNA TETAP KREM, hanya teks yang berubah */
         .cv-page {
             background: #fefcf3;
             padding: 32px 26px 28px;
@@ -462,19 +461,32 @@
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
             overflow: visible;
         }
+        /* Dark mode: tetap warna krem, hanya teks yang berubah */
         [data-theme="dark"] .cv-page {
-            background: #1a2a3a;
-            border-color: #2a3a4a;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            background: #fefcf3;
+            border-color: #e0dcc8;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
         }
+        /* Teks di CV berubah di dark mode */
         [data-theme="dark"] .cv-page .cv-title {
-            color: #e8edf0;
+            color: #1a2a3a;
         }
         [data-theme="dark"] .cv-page .cv-desc {
-            color: #a0b0c0;
+            color: #4a5a6a;
         }
         [data-theme="dark"] .cv-page .cv-size {
-            color: #607080;
+            color: #999;
+        }
+        [data-theme="dark"] .cv-page .cv-badge {
+            background: #2d96ad;
+            color: white;
+        }
+        [data-theme="dark"] .cv-page .btn-download {
+            background: #2d96ad;
+            color: white;
+        }
+        [data-theme="dark"] .cv-page .btn-download:hover {
+            background: #1f7a8f;
         }
 
         .cv-page .binder-holes {
@@ -500,9 +512,9 @@
             transition: all 0.3s ease;
         }
         [data-theme="dark"] .cv-page .binder-holes span {
-            background: #1a2a3a;
-            border-color: #3a4a5a;
-            box-shadow: inset 0 0 0 2px #1a2a3a, 0 2px 6px rgba(0, 0, 0, 0.3);
+            background: #fefcf3;
+            border-color: #c8c0a8;
+            box-shadow: inset 0 0 0 2px #fefcf3, 0 2px 6px rgba(0, 0, 0, 0.15);
         }
         .cv-page:hover .binder-holes span {
             border-color: var(--primary);
@@ -510,7 +522,7 @@
         }
         [data-theme="dark"] .cv-page:hover .binder-holes span {
             border-color: var(--primary);
-            box-shadow: inset 0 0 0 2px #1a2a3a, 0 0 12px rgba(45, 150, 173, 0.3);
+            box-shadow: inset 0 0 0 2px #fefcf3, 0 0 12px rgba(45, 150, 173, 0.3);
         }
 
         .cv-page .tear-effect {
@@ -535,13 +547,13 @@
         }
         [data-theme="dark"] .cv-page .tear-effect {
             background:
-                radial-gradient(ellipse at 10% 100%, transparent 65%, #1a2a3a 66%),
-                radial-gradient(ellipse at 25% 100%, transparent 55%, #1a2a3a 56%),
-                radial-gradient(ellipse at 40% 100%, transparent 70%, #1a2a3a 71%),
-                radial-gradient(ellipse at 55% 100%, transparent 50%, #1a2a3a 51%),
-                radial-gradient(ellipse at 70% 100%, transparent 65%, #1a2a3a 66%),
-                radial-gradient(ellipse at 85% 100%, transparent 55%, #1a2a3a 56%),
-                radial-gradient(ellipse at 97% 100%, transparent 70%, #1a2a3a 71%);
+                radial-gradient(ellipse at 10% 100%, transparent 65%, #fefcf3 66%),
+                radial-gradient(ellipse at 25% 100%, transparent 55%, #fefcf3 56%),
+                radial-gradient(ellipse at 40% 100%, transparent 70%, #fefcf3 71%),
+                radial-gradient(ellipse at 55% 100%, transparent 50%, #fefcf3 51%),
+                radial-gradient(ellipse at 70% 100%, transparent 65%, #fefcf3 66%),
+                radial-gradient(ellipse at 85% 100%, transparent 55%, #fefcf3 56%),
+                radial-gradient(ellipse at 97% 100%, transparent 70%, #fefcf3 71%);
         }
 
         .cv-page .paper-lines {
@@ -562,13 +574,13 @@
             border-radius: 2px;
         }
         [data-theme="dark"] .cv-page .paper-lines {
-            opacity: 0.15;
+            opacity: 0.35;
             background:
                 repeating-linear-gradient(0deg,
                     transparent,
                     transparent 27px,
-                    rgba(100, 100, 100, 0.2) 27px,
-                    rgba(100, 100, 100, 0.2) 28px);
+                    rgba(180, 170, 140, 0.25) 27px,
+                    rgba(180, 170, 140, 0.25) 28px);
         }
         .cv-page .paper-lines::before {
             content: '';
@@ -659,8 +671,8 @@
             border-color: var(--primary);
         }
         [data-theme="dark"] .cv-page:hover .binder-holes span {
-            background: var(--primary);
-            border-color: var(--primary-light);
+            background: var(--primary-light);
+            border-color: var(--primary);
         }
 
         .cv-page .cv-icon {
@@ -672,7 +684,7 @@
             font-family: 'Playfair Display', Georgia, serif;
             font-weight: 700;
             font-size: 1.1rem;
-            color: var(--text-dark);
+            color: #1a2a3a;
             margin: 4px 0 2px;
             position: relative;
             z-index: 3;
@@ -690,7 +702,7 @@
         }
         .cv-page .cv-desc {
             font-size: 0.85rem;
-            color: var(--text-gray);
+            color: #4a5a6a;
             margin: 6px 0 4px;
             position: relative;
             z-index: 3;
@@ -882,7 +894,7 @@
             }
             [data-theme="dark"] .cv-page:first-child,
             [data-theme="dark"] .cv-page:last-child {
-                border-color: #2a3a4a;
+                border-color: #e0dcc8;
             }
             .cv-page:hover {
                 transform: scale(1.02) !important;
