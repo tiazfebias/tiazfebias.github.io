@@ -1805,11 +1805,8 @@
         let isDark = false;
         let isTransitioning = false;
 
-        if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            themeIcon.className = 'fas fa-sun';
-            isDark = true;
-        }
+        // Hapus pengecekan localStorage untuk dark mode, default selalu light mode
+        // Mode terang adalah default
 
         themeToggle.addEventListener('click', function() {
             if (isTransitioning) return;
