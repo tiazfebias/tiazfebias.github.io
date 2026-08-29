@@ -486,6 +486,20 @@
             color: #607080 !important;
         }
 
+        /* ===== FORM STATUS ===== */
+        #formStatus {
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+        #formStatus.hidden {
+            display: none;
+        }
+        [data-theme="dark"] #formStatus {
+            color: #e8edf0 !important;
+        }
+
         /* ============================================================
                    PROJECT CARD - TANPA OUTLINE KUNING
                    ============================================================ */
@@ -1556,12 +1570,13 @@
                             <a href="https://wa.me/6285795195292" target="_blank" class="btn-accent text-gray-800 px-6 py-3 rounded-lg font-medium inline-block">💬 WhatsApp</a>
                         </div>
                         <p class="text-sm text-gray-500 mt-4 font-body">Atau gunakan form di bawah ini (dikirim via Formspree)</p>
-                        <form action="https://formspree.io/f/xbgrvkdy" method="POST" class="space-y-4 mt-4">
-                            <div><input type="text" name="name" placeholder="Nama Anda" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></div>
-                            <div><input type="email" name="email" placeholder="contoh@gmail.com" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></div>
-                            <div><textarea name="message" rows="4" placeholder="Pesan Anda..." required minlength="10" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></textarea>
+                        <form id="contactForm" action="https://formspree.io/f/xbgrvkdy" method="POST" class="space-y-4 mt-4">
+                            <div><input type="text" id="formName" name="name" placeholder="Nama Anda" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></div>
+                            <div><input type="email" id="formEmail" name="email" placeholder="contoh@gmail.com" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></div>
+                            <div><textarea id="formMessage" name="message" rows="4" placeholder="Pesan Anda..." required minlength="10" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></textarea>
                             <p class="text-xs text-gray-400 mt-1">* Pesan minimal 10 karakter</p></div>
-                            <button type="submit" class="btn-primary text-white px-8 py-3 rounded-lg font-medium w-full">Kirim Pesan 📩</button>
+                            <button type="submit" id="submitBtn" class="btn-primary text-white px-8 py-3 rounded-lg font-medium w-full">Kirim Pesan 📩</button>
+                            <div id="formStatus" class="text-sm text-center hidden"></div>
                         </form>
                     </div>
                     <div class="flex-1 flex flex-col justify-center items-center md:items-start gap-4">
@@ -1914,6 +1929,67 @@
                     modal.classList.add('hidden');
                     document.body.style.overflow = 'auto';
                 });
+            }
+        });
+
+        // ===== FORM HANDLER - RESET FORM AFTER SUCCESS =====
+        const contactForm = document.getElementById('contactForm');
+        const formName = document.getElementById('formName');
+        const formEmail = document.getElementById('formEmail');
+        const formMessage = document.getElementById('formMessage');
+        const submitBtn = document.getElementById('submitBtn');
+        const formStatus = document.getElementById('formStatus');
+
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Tampilkan status loading
+            formStatus.classList.remove('hidden');
+            formStatus.textContent = 'Mengirim pesan...';
+            formStatus.style.color = '#2d96ad';
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Mengirim...';
+
+            try {
+                const formData = new FormData(this);
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Reset form
+                    formName.value = '';
+                    formEmail.value = '';
+                    formMessage.value = '';
+                    
+                    // Tampilkan pesan sukses
+                    formStatus.textContent = '✅ Pesan berhasil dikirim!';
+                    formStatus.style.color = '#22c55e';
+                    formStatus.classList.remove('hidden');
+                    
+                    // Sembunyikan pesan sukses setelah 5 detik
+                    setTimeout(() => {
+                        formStatus.classList.add('hidden');
+                    }, 5000);
+                } else {
+                    // Tampilkan pesan error
+                    formStatus.textContent = '❌ Gagal mengirim pesan. Silakan coba lagi.';
+                    formStatus.style.color = '#ef4444';
+                    formStatus.classList.remove('hidden');
+                }
+            } catch (error) {
+                // Tampilkan pesan error
+                formStatus.textContent = '❌ Terjadi kesalahan. Silakan coba lagi.';
+                formStatus.style.color = '#ef4444';
+                formStatus.classList.remove('hidden');
+            } finally {
+                // Aktifkan kembali tombol submit
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Kirim Pesan 📩';
             }
         });
     </script>
