@@ -222,7 +222,7 @@
         .navbar .nav-right {
             display: flex;
             align-items: center;
-            gap: 32px;
+            gap: 20px;
         }
 
         .nav-links {
@@ -276,6 +276,100 @@
             border-radius: 4px;
             transition: 0.3s;
         }
+
+        /* ===== LANGUAGE SELECTOR ===== */
+        .lang-selector {
+            position: relative;
+            flex-shrink: 0;
+        }
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Inter', sans-serif;
+        }
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+        .lang-btn .flag {
+            font-size: 1rem;
+        }
+        .lang-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            min-width: 160px;
+            z-index: 1001;
+        }
+        .lang-dropdown.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .lang-dropdown button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            padding: 10px 16px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #1a2a3a;
+            text-align: left;
+            transition: background 0.2s ease;
+            font-family: 'Inter', sans-serif;
+        }
+        .lang-dropdown button:hover {
+            background: #f0f7fa;
+        }
+        .lang-dropdown button.active {
+            background: #e8f4f8;
+            color: #2d96ad;
+            font-weight: 600;
+        }
+        [data-theme="dark"] .lang-dropdown {
+            background: #1a2a3a;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+        [data-theme="dark"] .lang-dropdown button {
+            color: #e8edf0;
+        }
+        [data-theme="dark"] .lang-dropdown button:hover {
+            background: #2a3a4a;
+        }
+        [data-theme="dark"] .lang-dropdown button.active {
+            background: #2d96ad;
+            color: white;
+        }
+
+        /* Sembunyikan Google Translate banner & widget default */
+        body { top: 0 !important; }
+        .goog-te-banner-frame { display: none !important; }
+        #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
+        .goog-text-highlight { background: none !important; box-shadow: none !important; }
+        .goog-te-gadget { display: none !important; }
+        #google_translate_element { display: none !important; }
 
         /* ===== DARK MODE TOGGLE BUTTON ===== */
         .theme-toggle {
@@ -1279,6 +1373,15 @@
                 height: 40px;
                 font-size: 1.2rem;
             }
+
+            /* Language selector responsive */
+            .lang-btn {
+                padding: 5px 10px;
+                font-size: 0.75rem;
+            }
+            .lang-btn .flag {
+                font-size: 0.9rem;
+            }
         }
         @media (max-width: 480px) {
             .modal-paper {
@@ -1318,10 +1421,20 @@
                 height: 36px;
                 font-size: 1rem;
             }
+            .lang-btn {
+                padding: 4px 8px;
+                font-size: 0.7rem;
+            }
+            .lang-btn .flag {
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- ===== GOOGLE TRANSLATE ELEMENT (HIDDEN) ===== -->
+    <div id="google_translate_element"></div>
 
     <!-- ===== MODE LOADER ===== -->
     <div class="mode-loader" id="modeLoader">
@@ -1350,6 +1463,24 @@
                 <li><a href="#contact">Kontak</a></li>
                 <li><a href="#resume">CV</a></li>
             </ul>
+            
+            <!-- ===== LANGUAGE SELECTOR ===== -->
+            <div class="lang-selector">
+                <button class="lang-btn" id="langBtn" aria-label="Pilih Bahasa">
+                    <span class="flag" id="currentFlag">🇮🇩</span>
+                    <span id="currentLang">ID</span>
+                    <i class="fas fa-chevron-down" style="font-size:0.7rem;"></i>
+                </button>
+                <div class="lang-dropdown" id="langDropdown">
+                    <button onclick="changeLanguage('id')" class="active" data-lang="id">
+                        <span class="flag">🇮🇩</span> Indonesia
+                    </button>
+                    <button onclick="changeLanguage('en')" data-lang="en">
+                        <span class="flag">🇬🇧</span> English
+                    </button>
+                </div>
+            </div>
+
             <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
                 <i class="fas fa-moon" id="themeIcon"></i>
             </button>
@@ -1793,6 +1924,18 @@
         </div>
     </div>
 
+    <!-- ===== GOOGLE TRANSLATE SCRIPT ===== -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'id',
+                includedLanguages: 'id,en',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <!-- ===== JAVASCRIPT ===== -->
     <script>
         // ===== DARK MODE TOGGLE WITH PROGRESS BAR =====
@@ -1851,6 +1994,74 @@
                     isTransitioning = false;
                 }, 300);
             }, 800);
+        });
+
+        // ===== LANGUAGE SELECTOR =====
+        const langBtn = document.getElementById('langBtn');
+        const langDropdown = document.getElementById('langDropdown');
+        const currentFlag = document.getElementById('currentFlag');
+        const currentLang = document.getElementById('currentLang');
+
+        // Buka/tutup dropdown
+        langBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            langDropdown.classList.toggle('open');
+        });
+
+        // Tutup dropdown saat klik di luar
+        document.addEventListener('click', function(e) {
+            if (!langDropdown.contains(e.target) && e.target !== langBtn) {
+                langDropdown.classList.remove('open');
+            }
+        });
+
+        // Fungsi ganti bahasa
+        function changeLanguage(lang) {
+            // Update tampilan tombol
+            if (lang === 'en') {
+                currentFlag.textContent = '🇬🇧';
+                currentLang.textContent = 'EN';
+            } else {
+                currentFlag.textContent = '🇮🇩';
+                currentLang.textContent = 'ID';
+            }
+            
+            // Update status active di dropdown
+            document.querySelectorAll('.lang-dropdown button').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Tutup dropdown
+            langDropdown.classList.remove('open');
+            
+            // Trigger Google Translate
+            const select = document.querySelector('.goog-te-combo');
+            if (select) {
+                select.value = lang;
+                select.dispatchEvent(new Event('change'));
+            } else {
+                // Fallback: gunakan cookie jika elemen belum siap
+                const domain = window.location.hostname;
+                document.cookie = `googtrans=/id/${lang}; path=/`;
+                document.cookie = `googtrans=/id/${lang}; path=/; domain=.${domain}`;
+                location.reload();
+            }
+            
+            // Simpan preferensi
+            localStorage.setItem('lang', lang);
+        }
+
+        // Muat preferensi bahasa saat halaman dimuat
+        window.addEventListener('load', function() {
+            const savedLang = localStorage.getItem('lang');
+            if (savedLang && savedLang !== 'id') {
+                setTimeout(() => {
+                    changeLanguage(savedLang);
+                }, 1000);
+            }
         });
 
         // ===== MOBILE MENU TOGGLE =====
