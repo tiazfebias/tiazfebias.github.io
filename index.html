@@ -10,14 +10,10 @@
     <link rel="shortcut icon" type="image/png" href="images/mylogo.png?v=1" />
     <link rel="apple-touch-icon" sizes="180x180" href="images/mylogo.png?v=1" />
     
-    <script src="https://cdn.tailwindcss.com">
-    </script>
-    <!-- Google Fonts: Playfair Display + Inter -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
-        /* ===== WARNA ===== */
         :root {
             --primary: #2d96ad;
             --primary-dark: #1f7a8f;
@@ -30,7 +26,6 @@
             --bg-light: #f0f7fa;
         }
 
-        /* ===== DARK MODE VARIABLES ===== */
         [data-theme="dark"] {
             --bg-light: #0f1a24;
             --text-dark: #e8edf0;
@@ -39,7 +34,6 @@
             --primary-light: #3d8ba0;
         }
 
-        /* ===== ANIMASI LOADING - PROGRESS BAR ===== */
         .mode-loader {
             position: fixed;
             top: 0;
@@ -126,7 +120,6 @@
             50% { transform: scale(1.1); opacity: 1; }
         }
 
-        /* ===== ANIMASI GLOW ===== */
         .glow-text {
             color: var(--primary);
             animation: glowSwitch 3s ease-in-out infinite;
@@ -141,7 +134,6 @@
             100% { color: #2d96ad; text-shadow: 0 0 10px rgba(45, 150, 173, 0.3); }
         }
 
-        /* ===== SCROLL PROGRESS ===== */
         .scroll-progress {
             position: fixed;
             top: 0;
@@ -153,7 +145,6 @@
             transition: width 0.1s;
         }
 
-        /* ===== FADE IN ===== */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -164,7 +155,6 @@
             transform: translateY(0);
         }
 
-        /* ===== BASE ===== */
         * {
             margin: 0;
             padding: 0;
@@ -193,7 +183,6 @@
             font-family: 'Inter', sans-serif;
         }
 
-        /* ===== NAVBAR ===== */
         .navbar {
             position: fixed;
             top: 0;
@@ -283,7 +272,6 @@
             transition: 0.3s;
         }
 
-        /* ===== LANGUAGE SELECTOR ===== */
         .lang-selector {
             position: relative;
             flex-shrink: 0;
@@ -302,8 +290,6 @@
             align-items: center;
             gap: 6px;
             font-family: 'Inter', sans-serif;
-            /* Cegah Google Translate menerjemahkan tombol ini */
-            translate: no;
         }
         .lang-btn:hover {
             background: rgba(255, 255, 255, 0.3);
@@ -371,11 +357,6 @@
             color: white;
         }
 
-        /* ============================================================
-           HAPUS TOTAL GOOGLE TRANSLATE BANNER & WATERMARK
-           ============================================================ */
-        
-        /* Iframe Google Translate yang menutupi navbar */
         iframe.goog-te-banner-frame,
         iframe.goog-te-menu-frame,
         iframe[src*="translate.google.com"],
@@ -398,14 +379,12 @@
             border: none !important;
         }
 
-        /* Banner frame */
         .goog-te-banner-frame,
         .goog-te-banner-frame.skiptranslate {
             display: none !important;
             visibility: hidden !important;
         }
 
-        /* Tooltip & balloon */
         #goog-gt-tt,
         .goog-te-balloon-frame,
         .goog-tooltip,
@@ -414,14 +393,12 @@
             display: none !important;
         }
 
-        /* Highlight text dari Google Translate */
         .goog-text-highlight {
             background: none !important;
             box-shadow: none !important;
             border: none !important;
         }
 
-        /* Widget gadget - SEMBUNYIKAN TOTAL */
         .goog-te-gadget {
             display: none !important;
             font-size: 0 !important;
@@ -438,12 +415,10 @@
             display: none !important;
         }
 
-        /* Sembunyikan logo Google */
         .goog-logo-link {
             display: none !important;
         }
 
-        /* Container translate element */
         #google_translate_element,
         #google_translate_element * {
             display: none !important;
@@ -457,32 +432,27 @@
             opacity: 0 !important;
         }
 
-        /* Sembunyikan semua elemen dengan class skiptranslate */
         .skiptranslate {
             display: none !important;
             visibility: hidden !important;
             height: 0 !important;
         }
 
-        /* Sembunyikan SEMUA elemen yang mengandung "goog" */
         [class*="goog-"],
         [id*="goog-"],
         [class*="skiptranslate"] {
             display: none !important;
         }
 
-        /* KECUALI elemen yang kita butuhkan untuk translate */
         .goog-te-combo {
             display: none !important;
         }
 
-        /* Body reset */
         body {
             top: 0 !important;
             position: static !important;
         }
 
-        /* ===== DARK MODE TOGGLE BUTTON ===== */
         .theme-toggle {
             background: rgba(255, 255, 255, 0.15);
             border: 2px solid rgba(255, 255, 255, 0.3);
@@ -510,7 +480,6 @@
             background: rgba(255, 255, 255, 0.25);
         }
 
-        /* ===== SECTION ===== */
         .section {
             padding: 100px 0;
             scroll-margin-top: 80px;
@@ -529,63 +498,29 @@
             background: #15222e;
         }
 
-        /* ===== COMPONENTS ===== */
-        .bg-primary {
-            background-color: var(--primary);
-        }
-        .bg-primary-dark {
-            background-color: var(--primary-dark);
-        }
-        .bg-accent {
-            background-color: var(--accent);
-        }
-        .text-primary {
-            color: var(--primary);
-        }
-        .text-accent {
-            color: var(--accent);
-        }
-        .border-primary {
-            border-color: var(--primary);
-        }
+        .bg-primary { background-color: var(--primary); }
+        .bg-primary-dark { background-color: var(--primary-dark); }
+        .bg-accent { background-color: var(--accent); }
+        .text-primary { color: var(--primary); }
+        .text-accent { color: var(--accent); }
+        .border-primary { border-color: var(--primary); }
 
-        /* Text colors untuk dark mode */
-        [data-theme="dark"] .text-gray-700 {
-            color: #c0d0e0 !important;
-        }
-        [data-theme="dark"] .text-gray-600 {
-            color: #a0b0c0 !important;
-        }
-        [data-theme="dark"] .text-gray-800 {
-            color: #e8edf0 !important;
-        }
-        [data-theme="dark"] .text-gray-500 {
-            color: #8090a0 !important;
-        }
-        [data-theme="dark"] .text-gray-400 {
-            color: #607080 !important;
-        }
-        [data-theme="dark"] .bg-gray-100 {
-            background-color: #1a2a3a !important;
-        }
-        [data-theme="dark"] .bg-white {
-            background-color: #1a2a3a !important;
-        }
-        [data-theme="dark"] .border-gray-300 {
-            border-color: #2a3a4a !important;
-        }
+        [data-theme="dark"] .text-gray-700 { color: #c0d0e0 !important; }
+        [data-theme="dark"] .text-gray-600 { color: #a0b0c0 !important; }
+        [data-theme="dark"] .text-gray-800 { color: #e8edf0 !important; }
+        [data-theme="dark"] .text-gray-500 { color: #8090a0 !important; }
+        [data-theme="dark"] .text-gray-400 { color: #607080 !important; }
+        [data-theme="dark"] .bg-gray-100 { background-color: #1a2a3a !important; }
+        [data-theme="dark"] .bg-white { background-color: #1a2a3a !important; }
+        [data-theme="dark"] .border-gray-300 { border-color: #2a3a4a !important; }
         [data-theme="dark"] .tech-badge {
             background-color: #1a2a3a;
             color: #8bb5c5;
             border-color: #2d96ad;
         }
-        [data-theme="dark"] .project-card {
-            background: #1a2a3a !important;
-        }
-        [data-theme="dark"] .project-card .card-content {
-            background: #1a2a3a !important;
-        }
-        /* Button kuning - teks hitam di semua mode */
+        [data-theme="dark"] .project-card { background: #1a2a3a !important; }
+        [data-theme="dark"] .project-card .card-content { background: #1a2a3a !important; }
+
         .btn-accent {
             background-color: var(--accent);
             color: #1a2a3a !important;
@@ -599,12 +534,8 @@
             transform: scale(1.05);
             color: #1a2a3a !important;
         }
-        [data-theme="dark"] .btn-accent {
-            color: #1a2a3a !important;
-        }
-        [data-theme="dark"] .btn-accent:hover {
-            color: #1a2a3a !important;
-        }
+        [data-theme="dark"] .btn-accent { color: #1a2a3a !important; }
+        [data-theme="dark"] .btn-accent:hover { color: #1a2a3a !important; }
 
         .btn-primary {
             background-color: var(--primary);
@@ -630,7 +561,6 @@
             transition: all 0.5s ease;
         }
 
-        /* ===== SOSIAL MEDIA ICONS - BACKGROUND KUNING DENGAN ICON HITAM ===== */
         .social-icon {
             background-color: #e8e485 !important;
             color: #1a2a3a !important;
@@ -651,7 +581,6 @@
             box-shadow: 0 8px 25px rgba(232, 228, 133, 0.5);
             border-color: #d4d06a;
         }
-        /* Dark mode - tetap kuning dengan icon hitam */
         [data-theme="dark"] .social-icon {
             background-color: #e8e485 !important;
             color: #1a2a3a !important;
@@ -664,8 +593,6 @@
             box-shadow: 0 8px 25px rgba(232, 228, 133, 0.4);
         }
 
-        /* ===== STYLING FORM UNTUK DARK MODE ===== */
-        /* Input dan textarea di dark mode */
         [data-theme="dark"] input,
         [data-theme="dark"] textarea {
             background-color: #1a2a3a !important;
@@ -682,18 +609,7 @@
             outline: none !important;
             box-shadow: 0 0 0 3px rgba(45, 150, 173, 0.2) !important;
         }
-        /* Label dan teks form di dark mode */
-        [data-theme="dark"] .text-gray-700 {
-            color: #c0d0e0 !important;
-        }
-        [data-theme="dark"] .text-gray-500 {
-            color: #8090a0 !important;
-        }
-        [data-theme="dark"] .text-gray-400 {
-            color: #607080 !important;
-        }
 
-        /* ===== FORM STATUS ===== */
         #formStatus {
             transition: all 0.3s ease;
             padding: 8px 12px;
@@ -707,9 +623,6 @@
             color: #e8edf0 !important;
         }
 
-        /* ============================================================
-                   PROJECT CARD - TANPA OUTLINE KUNING
-                   ============================================================ */
         .project-card {
             position: relative;
             display: flex;
@@ -754,7 +667,6 @@
             overflow: hidden;
         }
 
-        /* ===== MODAL - DIPERBAIKI UNTUK SCROLL ===== */
         .modal {
             transition: opacity 0.3s ease;
             padding: 20px;
@@ -790,7 +702,6 @@
             overflow-y: auto;
             transition: all 0.5s ease;
         }
-        /* Scrollbar styling */
         .modal-paper::-webkit-scrollbar {
             width: 6px;
         }
@@ -1051,9 +962,6 @@
             background-color: #1f7a8f;
         }
 
-        /* ============================================================
-                   CV - 2 LEMBAR KERTAS
-                   ============================================================ */
         .cv-book {
             display: flex;
             justify-content: center;
@@ -1101,35 +1009,15 @@
             border-color: #4a3d2e;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
         }
-        .cv-page .cv-title {
-            color: #1a2a3a;
-        }
-        .cv-page .cv-desc {
-            color: #4a5a6a;
-        }
-        .cv-page .cv-size {
-            color: #999;
-        }
-        [data-theme="dark"] .cv-page .cv-title {
-            color: #e8dcc8;
-        }
-        [data-theme="dark"] .cv-page .cv-desc {
-            color: #c8b898;
-        }
-        [data-theme="dark"] .cv-page .cv-size {
-            color: #9a8a7a;
-        }
-        [data-theme="dark"] .cv-page .cv-badge {
-            background: #2d96ad;
-            color: white;
-        }
-        [data-theme="dark"] .cv-page .btn-download {
-            background: #2d96ad;
-            color: white;
-        }
-        [data-theme="dark"] .cv-page .btn-download:hover {
-            background: #1f7a8f;
-        }
+        .cv-page .cv-title { color: #1a2a3a; }
+        .cv-page .cv-desc { color: #4a5a6a; }
+        .cv-page .cv-size { color: #999; }
+        [data-theme="dark"] .cv-page .cv-title { color: #e8dcc8; }
+        [data-theme="dark"] .cv-page .cv-desc { color: #c8b898; }
+        [data-theme="dark"] .cv-page .cv-size { color: #9a8a7a; }
+        [data-theme="dark"] .cv-page .cv-badge { background: #2d96ad; color: white; }
+        [data-theme="dark"] .cv-page .btn-download { background: #2d96ad; color: white; }
+        [data-theme="dark"] .cv-page .btn-download:hover { background: #1f7a8f; }
 
         .cv-page .binder-holes {
             position: absolute;
@@ -1356,7 +1244,6 @@
             box-shadow: 0 6px 20px rgba(45, 150, 173, 0.3);
         }
 
-        /* ---- RESPONSIVE ---- */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -1480,14 +1367,12 @@
                 right: 10px;
             }
 
-            /* Sosial icon responsive */
             .social-icon {
                 width: 40px;
                 height: 40px;
                 font-size: 1.2rem;
             }
 
-            /* Language selector responsive */
             .lang-btn {
                 padding: 5px 10px;
                 font-size: 0.75rem;
@@ -2092,21 +1977,63 @@
             attributeFilter: ['style', 'class']
         });
 
-        // ===== FUNGSI UNTUK RE-APPLY TRANSLATION =====
+        // ===== FUNGSI RE-APPLY TRANSLATION (DIPERBAIKI) =====
+        // Menggunakan multiple attempts dengan interval yang meningkat
         function reapplyTranslation() {
             const savedLang = localStorage.getItem('lang');
-            if (savedLang && savedLang !== 'id') {
+            if (!savedLang || savedLang === 'id') return;
+            
+            console.log('🔄 Re-applying translation to:', savedLang);
+            
+            // Coba beberapa kali dengan interval yang meningkat
+            const attempts = [500, 1000, 2000, 3500, 5000];
+            
+            attempts.forEach((delay, index) => {
                 setTimeout(() => {
                     const select = document.querySelector('.goog-te-combo');
                     if (select) {
-                        select.value = savedLang;
-                        select.dispatchEvent(new Event('change'));
+                        if (select.value !== savedLang) {
+                            select.value = savedLang;
+                            select.dispatchEvent(new Event('change'));
+                            console.log(`✅ Translation attempt ${index + 1} for:`, savedLang);
+                        }
+                        setTimeout(removeGoogleTranslateBanner, 200);
                     }
-                }, 100);
-            }
+                }, delay);
+            });
         }
 
-        // ===== DARK MODE TOGGLE WITH PROGRESS BAR =====
+        // ===== FUNGSI FORCE TRANSLATION (BARU) =====
+        // Fungsi ini memastikan semua teks ter-translate dengan retry
+        function forceTranslation(lang) {
+            if (!lang || lang === 'id') return;
+            
+            console.log('💪 Force translation to:', lang);
+            
+            let attempts = 0;
+            const maxAttempts = 10;
+            
+            const tryTranslate = () => {
+                attempts++;
+                const select = document.querySelector('.goog-te-combo');
+                
+                if (select && select.value !== lang) {
+                    select.value = lang;
+                    select.dispatchEvent(new Event('change'));
+                    console.log(`💪 Force attempt ${attempts}:`, lang);
+                }
+                
+                setTimeout(removeGoogleTranslateBanner, 200);
+                
+                if (attempts < maxAttempts) {
+                    setTimeout(tryTranslate, 500);
+                }
+            };
+            
+            tryTranslate();
+        }
+
+        // ===== DARK MODE TOGGLE =====
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
         const modeLoader = document.getElementById('modeLoader');
@@ -2161,7 +2088,13 @@
                     progressBar.style.width = '0%';
                     isTransitioning = false;
                     
-                    reapplyTranslation();
+                    // RE-APPLY TRANSLATION setelah mode berubah
+                    const savedLang = localStorage.getItem('lang');
+                    if (savedLang && savedLang !== 'id') {
+                        reapplyTranslation();
+                        forceTranslation(savedLang);
+                    }
+                    
                     removeGoogleTranslateBanner();
                 }, 300);
             }, 800);
@@ -2202,18 +2135,24 @@
             
             langDropdown.classList.remove('open');
             
+            // Simpan preferensi
+            localStorage.setItem('lang', lang);
+            
             const select = document.querySelector('.goog-te-combo');
             if (select) {
                 select.value = lang;
                 select.dispatchEvent(new Event('change'));
+                
+                // Force translation jika ke English
+                if (lang === 'en') {
+                    setTimeout(() => forceTranslation('en'), 500);
+                }
             } else {
                 const domain = window.location.hostname;
                 document.cookie = `googtrans=/id/${lang}; path=/`;
                 document.cookie = `googtrans=/id/${lang}; path=/; domain=.${domain}`;
                 location.reload();
             }
-            
-            localStorage.setItem('lang', lang);
             
             setTimeout(removeGoogleTranslateBanner, 100);
             setTimeout(removeGoogleTranslateBanner, 500);
