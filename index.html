@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio - Tiaz Febia Sakes</title>
     
+    <!-- ===== FAVICON - PNG TRANSPARAN ===== -->
     <link rel="icon" type="image/png" sizes="32x32" href="images/mylogo.png?v=1" />
     <link rel="shortcut icon" type="image/png" href="images/mylogo.png?v=1" />
     <link rel="apple-touch-icon" sizes="180x180" href="images/mylogo.png?v=1" />
@@ -666,7 +667,6 @@
             overflow: hidden;
         }
 
-        /* ===== MODAL - TANPA PAKU, KLIP, DAN LUBANG BINDER ===== */
         .modal {
             transition: opacity 0.3s ease;
             padding: 20px;
@@ -731,7 +731,6 @@
             color: #c0d0e0;
         }
 
-        /* Garis kertas - tetap dipertahankan */
         .modal-paper .modal-lines {
             position: absolute;
             top: 50px;
@@ -754,11 +753,8 @@
             opacity: 0.08;
         }
 
-        /* ===== HAPUS: modal-holes, modal-clip, modal-pin ===== */
-        /* Sudah dihapus dari HTML, tidak perlu CSS-nya */
-        /* ================================================ */
+        /* ===== ORNAMEN DIHAPUS: modal-holes, modal-clip, modal-pin ===== */
 
-        /* Efek sobekan kertas - tetap dipertahankan */
         .modal-paper .modal-tear {
             position: absolute;
             bottom: -4px;
@@ -1382,19 +1378,19 @@
     <!-- ===== SCROLL PROGRESS BAR ===== -->
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- ===== NAVBAR - TANPA translate="no" agar ikut diterjemahkan ===== -->
-    <nav class="navbar">
-        <a href="#home" class="logo notranslate" translate="no">Tiaz Febia Sakes</a>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" translate="no">
+        <a href="#home" class="logo" translate="no">Tiaz Febia Sakes</a>
         <div class="nav-right">
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Kontak</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <li><a href="#resume">CV</a></li>
             </ul>
             
-            <!-- ===== LANGUAGE SELECTOR - tetap notranslate ===== -->
+            <!-- ===== LANGUAGE SELECTOR ===== -->
             <div class="lang-selector" translate="no">
                 <button class="lang-btn" id="langBtn" aria-label="Pilih Bahasa" translate="no">
                     <span class="flag" id="currentFlag">🇮🇩</span>
@@ -1505,7 +1501,7 @@
                                             <i class="fab fa-github"></i> GitHub
                                         </a>
                                         <a href="https://drive.google.com/drive/folders/1b7rDfjeiY7L33sA-j8bDLkiPBlMKklk0?usp=drive_link" target="_blank" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap">
-                                            <i class="fab fa-google-drive"></i> Drive
+                                            <i class="fab fa-google-drive"></i> G-Drive
                                         </a>
                                     </div>
                                     <button onclick="openModal('project-0')" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap flex-shrink-0">
@@ -1538,7 +1534,7 @@
                                             <i class="fab fa-github"></i> GitHub
                                         </a>
                                         <a href="https://drive.google.com/drive/folders/110d30HA3YfQvCuUnOSfUE1qS3e1vpTLW?usp=drive_link" target="_blank" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap">
-                                            <i class="fab fa-google-drive"></i> Drive
+                                            <i class="fab fa-google-drive"></i> G-Drive
                                         </a>
                                     </div>
                                     <button onclick="openModal('project-1')" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap flex-shrink-0">
@@ -1571,7 +1567,7 @@
                                             <i class="fab fa-github"></i> GitHub
                                         </a>
                                         <a href="https://drive.google.com/drive/folders/1aG4htNd9peCSDB-qWTATvhGGueVFDMtw?usp=drive_link" target="_blank" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap">
-                                            <i class="fab fa-google-drive"></i> Drive
+                                            <i class="fab fa-google-drive"></i> G-Drive
                                         </a>
                                     </div>
                                     <button onclick="openModal('project-2')" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap flex-shrink-0">
@@ -1601,7 +1597,7 @@
                                 <div class="flex items-center justify-between gap-2 mt-auto btn-group">
                                     <div class="flex items-center gap-2">
                                         <a href="https://drive.google.com/drive/folders/1XJUTzfkVVFCUPvy7qpTHwH24kG1nWC_n?usp=drive_link" target="_blank" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap">
-                                            <i class="fab fa-google-drive"></i> Drive
+                                            <i class="fab fa-google-drive"></i> G-Drive
                                         </a>
                                     </div>
                                     <button onclick="openModal('project-3')" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap flex-shrink-0">
@@ -1716,7 +1712,7 @@
         </div>
     </footer>
 
-    <!-- ===== MODALS - TANPA PAKU, KLIP, DAN LUBANG BINDER ===== -->
+    <!-- ===== MODALS dengan Tema Kertas (TANPA PAKU, KLIP, LUBANG BINDER) ===== -->
 
     <!-- Modal ApotekDekaMedika -->
     <div id="project-0" class="modal hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
@@ -1744,7 +1740,7 @@
                 </div>
                 <div class="modal-actions">
                     <a href="https://github.com/tiazfebias/ApotekDekaMedika" target="_blank" class="btn-modal-primary"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://drive.google.com/drive/folders/1b7rDfjeiY7L33sA-j8bDLkiPBlMKklk0?usp=drive_link" target="_blank" class="btn-modal-primary"><i class="fab fa-google-drive"></i> Drive</a>
+                    <a href="https://drive.google.com/drive/folders/1b7rDfjeiY7L33sA-j8bDLkiPBlMKklk0?usp=drive_link" target="_blank" class="btn-modal-primary"><i class="fab fa-google-drive"></i> G-Drive</a>
                 </div>
             </div>
         </div>
@@ -1775,7 +1771,7 @@
                 </div>
                 <div class="modal-actions">
                     <a href="https://github.com/tiazfebias/parapatan_tailor" target="_blank" class="btn-modal-primary"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://drive.google.com/drive/folders/110d30HA3YfQvCuUnOSfUE1qS3e1vpTLW?usp=drive_link" target="_blank" class="btn-modal-primary"><i class="fab fa-google-drive"></i> Drive</a>
+                    <a href="https://drive.google.com/drive/folders/110d30HA3YfQvCuUnOSfUE1qS3e1vpTLW?usp=drive_link" target="_blank" class="btn-modal-primary"><i class="fab fa-google-drive"></i> G-Drive</a>
                 </div>
             </div>
         </div>
@@ -1806,7 +1802,7 @@
                 </div>
                 <div class="modal-actions">
                     <a href="https://github.com/tiazfebias/SPK_MAUT" target="_blank" class="btn-modal-primary"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://drive.google.com/drive/folders/1aG4htNd9peCSDB-qWTATvhGGueVFDMtw?usp=drive_link" target="_blank" class="btn-modal-primary"><i class="fab fa-google-drive"></i> Drive</a>
+                    <a href="https://drive.google.com/drive/folders/1aG4htNd9peCSDB-qWTATvhGGueVFDMtw?usp=drive_link" target="_blank" class="btn-modal-primary"><i class="fab fa-google-drive"></i> G-Drive</a>
                 </div>
             </div>
         </div>
@@ -1836,7 +1832,7 @@
                     <span class="tech-badge text-xs px-3 py-1 rounded-full">Microsoft Office</span>
                 </div>
                 <div class="modal-actions">
-                    <a href="https://drive.google.com/drive/folders/1XJUTzfkVVFCUPvy7qpTHwH24kG1nWC_n?usp=drive_link" target="_blank" class="btn-modal-primary"><i class="fab fa-google-drive"></i> Drive</a>
+                    <a href="https://drive.google.com/drive/folders/1XJUTzfkVVFCUPvy7qpTHwH24kG1nWC_n?usp=drive_link" target="_blank" class="btn-modal-primary"><i class="fab fa-google-drive"></i> G-Drive</a>
                 </div>
             </div>
         </div>
@@ -1856,7 +1852,7 @@
 
     <!-- ===== JAVASCRIPT ===== -->
     <script>
-        // ===== HAPUS GOOGLE TRANSLATE BANNER =====
+        // ===== HAPUS GOOGLE TRANSLATE BANNER SECARA PAKSA =====
         function removeGoogleTranslateBanner() {
             const iframes = document.querySelectorAll('iframe.goog-te-banner-frame, iframe.skiptranslate, body > iframe, iframe[src*="translate.google"]');
             iframes.forEach(iframe => {
@@ -1897,7 +1893,7 @@
             attributeFilter: ['style', 'class']
         });
 
-        // ===== RE-APPLY TRANSLATION =====
+        // ===== FUNGSI RE-APPLY TRANSLATION (DIPERBAIKI) =====
         function reapplyTranslation() {
             const savedLang = localStorage.getItem('lang');
             if (!savedLang || savedLang === 'id') return;
@@ -1921,7 +1917,7 @@
             });
         }
 
-        // ===== FORCE TRANSLATION =====
+        // ===== FUNGSI FORCE TRANSLATION (BARU) =====
         function forceTranslation(lang) {
             if (!lang || lang === 'id') return;
             
@@ -2161,7 +2157,7 @@
             }
         });
 
-        // ===== FORM HANDLER =====
+        // ===== FORM HANDLER - RESET FORM AFTER SUCCESS =====
         const contactForm = document.getElementById('contactForm');
         const formName = document.getElementById('formName');
         const formEmail = document.getElementById('formEmail');
