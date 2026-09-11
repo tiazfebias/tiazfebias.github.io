@@ -302,6 +302,8 @@
             align-items: center;
             gap: 6px;
             font-family: 'Inter', sans-serif;
+            /* Cegah Google Translate menerjemahkan tombol ini */
+            translate: no;
         }
         .lang-btn:hover {
             background: rgba(255, 255, 255, 0.3);
@@ -419,11 +421,15 @@
             border: none !important;
         }
 
-        /* Widget gadget */
+        /* Widget gadget - SEMBUNYIKAN TOTAL */
         .goog-te-gadget {
             display: none !important;
             font-size: 0 !important;
             color: transparent !important;
+            visibility: hidden !important;
+            height: 0 !important;
+            width: 0 !important;
+            overflow: hidden !important;
         }
         .goog-te-gadget .goog-te-combo {
             display: none !important;
@@ -456,6 +462,18 @@
             display: none !important;
             visibility: hidden !important;
             height: 0 !important;
+        }
+
+        /* Sembunyikan SEMUA elemen yang mengandung "goog" */
+        [class*="goog-"],
+        [id*="goog-"],
+        [class*="skiptranslate"] {
+            display: none !important;
+        }
+
+        /* KECUALI elemen yang kita butuhkan untuk translate */
+        .goog-te-combo {
+            display: none !important;
         }
 
         /* Body reset */
@@ -1548,8 +1566,8 @@
     <div class="scroll-progress" id="scrollProgress"></div>
 
     <!-- ===== NAVBAR ===== -->
-    <nav class="navbar">
-        <a href="#home" class="logo">Tiaz Febia Sakes</a>
+    <nav class="navbar" translate="no">
+        <a href="#home" class="logo" translate="no">Tiaz Febia Sakes</a>
         <div class="nav-right">
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home" class="active">Home</a></li>
@@ -1560,23 +1578,23 @@
             </ul>
             
             <!-- ===== LANGUAGE SELECTOR ===== -->
-            <div class="lang-selector">
-                <button class="lang-btn" id="langBtn" aria-label="Pilih Bahasa">
+            <div class="lang-selector" translate="no">
+                <button class="lang-btn" id="langBtn" aria-label="Pilih Bahasa" translate="no">
                     <span class="flag" id="currentFlag">🇮🇩</span>
                     <span id="currentLang">ID</span>
                     <i class="fas fa-chevron-down" style="font-size:0.7rem;"></i>
                 </button>
-                <div class="lang-dropdown" id="langDropdown">
-                    <button onclick="changeLanguage('id')" class="active" data-lang="id">
+                <div class="lang-dropdown" id="langDropdown" translate="no">
+                    <button onclick="changeLanguage('id')" class="active" data-lang="id" translate="no">
                         <span class="flag">🇮🇩</span> Indonesia
                     </button>
-                    <button onclick="changeLanguage('en')" data-lang="en">
+                    <button onclick="changeLanguage('en')" data-lang="en" translate="no">
                         <span class="flag">🇬🇧</span> English
                     </button>
                 </div>
             </div>
 
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode" translate="no">
                 <i class="fas fa-moon" id="themeIcon"></i>
             </button>
             <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -2075,11 +2093,9 @@
         });
 
         // ===== FUNGSI UNTUK RE-APPLY TRANSLATION =====
-        // Fungsi ini memanggil ulang Google Translate setelah perubahan DOM
         function reapplyTranslation() {
             const savedLang = localStorage.getItem('lang');
             if (savedLang && savedLang !== 'id') {
-                // Tunggu sebentar agar DOM selesai di-update
                 setTimeout(() => {
                     const select = document.querySelector('.goog-te-combo');
                     if (select) {
@@ -2145,7 +2161,6 @@
                     progressBar.style.width = '0%';
                     isTransitioning = false;
                     
-                    // RE-APPLY TRANSLATION setelah mode berubah
                     reapplyTranslation();
                     removeGoogleTranslateBanner();
                 }, 300);
