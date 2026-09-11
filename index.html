@@ -753,8 +753,6 @@
             opacity: 0.08;
         }
 
-        /* ===== ORNAMEN DIHAPUS: modal-holes, modal-clip, modal-pin ===== */
-
         .modal-paper .modal-tear {
             position: absolute;
             bottom: -4px;
@@ -1712,7 +1710,7 @@
         </div>
     </footer>
 
-    <!-- ===== MODALS dengan Tema Kertas (TANPA PAKU, KLIP, LUBANG BINDER) ===== -->
+    <!-- ===== MODALS dengan Tema Kertas ===== -->
 
     <!-- Modal ApotekDekaMedika -->
     <div id="project-0" class="modal hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
@@ -1968,8 +1966,20 @@
 
             modeLoader.classList.add('active');
             
-            const nextMode = isDark ? 'Terang' : 'Gelap';
-            loaderText.textContent = `Beralih ke Mode ${nextMode}...`;
+            // ===== CEK BAHASA AKTIF UNTUK TEKS LOADER =====
+            const activeLang = localStorage.getItem('lang') || 'id';
+            let loaderMessage;
+            
+            if (activeLang === 'en') {
+                // Teks dalam bahasa Inggris
+                loaderMessage = isDark ? 'Switching to Light Mode...' : 'Switching to Dark Mode...';
+            } else {
+                // Teks dalam bahasa Indonesia
+                const nextMode = isDark ? 'Terang' : 'Gelap';
+                loaderMessage = `Beralih ke Mode ${nextMode}...`;
+            }
+            
+            loaderText.textContent = loaderMessage;
             loaderIcon.innerHTML = `<i class="fas ${isDark ? 'fa-sun' : 'fa-moon'}"></i>`;
 
             let progress = 0;
