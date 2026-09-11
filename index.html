@@ -1891,7 +1891,7 @@
             attributeFilter: ['style', 'class']
         });
 
-        // ===== FUNGSI RE-APPLY TRANSLATION (DIPERBAIKI) =====
+        // ===== FUNGSI RE-APPLY TRANSLATION =====
         function reapplyTranslation() {
             const savedLang = localStorage.getItem('lang');
             if (!savedLang || savedLang === 'id') return;
@@ -1915,9 +1915,10 @@
             });
         }
 
-        // ===== FUNGSI FORCE TRANSLATION (BARU) =====
+        // ===== FUNGSI FORCE TRANSLATION (DIPERBAIKI) =====
+        // Mendukung ID dan EN dengan logika yang berbeda
         function forceTranslation(lang) {
-            if (!lang || lang === 'id') return;
+            if (!lang) return;
             
             console.log('💪 Force translation to:', lang);
             
@@ -1928,20 +1929,49 @@
                 attempts++;
                 const select = document.querySelector('.goog-te-combo');
                 
-                if (select && select.value !== lang) {
-                    select.value = lang;
-                    select.dispatchEvent(new Event('change'));
-                    console.log(`💪 Force attempt ${attempts}:`, lang);
+                if (select) {
+                    if (select.value !== lang) {
+                        select.value = lang;
+                        select.dispatchEvent(new Event('change'));
+                        console.log(`💪 Force ${lang} attempt ${attempts}`);
+                    }
                 }
                 
                 setTimeout(removeGoogleTranslateBanner, 200);
                 
                 if (attempts < maxAttempts) {
-                    setTimeout(tryTranslate, 500);
+                    setTimeout(tryTranslate, 400);
                 }
             };
             
             tryTranslate();
+        }
+
+        // ===== FUNGSI KHUSUS KEMBALI KE INDONESIA =====
+        // Karena Google Translate sering "nyangkut" saat kembali ke bahasa asli
+        function revertToIndonesian() {
+            console.log('🇮🇩 Reverting to Indonesian...');
+            
+            // 1. Set combobox ke 'id'
+            const select = document.querySelector('.goog-te-combo');
+            if (select) {
+                select.value = 'id';
+                select.dispatchEvent(new Event('change'));
+            }
+            
+            // 2. Hapus cookie googtrans (agar Google Translate "lupa" pernah translate)
+            const domain = window.location.hostname;
+            document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+            document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${domain};`;
+            
+            // 3. Cek ulang setelah 2 detik, jika masih macet → reload halaman
+            setTimeout(() => {
+                const select = document.querySelector('.goog-te-combo');
+                if (select && select.value !== 'id') {
+                    console.log('⚠️ Still not Indonesian, forcing reload...');
+                    location.reload();
+                }
+            }, 2000);
         }
 
         // ===== DARK MODE TOGGLE =====
@@ -2039,6 +2069,7 @@
             }
         });
 
+        // ===== FUNGSI GANTI BAHASA (DIPERBAIKI) =====
         function changeLanguage(lang) {
             if (lang === 'en') {
                 currentFlag.textContent = '🇬🇧';
@@ -2057,21 +2088,39 @@
             
             langDropdown.classList.remove('open');
             
+            // Simpan preferensi
             localStorage.setItem('lang', lang);
             
             const select = document.querySelector('.goog-te-combo');
-            if (select) {
-                select.value = lang;
-                select.dispatchEvent(new Event('change'));
-                
-                if (lang === 'en') {
-                    setTimeout(() => forceTranslation('en'), 500);
+            
+            if (lang === 'id') {
+                // ===== KHUSUS KEMBALI KE INDONESIA =====
+                // Google Translate sering "nyangkut" saat kembali ke bahasa asli
+                if (select) {
+                    revertToIndonesian();
+                    setTimeout(() => forceTranslation('id'), 500);
+                    setTimeout(() => forceTranslation('id'), 1200);
+                    setTimeout(() => forceTranslation('id'), 2000);
+                } else {
+                    const domain = window.location.hostname;
+                    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+                    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${domain};`;
+                    location.reload();
                 }
             } else {
-                const domain = window.location.hostname;
-                document.cookie = `googtrans=/id/${lang}; path=/`;
-                document.cookie = `googtrans=/id/${lang}; path=/; domain=.${domain}`;
-                location.reload();
+                // ===== KHUSUS KE INGGRIS =====
+                if (select) {
+                    select.value = lang;
+                    select.dispatchEvent(new Event('change'));
+                    setTimeout(() => forceTranslation('en'), 300);
+                    setTimeout(() => forceTranslation('en'), 800);
+                    setTimeout(() => forceTranslation('en'), 1500);
+                } else {
+                    const domain = window.location.hostname;
+                    document.cookie = `googtrans=/id/${lang}; path=/`;
+                    document.cookie = `googtrans=/id/${lang}; path=/; domain=.${domain}`;
+                    location.reload();
+                }
             }
             
             setTimeout(removeGoogleTranslateBanner, 100);
