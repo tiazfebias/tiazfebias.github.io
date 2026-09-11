@@ -172,6 +172,8 @@
         }
         html {
             scroll-behavior: smooth;
+            margin-top: 0 !important;
+            padding-top: 0 !important;
         }
         body {
             font-family: 'Inter', sans-serif;
@@ -181,6 +183,8 @@
             transition: background 0.5s ease, color 0.5s ease;
             top: 0 !important;
             position: static !important;
+            margin-top: 0 !important;
+            padding-top: 0 !important;
         }
         .font-heading {
             font-family: 'Playfair Display', Georgia, serif;
@@ -195,7 +199,7 @@
             top: 0;
             left: 0;
             right: 0;
-            z-index: 999999 !important;
+            z-index: 2147483647 !important;
             background: rgba(45, 150, 173, 0.95);
             backdrop-filter: blur(12px);
             box-shadow: 0 4px 30px rgba(45, 150, 173, 0.3);
@@ -319,7 +323,7 @@
             transform: translateY(-10px);
             transition: all 0.3s ease;
             min-width: 160px;
-            z-index: 1001;
+            z-index: 2147483647;
         }
         .lang-dropdown.open {
             opacity: 1;
@@ -366,7 +370,7 @@
         }
 
         /* ============================================================
-           SEMBUNYIKAN SEMUA ELEMEN GOOGLE TRANSLATE
+           HAPUS TOTAL GOOGLE TRANSLATE BANNER & WATERMARK
            ============================================================ */
         
         /* Iframe Google Translate yang menutupi navbar */
@@ -374,29 +378,37 @@
         iframe.goog-te-menu-frame,
         iframe[src*="translate.google.com"],
         iframe[src*="translate.googleapis.com"],
-        .skiptranslate iframe {
+        iframe.skiptranslate,
+        body > iframe,
+        body > .skiptranslate {
             display: none !important;
             visibility: hidden !important;
             opacity: 0 !important;
             width: 0 !important;
             height: 0 !important;
+            max-width: 0 !important;
+            max-height: 0 !important;
             pointer-events: none !important;
             position: absolute !important;
             top: -9999px !important;
             left: -9999px !important;
-            z-index: -1 !important;
+            z-index: -99999 !important;
+            border: none !important;
         }
 
         /* Banner frame */
+        .goog-te-banner-frame,
         .goog-te-banner-frame.skiptranslate {
             display: none !important;
+            visibility: hidden !important;
         }
 
         /* Tooltip & balloon */
         #goog-gt-tt,
         .goog-te-balloon-frame,
         .goog-tooltip,
-        .goog-tooltip:hover {
+        .goog-tooltip:hover,
+        .goog-te-spinner-pos {
             display: none !important;
         }
 
@@ -411,13 +423,23 @@
         .goog-te-gadget {
             display: none !important;
             font-size: 0 !important;
+            color: transparent !important;
         }
         .goog-te-gadget .goog-te-combo {
             display: none !important;
         }
+        .goog-te-gadget span {
+            display: none !important;
+        }
+
+        /* Sembunyikan logo Google */
+        .goog-logo-link {
+            display: none !important;
+        }
 
         /* Container translate element */
-        #google_translate_element {
+        #google_translate_element,
+        #google_translate_element * {
             display: none !important;
             visibility: hidden !important;
             width: 0 !important;
@@ -426,24 +448,20 @@
             position: absolute !important;
             top: -9999px !important;
             left: -9999px !important;
-        }
-
-        /* Sembunyikan logo Google */
-        .goog-logo-link {
-            display: none !important;
-        }
-        .goog-te-gadget span {
-            display: none !important;
+            opacity: 0 !important;
         }
 
         /* Sembunyikan semua elemen dengan class skiptranslate */
         .skiptranslate {
             display: none !important;
+            visibility: hidden !important;
+            height: 0 !important;
         }
 
-        /* Pastikan body tidak terdorong ke bawah */
-        body > .skiptranslate {
-            display: none !important;
+        /* Body reset */
+        body {
+            top: 0 !important;
+            position: static !important;
         }
 
         /* ===== DARK MODE TOGGLE BUTTON ===== */
@@ -482,6 +500,8 @@
             display: flex;
             align-items: center;
             transition: background 0.5s ease;
+            position: relative;
+            z-index: 1;
         }
         .section-alt {
             background: var(--white);
@@ -2013,6 +2033,55 @@
 
     <!-- ===== JAVASCRIPT ===== -->
     <script>
+        // ===== HAPUS GOOGLE TRANSLATE BANNER SECARA PAKSA =====
+        function removeGoogleTranslateBanner() {
+            // Hapus semua iframe Google Translate
+            const iframes = document.querySelectorAll('iframe.goog-te-banner-frame, iframe.skiptranslate, body > iframe, iframe[src*="translate.google"]');
+            iframes.forEach(iframe => {
+                iframe.style.display = 'none';
+                iframe.style.visibility = 'hidden';
+                iframe.style.height = '0';
+                iframe.style.width = '0';
+                iframe.style.position = 'absolute';
+                iframe.style.top = '-9999px';
+                iframe.style.left = '-9999px';
+            });
+            
+            // Hapus body top spacing
+            document.body.style.top = '0';
+            document.body.style.position = 'static';
+            document.body.style.marginTop = '0';
+            document.body.style.paddingTop = '0';
+            
+            // Hapus class skiptranslate dari body jika ada
+            document.body.classList.remove('skiptranslate');
+            
+            // Hapus semua elemen dengan class skiptranslate kecuali yang kita butuhkan
+            document.querySelectorAll('.skiptranslate').forEach(el => {
+                if (!el.classList.contains('goog-te-gadget')) {
+                    el.style.display = 'none';
+                }
+            });
+        }
+
+        // Jalankan saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', removeGoogleTranslateBanner);
+        window.addEventListener('load', removeGoogleTranslateBanner);
+
+        // Jalankan setiap 500ms untuk memastikan banner tetap hilang
+        setInterval(removeGoogleTranslateBanner, 500);
+
+        // Jalankan saat ada perubahan DOM
+        const bannerObserver = new MutationObserver(function(mutations) {
+            removeGoogleTranslateBanner();
+        });
+        bannerObserver.observe(document.body, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['style', 'class']
+        });
+
         // ===== DARK MODE TOGGLE WITH PROGRESS BAR =====
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
@@ -2127,6 +2196,11 @@
             
             // Simpan preferensi
             localStorage.setItem('lang', lang);
+            
+            // Hapus banner setelah ganti bahasa
+            setTimeout(removeGoogleTranslateBanner, 100);
+            setTimeout(removeGoogleTranslateBanner, 500);
+            setTimeout(removeGoogleTranslateBanner, 1000);
         }
 
         // Muat preferensi bahasa saat halaman dimuat
