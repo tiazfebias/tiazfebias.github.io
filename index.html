@@ -2035,7 +2035,6 @@
     <script>
         // ===== HAPUS GOOGLE TRANSLATE BANNER SECARA PAKSA =====
         function removeGoogleTranslateBanner() {
-            // Hapus semua iframe Google Translate
             const iframes = document.querySelectorAll('iframe.goog-te-banner-frame, iframe.skiptranslate, body > iframe, iframe[src*="translate.google"]');
             iframes.forEach(iframe => {
                 iframe.style.display = 'none';
@@ -2047,16 +2046,13 @@
                 iframe.style.left = '-9999px';
             });
             
-            // Hapus body top spacing
             document.body.style.top = '0';
             document.body.style.position = 'static';
             document.body.style.marginTop = '0';
             document.body.style.paddingTop = '0';
             
-            // Hapus class skiptranslate dari body jika ada
             document.body.classList.remove('skiptranslate');
             
-            // Hapus semua elemen dengan class skiptranslate kecuali yang kita butuhkan
             document.querySelectorAll('.skiptranslate').forEach(el => {
                 if (!el.classList.contains('goog-te-gadget')) {
                     el.style.display = 'none';
@@ -2064,14 +2060,10 @@
             });
         }
 
-        // Jalankan saat halaman dimuat
         document.addEventListener('DOMContentLoaded', removeGoogleTranslateBanner);
         window.addEventListener('load', removeGoogleTranslateBanner);
-
-        // Jalankan setiap 500ms untuk memastikan banner tetap hilang
         setInterval(removeGoogleTranslateBanner, 500);
 
-        // Jalankan saat ada perubahan DOM
         const bannerObserver = new MutationObserver(function(mutations) {
             removeGoogleTranslateBanner();
         });
@@ -2081,6 +2073,22 @@
             attributes: true,
             attributeFilter: ['style', 'class']
         });
+
+        // ===== FUNGSI UNTUK RE-APPLY TRANSLATION =====
+        // Fungsi ini memanggil ulang Google Translate setelah perubahan DOM
+        function reapplyTranslation() {
+            const savedLang = localStorage.getItem('lang');
+            if (savedLang && savedLang !== 'id') {
+                // Tunggu sebentar agar DOM selesai di-update
+                setTimeout(() => {
+                    const select = document.querySelector('.goog-te-combo');
+                    if (select) {
+                        select.value = savedLang;
+                        select.dispatchEvent(new Event('change'));
+                    }
+                }, 100);
+            }
+        }
 
         // ===== DARK MODE TOGGLE WITH PROGRESS BAR =====
         const themeToggle = document.getElementById('themeToggle');
@@ -2136,6 +2144,10 @@
                     modeLoader.classList.remove('active');
                     progressBar.style.width = '0%';
                     isTransitioning = false;
+                    
+                    // RE-APPLY TRANSLATION setelah mode berubah
+                    reapplyTranslation();
+                    removeGoogleTranslateBanner();
                 }, 300);
             }, 800);
         });
@@ -2146,22 +2158,18 @@
         const currentFlag = document.getElementById('currentFlag');
         const currentLang = document.getElementById('currentLang');
 
-        // Buka/tutup dropdown
         langBtn.addEventListener('click', function(e) {
             e.stopPropagation();
             langDropdown.classList.toggle('open');
         });
 
-        // Tutup dropdown saat klik di luar
         document.addEventListener('click', function(e) {
             if (!langDropdown.contains(e.target) && e.target !== langBtn) {
                 langDropdown.classList.remove('open');
             }
         });
 
-        // Fungsi ganti bahasa
         function changeLanguage(lang) {
-            // Update tampilan tombol
             if (lang === 'en') {
                 currentFlag.textContent = '🇬🇧';
                 currentLang.textContent = 'EN';
@@ -2170,7 +2178,6 @@
                 currentLang.textContent = 'ID';
             }
             
-            // Update status active di dropdown
             document.querySelectorAll('.lang-dropdown button').forEach(btn => {
                 btn.classList.remove('active');
                 if (btn.getAttribute('data-lang') === lang) {
@@ -2178,32 +2185,26 @@
                 }
             });
             
-            // Tutup dropdown
             langDropdown.classList.remove('open');
             
-            // Trigger Google Translate
             const select = document.querySelector('.goog-te-combo');
             if (select) {
                 select.value = lang;
                 select.dispatchEvent(new Event('change'));
             } else {
-                // Fallback: gunakan cookie jika elemen belum siap
                 const domain = window.location.hostname;
                 document.cookie = `googtrans=/id/${lang}; path=/`;
                 document.cookie = `googtrans=/id/${lang}; path=/; domain=.${domain}`;
                 location.reload();
             }
             
-            // Simpan preferensi
             localStorage.setItem('lang', lang);
             
-            // Hapus banner setelah ganti bahasa
             setTimeout(removeGoogleTranslateBanner, 100);
             setTimeout(removeGoogleTranslateBanner, 500);
             setTimeout(removeGoogleTranslateBanner, 1000);
         }
 
-        // Muat preferensi bahasa saat halaman dimuat
         window.addEventListener('load', function() {
             const savedLang = localStorage.getItem('lang');
             if (savedLang && savedLang !== 'id') {
@@ -2303,7 +2304,6 @@
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Tampilkan status loading
             formStatus.classList.remove('hidden');
             formStatus.textContent = 'Mengirim pesan...';
             formStatus.style.color = '#2d96ad';
@@ -2321,33 +2321,27 @@
                 });
 
                 if (response.ok) {
-                    // Reset form
                     formName.value = '';
                     formEmail.value = '';
                     formMessage.value = '';
                     
-                    // Tampilkan pesan sukses
                     formStatus.textContent = '✅ Pesan berhasil dikirim!';
                     formStatus.style.color = '#22c55e';
                     formStatus.classList.remove('hidden');
                     
-                    // Sembunyikan pesan sukses setelah 5 detik
                     setTimeout(() => {
                         formStatus.classList.add('hidden');
                     }, 5000);
                 } else {
-                    // Tampilkan pesan error
                     formStatus.textContent = '❌ Gagal mengirim pesan. Silakan coba lagi.';
                     formStatus.style.color = '#ef4444';
                     formStatus.classList.remove('hidden');
                 }
             } catch (error) {
-                // Tampilkan pesan error
                 formStatus.textContent = '❌ Terjadi kesalahan. Silakan coba lagi.';
                 formStatus.style.color = '#ef4444';
                 formStatus.classList.remove('hidden');
             } finally {
-                // Aktifkan kembali tombol submit
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Kirim Pesan 📩';
             }
