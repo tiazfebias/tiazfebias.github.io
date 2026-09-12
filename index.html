@@ -1272,26 +1272,64 @@
             position: relative;
             z-index: 3;
         }
+        /* ===== TOMBOL UNDUH CV - DIPERKECIL ===== */
         .cv-page .btn-download {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
-            padding: 10px 24px;
+            padding: 7px 16px;
             border-radius: 9999px;
-            font-size: 0.875rem;
-            font-weight: 500;
+            font-size: 0.7rem;
+            font-weight: 600;
             transition: all 0.3s ease;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             border: none;
             cursor: pointer;
             text-decoration: none;
             position: relative;
             z-index: 3;
             font-family: 'Inter', sans-serif;
+            letter-spacing: 0.3px;
+            box-shadow: 0 3px 12px rgba(45, 150, 173, 0.3);
+        }
+        .cv-page .btn-download i {
+            font-size: 0.85rem;
+            transition: transform 0.3s ease;
         }
         .cv-page .btn-download:hover {
-            background: var(--primary-dark);
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(45, 150, 173, 0.3);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(45, 150, 173, 0.5);
+        }
+        .cv-page .btn-download:hover i {
+            transform: translateY(2px);
+            animation: bounceDown 0.6s ease infinite;
+        }
+        @keyframes bounceDown {
+            0%, 100% { transform: translateY(2px); }
+            50% { transform: translateY(5px); }
+        }
+        [data-theme="dark"] .cv-page .btn-download {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+        [data-theme="dark"] .cv-page .btn-download:hover {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+        }
+
+        /* ===== FOOTER - DIPERKECIL ===== */
+        .footer-mini {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 12px 0;
+            transition: background 0.5s ease;
+        }
+        .footer-mini p {
+            font-size: 0.75rem;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.3px;
+            opacity: 0.9;
         }
 
         @media (max-width: 768px) {
@@ -1737,14 +1775,12 @@
                             <div><input type="email" id="formEmail" name="email" placeholder="contoh@gmail.com" required class="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></div>
                             <div><textarea id="formMessage" name="message" rows="4" placeholder="Pesan Anda..." required minlength="10" class="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></textarea>
                             <p class="text-xs text-gray-400 mt-1 text-center">* Pesan minimal 10 karakter</p></div>
-                            <!-- ===== BUTTON KIRIM PESAN - CENTER ===== -->
                             <div class="flex justify-center">
                                 <button type="submit" id="submitBtn" class="btn-primary text-white px-6 py-2.5 rounded-full font-medium text-sm">Kirim Pesan 📩</button>
                             </div>
                             <div id="formStatus" class="text-sm text-center hidden"></div>
                         </form>
 
-                        <!-- ===== TEMUKAN SAYA - CENTER ===== -->
                         <div class="mt-8 pt-6 border-t border-gray-300 flex flex-col items-center gap-4">
                             <p class="text-gray-700 font-medium font-body">Temukan saya di:</p>
                             <div class="flex flex-wrap gap-4 justify-center">
@@ -1789,7 +1825,7 @@
                         <div class="cv-title">CV Visual</div>
                         <div class="cv-desc">CV dengan desain menarik &amp; kreatif</div>
                         <div class="mt-4">
-                            <a href="CV_Visual_Tiaz.pdf" download class="btn-download">⬇️ Download CV Visual</a>
+                            <a href="CV_Visual_Tiaz.pdf" download class="btn-download"><i class="fas fa-file-arrow-down"></i> Unduh CV Visual</a>
                         </div>
                     </div>
                     <div class="cv-page">
@@ -1805,7 +1841,7 @@
                         <div class="cv-title">CV ATS</div>
                         <div class="cv-desc">CV standar ramah ATS</div>
                         <div class="mt-4">
-                            <a href="CV_ATS_Tiaz.pdf" download class="btn-download">⬇️ Download CV ATS</a>
+                            <a href="CV_ATS_Tiaz.pdf" download class="btn-download"><i class="fas fa-file-arrow-down"></i> Unduh CV ATS</a>
                         </div>
                     </div>
                 </div>
@@ -1815,10 +1851,10 @@
 
     </main>
 
-    <!-- ===== FOOTER ===== -->
-    <footer class="bg-primary-dark text-white py-6">
+    <!-- ===== FOOTER - DIPERKECIL ===== -->
+    <footer class="footer-mini">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-sm font-body">&copy; 2026 Tiaz Febia Sakes</p>
+            <p>&copy; 2026 Tiaz Febia Sakes</p>
         </div>
     </footer>
 
@@ -1876,7 +1912,7 @@
                     <img src="images/tailor.jpg" alt="Sistem informasi manajemen Parapatan Tailor">
                 </div>
                 <p class="modal-desc">
-                    Kerja Praktik ini berhasil diselesaikan berkat kerja sama solid kelompok yang beranggotakan Ahmad Rival, Raihan Rosi Hendrawan, Silmi Nur Afifah, dan Tiaz Febia S. Dalam proyek ini, saya dipercaya memegang peran sebagai Web Developer. Tanggung jawab saya meliputi implementasi teknis, pengembangan fitur-fitur utama pada website, serta integrasi sistem agar selaras dengan konsep yang telah dirancang bersama oleh tim.
+                    Kerja Praktik ini berhasil diselesaikan berkat kerja sama solid kelompok yang beranggotakan Ahmad Rival, Raihan Rosi Hendrawan, Silmi Nur Afifah, dan Tiaz Febia Sakes. Dalam proyek ini, saya dipercaya memegang peran sebagai Web Developer. Tanggung jawab saya meliputi implementasi teknis, pengembangan fitur-fitur utama pada website, serta integrasi sistem agar selaras dengan konsep yang telah dirancang bersama oleh tim.
                 </p>
                 <div class="modal-tech">
                     <span class="tech-badge px-2 py-0.5 rounded-full">PHP Native</span>
@@ -2100,21 +2136,11 @@
             if (e) e.stopPropagation();
             const lightbox = document.getElementById('lightbox');
             lightbox.classList.remove('active');
-            // Cek apakah ada modal yang masih terbuka
             const openModals = document.querySelectorAll('.modal:not(.hidden)');
             if (openModals.length === 0) {
                 document.body.style.overflow = 'auto';
             }
         }
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                const lightbox = document.getElementById('lightbox');
-                if (lightbox.classList.contains('active')) {
-                    closeLightbox();
-                }
-            }
-        });
 
         // ===== DARK MODE TOGGLE =====
         const themeToggle = document.getElementById('themeToggle');
@@ -2226,7 +2252,6 @@
             });
             
             langDropdown.classList.remove('open');
-            
             localStorage.setItem('lang', lang);
             
             const select = document.querySelector('.goog-te-combo');
@@ -2344,7 +2369,6 @@
 
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
-                // Prioritas: tutup lightbox dulu jika terbuka
                 const lightbox = document.getElementById('lightbox');
                 if (lightbox.classList.contains('active')) {
                     closeLightbox();
@@ -2357,7 +2381,7 @@
             }
         });
 
-        // ===== FORM HANDLER - RESET FORM AFTER SUCCESS =====
+        // ===== FORM HANDLER =====
         const contactForm = document.getElementById('contactForm');
         const formName = document.getElementById('formName');
         const formEmail = document.getElementById('formEmail');
