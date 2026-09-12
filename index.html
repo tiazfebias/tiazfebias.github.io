@@ -183,6 +183,7 @@
             font-family: 'Inter', sans-serif;
         }
 
+        /* ===== NAVBAR (DIPERKECIL) ===== */
         .navbar {
             position: fixed;
             top: 0;
@@ -192,8 +193,8 @@
             background: rgba(45, 150, 173, 0.95);
             backdrop-filter: blur(12px);
             box-shadow: 0 4px 30px rgba(45, 150, 173, 0.3);
-            padding: 0 24px;
-            height: 70px;
+            padding: 0 20px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -204,11 +205,12 @@
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
         }
         .navbar .logo {
-            font-size: 1.5rem;
+            font-size: 1.15rem;
             font-weight: 700;
             color: #fff;
             text-decoration: none;
             font-family: 'Playfair Display', serif;
+            letter-spacing: 0.3px;
         }
         .navbar .logo:hover {
             color: var(--accent);
@@ -217,12 +219,12 @@
         .navbar .nav-right {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 14px;
         }
 
         .nav-links {
             display: flex;
-            gap: 32px;
+            gap: 22px;
             list-style: none;
             align-items: center;
         }
@@ -230,7 +232,7 @@
             color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             transition: all 0.3s ease;
             position: relative;
         }
@@ -258,15 +260,16 @@
         .hamburger {
             display: none;
             flex-direction: column;
-            gap: 5px;
+            gap: 4px;
             background: none;
             border: none;
             cursor: pointer;
+            padding: 4px;
         }
         .hamburger span {
             display: block;
-            width: 28px;
-            height: 3px;
+            width: 22px;
+            height: 2.5px;
             background: #fff;
             border-radius: 4px;
             transition: 0.3s;
@@ -278,17 +281,17 @@
         }
         .lang-btn {
             background: rgba(255, 255, 255, 0.15);
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
             color: #fff;
-            padding: 6px 12px;
+            padding: 4px 10px;
             border-radius: 20px;
             cursor: pointer;
-            font-size: 0.85rem;
+            font-size: 0.72rem;
             font-weight: 600;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             font-family: 'Inter', sans-serif;
         }
         .lang-btn:hover {
@@ -296,7 +299,7 @@
             transform: scale(1.05);
         }
         .lang-btn .flag {
-            font-size: 1rem;
+            font-size: 0.85rem;
         }
         .lang-dropdown {
             position: absolute;
@@ -310,7 +313,7 @@
             visibility: hidden;
             transform: translateY(-10px);
             transition: all 0.3s ease;
-            min-width: 160px;
+            min-width: 145px;
             z-index: 2147483647;
         }
         .lang-dropdown.open {
@@ -321,13 +324,13 @@
         .lang-dropdown button {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             width: 100%;
-            padding: 10px 16px;
+            padding: 8px 14px;
             background: none;
             border: none;
             cursor: pointer;
-            font-size: 0.85rem;
+            font-size: 0.78rem;
             font-weight: 500;
             color: #1a2a3a;
             text-align: left;
@@ -453,15 +456,16 @@
             position: static !important;
         }
 
+        /* ===== THEME TOGGLE (DIPERKECIL) ===== */
         .theme-toggle {
             background: rgba(255, 255, 255, 0.15);
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
             color: #fff;
-            width: 40px;
-            height: 40px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
@@ -482,7 +486,7 @@
 
         .section {
             padding: 100px 0;
-            scroll-margin-top: 80px;
+            scroll-margin-top: 70px;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -1193,11 +1197,11 @@
                 flex-direction: column;
                 background: var(--primary);
                 position: absolute;
-                top: 70px;
+                top: 60px;
                 left: 0;
                 right: 0;
-                padding: 24px;
-                gap: 16px;
+                padding: 20px 24px;
+                gap: 14px;
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
                 z-index: 100;
             }
@@ -1211,7 +1215,7 @@
                 display: flex;
             }
             .navbar .nav-right {
-                gap: 12px;
+                gap: 10px;
             }
             .section {
                 padding: 80px 20px;
@@ -1300,11 +1304,11 @@
             }
 
             .lang-btn {
-                padding: 5px 10px;
-                font-size: 0.75rem;
+                padding: 4px 8px;
+                font-size: 0.68rem;
             }
             .lang-btn .flag {
-                font-size: 0.9rem;
+                font-size: 0.8rem;
             }
         }
         @media (max-width: 480px) {
@@ -1346,11 +1350,11 @@
                 font-size: 1rem;
             }
             .lang-btn {
-                padding: 4px 8px;
-                font-size: 0.7rem;
+                padding: 3px 7px;
+                font-size: 0.65rem;
             }
             .lang-btn .flag {
-                font-size: 0.85rem;
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -1393,7 +1397,7 @@
                 <button class="lang-btn" id="langBtn" aria-label="Pilih Bahasa" translate="no">
                     <span class="flag" id="currentFlag">🇮🇩</span>
                     <span id="currentLang">ID</span>
-                    <i class="fas fa-chevron-down" style="font-size:0.7rem;"></i>
+                    <i class="fas fa-chevron-down" style="font-size:0.65rem;"></i>
                 </button>
                 <div class="lang-dropdown" id="langDropdown" translate="no">
                     <button onclick="changeLanguage('id')" class="active" data-lang="id" translate="no">
@@ -1915,8 +1919,7 @@
             });
         }
 
-        // ===== FUNGSI FORCE TRANSLATION (DIPERBAIKI) =====
-        // Mendukung ID dan EN dengan logika yang berbeda
+        // ===== FUNGSI FORCE TRANSLATION =====
         function forceTranslation(lang) {
             if (!lang) return;
             
@@ -1948,23 +1951,19 @@
         }
 
         // ===== FUNGSI KHUSUS KEMBALI KE INDONESIA =====
-        // Karena Google Translate sering "nyangkut" saat kembali ke bahasa asli
         function revertToIndonesian() {
             console.log('🇮🇩 Reverting to Indonesian...');
             
-            // 1. Set combobox ke 'id'
             const select = document.querySelector('.goog-te-combo');
             if (select) {
                 select.value = 'id';
                 select.dispatchEvent(new Event('change'));
             }
             
-            // 2. Hapus cookie googtrans (agar Google Translate "lupa" pernah translate)
             const domain = window.location.hostname;
             document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
             document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${domain};`;
             
-            // 3. Cek ulang setelah 2 detik, jika masih macet → reload halaman
             setTimeout(() => {
                 const select = document.querySelector('.goog-te-combo');
                 if (select && select.value !== 'id') {
@@ -1996,15 +1995,12 @@
 
             modeLoader.classList.add('active');
             
-            // ===== CEK BAHASA AKTIF UNTUK TEKS LOADER =====
             const activeLang = localStorage.getItem('lang') || 'id';
             let loaderMessage;
             
             if (activeLang === 'en') {
-                // Teks dalam bahasa Inggris
                 loaderMessage = isDark ? 'Switching to Light Mode...' : 'Switching to Dark Mode...';
             } else {
-                // Teks dalam bahasa Indonesia
                 const nextMode = isDark ? 'Terang' : 'Gelap';
                 loaderMessage = `Beralih ke Mode ${nextMode}...`;
             }
@@ -2069,7 +2065,7 @@
             }
         });
 
-        // ===== FUNGSI GANTI BAHASA (DIPERBAIKI) =====
+        // ===== FUNGSI GANTI BAHASA =====
         function changeLanguage(lang) {
             if (lang === 'en') {
                 currentFlag.textContent = '🇬🇧';
@@ -2088,14 +2084,11 @@
             
             langDropdown.classList.remove('open');
             
-            // Simpan preferensi
             localStorage.setItem('lang', lang);
             
             const select = document.querySelector('.goog-te-combo');
             
             if (lang === 'id') {
-                // ===== KHUSUS KEMBALI KE INDONESIA =====
-                // Google Translate sering "nyangkut" saat kembali ke bahasa asli
                 if (select) {
                     revertToIndonesian();
                     setTimeout(() => forceTranslation('id'), 500);
@@ -2108,7 +2101,6 @@
                     location.reload();
                 }
             } else {
-                // ===== KHUSUS KE INGGRIS =====
                 if (select) {
                     select.value = lang;
                     select.dispatchEvent(new Event('change'));
