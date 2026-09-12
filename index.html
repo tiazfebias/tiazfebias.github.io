@@ -34,20 +34,6 @@
             --primary-light: #3d8ba0;
         }
 
-        /* ===== GLOBAL FONT SIZING - PROPORSIONAL ===== */
-        html {
-            font-size: 15px; /* Base font size untuk mobile */
-        }
-        @media (min-width: 640px) {
-            html { font-size: 15.5px; }
-        }
-        @media (min-width: 1024px) {
-            html { font-size: 16px; }
-        }
-        @media (min-width: 1440px) {
-            html { font-size: 16.5px; }
-        }
-
         .mode-loader {
             position: fixed;
             top: 0;
@@ -74,12 +60,12 @@
             align-items: center;
             justify-content: center;
             width: 80%;
-            max-width: 350px;
+            max-width: 400px;
         }
 
         .mode-loader .progress-container {
             width: 100%;
-            height: 5px;
+            height: 6px;
             background: rgba(45, 150, 173, 0.15);
             border-radius: 10px;
             overflow: hidden;
@@ -109,18 +95,18 @@
         }
 
         .mode-loader .loader-text {
-            margin-top: 14px;
-            font-size: 0.8rem;
+            margin-top: 16px;
+            font-size: 0.9rem;
             color: var(--text-dark);
             font-weight: 500;
-            letter-spacing: 0.8px;
+            letter-spacing: 1px;
             transition: color 0.5s ease;
             font-family: 'Inter', sans-serif;
         }
 
         .mode-loader .loader-icon {
-            font-size: 1.6rem;
-            margin-bottom: 10px;
+            font-size: 2rem;
+            margin-bottom: 12px;
             color: var(--primary);
             transition: color 0.5s ease;
             animation: pulse 1.5s ease-in-out infinite;
@@ -153,7 +139,7 @@
             top: 0;
             left: 0;
             width: 0%;
-            height: 3px;
+            height: 4px;
             background: linear-gradient(90deg, #2d96ad, #e8e485);
             z-index: 9999;
             transition: width 0.1s;
@@ -183,8 +169,7 @@
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-light) 100%);
             color: var(--text-dark);
-            line-height: 1.6;
-            font-size: 0.9rem;
+            line-height: 1.7;
             transition: background 0.5s ease, color 0.5s ease;
             top: 0 !important;
             position: static !important;
@@ -207,8 +192,8 @@
             background: rgba(45, 150, 173, 0.95);
             backdrop-filter: blur(12px);
             box-shadow: 0 4px 30px rgba(45, 150, 173, 0.3);
-            padding: 0 20px;
-            height: 60px;
+            padding: 0 24px;
+            height: 70px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -219,7 +204,7 @@
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
         }
         .navbar .logo {
-            font-size: 1.15rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: #fff;
             text-decoration: none;
@@ -232,12 +217,12 @@
         .navbar .nav-right {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 20px;
         }
 
         .nav-links {
             display: flex;
-            gap: 24px;
+            gap: 32px;
             list-style: none;
             align-items: center;
         }
@@ -245,7 +230,7 @@
             color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.82rem;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
             position: relative;
         }
@@ -280,8 +265,8 @@
         }
         .hamburger span {
             display: block;
-            width: 24px;
-            height: 2.5px;
+            width: 28px;
+            height: 3px;
             background: #fff;
             border-radius: 4px;
             transition: 0.3s;
@@ -293,17 +278,17 @@
         }
         .lang-btn {
             background: rgba(255, 255, 255, 0.15);
-            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.3);
             color: #fff;
-            padding: 5px 10px;
-            border-radius: 18px;
+            padding: 6px 12px;
+            border-radius: 20px;
             cursor: pointer;
-            font-size: 0.78rem;
+            font-size: 0.85rem;
             font-weight: 600;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
             font-family: 'Inter', sans-serif;
         }
         .lang-btn:hover {
@@ -311,7 +296,7 @@
             transform: scale(1.05);
         }
         .lang-btn .flag {
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
         .lang-dropdown {
             position: absolute;
@@ -325,7 +310,7 @@
             visibility: hidden;
             transform: translateY(-10px);
             transition: all 0.3s ease;
-            min-width: 140px;
+            min-width: 160px;
             z-index: 2147483647;
         }
         .lang-dropdown.open {
@@ -336,13 +321,13 @@
         .lang-dropdown button {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             width: 100%;
-            padding: 9px 14px;
+            padding: 10px 16px;
             background: none;
             border: none;
             cursor: pointer;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 500;
             color: #1a2a3a;
             text-align: left;
@@ -470,13 +455,13 @@
 
         .theme-toggle {
             background: rgba(255, 255, 255, 0.15);
-            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.3);
             color: #fff;
-            width: 34px;
-            height: 34px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
@@ -496,8 +481,8 @@
         }
 
         .section {
-            padding: 70px 0;
-            scroll-margin-top: 70px;
+            padding: 100px 0;
+            scroll-margin-top: 80px;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -542,7 +527,7 @@
             transition: all 0.3s ease;
             font-family: 'Inter', sans-serif;
             font-weight: 600;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
         }
         .btn-accent:hover {
             background-color: var(--accent-dark);
@@ -558,7 +543,7 @@
             transition: all 0.3s ease;
             font-family: 'Inter', sans-serif;
             font-weight: 600;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
         }
         .btn-primary:hover {
             background-color: var(--primary-dark);
@@ -572,20 +557,20 @@
             font-family: 'Inter', sans-serif;
             font-weight: 500;
             font-size: 0.6rem;
-            letter-spacing: 0.2px;
+            letter-spacing: 0.3px;
             transition: all 0.5s ease;
         }
 
         .social-icon {
             background-color: #e8e485 !important;
             color: #1a2a3a !important;
-            width: 40px;
-            height: 40px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             transition: all 0.3s ease;
             text-decoration: none;
             border: 2px solid #e8e485;
@@ -630,7 +615,6 @@
             padding: 8px 12px;
             border-radius: 8px;
             font-weight: 500;
-            font-size: 0.85rem;
         }
         #formStatus.hidden {
             display: none;
@@ -644,7 +628,7 @@
             display: flex;
             flex-direction: column;
             background: white;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -654,7 +638,7 @@
         }
 
         .project-card:hover {
-            transform: translateY(-6px) scale(1.01);
+            transform: translateY(-8px) scale(1.02);
             box-shadow: 0 25px 50px rgba(45, 150, 173, 0.25);
         }
         [data-theme="dark"] .project-card:hover {
@@ -685,7 +669,7 @@
 
         .modal {
             transition: opacity 0.3s ease;
-            padding: 16px;
+            padding: 20px;
         }
         .modal:not(.hidden) {
             display: flex !important;
@@ -706,20 +690,20 @@
 
         .modal-paper {
             background: #fefcf3;
-            padding: 22px 22px 20px;
-            border-radius: 10px;
+            padding: 28px 28px 24px;
+            border-radius: 12px;
             position: relative;
             border: 1px solid #e0dcc8;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
             overflow: visible;
-            max-width: 580px;
+            max-width: 640px;
             width: 100%;
             max-height: 85vh;
             overflow-y: auto;
             transition: all 0.5s ease;
         }
         .modal-paper::-webkit-scrollbar {
-            width: 5px;
+            width: 6px;
         }
         .modal-paper::-webkit-scrollbar-track {
             background: rgba(0, 0, 0, 0.05);
@@ -749,19 +733,19 @@
 
         .modal-paper .modal-lines {
             position: absolute;
-            top: 45px;
-            left: 25px;
-            right: 18px;
-            bottom: 30px;
+            top: 50px;
+            left: 30px;
+            right: 20px;
+            bottom: 35px;
             pointer-events: none;
             z-index: 0;
             opacity: 0.2;
             background:
                 repeating-linear-gradient(0deg,
                     transparent,
-                    transparent 24px,
-                    rgba(180, 170, 140, 0.2) 24px,
-                    rgba(180, 170, 140, 0.2) 25px);
+                    transparent 26px,
+                    rgba(180, 170, 140, 0.2) 26px,
+                    rgba(180, 170, 140, 0.2) 27px);
             border-radius: 2px;
             transition: opacity 0.5s ease;
         }
@@ -809,12 +793,12 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 10px;
-            gap: 12px;
+            margin-bottom: 12px;
+            gap: 16px;
             flex-wrap: nowrap;
         }
         .modal-paper .modal-content .modal-header h3 {
-            font-size: 1.15rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: #1a2a3a;
             font-family: 'Playfair Display', Georgia, serif;
@@ -829,7 +813,7 @@
         .modal-paper .modal-content .modal-header .btn-close {
             background: none;
             border: none;
-            font-size: 1.6rem;
+            font-size: 2rem;
             line-height: 1;
             cursor: pointer;
             color: #4a5a6a;
@@ -850,14 +834,14 @@
 
         .modal-paper .modal-content .modal-img {
             width: 100%;
-            height: 160px;
+            height: 200px;
             background: #f0f4f8;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 8px;
             overflow: hidden;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         .modal-paper .modal-content .modal-img img {
             width: 100%;
@@ -871,10 +855,10 @@
         .modal-paper .modal-content .modal-desc {
             color: #4a5a6a;
             font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            line-height: 1.6;
+            font-size: 0.95rem;
+            line-height: 1.7;
             text-align: justify;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         [data-theme="dark"] .modal-paper .modal-content .modal-desc {
             color: #c0d0e0;
@@ -883,28 +867,28 @@
         .modal-paper .modal-content .modal-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 5px;
-            margin-bottom: 10px;
+            gap: 6px;
+            margin-bottom: 12px;
         }
 
         .modal-paper .modal-content .modal-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
             margin-top: 4px;
         }
 
         .modal-paper .btn-modal-primary {
             background-color: #2d96ad;
             color: #ffffff;
-            padding: 7px 14px;
-            border-radius: 7px;
-            font-size: 0.78rem;
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-size: 0.85rem;
             font-weight: 600;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
             text-decoration: none;
             border: none;
             cursor: pointer;
@@ -926,7 +910,7 @@
             justify-content: center;
             align-items: stretch;
             gap: 0;
-            max-width: 640px;
+            max-width: 720px;
             margin: 0 auto;
             perspective: 1400px;
             position: relative;
@@ -953,7 +937,7 @@
 
         .cv-page {
             background: #fefcf3;
-            padding: 26px 22px 22px;
+            padding: 32px 26px 28px;
             border-radius: 4px;
             flex: 1;
             min-width: 0;
@@ -968,9 +952,9 @@
             border-color: #4a3d2e;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
         }
-        .cv-page .cv-title { color: #1a2a3a; font-size: 0.95rem; font-weight: 600; }
-        .cv-page .cv-desc { color: #4a5a6a; font-size: 0.78rem; }
-        .cv-page .cv-size { color: #999; font-size: 0.72rem; }
+        .cv-page .cv-title { color: #1a2a3a; }
+        .cv-page .cv-desc { color: #4a5a6a; }
+        .cv-page .cv-size { color: #999; }
         [data-theme="dark"] .cv-page .cv-title { color: #e8dcc8; }
         [data-theme="dark"] .cv-page .cv-desc { color: #c8b898; }
         [data-theme="dark"] .cv-page .cv-size { color: #9a8a7a; }
@@ -980,7 +964,7 @@
 
         .cv-page .binder-holes {
             position: absolute;
-            left: 14px;
+            left: 16px;
             top: 30%;
             bottom: 30%;
             display: flex;
@@ -992,8 +976,8 @@
         }
         .cv-page .binder-holes span {
             display: block;
-            width: 10px;
-            height: 10px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
             background: #fefcf3;
             border: 2px solid #c8c0a8;
@@ -1047,19 +1031,19 @@
 
         .cv-page .paper-lines {
             position: absolute;
-            top: 50px;
-            left: 32px;
-            right: 16px;
-            bottom: 32px;
+            top: 60px;
+            left: 40px;
+            right: 20px;
+            bottom: 40px;
             pointer-events: none;
             z-index: 0;
             opacity: 0.35;
             background:
                 repeating-linear-gradient(0deg,
                     transparent,
-                    transparent 24px,
-                    rgba(180, 170, 140, 0.25) 24px,
-                    rgba(180, 170, 140, 0.25) 25px);
+                    transparent 27px,
+                    rgba(180, 170, 140, 0.25) 27px,
+                    rgba(180, 170, 140, 0.25) 28px);
             border-radius: 2px;
         }
         [data-theme="dark"] .cv-page .paper-lines {
@@ -1067,37 +1051,37 @@
             background:
                 repeating-linear-gradient(0deg,
                     transparent,
-                    transparent 24px,
-                    rgba(160, 140, 110, 0.2) 24px,
-                    rgba(160, 140, 110, 0.2) 25px);
+                    transparent 27px,
+                    rgba(160, 140, 110, 0.2) 27px,
+                    rgba(160, 140, 110, 0.2) 28px);
         }
         .cv-page .paper-lines::before {
             content: '';
             position: absolute;
-            left: -16px;
+            left: -18px;
             top: 0;
             bottom: 0;
             width: 3px;
             background: repeating-linear-gradient(0deg,
                     transparent,
-                    transparent 24px,
-                    rgba(200, 60, 60, 0.2) 24px,
-                    rgba(200, 60, 60, 0.2) 25px);
+                    transparent 27px,
+                    rgba(200, 60, 60, 0.2) 27px,
+                    rgba(200, 60, 60, 0.2) 28px);
             border-radius: 2px;
         }
         [data-theme="dark"] .cv-page .paper-lines::before {
             background: repeating-linear-gradient(0deg,
                     transparent,
-                    transparent 24px,
-                    rgba(200, 80, 80, 0.15) 24px,
-                    rgba(200, 80, 80, 0.15) 25px);
+                    transparent 27px,
+                    rgba(200, 80, 80, 0.15) 27px,
+                    rgba(200, 80, 80, 0.15) 28px);
         }
 
         .cv-page .paper-clip {
             position: absolute;
             top: -10px;
-            left: 24px;
-            font-size: 1.6rem;
+            left: 30px;
+            font-size: 2rem;
             color: #a0a0b0;
             transform: rotate(-15deg) scaleX(-1);
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
@@ -1117,8 +1101,8 @@
         .cv-page .pushpin {
             position: absolute;
             top: -8px;
-            right: 24px;
-            font-size: 1.8rem;
+            right: 30px;
+            font-size: 2.2rem;
             color: #d44c4c;
             transform: rotate(20deg);
             filter: drop-shadow(0 4px 10px rgba(200, 50, 50, 0.3));
@@ -1167,15 +1151,15 @@
         }
 
         .cv-page .cv-icon {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             position: relative;
             z-index: 3;
         }
         .cv-page .cv-badge {
             background: var(--primary);
             color: white;
-            font-size: 0.55rem;
-            padding: 2px 10px;
+            font-size: 0.6rem;
+            padding: 2px 12px;
             border-radius: 20px;
             font-weight: 600;
             display: inline-block;
@@ -1185,9 +1169,9 @@
         .cv-page .btn-download {
             background: var(--primary);
             color: white;
-            padding: 7px 18px;
+            padding: 8px 22px;
             border-radius: 30px;
-            font-size: 0.72rem;
+            font-size: 0.78rem;
             font-weight: 600;
             transition: all 0.3s ease;
             display: inline-block;
@@ -1203,68 +1187,75 @@
             box-shadow: 0 6px 20px rgba(45, 150, 173, 0.3);
         }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
-            .nav-links { gap: 20px; }
-            .nav-links a { font-size: 0.8rem; }
-        }
-
         @media (max-width: 768px) {
-            .navbar { padding: 0 16px; height: 56px; }
-            .navbar .logo { font-size: 1.05rem; }
             .nav-links {
                 display: none;
                 flex-direction: column;
                 background: var(--primary);
                 position: absolute;
-                top: 56px;
+                top: 70px;
                 left: 0;
                 right: 0;
-                padding: 20px;
-                gap: 14px;
+                padding: 24px;
+                gap: 16px;
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
                 z-index: 100;
             }
-            [data-theme="dark"] .nav-links { background: #0f1a24; }
-            .nav-links.open { display: flex; }
-            .nav-links a { font-size: 0.85rem; }
-            .hamburger { display: flex; }
-            .navbar .nav-right { gap: 10px; }
-            .lang-btn { padding: 4px 9px; font-size: 0.72rem; }
-            .lang-btn .flag { font-size: 0.85rem; }
-            .theme-toggle { width: 32px; height: 32px; font-size: 0.95rem; }
-
-            .section {
-                padding: 60px 16px;
-                scroll-margin-top: 60px;
-                min-height: auto;
+            [data-theme="dark"] .nav-links {
+                background: #0f1a24;
             }
-            .project-card .btn-group { flex-wrap: wrap !important; }
+            .nav-links.open {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .navbar .nav-right {
+                gap: 12px;
+            }
+            .section {
+                padding: 80px 20px;
+            }
+            .project-card .btn-group {
+                flex-wrap: wrap !important;
+            }
 
-            .modal { padding: 10px; }
+            .modal {
+                padding: 12px;
+            }
             .modal-paper {
-                padding: 18px 14px 16px;
+                padding: 20px 16px 18px;
                 max-height: 90vh;
                 border-radius: 10px;
             }
-            .modal-paper .modal-content .modal-header h3 { font-size: 1.05rem; }
-            .modal-paper .modal-content .modal-header .btn-close { font-size: 1.5rem; }
-            .modal-paper .modal-content .modal-img { height: 130px; }
-            .modal-paper .modal-content .modal-desc { font-size: 0.8rem; }
+            .modal-paper .modal-content .modal-header h3 {
+                font-size: 1.2rem;
+            }
+            .modal-paper .modal-content .modal-header .btn-close {
+                font-size: 1.8rem;
+            }
+            .modal-paper .modal-content .modal-img {
+                height: 150px;
+            }
+            .modal-paper .modal-content .modal-desc {
+                font-size: 0.88rem;
+            }
             .modal-paper .modal-lines {
-                left: 18px;
+                left: 20px;
                 right: 10px;
-                top: 38px;
-                bottom: 26px;
+                top: 40px;
+                bottom: 30px;
             }
 
             .cv-book {
                 flex-direction: column;
                 align-items: center;
-                gap: 24px;
-                max-width: 320px;
+                gap: 30px;
+                max-width: 340px;
             }
-            .cv-book::before { display: none; }
+            .cv-book::before {
+                display: none;
+            }
             .cv-page:first-child,
             .cv-page:last-child {
                 border-radius: 8px;
@@ -1277,128 +1268,89 @@
             [data-theme="dark"] .cv-page:last-child {
                 border-color: #4a3d2e;
             }
-            .cv-page:hover { transform: scale(1.02) !important; }
-            .cv-page { padding: 22px 18px 20px; }
-            .cv-page .binder-holes { left: 8px; }
-            .cv-page .binder-holes span { width: 8px; height: 8px; }
+            .cv-page:hover {
+                transform: scale(1.02) !important;
+            }
+            .cv-page .binder-holes {
+                left: 10px;
+            }
+            .cv-page .binder-holes span {
+                width: 10px;
+                height: 10px;
+            }
             .cv-page .paper-clip {
-                left: 14px;
-                font-size: 1.3rem;
+                left: 16px;
+                font-size: 1.6rem;
                 top: -8px;
             }
             .cv-page .pushpin {
-                right: 14px;
-                font-size: 1.5rem;
+                right: 16px;
+                font-size: 1.8rem;
                 top: -6px;
             }
             .cv-page .paper-lines {
-                left: 24px;
-                right: 8px;
+                left: 28px;
+                right: 10px;
             }
 
-            .social-icon { width: 38px; height: 38px; font-size: 1.1rem; }
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .lang-btn {
+                padding: 5px 10px;
+                font-size: 0.75rem;
+            }
+            .lang-btn .flag {
+                font-size: 0.9rem;
+            }
         }
-
         @media (max-width: 480px) {
-            html { font-size: 14px; }
-            .navbar { padding: 0 12px; height: 54px; }
-            .navbar .logo { font-size: 1rem; }
-            .nav-links { top: 54px; padding: 16px; gap: 12px; }
-            .nav-links a { font-size: 0.82rem; }
-            .navbar .nav-right { gap: 8px; }
-            .lang-btn { padding: 4px 8px; font-size: 0.68rem; }
-            .lang-btn .flag { font-size: 0.8rem; }
-            .theme-toggle { width: 30px; height: 30px; font-size: 0.9rem; }
-            .hamburger span { width: 22px; height: 2px; }
-
-            .section { padding: 50px 12px; }
-
-            .modal-paper { padding: 14px 12px 12px; }
-            .modal-paper .modal-content .modal-header h3 { font-size: 0.95rem; }
-            .modal-paper .modal-content .modal-img { height: 110px; }
-            .modal-paper .modal-content .modal-desc { font-size: 0.75rem; line-height: 1.55; }
-            .modal-paper .btn-modal-primary { font-size: 0.72rem; padding: 6px 11px; }
-            .modal-paper .modal-lines {
-                left: 14px;
-                right: 8px;
-                top: 34px;
-                bottom: 22px;
+            .modal-paper {
+                padding: 16px 12px 14px;
             }
-
-            .cv-page { padding: 20px 16px 18px; }
+            .modal-paper .modal-content .modal-header h3 {
+                font-size: 1rem;
+            }
+            .modal-paper .modal-content .modal-img {
+                height: 120px;
+            }
+            .modal-paper .modal-content .modal-desc {
+                font-size: 0.82rem;
+            }
+            .modal-paper .btn-modal-primary {
+                font-size: 0.75rem;
+                padding: 6px 12px;
+            }
+            .cv-page {
+                padding: 24px 18px 20px;
+            }
             .cv-page .paper-lines {
                 left: 20px;
                 right: 6px;
-                top: 42px;
-                bottom: 26px;
+                top: 50px;
+                bottom: 30px;
             }
-            .cv-page .binder-holes { left: 6px; }
-            .cv-page .binder-holes span { width: 7px; height: 7px; }
-            .cv-page .cv-title { font-size: 0.9rem; }
-            .cv-page .cv-desc { font-size: 0.72rem; }
-            .cv-page .btn-download { font-size: 0.68rem; padding: 6px 14px; }
-            .cv-page .cv-icon { font-size: 1.5rem; }
-            .cv-page .cv-badge { font-size: 0.5rem; padding: 1px 8px; }
-
-            .social-icon { width: 34px; height: 34px; font-size: 0.95rem; }
-        }
-
-        /* ===== TAILWIND OVERRIDES - Font size proporsional ===== */
-        .text-4xl { font-size: 1.6rem !important; line-height: 1.2 !important; }
-        .text-3xl { font-size: 1.35rem !important; line-height: 1.3 !important; }
-        .text-2xl { font-size: 1.15rem !important; line-height: 1.4 !important; }
-        .text-xl { font-size: 1rem !important; line-height: 1.5 !important; }
-        .text-lg { font-size: 0.95rem !important; line-height: 1.5 !important; }
-        .text-base { font-size: 0.88rem !important; }
-        .text-sm { font-size: 0.78rem !important; }
-        .text-xs { font-size: 0.7rem !important; }
-
-        @media (min-width: 768px) {
-            .md\:text-7xl { font-size: 2.8rem !important; line-height: 1.15 !important; }
-            .md\:text-2xl { font-size: 1.15rem !important; }
-            .md\:w-56 { width: 12rem !important; }
-            .md\:h-56 { height: 12rem !important; }
-        }
-
-        @media (min-width: 1024px) {
-            .lg\:text-7xl { font-size: 3rem !important; }
-            .lg\:px-8 { padding-left: 2rem !important; padding-right: 2rem !important; }
-        }
-
-        /* ===== Custom heading overrides ===== */
-        h1, h2, h3, h4, h5, h6 {
-            line-height: 1.3;
-        }
-
-        .font-heading.text-4xl,
-        h2.font-heading {
-            font-size: 1.5rem !important;
-        }
-        @media (min-width: 640px) {
-            .font-heading.text-4xl,
-            h2.font-heading {
-                font-size: 1.6rem !important;
+            .cv-page .binder-holes {
+                left: 6px;
             }
-        }
-        @media (min-width: 1024px) {
-            .font-heading.text-4xl,
-            h2.font-heading {
-                font-size: 1.75rem !important;
+            .cv-page .binder-holes span {
+                width: 8px;
+                height: 8px;
             }
-        }
-
-        /* Home h1 */
-        h1.text-4xl {
-            font-size: 1.75rem !important;
-        }
-        @media (min-width: 768px) {
-            h1.text-4xl {
-                font-size: 2.6rem !important;
+            .social-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
             }
-        }
-        @media (min-width: 1024px) {
-            h1.text-4xl {
-                font-size: 3rem !important;
+            .lang-btn {
+                padding: 4px 8px;
+                font-size: 0.7rem;
+            }
+            .lang-btn .flag {
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -1441,7 +1393,7 @@
                 <button class="lang-btn" id="langBtn" aria-label="Pilih Bahasa" translate="no">
                     <span class="flag" id="currentFlag">🇮🇩</span>
                     <span id="currentLang">ID</span>
-                    <i class="fas fa-chevron-down" style="font-size:0.6rem;"></i>
+                    <i class="fas fa-chevron-down" style="font-size:0.7rem;"></i>
                 </button>
                 <div class="lang-dropdown" id="langDropdown" translate="no">
                     <button onclick="changeLanguage('id')" class="active" data-lang="id" translate="no">
@@ -1468,17 +1420,17 @@
         <!-- ===== SECTION 1: HOME ===== -->
         <section id="home" class="section">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
-                <h1 class="text-4xl font-bold text-gray-800 mb-4 font-heading leading-tight">
+                <h1 class="text-4xl md:text-7xl font-bold text-gray-800 mb-4 font-heading leading-tight">
                     Hallo, Saya <span class="glow-text">Tiaz Febia Sakes</span>
                 </h1>
-                <p class="text-xl text-gray-700 mb-8 font-body max-w-2xl mx-auto">
+                <p class="text-xl md:text-2xl text-gray-700 mb-8 font-body max-w-2xl mx-auto">
                     Saya adalah pengembang web generasi baru, dengan spesialisasi dalam membangun aplikasi web yang dinamis melalui pemanfaatan teknologi modern.
                 </p>
-                <div class="flex flex-wrap justify-center gap-3">
-                    <a href="#portfolio" class="btn-primary text-white px-6 py-2.5 rounded-full font-medium inline-block text-sm">
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#portfolio" class="btn-primary text-white px-8 py-3 rounded-full font-medium inline-block">
                         Lihat Portfolio
                     </a>
-                    <a href="#contact" class="btn-accent text-gray-800 px-6 py-2.5 rounded-full font-medium inline-block text-sm">
+                    <a href="#contact" class="btn-accent text-gray-800 px-8 py-3 rounded-full font-medium inline-block">
                         Hubungi Saya
                     </a>
                 </div>
@@ -1488,27 +1440,27 @@
         <!-- ===== SECTION 2: ABOUT ===== -->
         <section id="about" class="section section-alt">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                <div class="text-center mb-10">
+                <div class="text-center mb-12">
                     <h2 class="text-4xl font-bold text-gray-800 font-heading">Tentang <span class="text-primary">Saya</span></h2>
-                    <div class="w-16 h-1 bg-primary mx-auto mt-2 rounded"></div>
+                    <div class="w-20 h-1 bg-primary mx-auto mt-2 rounded"></div>
                 </div>
-                <div class="flex flex-col md:flex-row items-center justify-center gap-10 fade-in">
+                <div class="flex flex-col md:flex-row items-center justify-center gap-12 fade-in">
                     <div class="flex-shrink-0">
-                        <div class="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-primary shadow-lg">
+                        <div class="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-primary shadow-lg">
                             <img src="images/fotobebas.png" alt="Foto Tiaz Febia Sakes" class="w-full h-full object-cover">
                         </div>
                     </div>
                     <div class="flex-1 text-left">
-                        <p class="text-gray-700 mb-4 leading-relaxed font-body text-justify max-w-2xl text-sm">
+                        <p class="text-gray-700 mb-4 leading-relaxed font-body text-justify max-w-2xl">
                             Saya adalah seorang pengembang web junior yang berdedikasi dalam merancang dan membangun program web yang fungsional, efisien, dan siap pakai. Saya terbiasa memanfaatkan teknologi modern secara produktif untuk mempercepat proses pengembangan tanpa mengurangi kualitas sistem yang dibangun.
                         </p>
-                        <div class="flex flex-wrap justify-start gap-2">
-                            <span class="tech-badge px-3 py-1.5 rounded-full text-xs">PHP</span>
-                            <span class="tech-badge px-3 py-1.5 rounded-full text-xs">Laravel</span>
-                            <span class="tech-badge px-3 py-1.5 rounded-full text-xs">MySQL</span>
-                            <span class="tech-badge px-3 py-1.5 rounded-full text-xs">CSS</span>
-                            <span class="tech-badge px-3 py-1.5 rounded-full text-xs">JavaScript</span>
-                            <span class="tech-badge px-3 py-1.5 rounded-full text-xs">Bootstrap</span>
+                        <div class="flex flex-wrap justify-start gap-3">
+                            <span class="tech-badge px-4 py-2 rounded-full text-sm">PHP</span>
+                            <span class="tech-badge px-4 py-2 rounded-full text-sm">Laravel</span>
+                            <span class="tech-badge px-4 py-2 rounded-full text-sm">MySQL</span>
+                            <span class="tech-badge px-4 py-2 rounded-full text-sm">CSS</span>
+                            <span class="tech-badge px-4 py-2 rounded-full text-sm">JavaScript</span>
+                            <span class="tech-badge px-4 py-2 rounded-full text-sm">Bootstrap</span>
                         </div>
                     </div>
                 </div>
@@ -1518,39 +1470,39 @@
         <!-- ===== SECTION 3: PORTFOLIO ===== -->
         <section id="portfolio" class="section">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                <div class="text-center mb-10">
+                <div class="text-center mb-12">
                     <h2 class="text-4xl font-bold text-gray-800 font-heading">Project <span class="text-primary">Portfolio</span></h2>
-                    <div class="w-16 h-1 bg-primary mx-auto mt-2 rounded"></div>
-                    <p class="text-gray-600 mt-3 font-body text-sm">Berikut adalah project-project yang telah saya kerjakan</p>
+                    <div class="w-20 h-1 bg-primary mx-auto mt-2 rounded"></div>
+                    <p class="text-gray-600 mt-4 font-body">Berikut adalah project-project yang telah saya kerjakan</p>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <!-- PROJECT 1 -->
                     <div class="project-card fade-in" style="transition-delay: 0.1s;">
                         <div class="card-content">
-                            <div class="w-full h-40 bg-gray-100 flex items-center justify-center overflow-hidden">
+                            <div class="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
                                 <img src="images/aptkdeka.jpg" alt="ApotekDekaMedika" class="w-full h-full object-contain">
                             </div>
-                            <div class="p-3 flex flex-col flex-grow">
-                                <h4 class="font-bold text-gray-800 font-heading text-base mb-1">Apotek Deka Medika</h4>
-                                <p class="text-gray-600 text-xs mb-2 flex-grow line-clamp-2 font-body">E-Commerce Apotek Sederhana</p>
-                                <div class="flex flex-wrap gap-1 mb-2">
-                                    <span class="tech-badge text-xs px-2 py-0.5 rounded-full">PHP Native</span>
-                                    <span class="tech-badge text-xs px-2 py-0.5 rounded-full">MySQL</span>
-                                    <span class="tech-badge text-xs px-2 py-0.5 rounded-full">TCPDF</span>
-                                    <span class="tech-badge text-xs px-2 py-0.5 rounded-full">HTML</span>
-                                    <span class="tech-badge text-xs px-2 py-0.5 rounded-full">CSS</span>
-                                    <span class="tech-badge text-xs px-2 py-0.5 rounded-full">JavaScript</span>
+                            <div class="p-4 flex flex-col flex-grow">
+                                <h4 class="font-bold text-gray-800 font-heading text-lg">Apotek Deka Medika</h4>
+                                <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">E-Commerce Apotek Sederhana</p>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">PHP Native</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">MySQL</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">TCPDF</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">HTML</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">CSS</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">JavaScript</span>
                                 </div>
-                                <div class="flex items-center justify-between gap-1 mt-auto btn-group">
-                                    <div class="flex items-center gap-1 flex-wrap">
-                                        <a href="https://github.com/tiazfebias/ApotekDekaMedika" target="_blank" class="btn-primary text-white text-[9px] px-2 py-1 rounded-lg transition whitespace-nowrap">
+                                <div class="flex items-center justify-between gap-2 mt-auto btn-group">
+                                    <div class="flex items-center gap-2">
+                                        <a href="https://github.com/tiazfebias/ApotekDekaMedika" target="_blank" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap">
                                             <i class="fab fa-github"></i> GitHub
                                         </a>
-                                        <a href="https://drive.google.com/drive/folders/1b7rDfjeiY7L33sA-j8bDLkiPBlMKklk0?usp=drive_link" target="_blank" class="btn-primary text-white text-[9px] px-2 py-1 rounded-lg transition whitespace-nowrap">
+                                        <a href="https://drive.google.com/drive/folders/1b7rDfjeiY7L33sA-j8bDLkiPBlMKklk0?usp=drive_link" target="_blank" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap">
                                             <i class="fab fa-google-drive"></i> G-Drive
                                         </a>
                                     </div>
-                                    <button onclick="openModal('project-0')" class="btn-primary text-white text-[9px] px-2 py-1 rounded-lg transition whitespace-nowrap flex-shrink-0">
+                                    <button onclick="openModal('project-0')" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap flex-shrink-0">
                                         <i class="fas fa-search"></i> Details
                                     </button>
                                 </div>
@@ -1561,29 +1513,29 @@
                     <!-- PROJECT 2 -->
                     <div class="project-card fade-in" style="transition-delay: 0.2s;">
                         <div class="card-content">
-                            <div class="w-full h-40 bg-gray-100 flex items-center justify-center overflow-hidden">
+                            <div class="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
                                 <img src="images/tailor.jpg" alt="Sistem informasi manajemen Parapatan Tailor" class="w-full h-full object-contain">
                             </div>
-                            <div class="p-3 flex flex-col flex-grow">
-                                <h4 class="font-bold text-gray-800 font-heading text-base mb-1">SIM Parapatan Tailor</h4>
-                                <p class="text-gray-600 text-xs mb-2 flex-grow line-clamp-2 font-body">Sistem Informasi Manajemen Tailor</p>
-                                <div class="flex flex-wrap gap-1 mb-2">
-                                    <span class="tech-badge text-xs px-2 py-0.5 rounded-full">PHP Native</span>
-                                    <span class="tech-badge text-xs px-2 py-0.5 rounded-full">MySQL</span>
-                                    <span class="tech-badge text-xs px-2 py-0.5 rounded-full">TCPDF</span>
-                                    <span class="tech-badge text-xs px-2 py-0.5 rounded-full">Bootstrap</span>
-                                    <span class="tech-badge text-xs px-2 py-0.5 rounded-full">JavaScript</span>
+                            <div class="p-4 flex flex-col flex-grow">
+                                <h4 class="font-bold text-gray-800 font-heading text-lg">Sistem informasi manajemen Parapatan Tailor</h4>
+                                <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">Sistem Informasi Manajemen Tailor</p>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">PHP Native</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">MySQL</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">TCPDF</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">Bootstrap</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">JavaScript</span>
                                 </div>
-                                <div class="flex items-center justify-between gap-1 mt-auto btn-group">
-                                    <div class="flex items-center gap-1 flex-wrap">
-                                        <a href="https://github.com/tiazfebias/parapatan_tailor" target="_blank" class="btn-primary text-white text-[9px] px-2 py-1 rounded-lg transition whitespace-nowrap">
+                                <div class="flex items-center justify-between gap-2 mt-auto btn-group">
+                                    <div class="flex items-center gap-2">
+                                        <a href="https://github.com/tiazfebias/parapatan_tailor" target="_blank" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap">
                                             <i class="fab fa-github"></i> GitHub
                                         </a>
-                                        <a href="https://drive.google.com/drive/folders/110d30HA3YfQvCuUnOSfUE1qS3e1vpTLW?usp=drive_link" target="_blank" class="btn-primary text-white text-[9px] px-2 py-1 rounded-lg transition whitespace-nowrap">
+                                        <a href="https://drive.google.com/drive/folders/110d30HA3YfQvCuUnOSfUE1qS3e1vpTLW?usp=drive_link" target="_blank" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap">
                                             <i class="fab fa-google-drive"></i> G-Drive
                                         </a>
                                     </div>
-                                    <button onclick="openModal('project-1')" class="btn-primary text-white text-[9px] px-2 py-1 rounded-lg transition whitespace-nowrap flex-shrink-0">
+                                    <button onclick="openModal('project-1')" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap flex-shrink-0">
                                         <i class="fas fa-search"></i> Details
                                     </button>
                                 </div>
@@ -1594,29 +1546,29 @@
                     <!-- PROJECT 3 -->
                     <div class="project-card fade-in" style="transition-delay: 0.3s;">
                         <div class="card-content">
-                            <div class="w-full h-40 bg-gray-100 flex items-center justify-center overflow-hidden">
+                            <div class="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
                                 <img src="images/spkmaut.jpg" alt="Sistem Pendukung Keputusan" class="w-full h-full object-contain">
                             </div>
-                            <div class="p-3 flex flex-col flex-grow">
-                                <h4 class="font-bold text-gray-800 font-heading text-base mb-1">Sistem Pendukung Keputusan</h4>
-                                <p class="text-gray-600 text-xs mb-2 flex-grow line-clamp-2 font-body">SPK dengan metode MAUT</p>
-                                <div class="flex flex-wrap gap-1 mb-2">
-                                    <span class="tech-badge text-xs px-2 py-0.5 rounded-full">PHP Native</span>
-                                    <span class="tech-badge text-xs px-2 py-0.5 rounded-full">MySQL</span>
-                                    <span class="tech-badge text-xs px-2 py-0.5 rounded-full">Bootstrap</span>
-                                    <span class="tech-badge text-xs px-2 py-0.5 rounded-full">JavaScript</span>
-                                    <span class="tech-badge text-xs px-2 py-0.5 rounded-full">TCPDF</span>
+                            <div class="p-4 flex flex-col flex-grow">
+                                <h4 class="font-bold text-gray-800 font-heading text-lg">Sistem Pendukung Keputusan</h4>
+                                <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">SPK dengan metode MAUT</p>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">PHP Native</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">MySQL</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">Bootstrap</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">JavaScript</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">TCPDF</span>
                                 </div>
-                                <div class="flex items-center justify-between gap-1 mt-auto btn-group">
-                                    <div class="flex items-center gap-1 flex-wrap">
-                                        <a href="https://github.com/tiazfebias/SPK_MAUT" target="_blank" class="btn-primary text-white text-[9px] px-2 py-1 rounded-lg transition whitespace-nowrap">
+                                <div class="flex items-center justify-between gap-2 mt-auto btn-group">
+                                    <div class="flex items-center gap-2">
+                                        <a href="https://github.com/tiazfebias/SPK_MAUT" target="_blank" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap">
                                             <i class="fab fa-github"></i> GitHub
                                         </a>
-                                        <a href="https://drive.google.com/drive/folders/1aG4htNd9peCSDB-qWTATvhGGueVFDMtw?usp=drive_link" target="_blank" class="btn-primary text-white text-[9px] px-2 py-1 rounded-lg transition whitespace-nowrap">
+                                        <a href="https://drive.google.com/drive/folders/1aG4htNd9peCSDB-qWTATvhGGueVFDMtw?usp=drive_link" target="_blank" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap">
                                             <i class="fab fa-google-drive"></i> G-Drive
                                         </a>
                                     </div>
-                                    <button onclick="openModal('project-2')" class="btn-primary text-white text-[9px] px-2 py-1 rounded-lg transition whitespace-nowrap flex-shrink-0">
+                                    <button onclick="openModal('project-2')" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap flex-shrink-0">
                                         <i class="fas fa-search"></i> Details
                                     </button>
                                 </div>
@@ -1627,26 +1579,26 @@
                     <!-- PROJECT 4 -->
                     <div class="project-card fade-in" style="transition-delay: 0.4s;">
                         <div class="card-content">
-                            <div class="w-full h-40 bg-gray-100 flex items-center justify-center overflow-hidden">
+                            <div class="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
                                 <img src="images/sertifikat.jpg" alt="Sertifikat & Pelatihan" class="w-full h-full object-contain">
                             </div>
-                            <div class="p-3 flex flex-col flex-grow">
-                                <h4 class="font-bold text-gray-800 font-heading text-base mb-1">Sertifikat &amp; Pelatihan</h4>
-                                <p class="text-gray-600 text-xs mb-2 flex-grow line-clamp-2 font-body">Kumpulan sertifikat kompetensi</p>
-                                <div class="flex flex-wrap gap-1 mb-2">
-                                    <span class="tech-badge text-xs px-2 py-0.5 rounded-full">Sertifikat</span>
-                                    <span class="tech-badge text-xs px-2 py-0.5 rounded-full">Kompetensi</span>
-                                    <span class="tech-badge text-xs px-2 py-0.5 rounded-full">Database</span>
-                                    <span class="tech-badge text-xs px-2 py-0.5 rounded-full">Akuntansi</span>
-                                    <span class="tech-badge text-xs px-2 py-0.5 rounded-full">Microsoft Office</span>
+                            <div class="p-4 flex flex-col flex-grow">
+                                <h4 class="font-bold text-gray-800 font-heading text-lg">Sertifikat &amp; Pelatihan</h4>
+                                <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">Kumpulan sertifikat kompetensi</p>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">Sertifikat</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">Kompetensi</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">Database</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">Akuntansi</span>
+                                    <span class="tech-badge text-xs px-2 py-1 rounded-full">Microsoft Office</span>
                                 </div>
-                                <div class="flex items-center justify-between gap-1 mt-auto btn-group">
-                                    <div class="flex items-center gap-1 flex-wrap">
-                                        <a href="https://drive.google.com/drive/folders/1XJUTzfkVVFCUPvy7qpTHwH24kG1nWC_n?usp=drive_link" target="_blank" class="btn-primary text-white text-[9px] px-2 py-1 rounded-lg transition whitespace-nowrap">
+                                <div class="flex items-center justify-between gap-2 mt-auto btn-group">
+                                    <div class="flex items-center gap-2">
+                                        <a href="https://drive.google.com/drive/folders/1XJUTzfkVVFCUPvy7qpTHwH24kG1nWC_n?usp=drive_link" target="_blank" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap">
                                             <i class="fab fa-google-drive"></i> G-Drive
                                         </a>
                                     </div>
-                                    <button onclick="openModal('project-3')" class="btn-primary text-white text-[9px] px-2 py-1 rounded-lg transition whitespace-nowrap flex-shrink-0">
+                                    <button onclick="openModal('project-3')" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap flex-shrink-0">
                                         <i class="fas fa-search"></i> Details
                                     </button>
                                 </div>
@@ -1660,31 +1612,31 @@
         <!-- ===== SECTION 4: KONTAK ===== -->
         <section id="contact" class="section section-alt">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                <div class="text-center mb-10">
+                <div class="text-center mb-12">
                     <h2 class="text-4xl font-bold text-gray-800 font-heading">Hubungi <span class="text-primary">Saya</span></h2>
-                    <div class="w-16 h-1 bg-primary mx-auto mt-2 rounded"></div>
-                    <p class="text-gray-600 mt-3 font-body text-sm">Silakan hubungi saya melalui form di bawah ini</p>
+                    <div class="w-20 h-1 bg-primary mx-auto mt-2 rounded"></div>
+                    <p class="text-gray-600 mt-4 font-body">Silakan hubungi saya melalui form di bawah ini</p>
                 </div>
-                <div class="flex flex-col md:flex-row gap-10 fade-in">
+                <div class="flex flex-col md:flex-row gap-12 fade-in">
                     <div class="flex-1 text-center md:text-left">
-                        <p class="text-gray-700 mb-4 font-body text-sm">Kirim pesan langsung ke Email & Whatsapp saya:</p>
-                        <div class="flex flex-wrap justify-center md:justify-start gap-3">
-                            <a href="mailto:tiazfebias@gmail.com" class="btn-primary text-white px-5 py-2.5 rounded-lg font-medium inline-block text-sm">📧 Kirim Email</a>
-                            <a href="https://wa.me/6285795195292" target="_blank" class="btn-accent text-gray-800 px-5 py-2.5 rounded-lg font-medium inline-block text-sm">💬 WhatsApp</a>
+                        <p class="text-gray-700 mb-4 font-body">Kirim pesan langsung ke Email & Whatsapp saya:</p>
+                        <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                            <a href="mailto:tiazfebias@gmail.com" class="btn-primary text-white px-6 py-3 rounded-lg font-medium inline-block">📧 Kirim Email</a>
+                            <a href="https://wa.me/6285795195292" target="_blank" class="btn-accent text-gray-800 px-6 py-3 rounded-lg font-medium inline-block">💬 WhatsApp</a>
                         </div>
-                        <p class="text-xs text-gray-500 mt-4 font-body">Atau gunakan form di bawah ini (dikirim via Formspree)</p>
-                        <form id="contactForm" action="https://formspree.io/f/xbgrvkdy" method="POST" class="space-y-3 mt-3">
-                            <div><input type="text" id="formName" name="name" placeholder="Nama Anda" required class="w-full px-3 py-2.5 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body text-sm"></div>
-                            <div><input type="email" id="formEmail" name="email" placeholder="contoh@gmail.com" required class="w-full px-3 py-2.5 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body text-sm"></div>
-                            <div><textarea id="formMessage" name="message" rows="4" placeholder="Pesan Anda..." required minlength="10" class="w-full px-3 py-2.5 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body text-sm"></textarea>
+                        <p class="text-sm text-gray-500 mt-4 font-body">Atau gunakan form di bawah ini (dikirim via Formspree)</p>
+                        <form id="contactForm" action="https://formspree.io/f/xbgrvkdy" method="POST" class="space-y-4 mt-4">
+                            <div><input type="text" id="formName" name="name" placeholder="Nama Anda" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></div>
+                            <div><input type="email" id="formEmail" name="email" placeholder="contoh@gmail.com" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></div>
+                            <div><textarea id="formMessage" name="message" rows="4" placeholder="Pesan Anda..." required minlength="10" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></textarea>
                             <p class="text-xs text-gray-400 mt-1">* Pesan minimal 10 karakter</p></div>
-                            <button type="submit" id="submitBtn" class="btn-primary text-white px-6 py-2.5 rounded-lg font-medium w-full text-sm">Kirim Pesan 📩</button>
+                            <button type="submit" id="submitBtn" class="btn-primary text-white px-8 py-3 rounded-lg font-medium w-full">Kirim Pesan 📩</button>
                             <div id="formStatus" class="text-sm text-center hidden"></div>
                         </form>
                     </div>
-                    <div class="flex-1 flex flex-col justify-center items-center md:items-start gap-3">
-                        <p class="text-gray-700 font-medium font-body text-sm">Temukan saya di:</p>
-                        <div class="flex flex-wrap gap-3">
+                    <div class="flex-1 flex flex-col justify-center items-center md:items-start gap-4">
+                        <p class="text-gray-700 font-medium font-body">Temukan saya di:</p>
+                        <div class="flex flex-wrap gap-4">
                             <a href="https://github.com/tiazfebias" target="_blank" class="social-icon">
                                 <i class="fab fa-github"></i>
                             </a>
@@ -1706,10 +1658,10 @@
         <!-- ===== SECTION 5: RESUME (CV) ===== -->
         <section id="resume" class="section">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                <div class="text-center mb-10">
+                <div class="text-center mb-12">
                     <h2 class="text-4xl font-bold text-gray-800 font-heading">CV / <span class="text-primary">Resume</span></h2>
-                    <div class="w-16 h-1 bg-primary mx-auto mt-2 rounded"></div>
-                    <p class="text-gray-600 mt-3 font-body text-sm">Unduh CV saya dalam dua versi</p>
+                    <div class="w-20 h-1 bg-primary mx-auto mt-2 rounded"></div>
+                    <p class="text-gray-600 mt-4 font-body">Unduh CV saya dalam dua versi</p>
                 </div>
                 <div class="cv-book fade-in">
                     <div class="cv-page">
@@ -1724,7 +1676,7 @@
                         </div>
                         <div class="cv-title">CV Visual</div>
                         <div class="cv-desc">CV dengan desain menarik &amp; kreatif</div>
-                        <div class="mt-3">
+                        <div class="mt-4">
                             <a href="CV_Visual_Tiaz.pdf" download class="btn-download">⬇️ Download CV Visual</a>
                         </div>
                     </div>
@@ -1740,21 +1692,21 @@
                         </div>
                         <div class="cv-title">CV ATS</div>
                         <div class="cv-desc">CV standar ramah ATS</div>
-                        <div class="mt-3">
+                        <div class="mt-4">
                             <a href="CV_ATS_Tiaz.pdf" download class="btn-download">⬇️ Download CV ATS</a>
                         </div>
                     </div>
                 </div>
-                <p class="text-xs text-gray-500 text-center mt-5 font-body">* File dalam format PDF</p>
+                <p class="text-xs text-gray-500 text-center mt-6 font-body">* File dalam format PDF</p>
             </div>
         </section>
 
     </main>
 
     <!-- ===== FOOTER ===== -->
-    <footer class="bg-primary-dark text-white py-5">
+    <footer class="bg-primary-dark text-white py-6">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-xs font-body">&copy; 2026 Tiaz Febia Sakes</p>
+            <p class="text-sm font-body">&copy; 2026 Tiaz Febia Sakes</p>
         </div>
     </footer>
 
@@ -1777,12 +1729,12 @@
                     E-Commerce Apotek Sederhana ini merupakan aplikasi e-commerce apotek yang bertujuan untuk mendigitalisasi layanan farmasi konvensional ke dalam platform web yang responsif dan mudah diakses. seperti pengelolaan data obat, konsultasi online, upload resep, serta kelola riwayat transaksi dan laporan.
                 </p>
                 <div class="modal-tech">
-                    <span class="tech-badge text-xs px-2.5 py-0.5 rounded-full">PHP Native</span>
-                    <span class="tech-badge text-xs px-2.5 py-0.5 rounded-full">MySQL</span>
-                    <span class="tech-badge text-xs px-2.5 py-0.5 rounded-full">TCPDF</span>
-                    <span class="tech-badge text-xs px-2.5 py-0.5 rounded-full">HTML</span>
-                    <span class="tech-badge text-xs px-2.5 py-0.5 rounded-full">CSS</span>
-                    <span class="tech-badge text-xs px-2.5 py-0.5 rounded-full">JavaScript</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">PHP Native</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">MySQL</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">TCPDF</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">HTML</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">CSS</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">JavaScript</span>
                 </div>
                 <div class="modal-actions">
                     <a href="https://github.com/tiazfebias/ApotekDekaMedika" target="_blank" class="btn-modal-primary"><i class="fab fa-github"></i> GitHub</a>
@@ -1809,11 +1761,11 @@
                     Kerja Praktik ini berhasil diselesaikan berkat kerja sama solid kelompok yang beranggotakan Ahmad Rival, Raihan Rosi Hendrawan, Silmi Nur Afifah, dan Tiaz Febia S. Dalam proyek ini, saya dipercaya memegang peran sebagai Web Developer. Tanggung jawab saya meliputi implementasi teknis, pengembangan fitur-fitur utama pada website, serta integrasi sistem agar selaras dengan konsep yang telah dirancang bersama oleh tim.
                 </p>
                 <div class="modal-tech">
-                    <span class="tech-badge text-xs px-2.5 py-0.5 rounded-full">PHP Native</span>
-                    <span class="tech-badge text-xs px-2.5 py-0.5 rounded-full">MySQL</span>
-                    <span class="tech-badge text-xs px-2.5 py-0.5 rounded-full">TCPDF</span>
-                    <span class="tech-badge text-xs px-2.5 py-0.5 rounded-full">Bootstrap</span>
-                    <span class="tech-badge text-xs px-2.5 py-0.5 rounded-full">JavaScript</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">PHP Native</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">MySQL</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">TCPDF</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">Bootstrap</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">JavaScript</span>
                 </div>
                 <div class="modal-actions">
                     <a href="https://github.com/tiazfebias/parapatan_tailor" target="_blank" class="btn-modal-primary"><i class="fab fa-github"></i> GitHub</a>
@@ -1840,11 +1792,11 @@
                     Sistem Pendukung Keputusan (SPK) yang dirancang untuk mengoptimalkan proses evaluasi kinerja tenaga pendidik dan kependidikan di SMK Muhammadiyah 2 Kuningan. Sistem ini berhasil mendigitalisasi metode penilaian konvensional yang sebelumnya berbasis kertas menjadi sistem digital yang terintegrasi dan lebih efisien dan mudah digunakan.
                 </p>
                 <div class="modal-tech">
-                    <span class="tech-badge text-xs px-2.5 py-0.5 rounded-full">PHP Native</span>
-                    <span class="tech-badge text-xs px-2.5 py-0.5 rounded-full">MySQL</span>
-                    <span class="tech-badge text-xs px-2.5 py-0.5 rounded-full">Bootstrap</span>
-                    <span class="tech-badge text-xs px-2.5 py-0.5 rounded-full">JavaScript</span>
-                    <span class="tech-badge text-xs px-2.5 py-0.5 rounded-full">TCPDF</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">PHP Native</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">MySQL</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">Bootstrap</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">JavaScript</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">TCPDF</span>
                 </div>
                 <div class="modal-actions">
                     <a href="https://github.com/tiazfebias/SPK_MAUT" target="_blank" class="btn-modal-primary"><i class="fab fa-github"></i> GitHub</a>
@@ -1871,11 +1823,11 @@
                     Kumpulan sertifikat kompetensi yang saya peroleh selama menempuh pendidikan dan pelatihan, meliputi Sertifikat IT Specialist Database, Sertifikat Komputer Akuntansi, dan Sertifikat Microsoft Office Specialist. Sertifikat-sertifikat ini menjadi bukti kompetensi saya dalam bidang teknologi informasi dan pengolahan data.
                 </p>
                 <div class="modal-tech">
-                    <span class="tech-badge text-xs px-2.5 py-0.5 rounded-full">Sertifikat</span>
-                    <span class="tech-badge text-xs px-2.5 py-0.5 rounded-full">Kompetensi</span>
-                    <span class="tech-badge text-xs px-2.5 py-0.5 rounded-full">Database</span>
-                    <span class="tech-badge text-xs px-2.5 py-0.5 rounded-full">Akuntansi</span>
-                    <span class="tech-badge text-xs px-2.5 py-0.5 rounded-full">Microsoft Office</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">Sertifikat</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">Kompetensi</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">Database</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">Akuntansi</span>
+                    <span class="tech-badge text-xs px-3 py-1 rounded-full">Microsoft Office</span>
                 </div>
                 <div class="modal-actions">
                     <a href="https://drive.google.com/drive/folders/1XJUTzfkVVFCUPvy7qpTHwH24kG1nWC_n?usp=drive_link" target="_blank" class="btn-modal-primary"><i class="fab fa-google-drive"></i> G-Drive</a>
@@ -1944,23 +1896,31 @@
             const savedLang = localStorage.getItem('lang');
             if (!savedLang || savedLang === 'id') return;
             
+            console.log('🔄 Re-applying translation to:', savedLang);
+            
             const attempts = [500, 1000, 2000, 3500, 5000];
             
-            attempts.forEach((delay) => {
+            attempts.forEach((delay, index) => {
                 setTimeout(() => {
                     const select = document.querySelector('.goog-te-combo');
-                    if (select && select.value !== savedLang) {
-                        select.value = savedLang;
-                        select.dispatchEvent(new Event('change'));
+                    if (select) {
+                        if (select.value !== savedLang) {
+                            select.value = savedLang;
+                            select.dispatchEvent(new Event('change'));
+                            console.log(`✅ Translation attempt ${index + 1} for:`, savedLang);
+                        }
+                        setTimeout(removeGoogleTranslateBanner, 200);
                     }
-                    setTimeout(removeGoogleTranslateBanner, 200);
                 }, delay);
             });
         }
 
-        // ===== FUNGSI FORCE TRANSLATION =====
+        // ===== FUNGSI FORCE TRANSLATION (DIPERBAIKI) =====
+        // Mendukung ID dan EN dengan logika yang berbeda
         function forceTranslation(lang) {
             if (!lang) return;
+            
+            console.log('💪 Force translation to:', lang);
             
             let attempts = 0;
             const maxAttempts = 10;
@@ -1969,9 +1929,12 @@
                 attempts++;
                 const select = document.querySelector('.goog-te-combo');
                 
-                if (select && select.value !== lang) {
-                    select.value = lang;
-                    select.dispatchEvent(new Event('change'));
+                if (select) {
+                    if (select.value !== lang) {
+                        select.value = lang;
+                        select.dispatchEvent(new Event('change'));
+                        console.log(`💪 Force ${lang} attempt ${attempts}`);
+                    }
                 }
                 
                 setTimeout(removeGoogleTranslateBanner, 200);
@@ -1984,21 +1947,28 @@
             tryTranslate();
         }
 
-        // ===== FUNGSI KEMBALI KE INDONESIA =====
+        // ===== FUNGSI KHUSUS KEMBALI KE INDONESIA =====
+        // Karena Google Translate sering "nyangkut" saat kembali ke bahasa asli
         function revertToIndonesian() {
+            console.log('🇮🇩 Reverting to Indonesian...');
+            
+            // 1. Set combobox ke 'id'
             const select = document.querySelector('.goog-te-combo');
             if (select) {
                 select.value = 'id';
                 select.dispatchEvent(new Event('change'));
             }
             
+            // 2. Hapus cookie googtrans (agar Google Translate "lupa" pernah translate)
             const domain = window.location.hostname;
             document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
             document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${domain};`;
             
+            // 3. Cek ulang setelah 2 detik, jika masih macet → reload halaman
             setTimeout(() => {
                 const select = document.querySelector('.goog-te-combo');
                 if (select && select.value !== 'id') {
+                    console.log('⚠️ Still not Indonesian, forcing reload...');
                     location.reload();
                 }
             }, 2000);
@@ -2026,12 +1996,15 @@
 
             modeLoader.classList.add('active');
             
+            // ===== CEK BAHASA AKTIF UNTUK TEKS LOADER =====
             const activeLang = localStorage.getItem('lang') || 'id';
             let loaderMessage;
             
             if (activeLang === 'en') {
+                // Teks dalam bahasa Inggris
                 loaderMessage = isDark ? 'Switching to Light Mode...' : 'Switching to Dark Mode...';
             } else {
+                // Teks dalam bahasa Indonesia
                 const nextMode = isDark ? 'Terang' : 'Gelap';
                 loaderMessage = `Beralih ke Mode ${nextMode}...`;
             }
@@ -2096,6 +2069,7 @@
             }
         });
 
+        // ===== FUNGSI GANTI BAHASA (DIPERBAIKI) =====
         function changeLanguage(lang) {
             if (lang === 'en') {
                 currentFlag.textContent = '🇬🇧';
@@ -2113,11 +2087,15 @@
             });
             
             langDropdown.classList.remove('open');
+            
+            // Simpan preferensi
             localStorage.setItem('lang', lang);
             
             const select = document.querySelector('.goog-te-combo');
             
             if (lang === 'id') {
+                // ===== KHUSUS KEMBALI KE INDONESIA =====
+                // Google Translate sering "nyangkut" saat kembali ke bahasa asli
                 if (select) {
                     revertToIndonesian();
                     setTimeout(() => forceTranslation('id'), 500);
@@ -2130,6 +2108,7 @@
                     location.reload();
                 }
             } else {
+                // ===== KHUSUS KE INGGRIS =====
                 if (select) {
                     select.value = lang;
                     select.dispatchEvent(new Event('change'));
@@ -2170,7 +2149,7 @@
         window.addEventListener('scroll', () => {
             let current = '';
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
+                const sectionTop = section.offsetTop - 120;
                 if (window.scrollY >= sectionTop) {
                     current = section.getAttribute('id');
                 }
@@ -2237,7 +2216,7 @@
             }
         });
 
-        // ===== FORM HANDLER =====
+        // ===== FORM HANDLER - RESET FORM AFTER SUCCESS =====
         const contactForm = document.getElementById('contactForm');
         const formName = document.getElementById('formName');
         const formEmail = document.getElementById('formEmail');
@@ -2259,7 +2238,9 @@
                 const response = await fetch(this.action, {
                     method: 'POST',
                     body: formData,
-                    headers: { 'Accept': 'application/json' }
+                    headers: {
+                        'Accept': 'application/json'
+                    }
                 });
 
                 if (response.ok) {
