@@ -598,6 +598,7 @@
             box-shadow: 0 8px 25px rgba(232, 228, 133, 0.4);
         }
 
+        /* ===== FORM INPUT - DIPERKECIL ===== */
         [data-theme="dark"] input,
         [data-theme="dark"] textarea {
             background-color: #1a2a3a !important;
@@ -837,9 +838,10 @@
             color: #ffffff;
         }
 
+        /* ===== MODAL IMG - DIPERBESAR AGAR BISA DILIHAT JELAS ===== */
         .modal-paper .modal-content .modal-img {
             width: 100%;
-            height: 200px;
+            height: 400px;
             background: #f0f4f8;
             display: flex;
             align-items: center;
@@ -847,14 +849,50 @@
             border-radius: 8px;
             overflow: hidden;
             margin-bottom: 12px;
+            cursor: zoom-in;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .modal-paper .modal-content .modal-img:hover {
+            background: #e0e8f0;
+        }
+        [data-theme="dark"] .modal-paper .modal-content .modal-img:hover {
+            background: #0a1a2a;
         }
         .modal-paper .modal-content .modal-img img {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        .modal-paper .modal-content .modal-img:hover img {
+            transform: scale(1.02);
         }
         [data-theme="dark"] .modal-paper .modal-content .modal-img {
             background: #0a1a2a;
+        }
+        .modal-paper .modal-content .modal-img::after {
+            content: '\f00e';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(45, 150, 173, 0.9);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        .modal-paper .modal-content .modal-img:hover::after {
+            opacity: 1;
         }
 
         .modal-paper .modal-content .modal-desc {
@@ -910,6 +948,56 @@
             background-color: #1f7a8f;
         }
 
+        /* ===== LIGHTBOX UNTUK PREVIEW GAMBAR FULL ===== */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 9999999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            cursor: zoom-out;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+        .lightbox img {
+            max-width: 95%;
+            max-height: 95%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.8);
+            animation: lightboxIn 0.3s ease;
+        }
+        @keyframes lightboxIn {
+            from { transform: scale(0.85); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .lightbox .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            color: white;
+            font-size: 2.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            line-height: 1;
+            transition: transform 0.3s ease;
+            z-index: 2;
+        }
+        .lightbox .lightbox-close:hover {
+            transform: rotate(90deg) scale(1.1);
+        }
+
         .cv-book {
             display: flex;
             justify-content: center;
@@ -957,8 +1045,21 @@
             border-color: #4a3d2e;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
         }
-        .cv-page .cv-title { color: #1a2a3a; }
-        .cv-page .cv-desc { color: #4a5a6a; }
+        /* ===== CV TITLE - DIPERKECIL ===== */
+        .cv-page .cv-title {
+            color: #1a2a3a;
+            font-size: 1.05rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', Georgia, serif;
+            margin-bottom: 2px;
+        }
+        /* ===== CV DESC - DIPERKECIL ===== */
+        .cv-page .cv-desc {
+            color: #4a5a6a;
+            font-size: 0.75rem;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+        }
         .cv-page .cv-size { color: #999; }
         [data-theme="dark"] .cv-page .cv-title { color: #e8dcc8; }
         [data-theme="dark"] .cv-page .cv-desc { color: #c8b898; }
@@ -1171,7 +1272,6 @@
             position: relative;
             z-index: 3;
         }
-        /* ===== TOMBOL DOWNLOAD CV - DISAMAKAN UKURANNYA ===== */
         .cv-page .btn-download {
             background: var(--primary);
             color: white;
@@ -1242,7 +1342,7 @@
                 font-size: 1.8rem;
             }
             .modal-paper .modal-content .modal-img {
-                height: 150px;
+                height: 250px;
             }
             .modal-paper .modal-content .modal-desc {
                 font-size: 0.88rem;
@@ -1322,7 +1422,7 @@
                 font-size: 1rem;
             }
             .modal-paper .modal-content .modal-img {
-                height: 120px;
+                height: 200px;
             }
             .modal-paper .modal-content .modal-desc {
                 font-size: 0.82rem;
@@ -1633,11 +1733,14 @@
                         </div>
                         <p class="text-sm text-gray-500 mt-4 font-body">Atau gunakan form di bawah ini (dikirim via Formspree)</p>
                         <form id="contactForm" action="https://formspree.io/f/xbgrvkdy" method="POST" class="space-y-4 mt-4 text-left">
-                            <div><input type="text" id="formName" name="name" placeholder="Nama Anda" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></div>
-                            <div><input type="email" id="formEmail" name="email" placeholder="contoh@gmail.com" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></div>
-                            <div><textarea id="formMessage" name="message" rows="4" placeholder="Pesan Anda..." required minlength="10" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></textarea>
+                            <div><input type="text" id="formName" name="name" placeholder="Nama Anda" required class="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></div>
+                            <div><input type="email" id="formEmail" name="email" placeholder="contoh@gmail.com" required class="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></div>
+                            <div><textarea id="formMessage" name="message" rows="4" placeholder="Pesan Anda..." required minlength="10" class="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></textarea>
                             <p class="text-xs text-gray-400 mt-1 text-center">* Pesan minimal 10 karakter</p></div>
-                            <button type="submit" id="submitBtn" class="btn-primary text-white px-6 py-2.5 rounded-full font-medium text-sm">Kirim Pesan 📩</button>
+                            <!-- ===== BUTTON KIRIM PESAN - CENTER ===== -->
+                            <div class="flex justify-center">
+                                <button type="submit" id="submitBtn" class="btn-primary text-white px-6 py-2.5 rounded-full font-medium text-sm">Kirim Pesan 📩</button>
+                            </div>
                             <div id="formStatus" class="text-sm text-center hidden"></div>
                         </form>
 
@@ -1719,6 +1822,12 @@
         </div>
     </footer>
 
+    <!-- ===== LIGHTBOX UNTUK PREVIEW GAMBAR FULL ===== -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
+        <img id="lightboxImg" src="" alt="Preview">
+    </div>
+
     <!-- ===== MODALS dengan Tema Kertas ===== -->
 
     <!-- Modal ApotekDekaMedika -->
@@ -1731,7 +1840,7 @@
                     <h3>ApotekDekaMedika</h3>
                     <button onclick="closeModal('project-0')" class="btn-close">&times;</button>
                 </div>
-                <div class="modal-img">
+                <div class="modal-img" onclick="openLightbox('images/aptkdeka.jpg')">
                     <img src="images/aptkdeka.jpg" alt="ApotekDekaMedika">
                 </div>
                 <p class="modal-desc">
@@ -1763,7 +1872,7 @@
                     <h3>Sistem informasi manajemen Parapatan Tailor</h3>
                     <button onclick="closeModal('project-1')" class="btn-close">&times;</button>
                 </div>
-                <div class="modal-img">
+                <div class="modal-img" onclick="openLightbox('images/tailor.jpg')">
                     <img src="images/tailor.jpg" alt="Sistem informasi manajemen Parapatan Tailor">
                 </div>
                 <p class="modal-desc">
@@ -1794,7 +1903,7 @@
                     <h3>Sistem Pendukung Keputusan</h3>
                     <button onclick="closeModal('project-2')" class="btn-close">&times;</button>
                 </div>
-                <div class="modal-img">
+                <div class="modal-img" onclick="openLightbox('images/spkmaut.jpg')">
                     <img src="images/spkmaut.jpg" alt="Sistem Pendukung Keputusan">
                 </div>
                 <p class="modal-desc">
@@ -1825,7 +1934,7 @@
                     <h3>Sertifikat &amp; Pelatihan</h3>
                     <button onclick="closeModal('project-3')" class="btn-close">&times;</button>
                 </div>
-                <div class="modal-img">
+                <div class="modal-img" onclick="openLightbox('images/sertifikat.jpg')">
                     <img src="images/sertifikat.jpg" alt="Sertifikat & Pelatihan">
                 </div>
                 <p class="modal-desc">
@@ -1977,6 +2086,35 @@
                 }
             }, 2000);
         }
+
+        // ===== LIGHTBOX FUNCTIONS =====
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            lightboxImg.src = src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(e) {
+            if (e) e.stopPropagation();
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            // Cek apakah ada modal yang masih terbuka
+            const openModals = document.querySelectorAll('.modal:not(.hidden)');
+            if (openModals.length === 0) {
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const lightbox = document.getElementById('lightbox');
+                if (lightbox.classList.contains('active')) {
+                    closeLightbox();
+                }
+            }
+        });
 
         // ===== DARK MODE TOGGLE =====
         const themeToggle = document.getElementById('themeToggle');
@@ -2206,6 +2344,12 @@
 
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
+                // Prioritas: tutup lightbox dulu jika terbuka
+                const lightbox = document.getElementById('lightbox');
+                if (lightbox.classList.contains('active')) {
+                    closeLightbox();
+                    return;
+                }
                 document.querySelectorAll('.modal:not(.hidden)').forEach(modal => {
                     modal.classList.add('hidden');
                     document.body.style.overflow = 'auto';
