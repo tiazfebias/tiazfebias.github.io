@@ -666,6 +666,31 @@
             background: #1a2a3a;
         }
 
+        /* ===== PERBAIKAN: GAMBAR CARD PORTFOLIO - UKURAN SAMA ===== */
+        .project-card .card-image-wrapper {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #f0f4f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        [data-theme="dark"] .project-card .card-image-wrapper {
+            background: #0a1a2a;
+        }
+        .project-card .card-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+        }
+        .project-card:hover .card-image-wrapper img {
+            transform: scale(1.08);
+        }
+
         .line-clamp-2 {
             display: -webkit-box;
             -webkit-line-clamp: 2;
@@ -838,7 +863,7 @@
             color: #ffffff;
         }
 
-        /* ===== MODAL IMG - DIPERBESAR AGAR BISA DILIHAT JELAS ===== */
+        /* ===== MODAL IMG ===== */
         .modal-paper .modal-content .modal-img {
             width: 100%;
             height: 400px;
@@ -1045,7 +1070,6 @@
             border-color: #4a3d2e;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
         }
-        /* ===== CV TITLE - DIPERKECIL ===== */
         .cv-page .cv-title {
             color: #1a2a3a;
             font-size: 1.05rem;
@@ -1053,7 +1077,6 @@
             font-family: 'Playfair Display', Georgia, serif;
             margin-bottom: 2px;
         }
-        /* ===== CV DESC - DIPERKECIL ===== */
         .cv-page .cv-desc {
             color: #4a5a6a;
             font-size: 0.75rem;
@@ -1272,7 +1295,6 @@
             position: relative;
             z-index: 3;
         }
-        /* ===== TOMBOL UNDUH CV - DIPERKECIL ===== */
         .cv-page .btn-download {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
@@ -1624,8 +1646,9 @@
                     <!-- PROJECT 1 -->
                     <div class="project-card fade-in" style="transition-delay: 0.1s;">
                         <div class="card-content">
-                            <div class="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
-                                <img src="images/aptkdeka.jpg" alt="ApotekDekaMedika" class="w-full h-full object-contain">
+                            <!-- ===== PERBAIKAN: GAMBAR SERAGAM ===== -->
+                            <div class="card-image-wrapper">
+                                <img src="images/aptkdeka.jpg" alt="ApotekDekaMedika">
                             </div>
                             <div class="p-4 flex flex-col flex-grow">
                                 <h4 class="font-bold text-gray-800 font-heading text-lg">Apotek Deka Medika</h4>
@@ -1658,8 +1681,8 @@
                     <!-- PROJECT 2 -->
                     <div class="project-card fade-in" style="transition-delay: 0.2s;">
                         <div class="card-content">
-                            <div class="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
-                                <img src="images/tailor.jpg" alt="Sistem informasi manajemen Parapatan Tailor" class="w-full h-full object-contain">
+                            <div class="card-image-wrapper">
+                                <img src="images/tailor.jpg" alt="Sistem informasi manajemen Parapatan Tailor">
                             </div>
                             <div class="p-4 flex flex-col flex-grow">
                                 <h4 class="font-bold text-gray-800 font-heading text-lg">Sistem informasi manajemen Parapatan Tailor</h4>
@@ -1691,8 +1714,8 @@
                     <!-- PROJECT 3 -->
                     <div class="project-card fade-in" style="transition-delay: 0.3s;">
                         <div class="card-content">
-                            <div class="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
-                                <img src="images/spkmaut.jpg" alt="Sistem Pendukung Keputusan" class="w-full h-full object-contain">
+                            <div class="card-image-wrapper">
+                                <img src="images/spkmaut.jpg" alt="Sistem Pendukung Keputusan">
                             </div>
                             <div class="p-4 flex flex-col flex-grow">
                                 <h4 class="font-bold text-gray-800 font-heading text-lg">Sistem Pendukung Keputusan</h4>
@@ -1724,8 +1747,9 @@
                     <!-- PROJECT 4 -->
                     <div class="project-card fade-in" style="transition-delay: 0.4s;">
                         <div class="card-content">
-                            <div class="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
-                                <img src="images/sertifikatku.jpeg" alt="Sertifikat & Pelatihan" class="w-full h-full object-contain">
+                            <!-- ===== PERBAIKAN: GAMBAR SERTIFIKAT DISAMAKAN ===== -->
+                            <div class="card-image-wrapper">
+                                <img src="images/sertifikatku.jpeg" alt="Sertifikat & Pelatihan">
                             </div>
                             <div class="p-4 flex flex-col flex-grow">
                                 <h4 class="font-bold text-gray-800 font-heading text-lg">Sertifikat &amp; Pelatihan</h4>
@@ -1851,7 +1875,7 @@
 
     </main>
 
-    <!-- ===== FOOTER - DIPERKECIL ===== -->
+    <!-- ===== FOOTER ===== -->
     <footer class="footer-mini">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <p>&copy; 2026 Tiaz Febia Sakes</p>
@@ -1864,7 +1888,7 @@
         <img id="lightboxImg" src="" alt="Preview">
     </div>
 
-    <!-- ===== MODALS dengan Tema Kertas ===== -->
+    <!-- ===== MODALS ===== -->
 
     <!-- Modal ApotekDekaMedika -->
     <div id="project-0" class="modal hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
@@ -1919,7 +1943,7 @@
                     <span class="tech-badge px-2 py-0.5 rounded-full">MySQL</span>
                     <span class="tech-badge px-2 py-0.5 rounded-full">TCPDF</span>
                     <span class="tech-badge px-2 py-0.5 rounded-full">Bootstrap</span>
-                     <span class="tech-badge px-2 py-0.5 rounded-full">CSS</span>
+                    <span class="tech-badge px-2 py-0.5 rounded-full">CSS</span>
                     <span class="tech-badge px-2 py-0.5 rounded-full">JavaScript</span>
                 </div>
                 <div class="modal-actions">
@@ -1971,8 +1995,9 @@
                     <h3>Sertifikat &amp; Pelatihan</h3>
                     <button onclick="closeModal('project-3')" class="btn-close">&times;</button>
                 </div>
-                <div class="modal-img" onclick="openLightbox('images/sertifikat.jpg')">
-                    <img src="images/sertifikat.jpg" alt="Sertifikat & Pelatihan">
+                <!-- ===== PERBAIKAN: GAMBAR SERTIFIKAT DISAMAKAN DENGAN CARD ===== -->
+                <div class="modal-img" onclick="openLightbox('images/sertifikatku.jpeg')">
+                    <img src="images/sertifikatku.jpeg" alt="Sertifikat & Pelatihan">
                 </div>
                 <p class="modal-desc">
                     Kumpulan sertifikat kompetensi yang saya peroleh selama menempuh pendidikan dan pelatihan, meliputi Sertifikat IT Specialist Database, Sertifikat Komputer Akuntansi, dan Sertifikat Microsoft Office Specialist. Sertifikat-sertifikat ini menjadi bukti kompetensi saya dalam bidang teknologi informasi dan pengolahan data.
