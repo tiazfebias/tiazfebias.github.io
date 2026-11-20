@@ -4,16 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio - Tiaz Febia Sakes</title>
-    
-    <!-- ===== FAVICON - PNG TRANSPARAN ===== -->
+
+    <!-- ===== FAVICON ===== -->
     <link rel="icon" type="image/png" sizes="32x32" href="images/mylogo.png?v=1" />
     <link rel="shortcut icon" type="image/png" href="images/mylogo.png?v=1" />
     <link rel="apple-touch-icon" sizes="180x180" href="images/mylogo.png?v=1" />
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
     <style>
+        /* ===== ROOT VARIABLES ===== */
         :root {
             --primary: #2d96ad;
             --primary-dark: #1f7a8f;
@@ -34,12 +36,38 @@
             --primary-light: #3d8ba0;
         }
 
+        /* ===== BASE RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-light) 100%);
+            color: var(--text-dark);
+            line-height: 1.7;
+            transition: background 0.5s ease, color 0.5s ease;
+            top: 0 !important;
+            position: static !important;
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
+
+        .font-heading { font-family: 'Playfair Display', Georgia, serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+
+        /* ===== MODE LOADER ===== */
         .mode-loader {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background: var(--bg-light);
             z-index: 99999;
             display: flex;
@@ -53,7 +81,6 @@
             opacity: 1;
             pointer-events: all;
         }
-
         .mode-loader .loader-wrapper {
             display: flex;
             flex-direction: column;
@@ -62,7 +89,6 @@
             width: 80%;
             max-width: 400px;
         }
-
         .mode-loader .progress-container {
             width: 100%;
             height: 6px;
@@ -74,7 +100,6 @@
         [data-theme="dark"] .mode-loader .progress-container {
             background: rgba(255, 255, 255, 0.1);
         }
-
         .mode-loader .progress-bar {
             width: 0%;
             height: 100%;
@@ -88,12 +113,10 @@
             background: linear-gradient(90deg, #5bb5cc, #e8e485, #5bb5cc);
             background-size: 200% 100%;
         }
-
         @keyframes progressMove {
             0% { background-position: 0% 0%; }
             100% { background-position: 200% 0%; }
         }
-
         .mode-loader .loader-text {
             margin-top: 16px;
             font-size: 0.9rem;
@@ -103,7 +126,6 @@
             transition: color 0.5s ease;
             font-family: 'Inter', sans-serif;
         }
-
         .mode-loader .loader-icon {
             font-size: 2rem;
             margin-bottom: 12px;
@@ -114,12 +136,12 @@
         [data-theme="dark"] .mode-loader .loader-icon {
             color: #5bb5cc;
         }
-
         @keyframes pulse {
             0%, 100% { transform: scale(1); opacity: 0.7; }
             50% { transform: scale(1.1); opacity: 1; }
         }
 
+        /* ===== GLOW TEXT ===== */
         .glow-text {
             color: var(--primary);
             animation: glowSwitch 3s ease-in-out infinite;
@@ -134,6 +156,7 @@
             100% { color: #2d96ad; text-shadow: 0 0 10px rgba(45, 150, 173, 0.3); }
         }
 
+        /* ===== SCROLL PROGRESS ===== */
         .scroll-progress {
             position: fixed;
             top: 0;
@@ -145,6 +168,7 @@
             transition: width 0.1s;
         }
 
+        /* ===== FADE IN ANIMATION ===== */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -155,35 +179,7 @@
             transform: translateY(0);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html {
-            scroll-behavior: smooth;
-            margin-top: 0 !important;
-            padding-top: 0 !important;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-light) 100%);
-            color: var(--text-dark);
-            line-height: 1.7;
-            transition: background 0.5s ease, color 0.5s ease;
-            top: 0 !important;
-            position: static !important;
-            margin-top: 0 !important;
-            padding-top: 0 !important;
-        }
-        .font-heading {
-            font-family: 'Playfair Display', Georgia, serif;
-        }
-        .font-body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        /* ===== NAVBAR (DIPERKECIL) ===== */
+        /* ===== NAVBAR ===== */
         .navbar {
             position: fixed;
             top: 0;
@@ -212,10 +208,7 @@
             font-family: 'Playfair Display', serif;
             letter-spacing: 0.3px;
         }
-        .navbar .logo:hover {
-            color: var(--accent);
-        }
-
+        .navbar .logo:hover { color: var(--accent); }
         .navbar .nav-right {
             display: flex;
             align-items: center;
@@ -246,16 +239,10 @@
             background: var(--accent);
             transition: width 0.3s ease;
         }
-        .nav-links a:hover {
-            color: #fff;
-        }
+        .nav-links a:hover { color: #fff; }
         .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-        .nav-links a.active {
-            color: #fff;
-        }
+        .nav-links a.active::after { width: 100%; }
+        .nav-links a.active { color: #fff; }
 
         .hamburger {
             display: none;
@@ -275,6 +262,7 @@
             transition: 0.3s;
         }
 
+        /* ===== LANGUAGE SELECTOR ===== */
         .lang-selector {
             position: relative;
             flex-shrink: 0;
@@ -298,9 +286,7 @@
             background: rgba(255, 255, 255, 0.3);
             transform: scale(1.05);
         }
-        .lang-btn .flag {
-            font-size: 0.85rem;
-        }
+        .lang-btn .flag { font-size: 0.85rem; }
         .lang-dropdown {
             position: absolute;
             top: calc(100% + 8px);
@@ -337,9 +323,7 @@
             transition: background 0.2s ease;
             font-family: 'Inter', sans-serif;
         }
-        .lang-dropdown button:hover {
-            background: #f0f7fa;
-        }
+        .lang-dropdown button:hover { background: #f0f7fa; }
         .lang-dropdown button.active {
             background: #e8f4f8;
             color: #2d96ad;
@@ -349,24 +333,37 @@
             background: #1a2a3a;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
-        [data-theme="dark"] .lang-dropdown button {
-            color: #e8edf0;
-        }
-        [data-theme="dark"] .lang-dropdown button:hover {
-            background: #2a3a4a;
-        }
+        [data-theme="dark"] .lang-dropdown button { color: #e8edf0; }
+        [data-theme="dark"] .lang-dropdown button:hover { background: #2a3a4a; }
         [data-theme="dark"] .lang-dropdown button.active {
             background: #2d96ad;
             color: white;
         }
 
+        /* ===== GOOGLE TRANSLATE HIDE (DIGABUNG) ===== */
         iframe.goog-te-banner-frame,
         iframe.goog-te-menu-frame,
         iframe[src*="translate.google.com"],
         iframe[src*="translate.googleapis.com"],
         iframe.skiptranslate,
         body > iframe,
-        body > .skiptranslate {
+        body > .skiptranslate,
+        #google_translate_element,
+        #google_translate_element *,
+        .goog-te-gadget,
+        .goog-te-gadget span,
+        .goog-te-gadget .goog-te-combo,
+        .goog-logo-link,
+        .goog-te-combo,
+        .skiptranslate,
+        #goog-gt-tt,
+        .goog-te-balloon-frame,
+        .goog-tooltip,
+        .goog-tooltip:hover,
+        .goog-te-spinner-pos,
+        [class*="goog-"],
+        [id*="goog-"],
+        [class*="skiptranslate"] {
             display: none !important;
             visibility: hidden !important;
             opacity: 0 !important;
@@ -380,83 +377,17 @@
             left: -9999px !important;
             z-index: -99999 !important;
             border: none !important;
+            overflow: hidden !important;
+            font-size: 0 !important;
+            color: transparent !important;
         }
-
-        .goog-te-banner-frame,
-        .goog-te-banner-frame.skiptranslate {
-            display: none !important;
-            visibility: hidden !important;
-        }
-
-        #goog-gt-tt,
-        .goog-te-balloon-frame,
-        .goog-tooltip,
-        .goog-tooltip:hover,
-        .goog-te-spinner-pos {
-            display: none !important;
-        }
-
         .goog-text-highlight {
             background: none !important;
             box-shadow: none !important;
             border: none !important;
         }
 
-        .goog-te-gadget {
-            display: none !important;
-            font-size: 0 !important;
-            color: transparent !important;
-            visibility: hidden !important;
-            height: 0 !important;
-            width: 0 !important;
-            overflow: hidden !important;
-        }
-        .goog-te-gadget .goog-te-combo {
-            display: none !important;
-        }
-        .goog-te-gadget span {
-            display: none !important;
-        }
-
-        .goog-logo-link {
-            display: none !important;
-        }
-
-        #google_translate_element,
-        #google_translate_element * {
-            display: none !important;
-            visibility: hidden !important;
-            width: 0 !important;
-            height: 0 !important;
-            overflow: hidden !important;
-            position: absolute !important;
-            top: -9999px !important;
-            left: -9999px !important;
-            opacity: 0 !important;
-        }
-
-        .skiptranslate {
-            display: none !important;
-            visibility: hidden !important;
-            height: 0 !important;
-        }
-
-        [class*="goog-"],
-        [id*="goog-"],
-        [class*="skiptranslate"] {
-            display: none !important;
-        }
-
-        .goog-te-combo {
-            display: none !important;
-        }
-
-        body {
-            top: 0 !important;
-            position: static !important;
-        }
-
-        /* ===== THEME TOGGLE (DIPERKECIL) ===== */
+        /* ===== THEME TOGGLE ===== */
         .theme-toggle {
             background: rgba(255, 255, 255, 0.15);
             border: 1.5px solid rgba(255, 255, 255, 0.3);
@@ -484,6 +415,7 @@
             background: rgba(255, 255, 255, 0.25);
         }
 
+        /* ===== SECTIONS ===== */
         .section {
             padding: 100px 0;
             scroll-margin-top: 70px;
@@ -498,10 +430,9 @@
             background: var(--white);
             transition: background 0.5s ease;
         }
-        [data-theme="dark"] .section-alt {
-            background: #15222e;
-        }
+        [data-theme="dark"] .section-alt { background: #15222e; }
 
+        /* ===== UTILITY COLORS ===== */
         .bg-primary { background-color: var(--primary); }
         .bg-primary-dark { background-color: var(--primary-dark); }
         .bg-accent { background-color: var(--accent); }
@@ -509,6 +440,7 @@
         .text-accent { color: var(--accent); }
         .border-primary { border-color: var(--primary); }
 
+        /* ===== DARK THEME OVERRIDES (Tailwind) ===== */
         [data-theme="dark"] .text-gray-700 { color: #c0d0e0 !important; }
         [data-theme="dark"] .text-gray-600 { color: #a0b0c0 !important; }
         [data-theme="dark"] .text-gray-800 { color: #e8edf0 !important; }
@@ -517,14 +449,8 @@
         [data-theme="dark"] .bg-gray-100 { background-color: #1a2a3a !important; }
         [data-theme="dark"] .bg-white { background-color: #1a2a3a !important; }
         [data-theme="dark"] .border-gray-300 { border-color: #2a3a4a !important; }
-        [data-theme="dark"] .tech-badge {
-            background-color: #1a2a3a;
-            color: #8bb5c5;
-            border-color: #2d96ad;
-        }
-        [data-theme="dark"] .project-card { background: #1a2a3a !important; }
-        [data-theme="dark"] .project-card .card-content { background: #1a2a3a !important; }
 
+        /* ===== BUTTONS ===== */
         .btn-accent {
             background-color: var(--accent);
             color: #1a2a3a !important;
@@ -538,9 +464,6 @@
             transform: scale(1.05);
             color: #1a2a3a !important;
         }
-        [data-theme="dark"] .btn-accent { color: #1a2a3a !important; }
-        [data-theme="dark"] .btn-accent:hover { color: #1a2a3a !important; }
-
         .btn-primary {
             background-color: var(--primary);
             color: #ffffff;
@@ -554,7 +477,7 @@
             transform: scale(1.05);
         }
 
-        /* ===== TECH BADGE - LEBIH KECIL ===== */
+        /* ===== TECH BADGE ===== */
         .tech-badge {
             background-color: #e8f4f8;
             color: var(--primary-dark);
@@ -565,7 +488,13 @@
             letter-spacing: 0.2px;
             transition: all 0.5s ease;
         }
+        [data-theme="dark"] .tech-badge {
+            background-color: #1a2a3a;
+            color: #8bb5c5;
+            border-color: #2d96ad;
+        }
 
+        /* ===== SOCIAL ICONS ===== */
         .social-icon {
             background-color: #e8e485 !important;
             color: #1a2a3a !important;
@@ -586,19 +515,11 @@
             box-shadow: 0 8px 25px rgba(232, 228, 133, 0.5);
             border-color: #d4d06a;
         }
-        [data-theme="dark"] .social-icon {
-            background-color: #e8e485 !important;
-            color: #1a2a3a !important;
-            border: 2px solid #e8e485;
-        }
         [data-theme="dark"] .social-icon:hover {
-            background-color: #d4d06a !important;
-            color: #1a2a3a !important;
-            border-color: #d4d06a;
             box-shadow: 0 8px 25px rgba(232, 228, 133, 0.4);
         }
 
-        /* ===== FORM INPUT - DIPERKECIL ===== */
+        /* ===== FORM INPUT (DARK MODE) ===== */
         [data-theme="dark"] input,
         [data-theme="dark"] textarea {
             background-color: #1a2a3a !important;
@@ -622,13 +543,10 @@
             border-radius: 8px;
             font-weight: 500;
         }
-        #formStatus.hidden {
-            display: none;
-        }
-        [data-theme="dark"] #formStatus {
-            color: #e8edf0 !important;
-        }
+        #formStatus.hidden { display: none; }
+        [data-theme="dark"] #formStatus { color: #e8edf0 !important; }
 
+        /* ===== PROJECT CARD ===== */
         .project-card {
             position: relative;
             display: flex;
@@ -639,10 +557,7 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         }
-        [data-theme="dark"] .project-card {
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-
+        [data-theme="dark"] .project-card { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); }
         .project-card:hover {
             transform: translateY(-8px) scale(1.02);
             box-shadow: 0 25px 50px rgba(45, 150, 173, 0.25);
@@ -650,7 +565,6 @@
         [data-theme="dark"] .project-card:hover {
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
         }
-
         .project-card .card-content {
             position: relative;
             z-index: 1;
@@ -662,11 +576,9 @@
             overflow: hidden;
             transition: background 0.5s ease;
         }
-        [data-theme="dark"] .project-card .card-content {
-            background: #1a2a3a;
-        }
+        [data-theme="dark"] .project-card .card-content { background: #1a2a3a; }
 
-        /* ===== PERBAIKAN: GAMBAR CARD PORTFOLIO - UKURAN SAMA ===== */
+        /* Gambar card seragam */
         .project-card .card-image-wrapper {
             width: 100%;
             aspect-ratio: 16 / 9;
@@ -677,9 +589,7 @@
             overflow: hidden;
             position: relative;
         }
-        [data-theme="dark"] .project-card .card-image-wrapper {
-            background: #0a1a2a;
-        }
+        [data-theme="dark"] .project-card .card-image-wrapper { background: #0a1a2a; }
         .project-card .card-image-wrapper img {
             width: 100%;
             height: 100%;
@@ -687,9 +597,7 @@
             object-position: center;
             transition: transform 0.5s ease;
         }
-        .project-card:hover .card-image-wrapper img {
-            transform: scale(1.08);
-        }
+        .project-card:hover .card-image-wrapper img { transform: scale(1.08); }
 
         .line-clamp-2 {
             display: -webkit-box;
@@ -698,26 +606,17 @@
             overflow: hidden;
         }
 
+        /* ===== MODAL ===== */
         .modal {
             transition: opacity 0.3s ease;
             padding: 20px;
         }
-        .modal:not(.hidden) {
-            display: flex !important;
-        }
+        .modal:not(.hidden) { display: flex !important; }
         @keyframes modalIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95) translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
+            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
-        .animate-modal {
-            animation: modalIn 0.3s ease forwards;
-        }
+        .animate-modal { animation: modalIn 0.3s ease forwards; }
 
         .modal-paper {
             background: #fefcf3;
@@ -733,9 +632,7 @@
             overflow-y: auto;
             transition: all 0.5s ease;
         }
-        .modal-paper::-webkit-scrollbar {
-            width: 6px;
-        }
+        .modal-paper::-webkit-scrollbar { width: 6px; }
         .modal-paper::-webkit-scrollbar-track {
             background: rgba(0, 0, 0, 0.05);
             border-radius: 10px;
@@ -744,23 +641,16 @@
             background: var(--primary);
             border-radius: 10px;
         }
-        [data-theme="dark"] .modal-paper::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
-        }
-        [data-theme="dark"] .modal-paper::-webkit-scrollbar-thumb {
-            background: #5bb5cc;
-        }
-
         [data-theme="dark"] .modal-paper {
             background: #1a2a3a;
             border-color: #2a3a4a;
         }
-        [data-theme="dark"] .modal-paper .modal-content h3 {
-            color: #e8edf0;
+        [data-theme="dark"] .modal-paper::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
         }
-        [data-theme="dark"] .modal-paper .modal-content p {
-            color: #c0d0e0;
-        }
+        [data-theme="dark"] .modal-paper::-webkit-scrollbar-thumb { background: #5bb5cc; }
+        [data-theme="dark"] .modal-paper .modal-content h3 { color: #e8edf0; }
+        [data-theme="dark"] .modal-paper .modal-content p { color: #c0d0e0; }
 
         .modal-paper .modal-lines {
             position: absolute;
@@ -771,18 +661,11 @@
             pointer-events: none;
             z-index: 0;
             opacity: 0.2;
-            background:
-                repeating-linear-gradient(0deg,
-                    transparent,
-                    transparent 26px,
-                    rgba(180, 170, 140, 0.2) 26px,
-                    rgba(180, 170, 140, 0.2) 27px);
+            background: repeating-linear-gradient(0deg, transparent, transparent 26px, rgba(180, 170, 140, 0.2) 26px, rgba(180, 170, 140, 0.2) 27px);
             border-radius: 2px;
             transition: opacity 0.5s ease;
         }
-        [data-theme="dark"] .modal-paper .modal-lines {
-            opacity: 0.08;
-        }
+        [data-theme="dark"] .modal-paper .modal-lines { opacity: 0.08; }
 
         .modal-paper .modal-tear {
             position: absolute;
@@ -838,9 +721,7 @@
             min-width: 0;
             word-break: break-word;
         }
-        [data-theme="dark"] .modal-paper .modal-content .modal-header h3 {
-            color: #e8edf0;
-        }
+        [data-theme="dark"] .modal-paper .modal-content .modal-header h3 { color: #e8edf0; }
         .modal-paper .modal-content .modal-header .btn-close {
             background: none;
             border: none;
@@ -853,17 +734,11 @@
             flex-shrink: 0;
             margin-top: -4px;
         }
-        .modal-paper .modal-content .modal-header .btn-close:hover {
-            color: #1a2a3a;
-        }
-        [data-theme="dark"] .modal-paper .modal-content .modal-header .btn-close {
-            color: #a0b0c0;
-        }
-        [data-theme="dark"] .modal-paper .modal-content .modal-header .btn-close:hover {
-            color: #ffffff;
-        }
+        .modal-paper .modal-content .modal-header .btn-close:hover { color: #1a2a3a; }
+        [data-theme="dark"] .modal-paper .modal-content .modal-header .btn-close { color: #a0b0c0; }
+        [data-theme="dark"] .modal-paper .modal-content .modal-header .btn-close:hover { color: #ffffff; }
 
-        /* ===== MODAL IMG ===== */
+        /* ===== MODAL IMAGE ===== */
         .modal-paper .modal-content .modal-img {
             width: 100%;
             height: 400px;
@@ -878,24 +753,16 @@
             position: relative;
             transition: all 0.3s ease;
         }
-        .modal-paper .modal-content .modal-img:hover {
-            background: #e0e8f0;
-        }
-        [data-theme="dark"] .modal-paper .modal-content .modal-img:hover {
-            background: #0a1a2a;
-        }
+        .modal-paper .modal-content .modal-img:hover { background: #e0e8f0; }
+        [data-theme="dark"] .modal-paper .modal-content .modal-img { background: #0a1a2a; }
+        [data-theme="dark"] .modal-paper .modal-content .modal-img:hover { background: #0a1a2a; }
         .modal-paper .modal-content .modal-img img {
             width: 100%;
             height: 100%;
             object-fit: contain;
             transition: transform 0.3s ease;
         }
-        .modal-paper .modal-content .modal-img:hover img {
-            transform: scale(1.02);
-        }
-        [data-theme="dark"] .modal-paper .modal-content .modal-img {
-            background: #0a1a2a;
-        }
+        .modal-paper .modal-content .modal-img:hover img { transform: scale(1.02); }
         .modal-paper .modal-content .modal-img::after {
             content: '\f00e';
             font-family: 'Font Awesome 6 Free';
@@ -916,9 +783,7 @@
             transition: opacity 0.3s ease;
             pointer-events: none;
         }
-        .modal-paper .modal-content .modal-img:hover::after {
-            opacity: 1;
-        }
+        .modal-paper .modal-content .modal-img:hover::after { opacity: 1; }
 
         .modal-paper .modal-content .modal-desc {
             color: #4a5a6a;
@@ -928,9 +793,7 @@
             text-align: justify;
             margin-bottom: 12px;
         }
-        [data-theme="dark"] .modal-paper .modal-content .modal-desc {
-            color: #c0d0e0;
-        }
+        [data-theme="dark"] .modal-paper .modal-content .modal-desc { color: #c0d0e0; }
 
         .modal-paper .modal-content .modal-tech {
             display: flex;
@@ -965,21 +828,11 @@
             background-color: #1f7a8f;
             transform: scale(1.05);
         }
-        [data-theme="dark"] .modal-paper .btn-modal-primary {
-            background-color: #2d96ad;
-            color: #ffffff;
-        }
-        [data-theme="dark"] .modal-paper .btn-modal-primary:hover {
-            background-color: #1f7a8f;
-        }
 
-        /* ===== LIGHTBOX UNTUK PREVIEW GAMBAR FULL ===== */
+        /* ===== LIGHTBOX ===== */
         .lightbox {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background: rgba(0, 0, 0, 0.92);
             z-index: 9999999;
             display: none;
@@ -990,10 +843,7 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-        .lightbox.active {
-            display: flex;
-            opacity: 1;
-        }
+        .lightbox.active { display: flex; opacity: 1; }
         .lightbox img {
             max-width: 95%;
             max-height: 95%;
@@ -1019,10 +869,9 @@
             transition: transform 0.3s ease;
             z-index: 2;
         }
-        .lightbox .lightbox-close:hover {
-            transform: rotate(90deg) scale(1.1);
-        }
+        .lightbox .lightbox-close:hover { transform: rotate(90deg) scale(1.1); }
 
+        /* ===== CV BOOK ===== */
         .cv-book {
             display: flex;
             justify-content: center;
@@ -1033,7 +882,6 @@
             perspective: 1400px;
             position: relative;
         }
-
         .cv-book::before {
             content: '';
             position: absolute;
@@ -1083,13 +931,8 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.5;
         }
-        .cv-page .cv-size { color: #999; }
         [data-theme="dark"] .cv-page .cv-title { color: #e8dcc8; }
         [data-theme="dark"] .cv-page .cv-desc { color: #c8b898; }
-        [data-theme="dark"] .cv-page .cv-size { color: #9a8a7a; }
-        [data-theme="dark"] .cv-page .cv-badge { background: #2d96ad; color: white; }
-        [data-theme="dark"] .cv-page .btn-download { background: #2d96ad; color: white; }
-        [data-theme="dark"] .cv-page .btn-download:hover { background: #1f7a8f; }
 
         .cv-page .binder-holes {
             position: absolute;
@@ -1123,7 +966,6 @@
             box-shadow: inset 0 0 0 2px #fefcf3, 0 0 12px rgba(45, 150, 173, 0.3);
         }
         [data-theme="dark"] .cv-page:hover .binder-holes span {
-            border-color: var(--primary);
             box-shadow: inset 0 0 0 2px #2a2418, 0 0 12px rgba(45, 150, 173, 0.3);
         }
 
@@ -1167,22 +1009,12 @@
             pointer-events: none;
             z-index: 0;
             opacity: 0.35;
-            background:
-                repeating-linear-gradient(0deg,
-                    transparent,
-                    transparent 27px,
-                    rgba(180, 170, 140, 0.25) 27px,
-                    rgba(180, 170, 140, 0.25) 28px);
+            background: repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(180, 170, 140, 0.25) 27px, rgba(180, 170, 140, 0.25) 28px);
             border-radius: 2px;
         }
         [data-theme="dark"] .cv-page .paper-lines {
             opacity: 0.25;
-            background:
-                repeating-linear-gradient(0deg,
-                    transparent,
-                    transparent 27px,
-                    rgba(160, 140, 110, 0.2) 27px,
-                    rgba(160, 140, 110, 0.2) 28px);
+            background: repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(160, 140, 110, 0.2) 27px, rgba(160, 140, 110, 0.2) 28px);
         }
         .cv-page .paper-lines::before {
             content: '';
@@ -1191,19 +1023,11 @@
             top: 0;
             bottom: 0;
             width: 3px;
-            background: repeating-linear-gradient(0deg,
-                    transparent,
-                    transparent 27px,
-                    rgba(200, 60, 60, 0.2) 27px,
-                    rgba(200, 60, 60, 0.2) 28px);
+            background: repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(200, 60, 60, 0.2) 27px, rgba(200, 60, 60, 0.2) 28px);
             border-radius: 2px;
         }
         [data-theme="dark"] .cv-page .paper-lines::before {
-            background: repeating-linear-gradient(0deg,
-                    transparent,
-                    transparent 27px,
-                    rgba(200, 80, 80, 0.15) 27px,
-                    rgba(200, 80, 80, 0.15) 28px);
+            background: repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(200, 80, 80, 0.15) 27px, rgba(200, 80, 80, 0.15) 28px);
         }
 
         .cv-page .paper-clip {
@@ -1219,9 +1043,7 @@
             pointer-events: none;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        [data-theme="dark"] .cv-page .paper-clip {
-            color: #8a8a7a;
-        }
+        [data-theme="dark"] .cv-page .paper-clip { color: #8a8a7a; }
         @keyframes clipSwing {
             0%, 100% { transform: rotate(-15deg) scaleX(-1) scale(1); }
             50% { transform: rotate(-10deg) scaleX(-1) scale(1.05); }
@@ -1267,14 +1089,8 @@
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
             border-color: var(--primary-light);
         }
-        [data-theme="dark"] .cv-page:hover {
-            border-color: var(--primary);
-        }
+        [data-theme="dark"] .cv-page:hover { border-color: var(--primary); }
         .cv-page:hover .binder-holes span {
-            background: var(--primary-light);
-            border-color: var(--primary);
-        }
-        [data-theme="dark"] .cv-page:hover .binder-holes span {
             background: var(--primary-light);
             border-color: var(--primary);
         }
@@ -1295,6 +1111,8 @@
             position: relative;
             z-index: 3;
         }
+        [data-theme="dark"] .cv-page .cv-badge { background: #2d96ad; color: white; }
+
         .cv-page .btn-download {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
@@ -1332,15 +1150,9 @@
             0%, 100% { transform: translateY(2px); }
             50% { transform: translateY(5px); }
         }
-        [data-theme="dark"] .cv-page .btn-download {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-        }
-        [data-theme="dark"] .cv-page .btn-download:hover {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-        }
+        [data-theme="dark"] .cv-page .btn-download { color: white; }
 
-        /* ===== FOOTER - DIPERKECIL ===== */
+        /* ===== FOOTER ===== */
         .footer-mini {
             background-color: var(--primary-dark);
             color: white;
@@ -1354,6 +1166,7 @@
             opacity: 0.9;
         }
 
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -1368,51 +1181,24 @@
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
                 z-index: 100;
             }
-            [data-theme="dark"] .nav-links {
-                background: #0f1a24;
-            }
-            .nav-links.open {
-                display: flex;
-            }
-            .hamburger {
-                display: flex;
-            }
-            .navbar .nav-right {
-                gap: 10px;
-            }
-            .section {
-                padding: 80px 20px;
-            }
-            .project-card .btn-group {
-                flex-wrap: wrap !important;
-            }
+            [data-theme="dark"] .nav-links { background: #0f1a24; }
+            .nav-links.open { display: flex; }
+            .hamburger { display: flex; }
+            .navbar .nav-right { gap: 10px; }
+            .section { padding: 80px 20px; }
+            .project-card .btn-group { flex-wrap: wrap !important; }
 
-            .modal {
-                padding: 12px;
-            }
+            .modal { padding: 12px; }
             .modal-paper {
                 padding: 20px 16px 18px;
                 max-height: 90vh;
                 border-radius: 10px;
             }
-            .modal-paper .modal-content .modal-header h3 {
-                font-size: 1.2rem;
-            }
-            .modal-paper .modal-content .modal-header .btn-close {
-                font-size: 1.8rem;
-            }
-            .modal-paper .modal-content .modal-img {
-                height: 250px;
-            }
-            .modal-paper .modal-content .modal-desc {
-                font-size: 0.88rem;
-            }
-            .modal-paper .modal-lines {
-                left: 20px;
-                right: 10px;
-                top: 40px;
-                bottom: 30px;
-            }
+            .modal-paper .modal-content .modal-header h3 { font-size: 1.2rem; }
+            .modal-paper .modal-content .modal-header .btn-close { font-size: 1.8rem; }
+            .modal-paper .modal-content .modal-img { height: 250px; }
+            .modal-paper .modal-content .modal-desc { font-size: 0.88rem; }
+            .modal-paper .modal-lines { left: 20px; right: 10px; top: 40px; bottom: 30px; }
 
             .cv-book {
                 flex-direction: column;
@@ -1420,9 +1206,7 @@
                 gap: 30px;
                 max-width: 340px;
             }
-            .cv-book::before {
-                display: none;
-            }
+            .cv-book::before { display: none; }
             .cv-page:first-child,
             .cv-page:last-child {
                 border-radius: 8px;
@@ -1432,93 +1216,32 @@
                 width: 100%;
             }
             [data-theme="dark"] .cv-page:first-child,
-            [data-theme="dark"] .cv-page:last-child {
-                border-color: #4a3d2e;
-            }
-            .cv-page:hover {
-                transform: scale(1.02) !important;
-            }
-            .cv-page .binder-holes {
-                left: 10px;
-            }
-            .cv-page .binder-holes span {
-                width: 10px;
-                height: 10px;
-            }
-            .cv-page .paper-clip {
-                left: 16px;
-                font-size: 1.6rem;
-                top: -8px;
-            }
-            .cv-page .pushpin {
-                right: 16px;
-                font-size: 1.8rem;
-                top: -6px;
-            }
-            .cv-page .paper-lines {
-                left: 28px;
-                right: 10px;
-            }
+            [data-theme="dark"] .cv-page:last-child { border-color: #4a3d2e; }
+            .cv-page:hover { transform: scale(1.02) !important; }
+            .cv-page .binder-holes { left: 10px; }
+            .cv-page .binder-holes span { width: 10px; height: 10px; }
+            .cv-page .paper-clip { left: 16px; font-size: 1.6rem; top: -8px; }
+            .cv-page .pushpin { right: 16px; font-size: 1.8rem; top: -6px; }
+            .cv-page .paper-lines { left: 28px; right: 10px; }
 
-            .social-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-
-            .lang-btn {
-                padding: 4px 8px;
-                font-size: 0.68rem;
-            }
-            .lang-btn .flag {
-                font-size: 0.8rem;
-            }
+            .social-icon { width: 40px; height: 40px; font-size: 1.2rem; }
+            .lang-btn { padding: 4px 8px; font-size: 0.68rem; }
+            .lang-btn .flag { font-size: 0.8rem; }
         }
+
         @media (max-width: 480px) {
-            .modal-paper {
-                padding: 16px 12px 14px;
-            }
-            .modal-paper .modal-content .modal-header h3 {
-                font-size: 1rem;
-            }
-            .modal-paper .modal-content .modal-img {
-                height: 200px;
-            }
-            .modal-paper .modal-content .modal-desc {
-                font-size: 0.82rem;
-            }
-            .modal-paper .btn-modal-primary {
-                font-size: 0.75rem;
-                padding: 6px 12px;
-            }
-            .cv-page {
-                padding: 24px 18px 20px;
-            }
-            .cv-page .paper-lines {
-                left: 20px;
-                right: 6px;
-                top: 50px;
-                bottom: 30px;
-            }
-            .cv-page .binder-holes {
-                left: 6px;
-            }
-            .cv-page .binder-holes span {
-                width: 8px;
-                height: 8px;
-            }
-            .social-icon {
-                width: 36px;
-                height: 36px;
-                font-size: 1rem;
-            }
-            .lang-btn {
-                padding: 3px 7px;
-                font-size: 0.65rem;
-            }
-            .lang-btn .flag {
-                font-size: 0.75rem;
-            }
+            .modal-paper { padding: 16px 12px 14px; }
+            .modal-paper .modal-content .modal-header h3 { font-size: 1rem; }
+            .modal-paper .modal-content .modal-img { height: 200px; }
+            .modal-paper .modal-content .modal-desc { font-size: 0.82rem; }
+            .modal-paper .btn-modal-primary { font-size: 0.75rem; padding: 6px 12px; }
+            .cv-page { padding: 24px 18px 20px; }
+            .cv-page .paper-lines { left: 20px; right: 6px; top: 50px; bottom: 30px; }
+            .cv-page .binder-holes { left: 6px; }
+            .cv-page .binder-holes span { width: 8px; height: 8px; }
+            .social-icon { width: 36px; height: 36px; font-size: 1rem; }
+            .lang-btn { padding: 3px 7px; font-size: 0.65rem; }
+            .lang-btn .flag { font-size: 0.75rem; }
         }
     </style>
 </head>
@@ -1554,7 +1277,7 @@
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#resume">CV</a></li>
             </ul>
-            
+
             <!-- ===== LANGUAGE SELECTOR ===== -->
             <div class="lang-selector" translate="no">
                 <button class="lang-btn" id="langBtn" aria-label="Pilih Bahasa" translate="no">
@@ -1643,10 +1366,10 @@
                     <p class="text-gray-600 mt-4 font-body">Berikut adalah proyek yang telah saya kerjakan</p>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- PROJECT 1 -->
+
+                    <!-- PROJECT 1: Apotek Deka Medika -->
                     <div class="project-card fade-in" style="transition-delay: 0.1s;">
                         <div class="card-content">
-                            <!-- ===== PERBAIKAN: GAMBAR SERAGAM ===== -->
                             <div class="card-image-wrapper">
                                 <img src="images/aptkdeka.jpg" alt="ApotekDekaMedika">
                             </div>
@@ -1678,7 +1401,7 @@
                         </div>
                     </div>
 
-                    <!-- PROJECT 2 -->
+                    <!-- PROJECT 2: Parapatan Tailor -->
                     <div class="project-card fade-in" style="transition-delay: 0.2s;">
                         <div class="card-content">
                             <div class="card-image-wrapper">
@@ -1711,7 +1434,7 @@
                         </div>
                     </div>
 
-                    <!-- PROJECT 3 -->
+                    <!-- PROJECT 3: SPK MAUT -->
                     <div class="project-card fade-in" style="transition-delay: 0.3s;">
                         <div class="card-content">
                             <div class="card-image-wrapper">
@@ -1744,10 +1467,43 @@
                         </div>
                     </div>
 
-                    <!-- PROJECT 4 -->
+                    <!-- PROJECT 4: POS Toko Maju Lancar -->
                     <div class="project-card fade-in" style="transition-delay: 0.4s;">
                         <div class="card-content">
-                            <!-- ===== PERBAIKAN: GAMBAR SERTIFIKAT DISAMAKAN ===== -->
+                            <div class="card-image-wrapper">
+                                <img src="images/posmajulancar.jpg" alt="POS Toko Maju Lancar">
+                            </div>
+                            <div class="p-4 flex flex-col flex-grow">
+                                <h4 class="font-bold text-gray-800 font-heading text-lg">Point of Sale</h4>
+                                <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">Point of Sale toko Maju Lancar</p>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="tech-badge px-2 py-0.5 rounded-full">Laravel</span>
+                                    <span class="tech-badge px-2 py-0.5 rounded-full">PHP</span>
+                                    <span class="tech-badge px-2 py-0.5 rounded-full">MySQL</span>
+                                    <span class="tech-badge px-2 py-0.5 rounded-full">Bootstrap</span>
+                                    <span class="tech-badge px-2 py-0.5 rounded-full">JavaScript</span>
+                                    <span class="tech-badge px-2 py-0.5 rounded-full">Tailwind CSS</span>
+                                </div>
+                                <div class="flex items-center justify-between gap-2 mt-auto btn-group">
+                                    <div class="flex items-center gap-2">
+                                        <a href="https://github.com/tiazfebias/pos_majulancar" target="_blank" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap">
+                                            <i class="fab fa-github"></i> GitHub
+                                        </a>
+                                        <a href="https://drive.google.com/drive/folders/1wxi8bFhw2dQjDmFx7aAKBJKhgrroi-93?usp=drive_link" target="_blank" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap">
+                                            <i class="fab fa-google-drive"></i> G-Drive
+                                        </a>
+                                    </div>
+                                    <button onclick="openModal('project-4')" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap flex-shrink-0">
+                                        <i class="fas fa-search"></i> Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT 5: Sertifikat & Pelatihan -->
+                    <div class="project-card fade-in" style="transition-delay: 0.5s;">
+                        <div class="card-content">
                             <div class="card-image-wrapper">
                                 <img src="images/sertifikatku.jpeg" alt="Sertifikat & Pelatihan">
                             </div>
@@ -1767,13 +1523,14 @@
                                             <i class="fab fa-google-drive"></i> G-Drive
                                         </a>
                                     </div>
-                                    <button onclick="openModal('project-3')" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap flex-shrink-0">
+                                    <button onclick="openModal('project-5')" class="btn-primary text-white text-[10px] px-2 py-1 rounded-lg transition whitespace-nowrap flex-shrink-0">
                                         <i class="fas fa-search"></i> Details
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -1795,10 +1552,16 @@
                         </div>
                         <p class="text-sm text-gray-500 mt-4 font-body">Atau gunakan form di bawah ini (dikirim via Formspree)</p>
                         <form id="contactForm" action="https://formspree.io/f/xbgrvkdy" method="POST" class="space-y-4 mt-4 text-left">
-                            <div><input type="text" id="formName" name="name" placeholder="Nama Anda" required class="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></div>
-                            <div><input type="email" id="formEmail" name="email" placeholder="contoh@gmail.com" required class="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></div>
-                            <div><textarea id="formMessage" name="message" rows="4" placeholder="Pesan Anda..." required minlength="10" class="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></textarea>
-                            <p class="text-xs text-gray-400 mt-1 text-center">* Pesan minimal 10 karakter</p></div>
+                            <div>
+                                <input type="text" id="formName" name="name" placeholder="Nama Anda" required class="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body">
+                            </div>
+                            <div>
+                                <input type="email" id="formEmail" name="email" placeholder="contoh@gmail.com" required class="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body">
+                            </div>
+                            <div>
+                                <textarea id="formMessage" name="message" rows="4" placeholder="Pesan Anda..." required minlength="10" class="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 focus:border-primary focus:outline-none text-gray-800 font-body"></textarea>
+                                <p class="text-xs text-gray-400 mt-1 text-center">* Pesan minimal 10 karakter</p>
+                            </div>
                             <div class="flex justify-center">
                                 <button type="submit" id="submitBtn" class="btn-primary text-white px-6 py-2.5 rounded-full font-medium text-sm">Kirim Pesan 📩</button>
                             </div>
@@ -1882,15 +1645,13 @@
         </div>
     </footer>
 
-    <!-- ===== LIGHTBOX UNTUK PREVIEW GAMBAR FULL ===== -->
+    <!-- ===== LIGHTBOX ===== -->
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
         <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
         <img id="lightboxImg" src="" alt="Preview">
     </div>
 
-    <!-- ===== MODALS ===== -->
-
-    <!-- Modal ApotekDekaMedika -->
+    <!-- ===== MODAL: project-0 (Apotek Deka Medika) ===== -->
     <div id="project-0" class="modal hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
         <div class="modal-paper animate-modal">
             <div class="modal-lines"></div>
@@ -1904,7 +1665,7 @@
                     <img src="images/aptkdeka.jpg" alt="ApotekDekaMedika">
                 </div>
                 <p class="modal-desc">
-                    E-Commerce Apotek Sederhana ini merupakan aplikasi e-commerce apotek yang bertujuan untuk mendigitalisasi layanan farmasi konvensional ke dalam platform web yang responsif dan mudah diakses. seperti pengelolaan data obat, konsultasi online, upload resep, serta kelola riwayat transaksi dan laporan.
+                    Aplikasi E-Commerce apotek yang bertujuan untuk mendigitalisasi layanan farmasi konvensional ke dalam platform web yang responsif dan mudah diakses. seperti pengelolaan data obat, konsultasi online, upload resep, serta kelola riwayat transaksi dan laporan.
                 </p>
                 <div class="modal-tech">
                     <span class="tech-badge px-2 py-0.5 rounded-full">PHP</span>
@@ -1922,7 +1683,7 @@
         </div>
     </div>
 
-    <!-- Modal Sistem informasi manajemen Parapatan Tailor -->
+    <!-- ===== MODAL: project-1 (Parapatan Tailor) ===== -->
     <div id="project-1" class="modal hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
         <div class="modal-paper animate-modal">
             <div class="modal-lines"></div>
@@ -1954,7 +1715,7 @@
         </div>
     </div>
 
-    <!-- Modal Sistem Pendukung Keputusan -->
+    <!-- ===== MODAL: project-2 (SPK MAUT) ===== -->
     <div id="project-2" class="modal hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
         <div class="modal-paper animate-modal">
             <div class="modal-lines"></div>
@@ -1985,17 +1746,48 @@
         </div>
     </div>
 
-    <!-- Modal Sertifikat & Pelatihan -->
-    <div id="project-3" class="modal hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <!-- ===== MODAL: project-4 (POS Toko Maju Lancar) ===== -->
+    <div id="project-4" class="modal hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="modal-paper animate-modal">
+            <div class="modal-lines"></div>
+            <div class="modal-tear"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>POINT OF SALE</h3>
+                    <button onclick="closeModal('project-4')" class="btn-close">&times;</button>
+                </div>
+                <div class="modal-img" onclick="openLightbox('images/posmajulancar.jpg')">
+                    <img src="images/posmajulancar.jpg" alt="POS Toko Maju Lancar">
+                </div>
+                <p class="modal-desc">
+                    POS Toko Maju Lancar adalah aplikasi Point of Sale dirancang untuk membantu toko mengelola penjualan, stok produk, pembelian dari supplier, pengeluaran, dan laporan keuangan dalam satu sistem terintegrasi. Dilengkapi manajemen user dengan hak akses berbasis role (admin, pemilik dan kasir), cetak struk, serta cetak barcode produk.
+                </p>
+                <div class="modal-tech">
+                    <span class="tech-badge px-2 py-0.5 rounded-full">Laravel</span>
+                    <span class="tech-badge px-2 py-0.5 rounded-full">PHP</span>
+                    <span class="tech-badge px-2 py-0.5 rounded-full">MySQL</span>
+                    <span class="tech-badge px-2 py-0.5 rounded-full">Bootstrap</span>
+                    <span class="tech-badge px-2 py-0.5 rounded-full">JavaScript</span>
+                    <span class="tech-badge px-2 py-0.5 rounded-full">Tailwind CSS</span>
+                </div>
+                <div class="modal-actions">
+                    <a href="https://github.com/tiazfebias/pos_majulancar" target="_blank" class="btn-modal-primary"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://drive.google.com/drive/folders/1wxi8bFhw2dQjDmFx7aAKBJKhgrroi-93?usp=drive_link" target="_blank" class="btn-modal-primary"><i class="fab fa-google-drive"></i> G-Drive</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL: project-5 (Sertifikat & Pelatihan) ===== -->
+    <div id="project-5" class="modal hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
         <div class="modal-paper animate-modal">
             <div class="modal-lines"></div>
             <div class="modal-tear"></div>
             <div class="modal-content">
                 <div class="modal-header">
                     <h3>Sertifikat &amp; Pelatihan</h3>
-                    <button onclick="closeModal('project-3')" class="btn-close">&times;</button>
+                    <button onclick="closeModal('project-5')" class="btn-close">&times;</button>
                 </div>
-                <!-- ===== PERBAIKAN: GAMBAR SERTIFIKAT DISAMAKAN DENGAN CARD ===== -->
                 <div class="modal-img" onclick="openLightbox('images/sertifikatku.jpeg')">
                     <img src="images/sertifikatku.jpeg" alt="Sertifikat & Pelatihan">
                 </div>
@@ -2030,7 +1822,7 @@
 
     <!-- ===== JAVASCRIPT ===== -->
     <script>
-        // ===== HAPUS GOOGLE TRANSLATE BANNER SECARA PAKSA =====
+        /* ===== HAPUS GOOGLE TRANSLATE BANNER ===== */
         function removeGoogleTranslateBanner() {
             const iframes = document.querySelectorAll('iframe.goog-te-banner-frame, iframe.skiptranslate, body > iframe, iframe[src*="translate.google"]');
             iframes.forEach(iframe => {
@@ -2042,14 +1834,14 @@
                 iframe.style.top = '-9999px';
                 iframe.style.left = '-9999px';
             });
-            
+
             document.body.style.top = '0';
             document.body.style.position = 'static';
             document.body.style.marginTop = '0';
             document.body.style.paddingTop = '0';
-            
+
             document.body.classList.remove('skiptranslate');
-            
+
             document.querySelectorAll('.skiptranslate').forEach(el => {
                 if (!el.classList.contains('goog-te-gadget')) {
                     el.style.display = 'none';
@@ -2061,7 +1853,7 @@
         window.addEventListener('load', removeGoogleTranslateBanner);
         setInterval(removeGoogleTranslateBanner, 500);
 
-        const bannerObserver = new MutationObserver(function(mutations) {
+        const bannerObserver = new MutationObserver(function() {
             removeGoogleTranslateBanner();
         });
         bannerObserver.observe(document.body, {
@@ -2071,15 +1863,12 @@
             attributeFilter: ['style', 'class']
         });
 
-        // ===== FUNGSI RE-APPLY TRANSLATION =====
+        /* ===== RE-APPLY TRANSLATION ===== */
         function reapplyTranslation() {
             const savedLang = localStorage.getItem('lang');
             if (!savedLang || savedLang === 'id') return;
-            
-            console.log('🔄 Re-applying translation to:', savedLang);
-            
+
             const attempts = [500, 1000, 2000, 3500, 5000];
-            
             attempts.forEach((delay, index) => {
                 setTimeout(() => {
                     const select = document.querySelector('.goog-te-combo');
@@ -2087,7 +1876,6 @@
                         if (select.value !== savedLang) {
                             select.value = savedLang;
                             select.dispatchEvent(new Event('change'));
-                            console.log(`✅ Translation attempt ${index + 1} for:`, savedLang);
                         }
                         setTimeout(removeGoogleTranslateBanner, 200);
                     }
@@ -2095,61 +1883,49 @@
             });
         }
 
-        // ===== FUNGSI FORCE TRANSLATION =====
+        /* ===== FORCE TRANSLATION ===== */
         function forceTranslation(lang) {
             if (!lang) return;
-            
-            console.log('💪 Force translation to:', lang);
-            
             let attempts = 0;
             const maxAttempts = 10;
-            
             const tryTranslate = () => {
                 attempts++;
                 const select = document.querySelector('.goog-te-combo');
-                
                 if (select) {
                     if (select.value !== lang) {
                         select.value = lang;
                         select.dispatchEvent(new Event('change'));
-                        console.log(`💪 Force ${lang} attempt ${attempts}`);
                     }
                 }
-                
                 setTimeout(removeGoogleTranslateBanner, 200);
-                
                 if (attempts < maxAttempts) {
                     setTimeout(tryTranslate, 400);
                 }
             };
-            
             tryTranslate();
         }
 
-        // ===== FUNGSI KHUSUS KEMBALI KE INDONESIA =====
+        /* ===== KEMBALI KE INDONESIA ===== */
         function revertToIndonesian() {
-            console.log('🇮🇩 Reverting to Indonesian...');
-            
             const select = document.querySelector('.goog-te-combo');
             if (select) {
                 select.value = 'id';
                 select.dispatchEvent(new Event('change'));
             }
-            
+
             const domain = window.location.hostname;
             document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
             document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${domain};`;
-            
+
             setTimeout(() => {
-                const select = document.querySelector('.goog-te-combo');
-                if (select && select.value !== 'id') {
-                    console.log('⚠️ Still not Indonesian, forcing reload...');
+                const select2 = document.querySelector('.goog-te-combo');
+                if (select2 && select2.value !== 'id') {
                     location.reload();
                 }
             }, 2000);
         }
 
-        // ===== LIGHTBOX FUNCTIONS =====
+        /* ===== LIGHTBOX ===== */
         function openLightbox(src) {
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightboxImg');
@@ -2168,7 +1944,7 @@
             }
         }
 
-        // ===== DARK MODE TOGGLE =====
+        /* ===== DARK MODE TOGGLE ===== */
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
         const modeLoader = document.getElementById('modeLoader');
@@ -2189,17 +1965,17 @@
             isTransitioning = true;
 
             modeLoader.classList.add('active');
-            
+
             const activeLang = localStorage.getItem('lang') || 'id';
             let loaderMessage;
-            
+
             if (activeLang === 'en') {
                 loaderMessage = isDark ? 'Switching to Light Mode...' : 'Switching to Dark Mode...';
             } else {
                 const nextMode = isDark ? 'Terang' : 'Gelap';
                 loaderMessage = `Beralih ke Mode ${nextMode}...`;
             }
-            
+
             loaderText.textContent = loaderMessage;
             loaderIcon.innerHTML = `<i class="fas ${isDark ? 'fa-sun' : 'fa-moon'}"></i>`;
 
@@ -2231,19 +2007,19 @@
                     modeLoader.classList.remove('active');
                     progressBar.style.width = '0%';
                     isTransitioning = false;
-                    
+
                     const savedLang = localStorage.getItem('lang');
                     if (savedLang && savedLang !== 'id') {
                         reapplyTranslation();
                         forceTranslation(savedLang);
                     }
-                    
+
                     removeGoogleTranslateBanner();
                 }, 300);
             }, 800);
         });
 
-        // ===== LANGUAGE SELECTOR =====
+        /* ===== LANGUAGE SELECTOR ===== */
         const langBtn = document.getElementById('langBtn');
         const langDropdown = document.getElementById('langDropdown');
         const currentFlag = document.getElementById('currentFlag');
@@ -2260,7 +2036,6 @@
             }
         });
 
-        // ===== FUNGSI GANTI BAHASA =====
         function changeLanguage(lang) {
             if (lang === 'en') {
                 currentFlag.textContent = '🇬🇧';
@@ -2269,19 +2044,19 @@
                 currentFlag.textContent = '🇮🇩';
                 currentLang.textContent = 'ID';
             }
-            
+
             document.querySelectorAll('.lang-dropdown button').forEach(btn => {
                 btn.classList.remove('active');
                 if (btn.getAttribute('data-lang') === lang) {
                     btn.classList.add('active');
                 }
             });
-            
+
             langDropdown.classList.remove('open');
             localStorage.setItem('lang', lang);
-            
+
             const select = document.querySelector('.goog-te-combo');
-            
+
             if (lang === 'id') {
                 if (select) {
                     revertToIndonesian();
@@ -2308,7 +2083,7 @@
                     location.reload();
                 }
             }
-            
+
             setTimeout(removeGoogleTranslateBanner, 100);
             setTimeout(removeGoogleTranslateBanner, 500);
             setTimeout(removeGoogleTranslateBanner, 1000);
@@ -2323,12 +2098,12 @@
             }
         });
 
-        // ===== MOBILE MENU TOGGLE =====
+        /* ===== MOBILE MENU TOGGLE ===== */
         document.getElementById('hamburger').addEventListener('click', function() {
             document.getElementById('navLinks').classList.toggle('open');
         });
 
-        // ===== ACTIVE LINK ON SCROLL =====
+        /* ===== ACTIVE LINK ON SCROLL ===== */
         const sections = document.querySelectorAll('.section');
         const navLinks = document.querySelectorAll('.nav-links a');
 
@@ -2354,7 +2129,7 @@
             });
         });
 
-        // ===== SCROLL PROGRESS BAR =====
+        /* ===== SCROLL PROGRESS BAR ===== */
         window.addEventListener('scroll', function() {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -2362,7 +2137,7 @@
             document.getElementById('scrollProgress').style.width = scrolled + '%';
         });
 
-        // ===== FADE IN ON SCROLL =====
+        /* ===== FADE IN ON SCROLL ===== */
         const fadeElements = document.querySelectorAll('.fade-in');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -2373,7 +2148,7 @@
         }, { threshold: 0.2 });
         fadeElements.forEach(el => observer.observe(el));
 
-        // ===== MODAL FUNCTIONS =====
+        /* ===== MODAL ===== */
         function openModal(id) {
             document.getElementById(id).classList.remove('hidden');
             document.body.style.overflow = 'hidden';
@@ -2407,7 +2182,7 @@
             }
         });
 
-        // ===== FORM HANDLER =====
+        /* ===== FORM HANDLER ===== */
         const contactForm = document.getElementById('contactForm');
         const formName = document.getElementById('formName');
         const formEmail = document.getElementById('formEmail');
@@ -2417,7 +2192,7 @@
 
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
+
             formStatus.classList.remove('hidden');
             formStatus.textContent = 'Mengirim pesan...';
             formStatus.style.color = '#2d96ad';
@@ -2429,20 +2204,18 @@
                 const response = await fetch(this.action, {
                     method: 'POST',
                     body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    headers: { 'Accept': 'application/json' }
                 });
 
                 if (response.ok) {
                     formName.value = '';
                     formEmail.value = '';
                     formMessage.value = '';
-                    
+
                     formStatus.textContent = '✅ Pesan berhasil dikirim!';
                     formStatus.style.color = '#22c55e';
                     formStatus.classList.remove('hidden');
-                    
+
                     setTimeout(() => {
                         formStatus.classList.add('hidden');
                     }, 5000);
