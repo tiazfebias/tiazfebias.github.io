@@ -453,7 +453,8 @@
         /* ===== BUTTONS ===== */
         .btn-accent {
             background-color: var(--accent);
-            color: #1a2a3a !important;
+            /* Teks tombol accent (Hubungi Saya & WhatsApp) dipaksa hitam di mode siang maupun malam */
+            color: #000000 !important;
             transition: all 0.3s ease;
             font-family: 'Inter', sans-serif;
             font-weight: 600;
@@ -462,8 +463,15 @@
         .btn-accent:hover {
             background-color: var(--accent-dark);
             transform: scale(1.05);
-            color: #1a2a3a !important;
+            /* Tetap hitam saat hover */
+            color: #000000 !important;
         }
+        /* Pastikan di dark mode teks tombol accent tetap hitam */
+        [data-theme="dark"] .btn-accent,
+        [data-theme="dark"] .btn-accent:hover {
+            color: #000000 !important;
+        }
+
         .btn-primary {
             background-color: var(--primary);
             color: #ffffff;
@@ -1375,7 +1383,7 @@
                             </div>
                             <div class="p-4 flex flex-col flex-grow">
                                 <h4 class="font-bold text-gray-800 font-heading text-lg">Apotek Deka Medika</h4>
-                                <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">E-Commerce Apotek Sederhana</p>
+                                <p class="text-gray-600 text-sm mb-2 flex-grow line-clamp-2 font-body">E-Commerce Apotek</p>
                                 <div class="flex flex-wrap gap-1 mb-3">
                                     <span class="tech-badge px-2 py-0.5 rounded-full">PHP</span>
                                     <span class="tech-badge px-2 py-0.5 rounded-full">MySQL</span>
