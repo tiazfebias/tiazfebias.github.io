@@ -489,12 +489,21 @@
         .modal-gallery .gallery-slide {
             position: absolute; inset: 0; display: flex;
             align-items: center; justify-content: center;
-            opacity: 0; transition: opacity 0.35s ease; cursor: zoom-in;
+            opacity: 0;
+            pointer-events: none;          /* slide tidak aktif tidak bisa diklik */
+            transition: opacity 0.35s ease;
+            cursor: zoom-in;
+            z-index: 1;
         }
-        .modal-gallery .gallery-slide.active { opacity: 1; }
+        .modal-gallery .gallery-slide.active {
+            opacity: 1;
+            pointer-events: auto;          /* hanya slide aktif yang bisa diklik */
+            z-index: 2;
+        }
         .modal-gallery .gallery-slide img {
             width: 100%; height: 100%; object-fit: contain;
             transition: transform 0.3s ease;
+            display: block;
         }
         .modal-gallery .gallery-slide:hover img { transform: scale(1.02); }
 
@@ -1460,7 +1469,6 @@
                     <div class="gallery-slide active" onclick="openLightbox('images/sertifikatku.jpeg')">
                         <img src="images/sertifikatku.jpeg" alt="Sertifikat 1">
                     </div>
-                    <!-- Navigasi dan dots dihapus karena hanya 1 gambar -->
                 </div>
                 <p class="modal-desc">
                     Kumpulan sertifikat kompetensi yang saya peroleh selama menempuh pendidikan dan pelatihan, meliputi Sertifikat IT Specialist Database, Sertifikat Komputer Akuntansi, dan Sertifikat Microsoft Office Specialist. Sertifikat-sertifikat ini menjadi bukti kompetensi saya dalam bidang teknologi informasi dan pengolahan data.
